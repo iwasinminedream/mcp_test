@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "dota2-mcp": {
+      "type": "stdio",
+      "command": "node",
+      "args": ["C:\\Users\\Admin\\Documents\\project\\mcp_test\\dist\\server.js"],
+      "env": {}
+    }
+  }
+}

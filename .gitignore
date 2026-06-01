@@ -1,0 +1,9 @@
+node_modules/
+dist/
+bundle/
+vendor/
+release/
+*.zip
+*.cache.json
+*.log
+.DS_Store

@@ -1,0 +1,35 @@
+{
+  "name": "dota2-mcp",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "MCP server for Dota 2 (Source 2) modding: VPK asset index, search, and decompile introspection (M0-M2)",
+  "bin": {
+    "dota2-mcp": "dist/server.js"
+  },
+  "scripts": {
+    "prebuild": "npm run vendor",
+    "build": "tsc",
+    "dev": "tsx src/server.ts",
+    "smoke": "tsx src/smoke.ts",
+    "start": "node dist/server.js",
+    "typecheck": "tsc --noEmit",
+    "bundle": "node scripts/bundle.mjs",
+    "vendor": "node scripts/vendor-cli.mjs && node scripts/vendor-data.mjs",
+    "vendor-cli": "node scripts/vendor-cli.mjs",
+    "vendor-data": "node scripts/vendor-data.mjs",
+    "package": "node scripts/package.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "pngjs": "^7.0.0",
+    "zod": "^3.25.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/pngjs": "^6.0.5",
+    "esbuild": "^0.28.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0"
+  }
+}
