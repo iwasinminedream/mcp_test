@@ -10,12 +10,21 @@
 //   DOTA_DATA_DIR   — copy from a local "files" dir instead of downloading
 //   DOTA_DATA_REPO  — owner/repo (default iwasinminedream/dota-data)
 //   DOTA_DATA_REF   — branch/tag/commit (default master)
+//   DOTA_DATA_LANGS — comma-separated localization languages to fetch
+//                     (default "english,russian"; localization files are ~10 MB each)
 //   FORCE=1         — re-fetch even if vendor/dota-data already exists
 import { cpSync, existsSync, mkdirSync, statSync, writeFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 
 const root = process.cwd();
 const dataDst = join(root, 'vendor', 'dota-data');
+
+// Localization languages to vendor (each ~10 MB; default = English + the user's
+// Russian). Override with DOTA_DATA_LANGS="english,russian,schinese".
+const LANGS = (process.env.DOTA_DATA_LANGS || 'english,russian')
+  .split(',')
+  .map((s) => s.trim().toLowerCase())
+  .filter(Boolean);
 
 const NEEDED = [
   'vscripts/api.json',
@@ -29,10 +38,18 @@ const NEEDED = [
   'panorama/events.json',
   'events.json',
   'engine-enums.json',
+  // Real game KeyValues (abilities/heroes/units) + the ability→hero map.
+  'abilities.json',
+  'heroes.json',
+  'units.json',
+  'ability-hero-map.json',
+  // Per-language localization strings (tooltips, names, descriptions).
+  ...LANGS.map((l) => `localization/${l}.json`),
 ];
 
-// Already vendored? Skip unless forced.
-if (existsSync(join(dataDst, 'vscripts', 'api.json')) && !process.env.FORCE) {
+// Already fully vendored? Skip unless forced. Use a NEW required file as the
+// marker so older partial vendors (without the game KV) get topped up.
+if (existsSync(join(dataDst, 'abilities.json')) && !process.env.FORCE) {
   console.log(`dota-data already present in ${dataDst} (set FORCE=1 to re-fetch)`);
   process.exit(0);
 }

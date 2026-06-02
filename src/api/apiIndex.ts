@@ -138,6 +138,25 @@ export class ApiIndex {
     };
   }
 
+  /**
+   * Looks up a single Panorama CSS property declaration (description + examples).
+   * On a miss, returns fuzzy suggestions from the CSS domain.
+   */
+  cssProp(name: string): {
+    found: boolean;
+    name?: string;
+    description?: string;
+    examples?: string[];
+    suggestions?: ApiSearchHit[];
+  } {
+    const got = this.get(name, { domain: 'panorama-css' });
+    if (got.found) {
+      const s = got.matches[0]!;
+      return { found: true, name: s.name, description: s.description, examples: s.examples ?? [] };
+    }
+    return { found: false, suggestions: this.search(name, { domain: 'panorama-css', limit: 8 }).results };
+  }
+
   get domains(): ApiDomain[] {
     return DOMAINS;
   }

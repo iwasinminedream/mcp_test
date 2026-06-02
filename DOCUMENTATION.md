@@ -52,7 +52,8 @@ Dota 2: распаковать → `./install.ps1`.
 | `DOTA_PATH` | Папка `…\dota 2 beta\game`. | Автодетект через Steam `libraryfolders.vdf`, иначе стандартный путь. |
 | `ADDON_PATH` | Явный путь к открытому аддону (проект или его namespace-корень). | — |
 | `S2V_CLI` | Путь к `Source2Viewer-CLI.exe`. | `vendor/Source2Viewer-CLI/`, иначе dev-путь. |
-| `DOTA_DATA_PATH` | Папка `files/` пакета `@moddota/dota-data`. | `vendor/dota-data/`, иначе sibling-репозиторий. |
+| `DOTA_DATA_PATH` | Папка `files/` пакета `@moddota/dota-data` (API + игровые KV + локализация). | `vendor/dota-data/`, иначе sibling-репозиторий. |
+| `DOTA_DATA_LANGS` | Языки локализации для вендоринга (через запятую). Только для `npm run vendor-data`. | `english,russian`. |
 | `VPK_CACHE_TTL_MS` | TTL эфемерного кэша декомпиляции. | `600000` (10 мин). |
 | `EXPORT_DIR` | Куда `export_model` кладёт glTF/GLB (постоянно). | `%TEMP%\dota2-mcp\exports`. |
 | `CONSOLE_LOG` | Путь к `console.log` Dota 2. | `<game>\dota\console.log`. |
@@ -87,7 +88,7 @@ Dota 2: распаковать → `./install.ps1`.
 
 ---
 
-## 3. Инструменты (24)
+## 3. Инструменты (29)
 
 ### Поиск и разрешение имён (мгновенно, без CLI)
 | Инструмент | Вход | Результат |
@@ -126,10 +127,22 @@ Dota 2: распаковать → `./install.ps1`.
 | `api_search` | `query`, `domain?`, `kind?`, `limit` | символы API с сигнатурой/классом/доступностью |
 | `api_get` | `name`, `domain?`, `class?` | полная карточка: сигнатура (args+types+returns), значение константы, члены enum, поля события. Методы — `Class:method` или просто имя; instance-глобалы (`ParticleManager:…`) резолвятся |
 | `api_class` | `name` | класс с собственными **и унаследованными** (по `extend`) методами |
+| `css_prop` | `name` | декларация Panorama CSS-свойства (описание + примеры) из `panorama/css.json`; при промахе — фаззи-подсказки |
 
 > Туториалы ModDota (`docs_search`/`docs_get`) намеренно **удалены** — они часто
 > устаревшие и могут вводить в заблуждение. Источник истины по API — машинные
 > дампы `@moddota/dota-data` (генерируются из самой игры).
+
+### Игровые KeyValues + локализация (дампы @moddota/dota-data)
+| Инструмент | Вход | Результат |
+|---|---|---|
+| `ability_kv` | `name`, `resolveBase?` | **реальные KV способности** из `abilities.json` (`AbilityBehavior`, cast range/point, cooldown, mana, `AbilityValues`/спец-значения) + герой-владелец (`ability-hero-map`) + локализованные имя/описание; при промахе — фаззи-подсказки |
+| `hero_kv` | `name`, `resolveBase?` | реальные KV героя из `heroes.json` (Model, атрибуты, урон/броня, скорость, `Ability1..N`) + список способностей + локализованное имя |
+| `unit_kv` | `name`, `resolveBase?` | реальные KV юнита из `units.json` + список способностей + локализованное имя |
+| `localize` | `key`, `lang?`, `limit?` | строка локализации по ключу (терпит ведущий `#`) из `localization/<язык>.json`; при промахе — подсказки по подстроке ключа. Язык по умолчанию `english` (вендорится ещё `russian`) |
+
+> `resolveBase` подмешивает неявный шаблон-базу (`ability_base` / `npc_dota_hero_base`
+> / `npc_dota_units_base`) под запись. По умолчанию выключено — отдаются «сырые» KV.
 
 ### Консоль игры (ошибки «с момента» по байт-курсору)
 | Инструмент | Вход | Результат |
@@ -150,13 +163,14 @@ Dota 2: распаковать → `./install.ps1`.
 ## 4. Архитектура
 
 ```
-L4  MCP surface (src/server.ts) — 24 tools поверх stdio (@modelcontextprotocol/sdk)
+L4  MCP surface (src/server.ts) — 29 tools поверх stdio (@modelcontextprotocol/sdk)
                                   + фоновый warmup графа после connect
                                   + обёртка registerTool: тайминг/лог/catch (log.ts)
 L3  Домен:
       introspect/{model,particle,material,decompile,references,attach}.ts
       graph/depGraph.ts        — прямой/обратный граф (RERL), кэш в JSON
-      api/{apiData,apiIndex}.ts — поиск по Dota 2 API
+      api/{apiData,apiIndex}.ts — поиск по Dota 2 API + CSS-декларации
+      api/gameData.ts          — игровые KV (abilities/heroes/units) + локализация
       console/consoleLog.ts    — чтение console.log по байт-курсору
 L2  Индекс/кэш:
       index/assetIndex.ts      — агрегатор источников, поиск, фаззи (fuzzy.ts)
@@ -252,7 +266,7 @@ L0  Источники ассетов (общий интерфейс AssetSource
 
 ```
 src/
-  server.ts                    # точка входа, регистрация 24 инструментов + warmup
+  server.ts                    # точка входа, регистрация 29 инструментов + warmup
   log.ts                       # постоянный JSONL-лог вызовов + server_log/readLog
   config.ts                    # резолв Dota/аддона/CLI/API-данных, TTL
   indexer.ts                   # сборка индекса (аддон + базовые VPK)
@@ -263,14 +277,14 @@ src/
   cli/      decompiler.ts convert.ts
   introspect/ model.ts particle.ts material.ts decompile.ts references.ts attach.ts
   graph/    depGraph.ts
-  api/      apiData.ts apiIndex.ts
+  api/      apiData.ts apiIndex.ts gameData.ts
   console/  consoleLog.ts
   # тесты-проверки:
-  smoke.ts mcptest.ts m3test.ts m3mcptest.ts m4test.ts m5test.ts m6test.ts addontest.ts releasetest.ts
+  smoke.ts mcptest.ts m3test.ts m3mcptest.ts m4test.ts m5test.ts gametest.ts m6test.ts addontest.ts releasetest.ts
 scripts/
   bundle.mjs      # esbuild → bundle/server.mjs (один файл)
   vendor-cli.mjs  # копирует Source2Viewer-CLI + DLL в vendor/
-  vendor-data.mjs # копирует нужные dota-data JSON в vendor/
+  vendor-data.mjs # копирует нужные dota-data JSON в vendor/ (API + игровые KV + локализация; DOTA_DATA_LANGS)
   package.mjs     # bundle + vendor-cli + vendor-data + zip → release/
 ```
 
@@ -300,6 +314,7 @@ scripts/
 - `m3test.ts` / `m3mcptest.ts` — граф зависимостей + валидаторы/кодген.
 - `m4test.ts` — превью текстуры (PNG) + экспорт модели (glb).
 - `m5test.ts` — поиск по API, сигнатуры, наследование классов (+ что docs-инструментов нет).
+- `gametest.ts` — `css_prop` + KV способностей/героев/юнитов + локализация (en/ru).
 - `m6test.ts` — чтение console.log: классификация, дедуп, дельта по байт-курсору.
 - `addontest.ts` — индексация активного аддона (запускать с `ADDON_PATH`).
 - `releasetest.ts` — комплексная проверка **упакованного** `server.mjs`
@@ -315,10 +330,11 @@ scripts/
 ## 8. Статус и роадмап
 
 **Готово (всё):** M0 каркас · M1 индекс/поиск/фаззи · M2 интроспекция · M3 граф +
-валидация/кодген привязки · M4 конвертация · M5 поиск по Dota 2 API · M6 чтение
-`console.log` (ошибки «с момента» по байт-курсору) · индексация активного аддона ·
-warmup при старте. **23 инструмента.** Сборка и typecheck чистые; все wire-тесты
-(M2–M6, addon, warmup) и упакованный релиз — PASS.
+валидация/кодген привязки · M4 конвертация · M5 поиск по Dota 2 API · CSS-декларации
+(`css_prop`) + игровые KV (`ability_kv`/`hero_kv`/`unit_kv`) и локализация (`localize`) ·
+M6 чтение `console.log` (ошибки «с момента» по байт-курсору) · индексация активного
+аддона · warmup при старте. **29 инструментов.** Сборка и typecheck чистые; все
+wire-тесты (M2–M6, gametest, addon, warmup) и упакованный релиз — PASS.
 
 Аудит соответствия плану (2026-06-01): **все обязательные пункты M0–M6 и
 индексация аддона реализованы как задумано** (0 расхождений в M1–M6). Из

@@ -62,9 +62,13 @@ MCP-серверы в Claude Code имеют **scope** (область види�
 > graph автоматически устаревает и пересобирается. Принудительно сбросить кэш:
 > удалить папку `%TEMP%\dota2-mcp\graph\`.
 
-### Если обновился Dota 2 API (нужны точные новые сигнатуры функций/энумов)
-Инструменты `api_*` читают готовые JSON-дампы из репозитория
-`@moddota/dota-data`. Они не обновляются сами. Порядок:
+### Если обновился Dota 2 API / игровые KV (сигнатуры функций, KV способностей/героев, локализация)
+Инструменты `api_*`, `css_prop`, `ability_kv`, `hero_kv`, `unit_kv`, `localize`
+читают готовые JSON-дампы из репозитория `@moddota/dota-data`
+(`abilities.json`, `heroes.json`, `units.json`, `ability-hero-map.json`,
+`panorama/css.json`, `localization/<язык>.json` и т.д.). Они не обновляются сами.
+Языки локализации для вендоринга задаются env `DOTA_DATA_LANGS`
+(по умолчанию `english,russian`; каждый файл ~10 МБ). Порядок:
 
 1. Обнови репозиторий дампов (он у тебя в `C:\Users\Admin\Documents\dota\dota-data`):
    ```powershell
@@ -165,6 +169,7 @@ claude mcp remove dota2-mcp
 npm run typecheck          # tsc --noEmit, должно быть без ошибок
 npx tsx src/mcptest.ts     # M1/M2 round-trip
 npx tsx src/m5test.ts      # API
+npx tsx src/gametest.ts    # css_prop + KV способностей/героев/юнитов + локализация
 npx tsx src/m6test.ts      # консоль
 npx tsx src/releasetest.ts # упакованный server.mjs целиком (RELEASE PASS)
 ```
@@ -185,6 +190,8 @@ npx tsx src/releasetest.ts # упакованный server.mjs целиком (R
 | `cli.version` | строка версии | пусто → CLI не запускается |
 | `graph.built` | `true` (после warmup ~неск. сек) | долго `false` → смотри stderr-лог |
 | `api.loaded` | `true` | `false` → не найдены dota-data JSON; задай `DOTA_DATA_PATH` |
+| `gameData.loaded` | `true` | `false` → нет dota-data; `counts.abilities/heroes` = 0 → не завендорены KV (`npm run vendor-data`) |
+| `gameData.languages` | `["english","russian"]` | пусто → нет `localization/*.json`; см. `DOTA_DATA_LANGS` |
 | `console.exists` | `true` если игра писала лог | `false` → запусти Dota с `-condebug` |
 | `activityLog.path` | путь к логу активности сервера | см. §4a |
 | `watcher.active` | `true` если аддон отслеживается | `false` без аддона — норма |
@@ -314,7 +321,8 @@ Remove-Item -Recurse -Force "$env:TEMP\dota2-mcp"
 | `DOTA_PATH` | Steam-автодетект не нашёл игру / Dota на другом диске. |
 | `ADDON_PATH` | Явно указать активный аддон. |
 | `S2V_CLI` | Декомпилятор лежит не в стандартном месте. |
-| `DOTA_DATA_PATH` | JSON-дампы API лежат не в vendor/sibling. |
+| `DOTA_DATA_PATH` | JSON-дампы API/игровых KV лежат не в vendor/sibling. |
+| `DOTA_DATA_LANGS` | Какие языки локализации вендорить (по умолч. `english,russian`). Только для `npm run vendor-data`. |
 | `CONSOLE_LOG` | Нестандартный путь к `console.log`. |
 | `VPK_CACHE_TTL_MS` | Изменить TTL кэша декомпиляции (по умолч. 600000). |
 | `EXPORT_DIR` | Куда `export_model` сохраняет glTF/GLB. |

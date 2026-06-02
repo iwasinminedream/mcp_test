@@ -15,6 +15,7 @@ import { validateAttachment, genAttachSnippet, PATTACH, type PattachName } from 
 import { previewTexture, exportModel } from './cli/convert.js';
 import { ApiIndex } from './api/apiIndex.js';
 import type { ApiDomain, ApiKind } from './api/apiData.js';
+import { GameData } from './api/gameData.js';
 import { consoleMark, consoleErrors, consoleTail, type ConsoleCursor, type MarkResult } from './console/consoleLog.js';
 import { startAddonWatcher, type AddonWatcher } from './loose/watcher.js';
 import { logToolCall, writeLog, readLog, logFilePath } from './log.js';
@@ -42,6 +43,7 @@ function fail(message: string) {
 
 const graph = new DepGraph();
 const api = new ApiIndex();
+const gameData = new GameData();
 const API_DOMAINS = ['lua', 'panorama-js', 'panorama-css', 'panorama-enum', 'panorama-event', 'event', 'engine-enum', 'modifier'] as const;
 const API_KINDS = ['class', 'function', 'method', 'constant', 'enum', 'css-property', 'event', 'modifier-property', 'modifier'] as const;
 
@@ -411,7 +413,7 @@ server.registerTool(
   'index_status',
   {
     title: 'Index status',
-    description: 'Report indexer status: game directory, loaded packages, addon, asset count, valid kinds, CLI availability, graph state, API availability, console.',
+    description: 'Report indexer status: game directory, loaded packages, addon, asset count, valid kinds, CLI availability, graph state, API availability, game KV/localization data, console.',
     inputSchema: z.object({}),
   },
   async () => {
@@ -422,6 +424,7 @@ server.registerTool(
       cli: { available: cliAvailable(), path: cli, version: await cliVersion() },
       graph: { built: graph.built, ...(graph.built ? graph.status : {}) },
       api: api.status,
+      gameData: gameData.status,
       console: { logPath: startupCursor.path, exists: startupCursor.exists, startupOffset: startupCursor.offset },
       activityLog: { path: logFilePath(), enabled: process.env.LOG !== '0' },
       watcher: { active: watcher !== null, ...(watcher ? watcher.stats : {}) },
@@ -515,6 +518,7 @@ server.registerTool(
   },
   async () => {
     built = buildIndex(log);
+    gameData.reset(); // re-read game KV/localization if the data was re-vendored
     // The graph holds edges from the OLD index; force a fresh background rebuild
     // so refs_from/refs_to reflect the new assets (cache is keyed by index
     // fingerprint, but `graph.built` is already true, so we must force it).
@@ -645,6 +649,106 @@ server.registerTool(
   async ({ name }) => {
     if (!api.loaded) return ok({ error: api.status.error } as unknown as Record<string, unknown>);
     return ok(api.classInfo(name) as unknown as Record<string, unknown>);
+  },
+);
+
+server.registerTool(
+  'css_prop',
+  {
+    title: 'Panorama CSS property declaration',
+    description:
+      'Look up a Panorama CSS property declaration (description + examples) by exact name, e.g. "flow-children", ' +
+      '"background-blur", "wash-color". On a miss, returns fuzzy suggestions. Use this to confirm a CSS property ' +
+      'actually exists in Panorama before writing it.',
+    inputSchema: z.object({
+      name: z.string().min(1).describe('CSS property name, e.g. "flow-children".'),
+    }),
+  },
+  async ({ name }) => {
+    if (!api.loaded) return ok({ error: api.status.error } as unknown as Record<string, unknown>);
+    return ok(api.cssProp(name) as unknown as Record<string, unknown>);
+  },
+);
+
+// ---- Game KV data (abilities / heroes / units / localization) ----
+
+server.registerTool(
+  'ability_kv',
+  {
+    title: 'Ability KeyValues',
+    description:
+      'Get the REAL KeyValues for an ability from npc_abilities (abilities.json): AbilityBehavior, cast range/point, ' +
+      'cooldown, mana cost, AbilityValues/special values, etc. — the actual in-game numbers, not guesses. Also ' +
+      'returns the owning hero and localized name/description. Fuzzy suggestions on a miss.',
+    inputSchema: z.object({
+      name: z.string().min(1).describe('Ability key, e.g. "abaddon_death_coil" or "item_blink".'),
+      resolveBase: z.boolean().default(false).describe('Merge the implicit "ability_base" template under the entry.'),
+    }),
+  },
+  async ({ name, resolveBase }) => {
+    const s = gameData.status;
+    if (!s.loaded) return ok({ error: s.error } as unknown as Record<string, unknown>);
+    return ok(gameData.getEntry('ability', name, { resolveBase }) as unknown as Record<string, unknown>);
+  },
+);
+
+server.registerTool(
+  'hero_kv',
+  {
+    title: 'Hero KeyValues',
+    description:
+      'Get the REAL KeyValues for a hero from npc_heroes (heroes.json): Model, attributes, base damage/armor, ' +
+      'attack range, movement speed, the Ability1..N list, etc. Returns the declared abilities and localized name. ' +
+      'Fuzzy suggestions on a miss.',
+    inputSchema: z.object({
+      name: z.string().min(1).describe('Hero unit name, e.g. "npc_dota_hero_axe".'),
+      resolveBase: z.boolean().default(false).describe('Merge the implicit "npc_dota_hero_base" template under the entry.'),
+    }),
+  },
+  async ({ name, resolveBase }) => {
+    const s = gameData.status;
+    if (!s.loaded) return ok({ error: s.error } as unknown as Record<string, unknown>);
+    return ok(gameData.getEntry('hero', name, { resolveBase }) as unknown as Record<string, unknown>);
+  },
+);
+
+server.registerTool(
+  'unit_kv',
+  {
+    title: 'Unit KeyValues',
+    description:
+      'Get the REAL KeyValues for a unit from npc_units (units.json): Model, stats, abilities, bounds, etc. ' +
+      'Returns the declared abilities and localized name. Fuzzy suggestions on a miss.',
+    inputSchema: z.object({
+      name: z.string().min(1).describe('Unit name, e.g. "npc_dota_neutral_kobold".'),
+      resolveBase: z.boolean().default(false).describe('Merge the implicit "npc_dota_units_base" template under the entry.'),
+    }),
+  },
+  async ({ name, resolveBase }) => {
+    const s = gameData.status;
+    if (!s.loaded) return ok({ error: s.error } as unknown as Record<string, unknown>);
+    return ok(gameData.getEntry('unit', name, { resolveBase }) as unknown as Record<string, unknown>);
+  },
+);
+
+server.registerTool(
+  'localize',
+  {
+    title: 'Localization string',
+    description:
+      'Look up a Dota 2 localization string by key (e.g. "DOTA_Tooltip_ability_abaddon_death_coil", ' +
+      '"#npc_dota_hero_axe"). Tolerates a leading "#". On a miss, returns keys whose name contains the query. ' +
+      'Default language is english; pass another vendored language (see index_status.gameData.languages).',
+    inputSchema: z.object({
+      key: z.string().min(1).describe('Localization key (with or without a leading "#").'),
+      lang: z.string().default('english').describe('Language file name, e.g. "english", "russian".'),
+      limit: z.number().int().min(1).max(50).default(10).describe('Max substring suggestions on a miss.'),
+    }),
+  },
+  async ({ key, lang, limit }) => {
+    const s = gameData.status;
+    if (!s.loaded) return ok({ error: s.error } as unknown as Record<string, unknown>);
+    return ok(gameData.localize(key, { lang, limit }) as unknown as Record<string, unknown>);
   },
 );
 

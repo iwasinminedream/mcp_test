@@ -58,6 +58,9 @@ with `npm run vendor`.
   index/search works without it.
 - **Cache TTL:** `VPK_CACHE_TTL_MS` (default 600000 = 10 min). Decompiled artifacts
   are written to a temp dir and deleted right after reading.
+- **Game/API data:** auto-resolved from `vendor/dota-data/`, else `DOTA_DATA_PATH`
+  (point at a `@moddota/dota-data` `files/` dir). Vendor it with `npm run vendor-data`;
+  pick localization languages with `DOTA_DATA_LANGS` (default `english,russian`).
 
 ## Register with Claude Code
 
@@ -87,10 +90,15 @@ claude mcp add dota2-mcp -- node "C:\Users\Admin\Documents\project\mcp_test\dist
 | `preview_texture` | Decompile a `.vtex_c` → inline PNG image (downscaled to `maxDim`). |
 | `export_model` | Decompile a `.vmdl_c` → glTF/GLB on disk (persists; `EXPORT_DIR`). |
 | `api_search` / `api_get` / `api_class` | Search the Dota 2 API; full symbol detail (args/types/returns, enum members); Lua class + inherited methods. |
+| `css_prop` | Panorama CSS property declaration (description + examples); fuzzy suggestions on miss. |
+| `ability_kv` | Real ability KeyValues from `abilities.json` (behavior, cast range, cooldown, `AbilityValues`…) + owning hero + localized name. |
+| `hero_kv` | Real hero KeyValues from `heroes.json` (model, stats, `Ability1..N`) + declared abilities + localized name. |
+| `unit_kv` | Real unit KeyValues from `units.json` + declared abilities + localized name. |
+| `localize` | Localization string by key (`#`-tolerant); substring suggestions on miss; pick `lang` (default english, russian vendored). |
 | `console_mark` | Capture a byte cursor at the current end of `console.log` ("the moment"). |
 | `console_errors` | Classified errors/warnings since a cursor (Lua tracebacks stitched, deduped, rotation-aware). |
 | `console_tail` | Last N raw lines of the console log. |
-| `index_status` | Indexer status, packages, addon, asset count, CLI, graph, API/docs, console. |
+| `index_status` | Indexer status, packages, addon, asset count, CLI, graph, API, game KV/localization, console. |
 | `reindex` | Rebuild the index after a Dota update. |
 
 ## Share with other users (self-contained release)
