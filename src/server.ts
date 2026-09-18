@@ -769,10 +769,15 @@ writeLog({
 warmup();
 startWatcher();
 
-// Best-effort: record unexpected crashes so they're in the log for later.
+// Record unexpected crashes, then EXIT. After an uncaught exception the process
+// is in an undefined state: limping on (the Node default once a handler exists)
+// can leave the stdio transport half-dead so the client hangs forever waiting on
+// a response that never comes. Exiting gives the client a clean disconnect and it
+// respawns the server on the next call.
 process.on('uncaughtException', (err) => {
   writeLog({ level: 'error', event: 'uncaughtException', error: err?.stack ?? String(err) });
-  log('uncaughtException:', err);
+  log('uncaughtException (exiting so the client can restart):', err);
+  process.exit(1);
 });
 process.on('unhandledRejection', (reason) => {
   writeLog({ level: 'error', event: 'unhandledRejection', error: String(reason) });
