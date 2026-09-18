@@ -32,7 +32,10 @@ buildable):
   matching your OS/arch (`vendor/Source2Viewer-CLI/`, ~123 MB).
 - **dota-data** — the Dota 2 API JSON dumps the server reads, downloaded from
   [`iwasinminedream/dota-data`](https://github.com/iwasinminedream/dota-data)
-  (`files/` on `master` → `vendor/dota-data/`, ~2 MB).
+  (`files/` on `master` → `vendor/dota-data/`, ~31 MB with en+ru localization).
+  This folder is **committed**: every push to dota-data triggers
+  `.github/workflows/update-dota-data.yml` here (via `repository_dispatch`), which
+  commits the fresh dumps — so a plain `git pull` brings them in.
 
 Downloads are skipped when `vendor/` already exists; re-fetch with `FORCE=1`. Run
 either step on its own with `npm run vendor-cli` / `npm run vendor-data`, or both
@@ -69,6 +72,42 @@ A project-scoped `.mcp.json` is included. Or register explicitly:
 ```powershell
 claude mcp add dota2-mcp -- node "C:\Users\Admin\Documents\project\mcp_test\dist\server.js"
 ```
+
+### Keep the dumps fresh: SessionStart hook (required)
+
+The dota-data dumps in `vendor/dota-data/` arrive as commits from CI (see
+[Develop & build](#develop--build)), so this checkout must be pulled to get them. Add a
+`SessionStart` hook that pulls it before every Claude Code session. Put it in your
+**user** settings (`~/.claude/settings.json`), not in a project: the server is usually
+registered in several addon projects, and they all run this one checkout. Merge it into
+an existing `hooks.SessionStart` array rather than replacing it, and adjust the path:
+
+```json
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "GIT_TERMINAL_PROMPT=0 git -C C:/Users/Admin/Documents/project/mcp_test pull --ff-only --quiet >/dev/null 2>&1 || echo '{\"systemMessage\":\"dota2-mcp: git pull in mcp_test failed, dota-data dumps may be stale\"}'",
+            "timeout": 30,
+            "statusMessage": "Pulling dota2-mcp dumps (git pull)"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+- `--ff-only` never merges or rebases your work. If the pull can't fast-forward (local
+  commits diverged from GitHub, no network), the session shows a warning; run `git pull`
+  yourself.
+- The hook runs alongside MCP server startup. If the pull lands after the server has
+  already read the dumps, the next session (or reconnecting the server via `/mcp`) picks
+  them up.
+- Check it's registered with `/hooks`. It takes effect from the next session.
 
 ## Tools
 

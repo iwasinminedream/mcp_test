@@ -66,25 +66,29 @@ MCP-серверы в Claude Code имеют **scope** (область види�
 Инструменты `api_*`, `css_prop`, `ability_kv`, `hero_kv`, `unit_kv`, `localize`
 читают готовые JSON-дампы из репозитория `@moddota/dota-data`
 (`abilities.json`, `heroes.json`, `units.json`, `ability-hero-map.json`,
-`panorama/css.json`, `localization/<язык>.json` и т.д.). Они не обновляются сами.
-Языки локализации для вендоринга задаются env `DOTA_DATA_LANGS`
-(по умолчанию `english,russian`; каждый файл ~10 МБ). Порядок:
+`panorama/css.json`, `localization/<язык>.json` и т.д.) из `vendor/dota-data/` —
+эта папка **хранится в git** (остальной `vendor/` игнорируется) и обновляется цепочкой:
 
-1. Обнови репозиторий дампов (он у тебя в `C:\Users\Admin\Documents\dota\dota-data`):
-   ```powershell
-   cd C:\Users\Admin\Documents\dota\dota-data
-   git pull
-   ```
-   Если своего дампа под новый патч ещё нет в апстриме — его можно сгенерировать
-   из игры: `npm ci && npm run full-build` (запускает Dota и снимает дамп; см.
-   README того репо). Обычно проще дождаться апдейта апстрима и сделать `git pull`.
-2. Если используешь **раздаваемый** релиз (vendored-копия данных) — обнови её:
-   ```powershell
-   cd C:\Users\Admin\Documents\project\mcp_test
-   npm run vendor-data    # перекопирует свежие JSON в vendor/dota-data
-   npm run package        # пересоберёт release/dota2-mcp.zip
-   ```
-3. Перезапусти сервер (API-дампы грузятся при старте).
+1. Пушишь новый дамп в [`iwasinminedream/dota-data`](https://github.com/iwasinminedream/dota-data)
+   (`npm run full-build` в `C:\Users\Admin\Documents\dota\dota-data` — запускает Dota
+   и снимает дамп — затем commit + push в `master`).
+2. Workflow `notify-mcp.yml` в dota-data (на push, затронувший `files/**`) шлёт
+   `repository_dispatch` (`dota-data-updated`) в `iwasinminedream/mcp_test`.
+   Токен — секрет `MODDOTA_DISPATCH_TOKEN` в dota-data.
+3. Workflow `.github/workflows/update-dota-data.yml` в mcp_test копирует нужные JSON
+   из `files/` (через `scripts/vendor-data.mjs` с `DOTA_DATA_DIR`) в `vendor/dota-data/`
+   и коммитит, если что-то изменилось (`dota-data: update dumps to …`).
+4. SessionStart-хук в `~/.claude/settings.json` перед каждой сессией Claude Code
+   делает `git -C …\mcp_test pull --ff-only`. Если pull не прошёл (нет сети, локальные
+   коммиты разошлись с GitHub) — в сессии появится предупреждение; сделай `git pull` сам.
+5. Сервер читает дампы при старте, поэтому уже запущенная сессия их не увидит —
+   их подхватит следующая (или переподключи сервер через `/mcp`).
+
+Прогнать вручную: вкладка Actions → «Update dota-data dumps» → Run workflow
+(или `gh workflow run update-dota-data.yml -R iwasinminedream/mcp_test`).
+Языки локализации задаются env `DOTA_DATA_LANGS` (по умолчанию `english,russian`;
+каждый файл ~10 МБ) — для workflow правь его `env`. Раздаваемый релиз:
+`npm run package` берёт `vendor/dota-data/` как есть.
 
 ### Если изменилась структура установки (Dota переехала на другой диск)
 Сервер сам ищет Dota через Steam `libraryfolders.vdf`. Если не нашёл — задай

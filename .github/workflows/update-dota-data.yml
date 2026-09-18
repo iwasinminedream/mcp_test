@@ -1,0 +1,55 @@
+name: Update dota-data dumps
+
+# Fired by iwasinminedream/dota-data (.github/workflows/notify-mcp.yml) after every
+# push that changes its files/; also runnable by hand from the Actions tab.
+# Copies the JSON the server reads into vendor/dota-data and commits it, so a
+# `git pull` (done by the SessionStart hook) brings the fresh dumps locally.
+on:
+  repository_dispatch:
+    types: [dota-data-updated]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-dota-data
+  cancel-in-progress: false
+
+jobs:
+  update:
+    name: Update vendor/dota-data
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      # Always the latest master (not the dispatched sha), so an out-of-order
+      # run can never roll the dumps back.
+      - name: Checkout dota-data files/
+        uses: actions/checkout@v4
+        with:
+          repository: iwasinminedream/dota-data
+          ref: master
+          path: .dota-data
+          sparse-checkout: files
+
+      - name: Copy dumps into vendor/dota-data
+        run: node scripts/vendor-data.mjs
+        env:
+          DOTA_DATA_DIR: .dota-data/files
+          FORCE: '1'
+
+      - name: Commit and push if changed
+        run: |
+          git add vendor/dota-data
+          if git diff --cached --quiet; then
+            echo "vendor/dota-data already up to date"
+            exit 0
+          fi
+          src="$(git -C .dota-data log -1 --format='%h %s')"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m "dota-data: update dumps to ${src}"
+          git pull --rebase --quiet
+          git push

@@ -1,0 +1,1959 @@
+{
+  "AddStyle": {
+    "description": "Add a CSS class to a panel.",
+    "panelEvent": true,
+    "args": [
+      {
+        "name": "class",
+        "type": "panoramasymbol"
+      }
+    ]
+  },
+  "AddStyleAfterDelay": {
+    "description": "Add a CSS class to a panel after a specified delay.",
+    "panelEvent": true,
+    "args": [
+      {
+        "name": "class",
+        "type": "panoramasymbol"
+      },
+      {
+        "name": "preDelay",
+        "type": "float"
+      }
+    ]
+  },
+  "AddStyleToEachChild": {
+    "description": "Add a CSS class to all children of this panel.",
+    "panelEvent": true,
+    "args": [
+      {
+        "name": "class",
+        "type": "panoramasymbol"
+      }
+    ]
+  },
+  "AddTimedStyle": {
+    "description": "Add a class for a specified duration, with optional pre-delay; clears existing timers when called with same class.",
+    "panelEvent": true,
+    "args": [
+      {
+        "name": "class",
+        "type": "panoramasymbol"
+      },
+      {
+        "name": "duration",
+        "type": "float"
+      },
+      {
+        "name": "preDelay",
+        "type": "float"
+      }
+    ]
+  },
+  "AsyncEvent": {
+    "description": "Fire another event after a delay (in seconds).",
+    "panelEvent": false,
+    "args": [
+      {
+        "name": "delay",
+        "type": "float"
+      },
+      {
+        "name": "eventToFire",
+        "type": "event"
+      }
+    ]
+  },
+  "DOTADisplayDashboardTip": {
+    "description": "Tip to display, panel to attach to (default 'DefaultTipAttachment')",
+    "panelEvent": false,
+    "args": [
+      {
+        "name": "string",
+        "type": "string"
+      },
+      {
+        "name": "optional",
+        "type": "string"
+      }
+    ]
+  },
+  "DOTAHideAbilityTooltip": {
+    "description": "Hide the ability tooltip",
+    "panelEvent": true,
+    "args": []
+  },
+  "DOTAHideBuffTooltip": {
+    "description": "Hide the buff tooltip",
+    "panelEvent": true,
+    "args": []
+  },
+  "DOTAHideDroppedItemTooltip": {
+    "description": "Hide the dropped item tooltip",
+    "panelEvent": true,
+    "args": []
+  },
+  "DOTAHideEconItemTooltip": {
+    "description": "Hide the econ item tooltip.",
+    "panelEvent": true,
+    "args": []
+  },
+  "DOTAHideFacetTooltip": {
+    "description": "Hides the variant tooltip",
+    "panelEvent": true,
+    "args": []
+  },
+  "DOTAHideProfileCardTooltip": {
+    "description": "Hide the profile card tooltip.",
+    "panelEvent": true,
+    "args": []
+  },
+  "DOTAHideRankTierTooltip": {
+    "description": "Hide the rank tier tooltip.",
+    "panelEvent": true,
+    "args": []
+  },
+  "DOTAHideRuneTooltip": {
+    "description": "Hide the rune tooltip",
+    "panelEvent": true,
+    "args": []
+  },
+  "DOTAHideTextTooltip": {
+    "description": "Hide the text tooltip",
+    "panelEvent": true,
+    "args": []
+  },
+  "DOTAHideTI10EventGameTooltip": {
+    "description": "Hide the ti10 event game tooltip",
+    "panelEvent": true,
+    "args": []
+  },
+  "DOTAHideTitleImageTextTooltip": {
+    "description": "Hide the title image text tooltip.",
+    "panelEvent": true,
+    "args": []
+  },
+  "DOTAHideTitleTextTooltip": {
+    "description": "Hide the title text tooltip.",
+    "panelEvent": true,
+    "args": []
+  },
+  "DOTALiveStreamUpcoming": {
+    "description": "Notify change in RTime32 we expect the stream to start",
+    "panelEvent": true,
+    "args": [
+      {
+        "name": "time",
+        "type": "uint32"
+      }
+    ]
+  },
+  "DOTALiveStreamVideoLive": {
+    "description": "Notify change in stream state (we detected the stream going live)",
+    "panelEvent": true,
+    "args": [
+      {
+        "name": "isLive",
+        "type": "bool"
+      }
+    ]
+  },
+  "DOTALiveStreamVideoPlaying": {
+    "description": "Notify change in video state (is it pointing at a live stream page or not)",
+    "panelEvent": true,
+    "args": [
+      {
+        "name": "isShowingVideo",
+        "type": "bool"
+      }
+    ]
+  },
+  "DOTAShowAbilityInventoryItemTooltip": {
+    "description": "Show tooltip for an item in the entityIndex NPC's inventory.",
+    "panelEvent": true,
+    "args": [
+      {
+        "name": "entityIndex",
+        "type": "int32"
+      },
+      {
+        "name": "inventorySlot",
+        "type": "int32"
+      }
+    ]
+  },
+  "DOTAShowAbilityLevelUpTooltipForEntityIndex": {
+    "description": "Show a tooltip describing what will happen when an ability levels. Current level information comes from the entity specified by the entityIndex.",
+    "panelEvent": true,
+    "args": [
+      {
+        "name": "abilityName",
+        "type": "string"
+      },
+      {
+        "name": "entityIndex",
+        "type": "int32"
+      }
+    ]
+  },
+  "DOTAShowAbilityShopItemTooltip": {
+    "description": "Show tooltip for an item in the entityIndex NPC's shop.",
+    "panelEvent": true,
+    "args": [
+      {
+        "name": "abilityName",
+        "type": "string"
+      },
+      {
+        "name": "guideName",
+        "type": "string"
+      },
+      {
+        "name": "entityIndex",
+        "type": "int32"
+      },
+      {
+        "name": "parentId",
+        "type": "AbilityID_t"
+      }
+    ]
+  },
+  "DOTAShowAbilityTooltip": {
+    "description": "Show an ability tooltip.",
+    "panelEvent": true,
+    "args": [
+      {
+        "name": "abilityName",
+        "type": "string"
+      }
+    ]
+  },
+  "DOTAShowAbilityTooltipForEntityIndex": {
+    "description": "Show an ability tooltip. Level information comes from the entity specified by the entityIndex.",
+    "panelEvent": true,
+    "args": [
+      {
+        "name": "abilityName",
+        "type": "string"
+      },
+      {
+        "name": "entityIndex",
+        "type": "int32"
+      }
+    ]
+  },
+  "DOTAShowAbilityTooltipForFacet": {
+    "description": "Show an ability tooltip for a specific facet.",
+    "panelEvent": true,
+    "args": [
+      {
+        "name": "abilityName",
+        "type": "string"
+      },
+      {
+        "name": "facetName",
+        "type": "CUtlStringToken"
+      },
+      {
+        "name": "showVideo",
+        "type": "bool"
+      }
+    ]
+  },
+  "DOTAShowAbilityTooltipForGuide": {
+    "description": "Show an ability tooltip annotated with a particular guide's info.",
+    "panelEvent": true,
+    "args": [
+      {
+        "name": "abilityName",
+        "type": "string"
+      },
+      {
+        "name": "guideName",
+        "type": "string"
+      },
+      {
+        "name": "arg3",
+        "type": "HeroID_t"
+      },
+      {
+        "name": "arg4",
+        "type": "bool"
+      }
+    ]
+  },
+  "DOTAShowAbilityTooltipForHero": {
+    "description": "Show an ability tooltip for the specified hero.",
+    "panelEvent": true,
+    "args": [
+      {
+        "name": "abilityName",
+        "type": "string"
+      },
+      {
+        "name": "heroid",
+        "type": "HeroID_t"
+      },
+      {
+        "name": "heroVariant",
+        "type": "HeroFacetID_t"
+      },
+      {
+        "name": "arg4",
+        "type": "bool"
+      },
+      {
+        "name": "arg5",
+        "type": "bool"
+      }
+    ]
+  },
+  "DOTAShowAbilityTooltipForLevel": {
+    "description": "Show an ability tooltip for a specific level.",
+    "panelEvent": true,
+    "args": [
+      {
+        "name": "level",
+        "type": "string"
+      },
+      {
+        "name": "arg2",
+        "type": "int32"
+      }
+    ]
+  },
+  "DOTAShowBuffTooltip": {
+    "description": "Show a buff tooltip for the specified entityIndex + buff serial.",
+    "panelEvent": true,
+    "args": [
+      {
+        "name": "entityIndex",
+        "type": "int32"
+      },
+      {
+        "name": "buffSerial",
+        "type": "int32"
+      },
+      {
+        "name": "onEnemy",
+        "type": "bool"
+      }
+    ]
+  },
+  "DOTAShowEconItemTooltip": {
+    "description": "Show the econ item tooltip for a given item, style, and hero. Use 0 for the default style, and 0 for the default hero.",
+    "panelEvent": true,
+    "args": [
+      {
+        "name": "itemDef",
+        "type": "item_definition_index_t"
+      },
+      {
+        "name": "styleIndex",
+        "type": "style_index_t"
+      },
+      {
+        "name": "heroId",
+        "type": "HeroID_t"
+      }
+    ]
+  },
+  "DOTAShowFacetTooltip": {
+    "description": "Shows a variant tooltip for the given hero facet key",
+    "panelEvent": true,
+    "args": [
+      {
+        "name": "facetKey",
+        "type": "HeroFacetKey_t"
+      }
+    ]
+  },
+  "DOTAShowProfileCardTooltip": {
+    "description": "Show a user's profile card. Use pro name determines whether to use their professional team name if applicable.",
+    "panelEvent": true,
+    "args": [
+      {
+        "name": "steamId",
+        "type": "uint64"
+      },
+      {
+        "name": "useProName",
+        "type": "bool"
+      }
+    ]
+  },
+  "DOTAShowProfileCardTooltipForPartyMember": {
+    "description": "Show a user's profile card including their hero ban choices. Use pro name determines whether to use their professional team name if applicable.",
+    "panelEvent": true,
+    "args": [
+      {
+        "name": "steamId",
+        "type": "uint64"
+      },
+      {
+        "name": "useProName",
+        "type": "bool"
+      }
+    ]
+  },
+  "DOTAShowRankTierTooltip": {
+    "description": "Show the rank tier tooltip for a user",
+    "panelEvent": true,
+    "args": [
+      {
+        "name": "steamId",
+        "type": "uint64"
+      }
+    ]
+  },
+  "DOTAShowRuneTooltip": {
+    "description": "Show a rune tooltip in the X Y location for the rune type",
+    "panelEvent": true,
+    "args": [
+      {
+        "name": "x",
+        "type": "int32"
+      },
+      {
+        "name": "y",
+        "type": "int32"
+      },
+      {
+        "name": "runeType",
+        "type": "int32"
+      }
+    ]
+  },
+  "DOTAShowTextTooltip": {
+    "description": "Show a tooltip with the given text.",
+    "panelEvent": true,
+    "args": [
+      {
+        "name": "text",
+        "type": "string"
+      }
+    ]
+  },
+  "DOTAShowTextTooltipStyled": {
+    "description": "Show a tooltip with the given text. Also apply a CSS class named \"style\" to allow custom styling.",
+    "panelEvent": true,
+    "args": [
+      {
+        "name": "text",
+        "type": "string"
+      },
+      {
+        "name": "style",
+        "type": "panoramasymbol"
+      }
+    ]
+  },
+  "DOTAShowTI10EventGameTooltip": {
+    "description": "Show a ti10 event game tooltip",
+    "panelEvent": true,
+    "args": [
+      {
+        "name": "ti10EventGameTooltipInfoT",
+        "type": "struct"
+      }
+    ]
+  },
+  "DOTAShowTitleImageTextTooltip": {
+    "description": "Show a tooltip with the given title, image, and text.",
+    "panelEvent": true,
+    "args": [
+      {
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "name": "imagePath",
+        "type": "string"
+      },
+      {
+        "name": "text",
+        "type": "string"
+      }
+    ]
+  },
+  "DOTAShowTitleImageTextTooltipStyled": {
+    "description": "Show a tooltip with the given title, image, and text. Also apply a CSS class named \"style\" to allow custom styling.",
+    "panelEvent": true,
+    "args": [
+      {
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "name": "imagePath",
+        "type": "string"
+      },
+      {
+        "name": "text",
+        "type": "string"
+      },
+      {
+        "name": "style",
+        "type": "panoramasymbol"
+      }
+    ]
+  },
+  "DOTAShowTitleTextTooltip": {
+    "description": "Show a tooltip with the given title and text.",
+    "panelEvent": true,
+    "args": [
+      {
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "name": "text",
+        "type": "string"
+      }
+    ]
+  },
+  "DOTAShowTitleTextTooltipStyled": {
+    "description": "Show a tooltip with the given title and text. Also apply a CSS class named \"style\" to allow custom styling.",
+    "panelEvent": true,
+    "args": [
+      {
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "name": "text",
+        "type": "string"
+      },
+      {
+        "name": "style",
+        "type": "panoramasymbol"
+      }
+    ]
+  },
+  "DropInputFocus": {
+    "description": "Drop focus entirely from the window containing this panel.",
+    "panelEvent": true,
+    "args": []
+  },
+  "IfHasClassEvent": {
+    "description": "Fire another event if this panel has a given class.",
+    "panelEvent": true,
+    "args": [
+      {
+        "name": "class",
+        "type": "panoramasymbol"
+      },
+      {
+        "name": "eventToFire",
+        "type": "event"
+      }
+    ]
+  },
+  "IfHoverOtherEvent": {
+    "description": "Fire another event if currently hovering over a panel with the given ID.",
+    "panelEvent": true,
+    "args": [
+      {
+        "name": "otherPanelId",
+        "type": "string"
+      },
+      {
+        "name": "eventToFire",
+        "type": "event"
+      }
+    ]
+  },
+  "IfNotHasClassEvent": {
+    "description": "Fire another event if this panel does not have a given class.",
+    "panelEvent": true,
+    "args": [
+      {
+        "name": "class",
+        "type": "panoramasymbol"
+      },
+      {
+        "name": "eventToFire",
+        "type": "event"
+      }
+    ]
+  },
+  "IfNotHoverOtherEvent": {
+    "description": "Fire another event if not currently hovering over a panel with the given ID.",
+    "panelEvent": true,
+    "args": [
+      {
+        "name": "otherPanelId",
+        "type": "string"
+      },
+      {
+        "name": "eventToFire",
+        "type": "event"
+      }
+    ]
+  },
+  "MovePanelDown": {
+    "description": "Move down from the panel. By default, this will change the focus position, but other panel types may implement this differently.",
+    "panelEvent": true,
+    "args": [
+      {
+        "name": "repeatCount",
+        "type": "int32"
+      }
+    ]
+  },
+  "MovePanelLeft": {
+    "description": "Move left from the panel. By default, this will change the focus position, but other panel types may implement this differently.",
+    "panelEvent": true,
+    "args": [
+      {
+        "name": "repeatCount",
+        "type": "int32"
+      }
+    ]
+  },
+  "MovePanelRight": {
+    "description": "Move right from the panel. By default, this will change the focus position, but other panel types may implement this differently.",
+    "panelEvent": true,
+    "args": [
+      {
+        "name": "repeatCount",
+        "type": "int32"
+      }
+    ]
+  },
+  "MovePanelUp": {
+    "description": "Move up from the panel. By default, this will change the focus position, but other panel types may implement this differently.",
+    "panelEvent": true,
+    "args": [
+      {
+        "name": "repeatCount",
+        "type": "int32"
+      }
+    ]
+  },
+  "PageDown": {
+    "description": "Scroll the panel down by one page.",
+    "panelEvent": false,
+    "args": []
+  },
+  "PageLeft": {
+    "description": "Scroll the panel left by one page.",
+    "panelEvent": false,
+    "args": []
+  },
+  "PagePanelDown": {
+    "description": "Scroll the panel down by one page.",
+    "panelEvent": true,
+    "args": []
+  },
+  "PagePanelLeft": {
+    "description": "Scroll the panel left by one page.",
+    "panelEvent": true,
+    "args": []
+  },
+  "PagePanelRight": {
+    "description": "Scroll the panel left by one page.",
+    "panelEvent": true,
+    "args": []
+  },
+  "PagePanelUp": {
+    "description": "Scroll the panel up by one page.",
+    "panelEvent": true,
+    "args": []
+  },
+  "PageRight": {
+    "description": "Scroll the panel right by one page.",
+    "panelEvent": false,
+    "args": []
+  },
+  "PageUp": {
+    "description": "Scroll the panel up by one page.",
+    "panelEvent": false,
+    "args": []
+  },
+  "RemoveStyle": {
+    "description": "Remove a CSS class from a panel.",
+    "panelEvent": true,
+    "args": [
+      {
+        "name": "class",
+        "type": "panoramasymbol"
+      }
+    ]
+  },
+  "RemoveStyleAfterDelay": {
+    "description": "Remove a CSS class from a panel after a specified delay.",
+    "panelEvent": true,
+    "args": [
+      {
+        "name": "class",
+        "type": "panoramasymbol"
+      },
+      {
+        "name": "preDelay",
+        "type": "float"
+      }
+    ]
+  },
+  "RemoveStyleFromEachChild": {
+    "description": "Remove a CSS class from all children of this panel.",
+    "panelEvent": true,
+    "args": [
+      {
+        "name": "class",
+        "type": "panoramasymbol"
+      }
+    ]
+  },
+  "ScrollDown": {
+    "description": "Scroll the panel down by one line.",
+    "panelEvent": false,
+    "args": []
+  },
+  "ScrollLeft": {
+    "description": "Scroll the panel left by one line.",
+    "panelEvent": false,
+    "args": []
+  },
+  "ScrollPanelDown": {
+    "description": "Scroll the panel down by one line.",
+    "panelEvent": true,
+    "args": []
+  },
+  "ScrollPanelLeft": {
+    "description": "Scroll the panel left by one line.",
+    "panelEvent": true,
+    "args": []
+  },
+  "ScrollPanelRight": {
+    "description": "Scroll the panel right by one line.",
+    "panelEvent": true,
+    "args": []
+  },
+  "ScrollPanelUp": {
+    "description": "Scroll the panel up by one line.",
+    "panelEvent": true,
+    "args": []
+  },
+  "ScrollRight": {
+    "description": "Scroll the panel right by one line.",
+    "panelEvent": false,
+    "args": []
+  },
+  "ScrollToBottom": {
+    "description": "Scroll this panel to the bottom.",
+    "panelEvent": true,
+    "args": []
+  },
+  "ScrollToTop": {
+    "description": "Scroll this panel to the top.",
+    "panelEvent": true,
+    "args": []
+  },
+  "ScrollUp": {
+    "description": "Scroll the panel up by one line.",
+    "panelEvent": false,
+    "args": []
+  },
+  "SetChildPanelsSelected": {
+    "description": "Set whether any child panels are :selected.",
+    "panelEvent": true,
+    "args": [
+      {
+        "name": "selected",
+        "type": "bool"
+      }
+    ]
+  },
+  "SetInputFocus": {
+    "description": "Set focus to this panel.",
+    "panelEvent": true,
+    "args": []
+  },
+  "SetPanelEnabled": {
+    "description": "Sets whether the given panel is enabled",
+    "panelEvent": true,
+    "args": [
+      {
+        "name": "enabled",
+        "type": "bool"
+      }
+    ]
+  },
+  "SetPanelSelected": {
+    "description": "Set whether this panel is :selected.",
+    "panelEvent": true,
+    "args": [
+      {
+        "name": "selected",
+        "type": "bool"
+      }
+    ]
+  },
+  "SwitchStyle": {
+    "description": "Switch which class the panel has for a given attribute slot. Allows easily changing between multiple states.",
+    "panelEvent": true,
+    "args": [
+      {
+        "name": "slot",
+        "type": "panoramasymbol"
+      },
+      {
+        "name": "class",
+        "type": "panoramasymbol"
+      }
+    ]
+  },
+  "TogglePanelSelected": {
+    "description": "Toggle whether this panel is :selected.",
+    "panelEvent": true,
+    "args": []
+  },
+  "ToggleStyle": {
+    "description": "Toggle whether a panel has the given CSS class.",
+    "panelEvent": true,
+    "args": [
+      {
+        "name": "class",
+        "type": "panoramasymbol"
+      }
+    ]
+  },
+  "TriggerStyle": {
+    "description": "Remove then immediately add back a CSS class from a panel. Useful to re-trigger events like animations or sound effects.",
+    "panelEvent": true,
+    "args": [
+      {
+        "name": "class",
+        "type": "panoramasymbol"
+      }
+    ]
+  },
+  "DismissAllContextMenus": {
+    "description": "Dismiss all open context menus.",
+    "panelEvent": false,
+    "args": []
+  },
+  "BrowserGoToURL": {
+    "description": "Open an URL in the Steam overlay browser.",
+    "panelEvent": false,
+    "args": [
+      {
+        "name": "url",
+        "type": "string"
+      }
+    ]
+  },
+  "ExternalBrowserGoToURL": {
+    "description": "Open an URL in the default external browser.",
+    "panelEvent": false,
+    "args": [
+      {
+        "name": "url",
+        "type": "string"
+      }
+    ]
+  },
+  "UIHideCustomLayoutTooltip": {
+    "description": "Hide a tooltip with a custom layout.",
+    "panelEvent": true,
+    "args": [
+      {
+        "name": "name",
+        "type": "string"
+      }
+    ]
+  },
+  "UIShowCustomLayoutParametersTooltip": {
+    "description": "Show a tooltip with a custom layout, passing parameters in query string format (key=value&key2=value2).",
+    "panelEvent": true,
+    "args": [
+      {
+        "name": "name",
+        "type": "string"
+      },
+      {
+        "name": "layoutPath",
+        "type": "string"
+      },
+      {
+        "name": "parameters",
+        "type": "string"
+      }
+    ]
+  },
+  "DOTAHUDGameDisconnect": {
+    "description": "Disconnect from the current game.",
+    "panelEvent": false,
+    "args": []
+  },
+  "DOTAShowMatchDetails": {
+    "description": "Open the match details page for a match.",
+    "panelEvent": false,
+    "args": [
+      {
+        "name": "matchId",
+        "type": "uint64"
+      }
+    ]
+  },
+  "PlaySoundEffect": {
+    "description": "Play a sound event by name.",
+    "panelEvent": false,
+    "args": [
+      {
+        "name": "soundEventName",
+        "type": "string"
+      }
+    ],
+    "example": "PlaySoundEffect( ui_topmenu_activate )",
+    "exampleSource": "panorama/layout/dashboard_background_seasonal_reward_line_fall_2025.xml"
+  },
+  "UIShowCustomLayoutPopup": {
+    "description": "Show a popup with a custom layout.",
+    "panelEvent": false,
+    "args": [
+      {
+        "name": "popupId",
+        "type": "string"
+      },
+      {
+        "name": "layoutPath",
+        "type": "string"
+      }
+    ],
+    "example": "UIShowCustomLayoutPopup( ReplayPendingPopup, file://{resources}/layout/events/spring_2021_play_details.xml )",
+    "exampleSource": "panorama/layout/battle_pass/crownfall/bp_page_crownfall_overworld.xml"
+  },
+  "UIShowCustomLayoutPopupParameters": {
+    "description": "Show a popup with a custom layout, passing parameters in query string format (key=value&key2=value2).",
+    "panelEvent": false,
+    "args": [
+      {
+        "name": "popupId",
+        "type": "string"
+      },
+      {
+        "name": "layoutPath",
+        "type": "string"
+      },
+      {
+        "name": "parameters",
+        "type": "string"
+      }
+    ],
+    "example": "UIShowCustomLayoutPopupParameters( CustomPopupTest, file://{resources}/layout/popups/popup_custom_test.xml, popupvalue=hello )",
+    "exampleSource": "panorama/layout/hud/dota_hud_spectator_options.xml"
+  },
+  "UIShowCustomLayoutTooltip": {
+    "description": "Show a tooltip with a custom layout.",
+    "panelEvent": true,
+    "args": [
+      {
+        "name": "tooltipId",
+        "type": "string"
+      },
+      {
+        "name": "layoutPath",
+        "type": "string"
+      }
+    ],
+    "example": "UIShowCustomLayoutTooltip( MuertaEventTooltip, file://{resources}/layout/tooltips/tooltip_muerta_event.xml )",
+    "exampleSource": "panorama/layout/dashboard_page_guild_details.xml"
+  },
+  "UIShowTextTooltip": {
+    "description": "Show a tooltip with the given text.",
+    "panelEvent": true,
+    "args": [
+      {
+        "name": "text",
+        "type": "string"
+      }
+    ],
+    "example": "UIShowTextTooltip( #DOTA_GrantIfNotOwned )",
+    "exampleSource": "panorama/layout/action_list_reward.xml"
+  },
+  "UIHideTextTooltip": {
+    "description": "Hide the text tooltip.",
+    "panelEvent": true,
+    "args": [],
+    "example": "UIHideTextTooltip()",
+    "exampleSource": "panorama/layout/action_list_reward.xml"
+  },
+  "UIShowTextTooltipStyled": {
+    "description": "Show a tooltip with the given text and style class.",
+    "panelEvent": true,
+    "args": [
+      {
+        "name": "text",
+        "type": "string"
+      },
+      {
+        "name": "style",
+        "type": "panoramasymbol"
+      }
+    ],
+    "example": "UIShowTextTooltipStyled( #DOTA_Glossary_Damage_ArmorTooltip, LongTextTooltip )",
+    "exampleSource": "panorama/layout/dashboard_page_post_game.xml"
+  },
+  "UIShowTitleTextTooltip": {
+    "description": "Show a tooltip with the given title and text.",
+    "panelEvent": true,
+    "args": [
+      {
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "name": "text",
+        "type": "string"
+      }
+    ],
+    "example": "UIShowTitleTextTooltip( {s:reward_name}, {s:reward_desc} )",
+    "exampleSource": "panorama/layout/dashboard_page_owned_item_details_style.xml"
+  },
+  "UIHideTitleTextTooltip": {
+    "description": "Hide the title text tooltip.",
+    "panelEvent": true,
+    "args": [],
+    "example": "UIHideTitleTextTooltip()",
+    "exampleSource": "panorama/layout/dashboard_page_owned_item_details_style.xml"
+  },
+  "UIPopupButtonClicked": {
+    "description": "Standard popup button click handler; closes the containing popup.",
+    "panelEvent": true,
+    "args": [],
+    "example": "UIPopupButtonClicked()",
+    "exampleSource": "panorama/layout/battle_pass/crownfall/bp_crownfall_overworld_map.xml"
+  },
+  "DOTADisplayURL": {
+    "description": "Open an URL in the Steam overlay browser.",
+    "panelEvent": false,
+    "args": [
+      {
+        "name": "url",
+        "type": "string"
+      }
+    ],
+    "example": "DOTADisplayURL( 'http://www.dota2.com' )"
+  },
+  "DOTASceneFireEntityInput": {
+    "description": "Fire an entity input in the scene shown by the target scene panel.",
+    "panelEvent": true,
+    "args": [
+      {
+        "name": "entityName",
+        "type": "string"
+      },
+      {
+        "name": "inputName",
+        "type": "string"
+      },
+      {
+        "name": "value",
+        "type": "string"
+      }
+    ],
+    "example": "DOTASceneFireEntityInput( ui_home_embers, start, 1 )",
+    "exampleSource": "panorama/layout/dashboard.xml"
+  },
+  "DOTAGlobalSceneFireEntityInput": {
+    "description": "Fire an entity input in a global scene panel with the given id.",
+    "panelEvent": false,
+    "args": [
+      {
+        "name": "sceneId",
+        "type": "string"
+      },
+      {
+        "name": "entityName",
+        "type": "string"
+      },
+      {
+        "name": "inputName",
+        "type": "string"
+      },
+      {
+        "name": "value",
+        "type": "string"
+      }
+    ],
+    "example": "DOTAGlobalSceneFireEntityInput( SharkScene, sharkparticle, stop, 0 )",
+    "exampleSource": "panorama/layout/dashboard.xml"
+  },
+  "DOTAGlobalSceneSetCameraEntity": {
+    "description": "Set the camera of a global scene panel to an entity, lerping over the given duration.",
+    "panelEvent": false,
+    "args": [
+      {
+        "name": "sceneId",
+        "type": "string"
+      },
+      {
+        "name": "cameraEntityName",
+        "type": "string"
+      },
+      {
+        "name": "lerpTime",
+        "type": "float"
+      }
+    ],
+    "example": "DOTAGlobalSceneSetCameraEntity( \"PregameBG\", \"shot_cameraB\", 1.0 )",
+    "exampleSource": "panorama/scripts/battle_pass/international2017/bp_international2017_background.js"
+  },
+  "DOTAGlobalSceneSetRootEntity": {
+    "description": "Set the root entity of a global scene panel.",
+    "panelEvent": false,
+    "args": [
+      {
+        "name": "sceneId",
+        "type": "string"
+      },
+      {
+        "name": "entityName",
+        "type": "string"
+      }
+    ],
+    "example": "DOTAGlobalSceneSetRootEntity( \"ArcanaScene\", \"root\" )",
+    "exampleSource": "panorama/scripts/leaf_pages/dashboard_page_debut_arcana_mk.js"
+  },
+  "DOTASceneSetCameraEntity": {
+    "description": "Set the camera of the target scene panel to an entity, lerping over the given duration.",
+    "panelEvent": true,
+    "args": [
+      {
+        "name": "cameraEntityName",
+        "type": "string"
+      },
+      {
+        "name": "lerpTime",
+        "type": "float"
+      }
+    ]
+  },
+  "DOTAScenePanelSimulateWorld": {
+    "description": "Simulate the world of the target scene panel for the given duration.",
+    "panelEvent": true,
+    "args": [
+      {
+        "name": "seconds",
+        "type": "float"
+      }
+    ]
+  },
+  "DOTAScenePanelSetRotationSpeed": {
+    "description": "Set the rotation speed of the target scene panel.",
+    "panelEvent": true,
+    "args": [
+      {
+        "name": "rotationSpeed",
+        "type": "float"
+      }
+    ]
+  },
+  "DOTAScenePanelResetRotation": {
+    "description": "Reset the rotation of the target scene panel.",
+    "panelEvent": true,
+    "args": []
+  },
+  "DOTAScenePanelDumpState": {
+    "description": "Dump the state of the scene shown by the target scene panel to the console.",
+    "panelEvent": true,
+    "args": []
+  },
+  "DOTAScenePanelSceneLoaded": {
+    "description": "Fired by a scene panel when its scene has finished loading.",
+    "panelEvent": true,
+    "args": []
+  },
+  "DOTAScenePanelSceneUnloaded": {
+    "description": "Fired by a scene panel when its scene has been unloaded.",
+    "panelEvent": true,
+    "args": []
+  },
+  "DOTAScenePanelCameraLerpFinished": {
+    "description": "Fired by a scene panel when a camera lerp has finished.",
+    "panelEvent": true,
+    "args": []
+  },
+  "DOTAScenePanelEntityClicked": {
+    "description": "Fired by a scene panel when an entity in the scene is clicked.",
+    "panelEvent": true,
+    "args": [
+      {
+        "name": "entityName",
+        "type": "string"
+      }
+    ]
+  },
+  "DOTAScenePanelEntityMouseOver": {
+    "description": "Fired by a scene panel when the cursor moves over an entity in the scene.",
+    "panelEvent": true,
+    "args": [
+      {
+        "name": "entityName",
+        "type": "string"
+      }
+    ]
+  },
+  "DOTAScenePanelEntityMouseOut": {
+    "description": "Fired by a scene panel when the cursor moves off an entity in the scene.",
+    "panelEvent": true,
+    "args": [
+      {
+        "name": "entityName",
+        "type": "string"
+      }
+    ]
+  },
+  "DOTAHUDToggleShop": {
+    "description": "Toggle the shop.",
+    "panelEvent": false,
+    "args": [],
+    "example": "DOTAHUDToggleShop()",
+    "exampleSource": "panorama/layout/hud/dota_hud_quick_buy.xml"
+  },
+  "DOTAHUDShopOpened": {
+    "description": "Fired when a shop is opened or closed (shopType: DOTA_SHOP_TYPE).",
+    "panelEvent": false,
+    "args": [
+      {
+        "name": "shopType",
+        "type": "int32"
+      },
+      {
+        "name": "opened",
+        "type": "bool"
+      }
+    ]
+  },
+  "DOTAShopHideShop": {
+    "description": "Hide the shop.",
+    "panelEvent": false,
+    "args": [],
+    "example": "DOTAShopHideShop()",
+    "exampleSource": "panorama/layout/hud/dota_hud_shop.xml"
+  },
+  "DOTAShopShowMainShopTab": {
+    "description": "Switch the shop to the main shop tab.",
+    "panelEvent": false,
+    "args": [],
+    "example": "DOTAShopShowMainShopTab()",
+    "exampleSource": "panorama/layout/hud/dota_hud_shop.xml"
+  },
+  "DOTAShopShowSecretShopTab": {
+    "description": "Switch the shop to the secret shop tab.",
+    "panelEvent": false,
+    "args": [],
+    "example": "DOTAShopShowSecretShopTab()",
+    "exampleSource": "panorama/layout/hud/dota_hud_shop.xml"
+  },
+  "DOTAShopShowSideShopTab": {
+    "description": "Switch the shop to the side shop tab.",
+    "panelEvent": false,
+    "args": [],
+    "example": "DOTAShopShowSideShopTab()",
+    "exampleSource": "panorama/layout/hud/dota_hud_shop.xml"
+  },
+  "DOTAShopToggleAdvancedShop": {
+    "description": "Toggle between the grid and categorized shop views.",
+    "panelEvent": false,
+    "args": [],
+    "example": "DOTAShopToggleAdvancedShop()",
+    "exampleSource": "panorama/layout/hud/dota_hud_shop.xml"
+  },
+  "DOTAShopToggleMinimalShop": {
+    "description": "Toggle the minimized shop view.",
+    "panelEvent": false,
+    "args": [],
+    "example": "DOTAShopToggleMinimalShop()",
+    "exampleSource": "panorama/layout/hud/dota_hud_shop.xml"
+  },
+  "DOTAShopToggleShopFilter": {
+    "description": "Toggle the shop item filter.",
+    "panelEvent": false,
+    "args": [],
+    "example": "DOTAShopToggleShopFilter()",
+    "exampleSource": "panorama/layout/hud/dota_hud_shop.xml"
+  },
+  "DOTAShopToggleShowPopularItems": {
+    "description": "Toggle the popular items section of the shop.",
+    "panelEvent": false,
+    "args": [],
+    "example": "DOTAShopToggleShowPopularItems()",
+    "exampleSource": "panorama/layout/hud/dota_hud_shop.xml"
+  },
+  "DOTAShopToggleBuybackProtection": {
+    "description": "Toggle buyback gold protection.",
+    "panelEvent": false,
+    "args": [],
+    "example": "DOTAShopToggleBuybackProtection()",
+    "exampleSource": "panorama/layout/hud/dota_hud_shop.xml"
+  },
+  "DOTAShopRequestSuggestion": {
+    "description": "Request item suggestions in the shop.",
+    "panelEvent": false,
+    "args": [],
+    "example": "DOTAShopRequestSuggestion()",
+    "exampleSource": "panorama/layout/hud/dota_hud_shop.xml"
+  },
+  "DOTAShopCancelSearch": {
+    "description": "Cancel the shop item search.",
+    "panelEvent": false,
+    "args": [],
+    "example": "DOTAShopCancelSearch()",
+    "exampleSource": "panorama/scripts/hud/dota_hud_shop.js"
+  },
+  "DOTAShopToggleEditMode": {
+    "description": "Toggle the item build edit mode of the shop.",
+    "panelEvent": false,
+    "args": [],
+    "example": "DOTAShopToggleEditMode()",
+    "exampleSource": "panorama/layout/hud/dota_hud_item_build.xml"
+  },
+  "DOTAShopToggleEditCommonItemsMode": {
+    "description": "Toggle the common items edit mode of the shop.",
+    "panelEvent": false,
+    "args": [],
+    "example": "DOTAShopToggleEditCommonItemsMode()",
+    "exampleSource": "panorama/layout/hud/dota_hud_common_items.xml"
+  },
+  "DOTAHUDToggleScoreboard": {
+    "description": "Toggle the scoreboard.",
+    "panelEvent": false,
+    "args": [],
+    "example": "DOTAHUDToggleScoreboard()",
+    "exampleSource": "panorama/layout/hud/dota_hud_menu_buttons.xml"
+  },
+  "DOTAHUDHideScoreboard": {
+    "description": "Hide the scoreboard.",
+    "panelEvent": false,
+    "args": []
+  },
+  "DOTAHUDShowDashboard": {
+    "description": "Show the dashboard (main menu) over the game.",
+    "panelEvent": false,
+    "args": [],
+    "example": "DOTAHUDShowDashboard()",
+    "exampleSource": "panorama/layout/hud/dota_hud_pregame.xml"
+  },
+  "DOTAHUDToggleCombatLog": {
+    "description": "Toggle the combat log.",
+    "panelEvent": false,
+    "args": [],
+    "example": "DOTAHUDToggleCombatLog()",
+    "exampleSource": "panorama/layout/hud/dota_hud_scoreboard.xml"
+  },
+  "DOTAHUDLevelUpStats": {
+    "description": "Activate the attribute (stats) level up button.",
+    "panelEvent": false,
+    "args": [],
+    "example": "DOTAHUDLevelUpStats()",
+    "exampleSource": "panorama/layout/hud/dota_hud_str_agi_int.xml"
+  },
+  "DOTAHUDToggleLearnMode": {
+    "description": "Toggle the ability learn mode.",
+    "panelEvent": false,
+    "args": [],
+    "example": "DOTAHUDToggleLearnMode()",
+    "exampleSource": "panorama/layout/hud/dota_hud_level_up_button.xml"
+  },
+  "DOTAHUDStatBranchUpgrade": {
+    "description": "Upgrade a talent by its slot (1..8, bottom-left to top-right).",
+    "panelEvent": false,
+    "args": [
+      {
+        "name": "branchSlot",
+        "type": "int32"
+      }
+    ],
+    "example": "DOTAHUDStatBranchUpgrade( 8 )",
+    "exampleSource": "panorama/layout/hud/dota_hud_stat_branch.xml"
+  },
+  "DOTAHUDStatBranchClicked": {
+    "description": "Fired when the talent tree button is clicked.",
+    "panelEvent": false,
+    "args": [],
+    "example": "DOTAHUDStatBranchClicked()",
+    "exampleSource": "panorama/layout/hud/dota_hud_talentdisplay.xml"
+  },
+  "DOTAHUDTalentTreeClicked": {
+    "description": "Fired when the talent tree display is clicked.",
+    "panelEvent": false,
+    "args": [],
+    "example": "DOTAHUDTalentTreeClicked()",
+    "exampleSource": "panorama/layout/hud/dota_hud_talentdisplay.xml"
+  },
+  "DOTAHUDToggleStatBranchVisibility": {
+    "description": "Toggle the talent tree display.",
+    "panelEvent": false,
+    "args": [],
+    "example": "DOTAHUDToggleStatBranchVisibility()",
+    "exampleSource": "panorama/layout/hud/dota_hud_level_stats_frame.xml"
+  },
+  "DOTAHUDCloseStatBranch": {
+    "description": "Close the talent tree display.",
+    "panelEvent": false,
+    "args": []
+  },
+  "DOTAHUDMouseOverTalentTree": {
+    "description": "Fired when the cursor moves over the talent tree button.",
+    "panelEvent": false,
+    "args": [],
+    "example": "DOTAHUDMouseOverTalentTree()",
+    "exampleSource": "panorama/layout/hud/dota_hud_talentdisplay.xml"
+  },
+  "DOTAHUDMouseOutTalentTree": {
+    "description": "Fired when the cursor moves off the talent tree button.",
+    "panelEvent": false,
+    "args": [],
+    "example": "DOTAHUDMouseOutTalentTree()",
+    "exampleSource": "panorama/layout/hud/dota_hud_talentdisplay.xml"
+  },
+  "DOTAHUDBuyback": {
+    "description": "Buy back the local player's hero.",
+    "panelEvent": false,
+    "args": [],
+    "example": "DOTAHUDBuyback()",
+    "exampleSource": "panorama/layout/hud/dota_hud_death_panel.xml"
+  },
+  "DOTAHUDRespawnLabelClick": {
+    "description": "Fired when the respawn label of the death panel is clicked.",
+    "panelEvent": false,
+    "args": [],
+    "example": "DOTAHUDRespawnLabelClick()",
+    "exampleSource": "panorama/layout/hud/dota_hud_death_panel.xml"
+  },
+  "DOTAHUDClearQuickBuy": {
+    "description": "Clear the quick buy area.",
+    "panelEvent": false,
+    "args": [],
+    "example": "DOTAHUDClearQuickBuy()",
+    "exampleSource": "panorama/layout/hud/dota_hud_quick_buy.xml"
+  },
+  "DOTAHUDQuickBuyBackgroundClicked": {
+    "description": "Fired when the quick buy background is clicked.",
+    "panelEvent": false,
+    "args": [],
+    "example": "DOTAHUDQuickBuyBackgroundClicked()",
+    "exampleSource": "panorama/layout/hud/dota_hud_quick_buy.xml"
+  },
+  "DOTAHUDShopButtonRightClick": {
+    "description": "Fired when the shop button is right-clicked.",
+    "panelEvent": false,
+    "args": [],
+    "example": "DOTAHUDShopButtonRightClick()",
+    "exampleSource": "panorama/layout/hud/dota_hud_quick_buy.xml"
+  },
+  "DOTAHUDToggleBuybackProtection": {
+    "description": "Toggle buyback gold protection.",
+    "panelEvent": false,
+    "args": [],
+    "example": "DOTAHUDToggleBuybackProtection()",
+    "exampleSource": "panorama/layout/hud/dota_hud_quick_buy.xml"
+  },
+  "DOTAHUDMultiUnitPageClick": {
+    "description": "Switch the page of the multi-unit selection panel.",
+    "panelEvent": false,
+    "args": [
+      {
+        "name": "pageIndex",
+        "type": "int32"
+      }
+    ],
+    "example": "DOTAHUDMultiUnitPageClick( 0 )",
+    "exampleSource": "panorama/layout/hud/dota_hud_multi_unit.xml"
+  },
+  "DOTAHUDTimerClick": {
+    "description": "Fired when a HUD timer is clicked (1..5).",
+    "panelEvent": false,
+    "args": [
+      {
+        "name": "timerIndex",
+        "type": "int32"
+      }
+    ],
+    "example": "DOTAHUDTimerClick( 1 )",
+    "exampleSource": "panorama/layout/hud/dota_hud_timers.xml"
+  },
+  "DOTAHUDStashGrabAll": {
+    "description": "Grab all items from the stash.",
+    "panelEvent": false,
+    "args": [],
+    "example": "DOTAHUDStashGrabAll()",
+    "exampleSource": "panorama/layout/hud/dota_hud_stash.xml"
+  },
+  "DOTAHUDInspect": {
+    "description": "Open the inspect view of the selected unit.",
+    "panelEvent": false,
+    "args": [],
+    "example": "DOTAHUDInspect()",
+    "exampleSource": "panorama/layout/hud/dota_hud_portrait.xml"
+  },
+  "DOTAHUDInspectClose": {
+    "description": "Close the inspect view.",
+    "panelEvent": false,
+    "args": [],
+    "example": "DOTAHUDInspectClose()",
+    "exampleSource": "panorama/layout/hud/dota_hud_inspect.xml"
+  },
+  "DOTAHUDInspectQueryUnit": {
+    "description": "Open the inspect view of the query unit.",
+    "panelEvent": false,
+    "args": [],
+    "example": "DOTAHUDInspectQueryUnit()",
+    "exampleSource": "panorama/layout/hud/dota_hud_query_unit.xml"
+  },
+  "DOTAHUDHealthManaClick": {
+    "description": "Fired when the health or mana bar is clicked.",
+    "panelEvent": false,
+    "args": [],
+    "example": "DOTAHUDHealthManaClick()",
+    "exampleSource": "panorama/layout/hud/dota_hud_health_mana.xml"
+  },
+  "DOTAHUDXPBarClicked": {
+    "description": "Fired when the XP bar is clicked.",
+    "panelEvent": false,
+    "args": [],
+    "example": "DOTAHUDXPBarClicked()",
+    "exampleSource": "panorama/layout/hud/dota_hud_xp.xml"
+  },
+  "DOTAHUDQueryXPClicked": {
+    "description": "Fired when the XP bar of the query unit is clicked.",
+    "panelEvent": false,
+    "args": [],
+    "example": "DOTAHUDQueryXPClicked()",
+    "exampleSource": "panorama/layout/hud/dota_hud_query_unit.xml"
+  },
+  "DOTAHUDXPBarContextMenu": {
+    "description": "Fired when the XP bar is right-clicked.",
+    "panelEvent": false,
+    "args": [],
+    "example": "DOTAHUDXPBarContextMenu()",
+    "exampleSource": "panorama/layout/hud/dota_hud_xp.xml"
+  },
+  "DOTAHUDHeroViewClicked": {
+    "description": "Fired when the hero view of the query unit panel is clicked.",
+    "panelEvent": false,
+    "args": [],
+    "example": "DOTAHUDHeroViewClicked()",
+    "exampleSource": "panorama/layout/hud/dota_hud_query_unit.xml"
+  },
+  "DOTAHUDGGCancel": {
+    "description": "Cancel the GG call.",
+    "panelEvent": false,
+    "args": [],
+    "example": "DOTAHUDGGCancel()",
+    "exampleSource": "panorama/layout/hud/dota_hud_gg.xml"
+  },
+  "DOTAHUDShowReportUserPopup": {
+    "description": "Show the report user popup for the queried player.",
+    "panelEvent": false,
+    "args": [],
+    "example": "DOTAHUDShowReportUserPopup()",
+    "exampleSource": "panorama/layout/hud/dota_hud_portrait.xml"
+  },
+  "DOTAHUDCourierBurst": {
+    "description": "Use the courier speed burst ability.",
+    "panelEvent": false,
+    "args": [],
+    "example": "DOTAHUDCourierBurst()",
+    "exampleSource": "panorama/layout/hud/dota_hud_courier.xml"
+  },
+  "DOTAHUDCourierShield": {
+    "description": "Use the courier shield ability.",
+    "panelEvent": false,
+    "args": [],
+    "example": "DOTAHUDCourierShield()",
+    "exampleSource": "panorama/layout/hud/dota_hud_courier.xml"
+  },
+  "DOTAHUDCourierDeliverLeftClick": {
+    "description": "Order the courier to deliver items to the local hero.",
+    "panelEvent": false,
+    "args": [],
+    "example": "DOTAHUDCourierDeliverLeftClick()",
+    "exampleSource": "panorama/layout/hud/dota_hud_courier.xml"
+  },
+  "DOTAHUDCourierSelectLeftClick": {
+    "description": "Select the courier.",
+    "panelEvent": false,
+    "args": [],
+    "example": "DOTAHUDCourierSelectLeftClick()",
+    "exampleSource": "panorama/layout/hud/dota_hud_courier.xml"
+  },
+  "DOTAHUDCourierDeliverToBestOtherPlayer": {
+    "description": "Order the courier to deliver items to the ally that needs it most.",
+    "panelEvent": false,
+    "args": [],
+    "example": "DOTAHUDCourierDeliverToBestOtherPlayer()",
+    "exampleSource": "panorama/layout/hud/dota_hud_courier.xml"
+  },
+  "DOTAHUDToggleSharedContent": {
+    "description": "Toggle the shared units panel.",
+    "panelEvent": false,
+    "args": [],
+    "example": "DOTAHUDToggleSharedContent()",
+    "exampleSource": "panorama/layout/hud/dota_hud_scoreboard.xml"
+  },
+  "DOTAHUDToggleSharedUnits": {
+    "description": "Toggle shared unit control display on the scoreboard.",
+    "panelEvent": false,
+    "args": [],
+    "example": "DOTAHUDToggleSharedUnits()",
+    "exampleSource": "panorama/layout/hud/dota_hud_scoreboard.xml"
+  },
+  "DOTAHUDToggleShowItems": {
+    "description": "Toggle item display on the scoreboard.",
+    "panelEvent": false,
+    "args": [],
+    "example": "DOTAHUDToggleShowItems()",
+    "exampleSource": "panorama/layout/hud/dota_hud_scoreboard.xml"
+  },
+  "DOTAHUDToggleScoreboardCoaches": {
+    "description": "Toggle coach display on the scoreboard.",
+    "panelEvent": false,
+    "args": [],
+    "example": "DOTAHUDToggleScoreboardCoaches()",
+    "exampleSource": "panorama/layout/hud/dota_hud_scoreboard.xml"
+  },
+  "DOTAHUDToggleSpectatorGraph": {
+    "description": "Toggle the spectator stats graph.",
+    "panelEvent": false,
+    "args": [],
+    "example": "DOTAHUDToggleSpectatorGraph()",
+    "exampleSource": "panorama/layout/hud/dota_hud_spectator_game_stats.xml"
+  },
+  "DOTAHUDToggleSpectatorItems": {
+    "description": "Toggle the spectator items panel.",
+    "panelEvent": false,
+    "args": [],
+    "example": "DOTAHUDToggleSpectatorItems()",
+    "exampleSource": "panorama/layout/hud/dota_hud_spectator_items.xml"
+  },
+  "DOTAHUDShowGuideBrowser": {
+    "description": "Show the hero guide browser.",
+    "panelEvent": false,
+    "args": []
+  },
+  "DOTAHUDHideGuideBrowser": {
+    "description": "Hide the hero guide browser.",
+    "panelEvent": false,
+    "args": [],
+    "example": "DOTAHUDHideGuideBrowser()",
+    "exampleSource": "panorama/layout/dota_ui_guide_browser.xml"
+  },
+  "DOTAHUDShowPredictions": {
+    "description": "Show the predictions panel.",
+    "panelEvent": false,
+    "args": [],
+    "example": "DOTAHUDShowPredictions()",
+    "exampleSource": "panorama/layout/hud/dota_hud_predictions_button.xml"
+  },
+  "DOTAHUDHidePredictionsButton": {
+    "description": "Hide the predictions button.",
+    "panelEvent": false,
+    "args": [],
+    "example": "DOTAHUDHidePredictionsButton()",
+    "exampleSource": "panorama/layout/hud/dota_hud_predictions_button.xml"
+  },
+  "DOTAHUDContextualTipsClosed": {
+    "description": "Fired when the contextual tips panel is closed.",
+    "panelEvent": false,
+    "args": [],
+    "example": "DOTAHUDContextualTipsClosed()",
+    "exampleSource": "panorama/layout/hud/dota_hud_contextual_tips.xml"
+  },
+  "DOTAHUDRadarButtonClicked": {
+    "description": "Activate the radar (scan).",
+    "panelEvent": false,
+    "args": [],
+    "example": "DOTAHUDRadarButtonClicked()",
+    "exampleSource": "panorama/layout/dota_hud_radar_button.xml"
+  },
+  "DOTAHUDShowGoldTooltip": {
+    "description": "Show the gold breakdown tooltip.",
+    "panelEvent": true,
+    "args": [],
+    "example": "DOTAHUDShowGoldTooltip()",
+    "exampleSource": "panorama/layout/hud/dota_hud_quick_buy.xml"
+  },
+  "DOTAHUDHideGoldTooltip": {
+    "description": "Hide the gold breakdown tooltip.",
+    "panelEvent": true,
+    "args": [],
+    "example": "DOTAHUDHideGoldTooltip()",
+    "exampleSource": "panorama/layout/hud/dota_hud_quick_buy.xml"
+  },
+  "DOTAHUDShowDamageArmorTooltip": {
+    "description": "Show the damage/armor tooltip of the query unit.",
+    "panelEvent": true,
+    "args": [],
+    "example": "DOTAHUDShowDamageArmorTooltip()",
+    "exampleSource": "panorama/layout/hud/hud_reborn.xml"
+  },
+  "DOTAHUDHideDamageArmorTooltip": {
+    "description": "Hide the damage/armor tooltip.",
+    "panelEvent": true,
+    "args": [],
+    "example": "DOTAHUDHideDamageArmorTooltip()",
+    "exampleSource": "panorama/layout/hud/hud_reborn.xml"
+  },
+  "DOTAHUDShowGlyphTooltip": {
+    "description": "Show the glyph tooltip.",
+    "panelEvent": true,
+    "args": [],
+    "example": "DOTAHUDShowGlyphTooltip()",
+    "exampleSource": "panorama/layout/hud/dota_hud_glyph.xml"
+  },
+  "DOTAHUDHideGlyphTooltip": {
+    "description": "Hide the glyph tooltip.",
+    "panelEvent": true,
+    "args": [],
+    "example": "DOTAHUDHideGlyphTooltip()",
+    "exampleSource": "panorama/layout/hud/dota_hud_glyph.xml"
+  },
+  "DOTAHUDShowSpectatorGlyphTooltip": {
+    "description": "Show the glyph tooltip for a team while spectating (2 = Radiant, 3 = Dire).",
+    "panelEvent": true,
+    "args": [
+      {
+        "name": "teamNumber",
+        "type": "int32"
+      }
+    ],
+    "example": "DOTAHUDShowSpectatorGlyphTooltip( 2 )",
+    "exampleSource": "panorama/layout/hud/dota_hud_glyph.xml"
+  },
+  "DOTAHUDHideSpectatorGlyphTooltip": {
+    "description": "Hide the spectator glyph tooltip.",
+    "panelEvent": true,
+    "args": [],
+    "example": "DOTAHUDHideSpectatorGlyphTooltip()",
+    "exampleSource": "panorama/layout/hud/dota_hud_glyph.xml"
+  },
+  "DOTAHUDShowRoshanTimerTooltip": {
+    "description": "Show the Roshan timer tooltip.",
+    "panelEvent": true,
+    "args": [],
+    "example": "DOTAHUDShowRoshanTimerTooltip()",
+    "exampleSource": "panorama/layout/dota_hud_roshan_timer.xml"
+  },
+  "DOTAHUDHideRoshanTimerTooltip": {
+    "description": "Hide the Roshan timer tooltip.",
+    "panelEvent": true,
+    "args": [],
+    "example": "DOTAHUDHideRoshanTimerTooltip()",
+    "exampleSource": "panorama/layout/dota_hud_roshan_timer.xml"
+  },
+  "DOTAHUDShowTormentorTimerTooltip": {
+    "description": "Show the Tormentor timer tooltip.",
+    "panelEvent": true,
+    "args": [],
+    "example": "DOTAHUDShowTormentorTimerTooltip()",
+    "exampleSource": "panorama/layout/dota_hud_tormentor_timer.xml"
+  },
+  "DOTAHUDHideTormentorTimerTooltip": {
+    "description": "Hide the Tormentor timer tooltip.",
+    "panelEvent": true,
+    "args": [],
+    "example": "DOTAHUDHideTormentorTimerTooltip()",
+    "exampleSource": "panorama/layout/dota_hud_tormentor_timer.xml"
+  },
+  "DOTAHUDShowRadarTooltip": {
+    "description": "Show the radar (scan) tooltip.",
+    "panelEvent": true,
+    "args": [],
+    "example": "DOTAHUDShowRadarTooltip()",
+    "exampleSource": "panorama/layout/dota_hud_radar_button.xml"
+  },
+  "DOTAHUDHideRadarTooltip": {
+    "description": "Hide the radar (scan) tooltip.",
+    "panelEvent": true,
+    "args": [],
+    "example": "DOTAHUDHideRadarTooltip()",
+    "exampleSource": "panorama/layout/dota_hud_radar_button.xml"
+  },
+  "DOTAHUDShowVisionRange": {
+    "description": "Show the vision range indicator of the selected unit.",
+    "panelEvent": false,
+    "args": [],
+    "example": "DOTAHUDShowVisionRange()",
+    "exampleSource": "panorama/layout/hud/hud_reborn.xml"
+  },
+  "DOTAHUDHideVisionRange": {
+    "description": "Hide the vision range indicator.",
+    "panelEvent": false,
+    "args": [],
+    "example": "DOTAHUDHideVisionRange()",
+    "exampleSource": "panorama/layout/hud/hud_reborn.xml"
+  },
+  "DOTAHUDBuffClicked": {
+    "description": "Fired when a buff icon is clicked.",
+    "panelEvent": true,
+    "args": [],
+    "example": "DOTAHUDBuffClicked()",
+    "exampleSource": "panorama/layout/hud/dota_hud_buff.xml"
+  },
+  "DOTAHUDHideStatBranchTooltip": {
+    "description": "Hide the talent tree tooltip.",
+    "panelEvent": true,
+    "args": [],
+    "example": "DOTAHUDHideStatBranchTooltip()",
+    "exampleSource": "panorama/layout/hud/dota_hud_query_unit.xml"
+  },
+  "DOTAShowHomePage": {
+    "description": "Navigate the dashboard to the home page.",
+    "panelEvent": false,
+    "args": [],
+    "example": "DOTAShowHomePage()",
+    "exampleSource": "panorama/layout/battle_pass/fall2021/bp_fall2021_quest_treasure.xml"
+  },
+  "DOTAShowSettingsPopup": {
+    "description": "Show the settings screen.",
+    "panelEvent": false,
+    "args": [],
+    "example": "DOTAShowSettingsPopup()",
+    "exampleSource": "panorama/layout/dashboard.xml"
+  },
+  "DOTAShowSettingsRebornPopup": {
+    "description": "Show the settings screen.",
+    "panelEvent": false,
+    "args": [],
+    "example": "DOTAShowSettingsRebornPopup()",
+    "exampleSource": "panorama/layout/dashboard.xml"
+  },
+  "DOTAShowSettingsRebornPopupSection": {
+    "description": "Show the settings screen opened on the given category and section (localization tokens).",
+    "panelEvent": false,
+    "args": [
+      {
+        "name": "categoryToken",
+        "type": "string"
+      },
+      {
+        "name": "sectionToken",
+        "type": "string"
+      }
+    ],
+    "example": "DOTAShowSettingsRebornPopupSection( '#dota_settings_communicationwheels', '#dota_settings_pingwheel' )",
+    "exampleSource": "panorama/layout/dashboard_page_collection.xml"
+  },
+  "DOTAShowSettingsHeroPicker": {
+    "description": "Show the hero picker of the hotkey settings.",
+    "panelEvent": false,
+    "args": [],
+    "example": "DOTAShowSettingsHeroPicker()",
+    "exampleSource": "panorama/layout/popups/popup_settings.xml"
+  },
+  "DOTASetCurrentDashboardPageFullscreen": {
+    "description": "Set whether the current dashboard page is displayed in fullscreen.",
+    "panelEvent": false,
+    "args": [
+      {
+        "name": "fullscreen",
+        "type": "bool"
+      }
+    ],
+    "example": "DOTASetCurrentDashboardPageFullscreen( true )",
+    "exampleSource": "panorama/layout/battle_pass/fall2021/bp_fall2021_quest_treasure.xml"
+  },
+  "DOTAShowReferencePage": {
+    "description": "Show an arbitrary layout file as a dashboard page.",
+    "panelEvent": false,
+    "args": [
+      {
+        "name": "xmlPath",
+        "type": "string"
+      }
+    ],
+    "example": "DOTAShowReferencePage( file://{resources}/layout/leaf_pages/dashboard_page_debut_mars.xml )",
+    "exampleSource": "panorama/layout/banners/front_page_debut_earthshaker.xml"
+  },
+  "DOTAShowReferencePageStyled": {
+    "description": "Show an arbitrary layout file as a dashboard page, adding a style class to it.",
+    "panelEvent": false,
+    "args": [
+      {
+        "name": "xmlPath",
+        "type": "string"
+      },
+      {
+        "name": "styleClass",
+        "type": "string"
+      }
+    ],
+    "example": "DOTAShowReferencePageStyled( file://{resources}/layout/leaf_pages/dashboard_page_halloween2015.xml, PageTwoActive )",
+    "exampleSource": "panorama/layout/leaf_pages/dashboard_page_halloween2015.xml"
+  },
+  "PlayerReportSubmitAvoidRequest": {
+    "description": "Submit an avoid player request from the report popup.",
+    "panelEvent": false,
+    "args": [],
+    "example": "PlayerReportSubmitAvoidRequest()",
+    "exampleSource": "panorama/layout/popups/popup_report_player_new.xml"
+  },
+  "UIShowWraithKingArcanaPopup": {
+    "description": "Show the Wraith King arcana progress popup.",
+    "panelEvent": false,
+    "args": [],
+    "example": "UIShowWraithKingArcanaPopup()",
+    "exampleSource": "panorama/layout/banners/front_page_debut_skeleton_king.xml"
+  },
+  "DOTAAbilityDraftSelectAbility": {
+    "description": "Select an ability in Ability Draft.",
+    "panelEvent": false,
+    "args": [
+      {
+        "name": "abilityIndex",
+        "type": "int32"
+      }
+    ],
+    "example": "DOTAAbilityDraftSelectAbility( abilityIndex )",
+    "exampleSource": "panorama/scripts/hud/dota_hud_abilitydraft.js"
+  },
+  "DOTAAbilityDraftSelectHero": {
+    "description": "Select a hero in Ability Draft.",
+    "panelEvent": false,
+    "args": [
+      {
+        "name": "heroIndex",
+        "type": "int32"
+      }
+    ],
+    "example": "DOTAAbilityDraftSelectHero( heroIndex )",
+    "exampleSource": "panorama/scripts/hud/dota_hud_abilitydraft.js"
+  },
+  "DOTAAbilityDraftPingAbility": {
+    "description": "Ping an ability in Ability Draft.",
+    "panelEvent": false,
+    "args": [
+      {
+        "name": "abilityIndex",
+        "type": "int32"
+      },
+      {
+        "name": "ctrlHeld",
+        "type": "bool"
+      }
+    ],
+    "example": "DOTAAbilityDraftPingAbility( abilityIndex, true )",
+    "exampleSource": "panorama/scripts/hud/dota_hud_abilitydraft.js"
+  },
+  "DOTAAbilityDraftPingHero": {
+    "description": "Ping a hero in Ability Draft.",
+    "panelEvent": false,
+    "args": [
+      {
+        "name": "heroIndex",
+        "type": "int32"
+      },
+      {
+        "name": "ctrlHeld",
+        "type": "bool"
+      }
+    ],
+    "example": "DOTAAbilityDraftPingHero( heroIndex, true )",
+    "exampleSource": "panorama/scripts/hud/dota_hud_abilitydraft.js"
+  }
+}

@@ -1,0 +1,2 @@
+# Dumps are machine-generated JSON: store and check out byte-for-byte.
+vendor/dota-data/** -text

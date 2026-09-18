@@ -1,7 +1,8 @@
 node_modules/
 dist/
 bundle/
-vendor/
+vendor/*
+!vendor/dota-data/
 release/
 *.zip
 *.cache.json
