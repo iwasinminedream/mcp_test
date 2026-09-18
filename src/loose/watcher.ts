@@ -26,6 +26,15 @@ const DEBOUNCE_MS = (() => {
   return Number.isFinite(v) && v >= 0 ? v : 400;
 })();
 
+// Minimum wall-clock gap between the END of one sync and the START of the next.
+// Under a recompile storm (the addon's `game/` is junctioned into the live Steam
+// install, so the game/tools can churn it continuously) this throttles how often
+// the (cooperative but still CPU-bound) re-index runs, keeping the request loop free.
+const MIN_INTERVAL_MS = (() => {
+  const v = Number(process.env.ADDON_WATCH_MIN_INTERVAL_MS);
+  return Number.isFinite(v) && v >= 0 ? v : 2000;
+})();
+
 /** True if a relative path is a compiled asset we care about (not scripts/etc). */
 function isWatchedAsset(rel: string): boolean {
   const lower = rel.replace(/\\/g, '/').toLowerCase();
@@ -59,7 +68,7 @@ export function startAddonWatcher(opts: {
   addonDir: LooseDir;
   index: AssetIndex;
   graph: DepGraph;
-  refinalize: () => void;
+  refinalize: () => void | Promise<void>;
   log?: (m: string) => void;
 }): AddonWatcher {
   const { addonDir, index, graph, refinalize } = opts;
@@ -67,78 +76,104 @@ export function startAddonWatcher(opts: {
   const stats = { events: 0, updates: 0, lastUpdateMs: 0 };
 
   let timer: NodeJS.Timeout | null = null;
-  let pending = false;
+  let running = false; // an update is in flight (re-entrancy guard; updates never overlap)
+  let dirty = false; // events arrived since the last update was scheduled → a sync is wanted
+  let lastEndMs = 0; // wall clock when the last update finished (for throttling)
   let watcher: FSWatcher | null = null;
 
-  const runUpdate = (): void => {
-    pending = false;
+  const runUpdate = async (): Promise<void> => {
+    running = true;
     const t0 = Date.now();
-    let diff: { changed: string[]; removed: string[] };
     try {
-      diff = addonDir.reload();
-    } catch (err) {
-      log(`watch: reload failed: ${err instanceof Error ? err.message : err}`);
-      return;
-    }
-    if (diff.changed.length === 0 && diff.removed.length === 0) return;
-
-    // 1) Index must reflect the new file set (added/removed/override changes).
-    refinalize();
-
-    // 2) Only update the graph if the change set includes compiled assets.
-    const changedAssets = diff.changed.filter(isWatchedAsset);
-    const removedAssets = diff.removed.filter(isWatchedAsset);
-    if (changedAssets.length === 0 && removedAssets.length === 0) {
-      log(`watch: ${diff.changed.length} changed / ${diff.removed.length} removed (no compiled assets; graph untouched)`);
-      return;
-    }
-
-    if (graph.built) {
-      // Re-scan changed addon referrers; for removed addon overrides, re-scan the
-      // path so its edges come from whatever source now serves it (base VPK), or
-      // drop them if the path no longer exists at all.
-      const removedGone: string[] = [];
-      const fellBack: string[] = [];
-      for (const p of removedAssets) {
-        if (index.has(p)) fellBack.push(p);
-        else removedGone.push(p);
+      let diff: { changed: string[]; removed: string[] };
+      try {
+        diff = addonDir.reload();
+      } catch (err) {
+        log(`watch: reload failed: ${err instanceof Error ? err.message : err}`);
+        return;
       }
-      graph.updatePaths(
-        index,
-        (cb) => {
-          // changed addon assets (only referrer kinds matter for the graph)
-          index.scanRerlForSource(
-            addonDir.source,
-            GRAPH_REFERRER_KINDS,
-            ({ path, refs }) => cb({ path, refs }),
-          );
-          // paths that fell back to base after an override was deleted
-          if (fellBack.length) {
-            index.scanRerlForPaths(fellBack, GRAPH_REFERRER_KINDS, ({ path, refs }) =>
-              cb({ path, refs }),
-            );
-          }
-        },
-        removedGone,
-        log,
-      );
-    }
+      if (diff.changed.length === 0 && diff.removed.length === 0) return;
 
-    stats.updates++;
-    stats.lastUpdateMs = Date.now() - t0;
-    log(
-      `watch: synced ${changedAssets.length} changed, ${removedAssets.length} removed asset(s) ` +
-        `in ${stats.lastUpdateMs}ms`,
-    );
+      // 1) Index must reflect the new file set (added/removed/override changes).
+      //    Cooperative: yields to the event loop so MCP calls stay responsive.
+      await refinalize();
+
+      // 2) Only update the graph if the change set includes compiled assets.
+      const changedAssets = diff.changed.filter(isWatchedAsset);
+      const removedAssets = diff.removed.filter(isWatchedAsset);
+      if (changedAssets.length === 0 && removedAssets.length === 0) {
+        log(`watch: ${diff.changed.length} changed / ${diff.removed.length} removed (no compiled assets; graph untouched)`);
+        return;
+      }
+
+      if (graph.built) {
+        // Re-scan changed addon referrers; for removed addon overrides, re-scan the
+        // path so its edges come from whatever source now serves it (base VPK), or
+        // drop them if the path no longer exists at all.
+        const removedGone: string[] = [];
+        const fellBack: string[] = [];
+        for (const p of removedAssets) {
+          if (index.has(p)) fellBack.push(p);
+          else removedGone.push(p);
+        }
+        graph.updatePaths(
+          index,
+          (cb) => {
+            // changed addon assets (only referrer kinds matter for the graph)
+            index.scanRerlForSource(
+              addonDir.source,
+              GRAPH_REFERRER_KINDS,
+              ({ path, refs }) => cb({ path, refs }),
+            );
+            // paths that fell back to base after an override was deleted
+            if (fellBack.length) {
+              index.scanRerlForPaths(fellBack, GRAPH_REFERRER_KINDS, ({ path, refs }) =>
+                cb({ path, refs }),
+              );
+            }
+          },
+          removedGone,
+          log,
+        );
+      }
+
+      stats.updates++;
+      stats.lastUpdateMs = Date.now() - t0;
+      log(
+        `watch: synced ${changedAssets.length} changed, ${removedAssets.length} removed asset(s) ` +
+          `in ${stats.lastUpdateMs}ms`,
+      );
+    } finally {
+      running = false;
+      lastEndMs = Date.now();
+      if (dirty) arm(); // events arrived during the run → schedule a trailing sync
+    }
+  };
+
+  // Fires after the debounce; enforces the throttle and the no-overlap guard.
+  const fire = (): void => {
+    timer = null;
+    if (running) return; // runUpdate's finally re-arms when it finishes
+    const since = Date.now() - lastEndMs;
+    if (since < MIN_INTERVAL_MS) {
+      timer = setTimeout(fire, MIN_INTERVAL_MS - since); // throttle: wait out the gap
+      timer.unref?.();
+      return;
+    }
+    dirty = false;
+    void runUpdate();
+  };
+
+  const arm = (): void => {
+    if (timer || running) return;
+    timer = setTimeout(fire, DEBOUNCE_MS);
+    timer.unref?.();
   };
 
   const schedule = (): void => {
     stats.events++;
-    if (pending) return;
-    pending = true;
-    if (timer) clearTimeout(timer);
-    timer = setTimeout(runUpdate, DEBOUNCE_MS);
-    timer.unref?.();
+    dirty = true;
+    arm();
   };
 
   try {

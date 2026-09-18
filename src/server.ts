@@ -96,7 +96,7 @@ function startWatcher(): void {
     addonDir: built.addonDir,
     index: built.index,
     graph,
-    refinalize: () => built.index.finalize(),
+    refinalize: () => built.index.finalizeAsync(),
     log,
   });
 }

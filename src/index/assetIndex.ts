@@ -121,6 +121,39 @@ export class AssetIndex {
     }
   }
 
+  /**
+   * Cooperative finalize for the live watcher: rebuilds the lookup structures
+   * into fresh maps, yielding to the event loop every `yieldEvery` entries, then
+   * swaps them in atomically. Re-indexing a changed addon must NOT block the
+   * stdio request loop (a full rebuild over ~370k entries takes ~150ms) — so MCP
+   * tool calls stay responsive while the watcher syncs. Readers see the previous
+   * index until the single synchronous swap at the end (no partial state).
+   */
+  async finalizeAsync(yieldEvery = 20_000): Promise<void> {
+    const byPath = new Map<string, IndexedEntry>();
+    const all: IndexedEntry[] = [];
+    let n = 0;
+    for (const s of this.sources) {
+      for (const e of s.listEntries()) {
+        const lowerPath = e.path.toLowerCase();
+        if (byPath.has(lowerPath)) continue;
+        const ie: IndexedEntry = {
+          e,
+          provider: s,
+          source: s.source,
+          lowerPath,
+          lowerName: e.name.toLowerCase(),
+          kind: kindForExt(e.ext),
+        };
+        byPath.set(lowerPath, ie);
+        all.push(ie);
+        if (++n % yieldEvery === 0) await new Promise<void>((r) => setImmediate(r));
+      }
+    }
+    this.byPath = byPath; // atomic swap (no yield between the two assignments)
+    this.all = all;
+  }
+
   private pool(kind: string | undefined): {
     entries: IndexedEntry[];
     exts: Set<string> | null;
