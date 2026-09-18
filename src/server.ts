@@ -245,7 +245,8 @@ server.registerTool(
     description:
       'Inspect a Source 2 particle system (.vpcf_c): its referenced materials/textures and child ' +
       '.vpcf systems (flagged existing/missing), plus structure (function classes, max particles, ' +
-      'control points). Requires Source2Viewer-CLI for full structure; falls back to a strings scan.',
+      'control points incl. children, and control-point→attachment bindings from the preview ' +
+      'config). Requires Source2Viewer-CLI for full structure; falls back to a strings scan.',
     inputSchema: z.object({
       path: z.string().min(1).describe('Particle path, e.g. "particles/units/heroes/hero_axe/axe_culling_blade.vpcf_c".'),
     }),
