@@ -6577,10 +6577,6 @@
         "shortName": "SUPPRESS_ASSOCIATED_CONSUMABLE"
       },
       {
-        "name": "DOTA_ABILITY_BEHAVIOR_TOGGLE",
-        "shortName": "TOGGLE"
-      },
-      {
         "name": "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET",
         "shortName": "UNIT_TARGET"
       },

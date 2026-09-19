@@ -5095,6 +5095,16 @@
       },
       {
         "kind": "function",
+        "name": "OnOtherAbilityUpgraded",
+        "available": "server",
+        "description": "Other ability gained a level.",
+        "returns": [
+          "nil"
+        ],
+        "args": []
+      },
+      {
+        "kind": "function",
         "name": "OnOwnerDied",
         "available": "server",
         "description": "Caster died.",
@@ -5340,6 +5350,16 @@
         "description": "Returns true if this ability will generate magic stick charges for nearby enemies.",
         "returns": [
           "bool"
+        ],
+        "args": []
+      },
+      {
+        "kind": "function",
+        "name": "RefreshAbilityValues",
+        "available": "server",
+        "description": "Refreshes ability values, if any.",
+        "returns": [
+          "nil"
         ],
         "args": []
       },
@@ -14271,6 +14291,16 @@
       },
       {
         "kind": "function",
+        "name": "OnOtherAbilityUpgraded",
+        "available": "server",
+        "description": "Other ability gained a level.",
+        "returns": [
+          "nil"
+        ],
+        "args": []
+      },
+      {
+        "kind": "function",
         "name": "OnOwnerDied",
         "available": "server",
         "description": "Caster died.",
@@ -14395,6 +14425,16 @@
         "description": "Returns true if this ability will generate magic stick charges for nearby enemies.",
         "returns": [
           "bool"
+        ],
+        "args": []
+      },
+      {
+        "kind": "function",
+        "name": "RefreshAbilityValues",
+        "available": "server",
+        "description": "Refreshes ability values, if any.",
+        "returns": [
+          "nil"
         ],
         "args": []
       },
@@ -25410,6 +25450,15 @@
         "available": "server",
         "returns": [
           "bool"
+        ],
+        "args": []
+      },
+      {
+        "kind": "function",
+        "name": "RefreshAbilityValues",
+        "available": "server",
+        "returns": [
+          "nil"
         ],
         "args": []
       },
