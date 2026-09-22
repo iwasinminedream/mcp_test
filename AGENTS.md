@@ -1,6 +1,6 @@
-# CLAUDE.md
+# AGENTS.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+This file provides guidance to Codex (Codex.ai/code) when working with code in this repository.
 
 ## What this is
 
@@ -27,7 +27,7 @@ npm run package     # self-contained release -> release/dota2-mcp.zip (bundle + 
 ```
 
 After changing server code you must `npm run build` — the registered server runs from
-`dist/server.js`, not from source. Re-registration in Claude Code is usually unnecessary
+`dist/server.js`, not from source. Re-registration in Codex is usually unnecessary
 (the path is stable); just restart the session to respawn the server process.
 
 ### Shared HTTP mode
@@ -103,7 +103,7 @@ what's missing so a fresh clone is buildable:
   current by CI, not by hand: a push to `iwasinminedream/dota-data` fires its `notify-mcp.yml`
   → `repository_dispatch` → `.github/workflows/update-dota-data.yml` here, which copies the
   files via `scripts/vendor-data.mjs` (`DOTA_DATA_DIR`) and commits them. A user-level
-  SessionStart hook `git pull --ff-only`s this repo before each Claude Code session.
+  SessionStart hook `git pull --ff-only`s this repo before each Codex session.
 
 Downloads are skipped if `vendor/` already exists (`FORCE=1` to re-fetch). Offline/pinning
 overrides: `S2V_CLI_DIR`, `S2V_CLI_TAG`, `DOTA_DATA_DIR`, `DOTA_DATA_REPO`/`DOTA_DATA_REF`,

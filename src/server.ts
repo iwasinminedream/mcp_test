@@ -19,6 +19,10 @@ import { GameData } from './api/gameData.js';
 import { consoleMark, consoleErrors, consoleTail, type ConsoleCursor, type MarkResult } from './console/consoleLog.js';
 import { startAddonWatcher, type AddonWatcher } from './loose/watcher.js';
 import { logToolCall, writeLog, readLog, logFilePath } from './log.js';
+import { createServer as createHttpServer, type IncomingMessage, type ServerResponse } from 'node:http';
+import { randomUUID } from 'node:crypto';
+import { StreamableHTTPServerTransport } from '@modelcontextprotocol/sdk/server/streamableHttp.js';
+import { isInitializeRequest } from '@modelcontextprotocol/sdk/types.js';
 
 // IMPORTANT: stdout carries the JSON-RPC stream. All logging must go to stderr.
 const log = (...a: unknown[]) => console.error('[dota2-mcp]', ...a);
@@ -101,6 +105,18 @@ function startWatcher(): void {
   });
 }
 
+/**
+ * Builds a fresh McpServer with every tool registered on it.
+ *
+ * The EXPENSIVE state (`built`, `graph`, `api`, `gameData`, the watcher) stays at
+ * module scope on purpose: in shared --http mode this factory runs once per
+ * connected client, but all of them read the SAME index. Each client still needs
+ * its own McpServer, because a Server binds exactly one transport and concurrent
+ * clients would otherwise collide on JSON-RPC request ids.
+ *
+ * The body keeps its original indentation so the diff stays reviewable.
+ */
+export function createMcpServer(): McpServer {
 const server = new McpServer({ name: 'dota2-mcp', version: '0.1.0' });
 
 // Wrap registerTool so EVERY tool call is timed, logged to the persistent JSONL
@@ -515,9 +531,20 @@ server.registerTool(
     description:
       'Re-read the VPK packages + active addon and rebuild the in-memory index (use after a Dota update or ' +
       'after recompiling addon assets). Also rebuilds the dependency graph in the background against the new index.',
-    inputSchema: z.object({}),
+    inputSchema: z.object({
+      addonPath: z
+        .string()
+        .optional()
+        .describe(
+          'Re-point the active addon at this project/addon folder before rebuilding (sets ADDON_PATH). ' +
+            'Only needed in shared --http mode, where one process serves every client so the addon cannot ' +
+            'be inferred from cwd. WARNING: the switch is process-global (it changes the index for EVERY ' +
+            'connected client) and the rebuild is synchronous, freezing all sessions for a minute or two.',
+        ),
+    }),
   },
-  async () => {
+  async ({ addonPath }) => {
+    if (addonPath) process.env.ADDON_PATH = addonPath;
     built = buildIndex(log);
     gameData.reset(); // re-read game KV/localization if the data was re-vendored
     // The graph holds edges from the OLD index; force a fresh background rebuild
@@ -754,20 +781,168 @@ server.registerTool(
 );
 
 
-const transport = new StdioServerTransport();
-await server.connect(transport);
-log('connected over stdio');
-log('activity log:', logFilePath());
-writeLog({
-  level: built.status.ready ? 'info' : 'error',
-  event: 'startup',
-  ready: built.status.ready,
-  error: built.status.error ?? undefined,
-  totalAssets: built.status.totalAssets,
-  addon: built.addonSource ?? undefined,
-});
-warmup();
-startWatcher();
+return server;
+}
+
+
+// ---- entry point ---------------------------------------------------------
+
+const DEFAULT_HTTP_PORT = 7331;
+
+/** One-time startup work, shared by both transports. */
+function bootstrap(mode: 'stdio' | 'http'): void {
+  log('activity log:', logFilePath());
+  writeLog({
+    level: built.status.ready ? 'info' : 'error',
+    event: 'startup',
+    mode,
+    ready: built.status.ready,
+    error: built.status.error ?? undefined,
+    totalAssets: built.status.totalAssets,
+    addon: built.addonSource ?? undefined,
+  });
+  warmup();
+  startWatcher();
+}
+
+/** One process per client, spawned by the client itself. The default. */
+async function startStdio(): Promise<void> {
+  const server = createMcpServer();
+  await server.connect(new StdioServerTransport());
+  log('connected over stdio');
+  bootstrap('stdio');
+}
+
+function readJsonBody(req: IncomingMessage): Promise<unknown> {
+  return new Promise((resolve, reject) => {
+    const chunks: Buffer[] = [];
+    req.on('data', (c: Buffer) => chunks.push(c));
+    req.on('error', reject);
+    req.on('end', () => {
+      const raw = Buffer.concat(chunks).toString('utf8');
+      if (!raw) return resolve(undefined);
+      try {
+        resolve(JSON.parse(raw));
+      } catch (err) {
+        reject(err);
+      }
+    });
+  });
+}
+
+function rpcError(res: ServerResponse, status: number, message: string): void {
+  if (!res.headersSent) res.writeHead(status, { 'content-type': 'application/json' });
+  if (!res.writableEnded) {
+    res.end(JSON.stringify({ jsonrpc: '2.0', error: { code: -32000, message }, id: null }));
+  }
+}
+
+/**
+ * ONE process, MANY clients (every Codex thread + every Claude Code session).
+ * The index is built once and shared instead of costing ~1.3 GB per client.
+ *
+ * Trade-off: nothing supervises this process. A client will NOT respawn it the way
+ * it respawns a stdio server, so run it under something that restarts on crash.
+ */
+async function startHttp(port: number, host: string): Promise<void> {
+  const sessions = new Map<string, StreamableHTTPServerTransport>();
+  const allowedHosts = [`${host}:${port}`, `localhost:${port}`, `127.0.0.1:${port}`];
+
+  const httpServer = createHttpServer((req, res) => {
+    void (async () => {
+      try {
+        const path = (req.url ?? '/').split('?')[0];
+
+        // Cheap liveness probe, for the supervisor and for a human wondering if it is up.
+        if (path === '/health') {
+          res.writeHead(200, { 'content-type': 'application/json' });
+          res.end(JSON.stringify({ ...built.status, sessions: sessions.size, pid: process.pid }));
+          return;
+        }
+        if (path !== '/mcp') {
+          res.writeHead(404, { 'content-type': 'text/plain' });
+          res.end('not found');
+          return;
+        }
+
+        const header = req.headers['mcp-session-id'];
+        const sessionId = Array.isArray(header) ? header[0] : header;
+        const known = sessionId ? sessions.get(sessionId) : undefined;
+
+        if (known) {
+          // GET (SSE stream) and DELETE carry no body; only POST does.
+          const body = req.method === 'POST' ? await readJsonBody(req) : undefined;
+          await known.handleRequest(req, res, body);
+          return;
+        }
+
+        if (req.method !== 'POST') {
+          rpcError(res, sessionId ? 404 : 400, 'No such MCP session; POST an initialize request first.');
+          return;
+        }
+
+        const body = await readJsonBody(req);
+        if (!isInitializeRequest(body)) {
+          rpcError(
+            res,
+            sessionId ? 404 : 400,
+            sessionId ? `Unknown session id "${sessionId}".` : 'Missing mcp-session-id header.',
+          );
+          return;
+        }
+
+        const transport: StreamableHTTPServerTransport = new StreamableHTTPServerTransport({
+          sessionIdGenerator: () => randomUUID(),
+          enableDnsRebindingProtection: true,
+          allowedHosts,
+          onsessioninitialized: (id) => {
+            sessions.set(id, transport);
+            log(`session ${id} open (${sessions.size} live)`);
+          },
+          onsessionclosed: (id) => {
+            sessions.delete(id);
+            log(`session ${id} closed (${sessions.size} live)`);
+          },
+        });
+        transport.onclose = () => {
+          if (transport.sessionId) sessions.delete(transport.sessionId);
+        };
+
+        await createMcpServer().connect(transport);
+        await transport.handleRequest(req, res, body);
+      } catch (err) {
+        const message = err instanceof Error ? (err.stack ?? err.message) : String(err);
+        log('http request failed:', message);
+        writeLog({ level: 'error', event: 'httpRequestFailed', error: message });
+        rpcError(res, 500, 'Internal error.');
+      }
+    })();
+  });
+
+  await new Promise<void>((resolve, reject) => {
+    httpServer.once('error', reject);
+    httpServer.listen(port, host, resolve);
+  });
+  log(`listening on http://${host}:${port}/mcp  (shared index: ${built.status.totalAssets} assets, pid ${process.pid})`);
+  bootstrap('http');
+}
+
+/** `--http [port]` or MCP_HTTP_PORT selects shared mode; otherwise stdio. */
+function httpPort(): number {
+  const flag = process.argv.indexOf('--http');
+  const env = Number(process.env.MCP_HTTP_PORT);
+  const valid = Number.isInteger(env) && env > 0 && env < 65536;
+  if (flag !== -1) {
+    const next = process.argv[flag + 1];
+    if (next && /^[0-9]+$/.test(next)) return Number(next);
+    return valid ? env : DEFAULT_HTTP_PORT;
+  }
+  return valid ? env : 0;
+}
+
+const httpModePort = httpPort();
+if (httpModePort > 0) await startHttp(httpModePort, process.env.MCP_HTTP_HOST?.trim() || '127.0.0.1');
+else await startStdio();
 
 // Record unexpected crashes, then EXIT. After an uncaught exception the process
 // is in an undefined state: limping on (the Node default once a handler exists)
