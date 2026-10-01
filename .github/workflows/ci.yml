@@ -1,0 +1,97 @@
+name: CI
+
+# Builds and tests the server on Windows, macOS (arm64) and Linux without a Dota
+# install (test/ uses a synthetic VPK + console.log), then tests the BUILT server and
+# the PACKAGED release, so the vendored Source2Viewer-CLI for each OS actually runs.
+# The macOS job also publishes the Mac release archives as an artifact.
+on:
+  push:
+    branches: [main, cross-platform]
+    paths-ignore: ['vendor/dota-data/**']
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, macos-latest, ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    env:
+      GITHUB_TOKEN: ${{ github.token }} # GitHub API rate limit for the CLI download
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+      - run: npm run typecheck
+
+      - name: Tests from source (no decompiler yet)
+        run: npm test
+
+      - name: Build (downloads Source2Viewer-CLI for this OS)
+        run: npm run build
+
+      - name: Tests against dist/server.js (decompiler must run)
+        run: npm test
+        env:
+          MCP_SERVER_ENTRY: dist/server.js
+          REQUIRE_CLI: '1'
+
+      - name: Package for this OS
+        run: npm run package
+
+      - name: Tests against the packaged release
+        run: npm test
+        env:
+          MCP_SERVER_ENTRY: release/dota2-mcp/server.mjs
+          REQUIRE_CLI: '1'
+
+      - name: Shell scripts parse
+        if: runner.os != 'Windows'
+        run: |
+          for f in scripts/*.sh release/dota2-mcp/*.sh; do bash -n "$f" && echo "ok $f"; done
+
+      - name: Linux — foreground launcher answers /health
+        if: runner.os == 'Linux'
+        run: |
+          MCP_HTTP_PORT=7333 bash release/dota2-mcp/dota2-mcp-http.sh &
+          for i in $(seq 1 60); do curl -fsS http://127.0.0.1:7333/health && break; sleep 1; done
+          curl -fsS http://127.0.0.1:7333/health | head -c 300
+          kill %1
+
+      - name: macOS — release archives (arm64 + x64)
+        if: runner.os == 'macOS'
+        run: |
+          npm run package -- --target darwin-arm64
+          npm run package -- --target darwin-x64
+          ls -la release
+
+      - name: macOS — unpacked archive installs as a LaunchAgent and serves /health
+        if: runner.os == 'macOS'
+        run: |
+          mkdir -p "$RUNNER_TEMP/unpack"
+          tar -xzf release/dota2-mcp-darwin-arm64.tar.gz -C "$RUNNER_TEMP/unpack"
+          D="$RUNNER_TEMP/unpack/dota2-mcp-darwin-arm64"
+          "$D/vendor/Source2Viewer-CLI/Source2Viewer-CLI" --version | head -3
+          bash "$D/install.sh" --port 7334 --no-register
+          curl -fsS http://127.0.0.1:7334/health | head -c 300; echo
+          bash "$D/install.sh" --uninstall --no-register
+          ! launchctl print "gui/$(id -u)/com.dota2-mcp.http" >/dev/null 2>&1
+
+      - uses: actions/upload-artifact@v4
+        if: runner.os == 'macOS'
+        with:
+          name: dota2-mcp-macos
+          path: release/dota2-mcp-darwin-*.tar.gz
+          if-no-files-found: error

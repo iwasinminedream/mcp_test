@@ -13,12 +13,13 @@
     "dev": "tsx src/server.ts",
     "smoke": "tsx src/smoke.ts",
     "start": "node dist/server.js",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "tsc --noEmit && tsc -p tsconfig.test.json",
     "bundle": "node scripts/bundle.mjs",
     "vendor": "node scripts/vendor-cli.mjs && node scripts/vendor-data.mjs",
     "vendor-cli": "node scripts/vendor-cli.mjs",
     "vendor-data": "node scripts/vendor-data.mjs",
-    "package": "node scripts/package.mjs"
+    "package": "node scripts/package.mjs",
+    "test": "node --import tsx --test --test-concurrency=1 \"test/*.test.ts\""
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.29.0",
@@ -31,5 +32,8 @@
     "esbuild": "^0.28.0",
     "tsx": "^4.19.0",
     "typescript": "^5.7.0"
+  },
+  "engines": {
+    "node": ">=20.6"
   }
 }

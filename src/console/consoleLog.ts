@@ -272,7 +272,9 @@ export interface ConsoleTailResult {
 /** Returns the last `lines` raw lines of the log (no filtering). */
 export function consoleTail(lines = 50): ConsoleTailResult {
   const path = resolveConsoleLog();
-  if (!existsSync(path)) return { path, exists: false, lines: [], note: 'console.log not found.' };
+  if (!existsSync(path)) {
+    return { path, exists: false, lines: [], note: 'console.log not found (launch Dota with -condebug to create it).' };
+  }
   const n = Math.min(Math.max(lines, 1), 2000);
   const st = statSync(path);
   const want = Math.min(st.size, 2 << 20); // read at most last 2 MB

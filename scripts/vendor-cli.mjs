@@ -7,14 +7,18 @@
 // Overrides:
 //   S2V_CLI_DIR  — copy from a local install instead of downloading (offline dev)
 //   S2V_CLI_TAG  — pin a release tag (e.g. "19.2") instead of "latest"
-//   FORCE=1      — re-download even if vendor/Source2Viewer-CLI already exists
+//   S2V_CLI_TARGET — another OS/arch than this machine, as <win32|darwin|linux>-<x64|arm64>
+//                  (used by `npm run package -- --target ...` to build a Mac/Linux release on Windows)
+//   S2V_CLI_DEST — destination dir (default vendor/Source2Viewer-CLI)
+//   FORCE=1      — re-download even if the destination already has the CLI
 import { cpSync, existsSync, mkdirSync, readdirSync, rmSync, statSync, writeFileSync } from 'node:fs';
-import { join } from 'node:path';
+import { join, resolve } from 'node:path';
 import { tmpdir } from 'node:os';
 import { spawnSync } from 'node:child_process';
 
-const dst = join(process.cwd(), 'vendor', 'Source2Viewer-CLI');
-const exe = process.platform === 'win32' ? 'Source2Viewer-CLI.exe' : 'Source2Viewer-CLI';
+const [targetOs, targetArch] = (process.env.S2V_CLI_TARGET || `${process.platform}-${process.arch}`).split('-');
+const dst = resolve(process.env.S2V_CLI_DEST || join(process.cwd(), 'vendor', 'Source2Viewer-CLI'));
+const exe = targetOs === 'win32' ? 'Source2Viewer-CLI.exe' : 'Source2Viewer-CLI';
 
 // Already vendored? Skip unless forced.
 if (existsSync(join(dst, exe)) && !process.env.FORCE) {
@@ -42,10 +46,10 @@ if (process.env.S2V_CLI_DIR) {
 }
 
 // --- Map platform/arch to the release asset name (cli-<os>-<arch>.zip). ---
-const OS = { win32: 'windows', darwin: 'macos', linux: 'linux' }[process.platform];
-const ARCH = { x64: 'x64', arm64: 'arm64', arm: 'arm' }[process.arch];
+const OS = { win32: 'windows', darwin: 'macos', linux: 'linux' }[targetOs];
+const ARCH = { x64: 'x64', arm64: 'arm64', arm: 'arm' }[targetArch];
 if (!OS || !ARCH) {
-  console.error(`Unsupported platform/arch: ${process.platform}/${process.arch}`);
+  console.error(`Unsupported platform/arch: ${targetOs}/${targetArch}`);
   process.exit(1);
 }
 const asset = `cli-${OS}-${ARCH}.zip`;
@@ -85,25 +89,30 @@ if (!dlRes.ok) {
 }
 writeFileSync(zipPath, Buffer.from(await dlRes.arrayBuffer()));
 
-// --- Extract into vendor/Source2Viewer-CLI (fresh). ---
+// --- Extract into the destination (fresh). ---
 rmSync(dst, { recursive: true, force: true });
 mkdirSync(dst, { recursive: true });
-const unzip =
-  process.platform === 'win32'
-    ? spawnSync(
-        'powershell',
-        ['-NoProfile', '-Command', `Expand-Archive -LiteralPath '${zipPath}' -DestinationPath '${dst}' -Force`],
-        { stdio: 'inherit' },
-      )
-    : spawnSync('unzip', ['-o', zipPath, '-d', dst], { stdio: 'inherit' });
+let unzip;
+if (process.platform === 'win32') {
+  unzip = spawnSync(
+    'powershell',
+    ['-NoProfile', '-Command', `Expand-Archive -LiteralPath '${zipPath}' -DestinationPath '${dst}' -Force`],
+    { stdio: 'inherit' },
+  );
+} else {
+  unzip = spawnSync('unzip', ['-o', '-q', zipPath, '-d', dst], { stdio: 'inherit' });
+  // no unzip (minimal Linux): bsdtar reads zip too
+  if (unzip.status !== 0) unzip = spawnSync('bsdtar', ['-xf', zipPath, '-C', dst], { stdio: 'inherit' });
+}
 rmSync(zipPath, { force: true });
 if (unzip.status !== 0) {
   console.error('Extraction failed. Ensure PowerShell (Windows) or `unzip` (macOS/Linux) is available.');
   process.exit(1);
 }
 
-// On non-Windows the binary needs the execute bit.
-if (process.platform !== 'win32' && existsSync(join(dst, exe))) {
+// The macOS/Linux binary needs the execute bit. On a Windows host (cross-target
+// packaging) NTFS has no such bit; the release's install.sh sets it instead.
+if (process.platform !== 'win32' && targetOs !== 'win32' && existsSync(join(dst, exe))) {
   spawnSync('chmod', ['+x', join(dst, exe)]);
 }
 

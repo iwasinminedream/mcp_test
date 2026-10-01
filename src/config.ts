@@ -1,5 +1,6 @@
 import { existsSync, readFileSync, statSync, readdirSync, realpathSync } from 'node:fs';
 import { join, dirname, sep } from 'node:path';
+import { homedir } from 'node:os';
 import { fileURLToPath } from 'node:url';
 
 export interface VpkRoot {
@@ -7,8 +8,8 @@ export interface VpkRoot {
   path: string;
 }
 
-const DEFAULT_GAME_DIR =
-  'C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game';
+/** Steam's install dir for Dota 2, relative to a Steam library root. */
+const DOTA_REL = ['steamapps', 'common', 'dota 2 beta', 'game'];
 
 /** Walks up from this module to find the package/bundle root. */
 export function packageRoot(): string {
@@ -22,49 +23,75 @@ export function packageRoot(): string {
   return dirname(fileURLToPath(import.meta.url));
 }
 
-function steamRoots(): string[] {
+/**
+ * Candidate Steam roots for a platform, most likely first. STEAM_PATH (if set)
+ * always wins. Parameterised so tests can ask for another OS's list.
+ */
+export function steamRoots(
+  platform: NodeJS.Platform = process.platform,
+  home: string = homedir(),
+  env: NodeJS.ProcessEnv = process.env,
+): string[] {
   const roots: string[] = [];
-  if (process.env.STEAM_PATH) roots.push(process.env.STEAM_PATH);
-  roots.push(
-    'C:\\Program Files (x86)\\Steam',
-    'C:\\Program Files\\Steam',
-    'D:\\Steam',
-    'E:\\Steam',
-  );
-  const home = process.env.HOME;
-  if (home) {
-    roots.push(join(home, '.steam', 'steam'));
-    roots.push(join(home, '.local', 'share', 'Steam'));
+  if (env.STEAM_PATH?.trim()) roots.push(env.STEAM_PATH.trim());
+  if (platform === 'win32') {
+    roots.push('C:\\Program Files (x86)\\Steam', 'C:\\Program Files\\Steam', 'D:\\Steam', 'E:\\Steam');
+  } else if (platform === 'darwin') {
+    roots.push(join(home, 'Library', 'Application Support', 'Steam'));
+  } else {
+    roots.push(
+      join(home, '.steam', 'steam'),
+      join(home, '.local', 'share', 'Steam'),
+      join(home, '.var', 'app', 'com.valvesoftware.Steam', '.local', 'share', 'Steam'), // Flatpak
+      join(home, 'snap', 'steam', 'common', '.local', 'share', 'Steam'), // Snap
+    );
   }
   return roots;
 }
 
-function detectDotaGameDir(): string | null {
-  for (const steam of steamRoots()) {
-    const direct = join(steam, 'steamapps', 'common', 'dota 2 beta', 'game');
-    if (existsSync(join(direct, 'dota', 'pak01_dir.vpk'))) return direct;
-    const vdf = join(steam, 'steamapps', 'libraryfolders.vdf');
+/** Where Dota usually lives when nothing is detected (reported in index_status errors). */
+export function defaultGameDir(platform: NodeJS.Platform = process.platform, home: string = homedir()): string {
+  const steam = steamRoots(platform, home, {})[0]!;
+  return platform === 'win32' ? [steam, ...DOTA_REL].join('\\') : join(steam, ...DOTA_REL);
+}
+
+const hasDotaVpk = (game: string) => existsSync(join(game, 'dota', 'pak01_dir.vpk'));
+
+/** Library paths listed in a Steam `libraryfolders.vdf` (on Windows `\` is escaped as `\\`). */
+export function parseLibraryFolders(text: string): string[] {
+  return [...text.matchAll(/"path"\s+"([^"]+)"/g)].map((m) => m[1]!.replace(/\\\\/g, '\\'));
+}
+
+/** Finds `<library>/steamapps/common/dota 2 beta/game` under any of the given Steam roots. */
+export function detectDotaGameDir(roots: string[] = steamRoots()): string | null {
+  for (const steam of roots) {
+    const direct = join(steam, ...DOTA_REL);
+    if (hasDotaVpk(direct)) return direct;
     let text: string;
     try {
-      text = readFileSync(vdf, 'utf8');
+      text = readFileSync(join(steam, 'steamapps', 'libraryfolders.vdf'), 'utf8');
     } catch {
       continue;
     }
-    const libPaths = [...text.matchAll(/"path"\s+"([^"]+)"/g)].map((m) =>
-      m[1]!.replace(/\\\\/g, '\\'),
-    );
-    for (const lib of libPaths) {
-      const game = join(lib, 'steamapps', 'common', 'dota 2 beta', 'game');
-      if (existsSync(join(game, 'dota', 'pak01_dir.vpk'))) return game;
+    for (const lib of parseLibraryFolders(text)) {
+      const game = join(lib, ...DOTA_REL);
+      if (hasDotaVpk(game)) return game;
     }
   }
   return null;
 }
 
+/**
+ * Resolves the Dota `game` dir. DOTA_PATH may point at `.../dota 2 beta/game` or at
+ * `.../dota 2 beta` itself; otherwise Steam is auto-detected.
+ */
 export function resolveGameDir(): string {
   const env = process.env.DOTA_PATH?.trim();
-  if (env) return env;
-  return detectDotaGameDir() ?? DEFAULT_GAME_DIR;
+  if (env) {
+    const game = join(env, 'game');
+    return !hasDotaVpk(env) && hasDotaVpk(game) ? game : env;
+  }
+  return detectDotaGameDir() ?? defaultGameDir();
 }
 
 export function resolveVpkRoots(): VpkRoot[] {
@@ -201,7 +228,8 @@ export function resolveCliPath(): string | null {
     process.env.S2V_CLI,
     join(root, 'vendor', 'Source2Viewer-CLI', exe),
     join(root, 'vendor', exe),
-    'C:\\Users\\Admin\\Documents\\ValveResourceFormat\\Source2Viewer-CLI.exe',
+    // the maintainer's local VRF build (Windows only)
+    process.platform === 'win32' ? 'C:\\Users\\Admin\\Documents\\ValveResourceFormat\\Source2Viewer-CLI.exe' : undefined,
   ];
   for (const c of candidates) {
     try {
@@ -229,7 +257,7 @@ export function resolveDotaDataDir(): string | null {
   return firstDir([
     process.env.DOTA_DATA_PATH,
     join(root, 'vendor', 'dota-data'),
-    'C:\\Users\\Admin\\Documents\\dota\\dota-data\\files',
+    process.platform === 'win32' ? 'C:\\Users\\Admin\\Documents\\dota\\dota-data\\files' : undefined,
   ]);
 }
 

@@ -337,3 +337,24 @@ Remove-Item -Recurse -Force "$env:TEMP\dota2-mcp"
 | `LOG` | `0` — выключить лог активности. |
 | `LOG_FILE` | Свой путь к файлу лога. |
 | `LOG_MAX_BYTES` | Порог ротации лога (по умолч. 5 МБ). |
+
+## macOS и Linux
+
+Сервер работает на Windows, macOS и Linux; CI (`.github/workflows/ci.yml`) на каждый push
+собирает и тестирует его на всех трёх системах и выкладывает Mac-архивы артефактом
+`dota2-mcp-macos`.
+
+- Дота ищется в `~/Library/Application Support/Steam` (macOS), `~/.steam/steam`,
+  `~/.local/share/Steam`, Flatpak/Snap (Linux) и во всех библиотеках из `libraryfolders.vdf`.
+  Явно — `DOTA_PATH` (`.../dota 2 beta` или `.../dota 2 beta/game`) или `STEAM_PATH`.
+- Автозапуск общего HTTP-сервера: `scripts/install-http-launchd.sh` (macOS, LaunchAgent) и
+  `scripts/install-http-systemd.sh` (Linux, systemd --user); оба регистрируют сервер в
+  Claude Code и Codex. В Mac-релизе это `install.sh`.
+- Релиз под другую систему собирается где угодно: `npm run package -- --target darwin-arm64`.
+- `console_*` читают `<game>/dota/console.log` — Доту запускать с `-condebug`.
+  Workshop Tools есть только под Windows (серверу они не нужны).
+
+`npm test` проверяет всё без установленной Доты (синтетический VPK, console.log, аддон через
+symlink/junction, сервер по MCP в stdio и `--http`). С `MCP_SERVER_ENTRY=dist/server.js` или
+`=release/dota2-mcp/server.mjs` — собранный или упакованный сервер, с `REQUIRE_CLI=1` —
+обязательно рабочий декомпилятор.

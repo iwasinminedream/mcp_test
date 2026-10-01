@@ -54,8 +54,8 @@ with `npm run vendor`.
 
 ## Configuration
 
-- **Dota path:** auto-detected from Steam library folders. Override with `DOTA_PATH`
-  (point at `...\dota 2 beta\game`).
+- **Dota path:** auto-detected from Steam library folders (Windows, macOS, Linux). Override
+  with `DOTA_PATH` (point at `.../dota 2 beta/game` or `.../dota 2 beta`), or `STEAM_PATH`.
 - **Decompiler:** auto-resolved from `vendor/Source2Viewer-CLI/`, else the `S2V_CLI`
   env var. Model attachments + particle/material references need it; the asset
   index/search works without it.
@@ -142,22 +142,49 @@ an existing `hooks.SessionStart` array rather than replacing it, and adjust the 
 
 ## Share with other users (self-contained release)
 
-```powershell
-npm run package
+```bash
+npm run package                            # this machine -> release/dota2-mcp/ (+ .zip on Windows, .tar.gz elsewhere)
+npm run package -- --target darwin-arm64   # any target from any host -> release/dota2-mcp-darwin-arm64.tar.gz
 ```
 
-Produces `release/dota2-mcp/` (and `release/dota2-mcp.zip`, ~50 MB) containing:
+Targets: `win32-x64`, `win32-arm64`, `darwin-arm64`, `darwin-x64`, `linux-x64`, `linux-arm64`
+(the decompiler is downloaded for the target). The folder contains:
 
 - `server.mjs` — the whole server bundled into one file (no `node_modules` needed),
-- `vendor/Source2Viewer-CLI/` — the decompiler + its DLLs,
-- `install.ps1` — one-click `claude mcp add` registration,
+- `vendor/Source2Viewer-CLI/` — the decompiler for the target OS/arch, `vendor/dota-data/`,
+- Windows: `install.ps1` — one-click `claude mcp add` registration;
+  macOS/Linux: `install.sh` — LaunchAgent / systemd user service for the shared HTTP
+  server + Claude Code / Codex registration, and `dota2-mcp-http.sh` (foreground),
 - `package.json`, `README.md`, `NOTICE.txt`.
 
-The recipient needs only **Node 20+** and a **Steam Dota 2** install (Windows x64),
-unzips, and runs `./install.ps1`. See `release/dota2-mcp/README.md` for details.
+The recipient needs only **Node 20+** and a **Steam Dota 2** install. CI builds the
+macOS archives on a Mac (artifact `dota2-mcp-macos`), with proper exec bits.
 
-> `npm run package` runs bundle + vendor-cli + zip. The decompiler is downloaded
-> from the latest ValveResourceFormat release (or copied from `S2V_CLI_DIR` if set).
+## macOS / Linux
+
+Everything runs on Windows, macOS and Linux (CI: `.github/workflows/ci.yml`). Dota is
+auto-detected in `~/Library/Application Support/Steam` (macOS), `~/.steam/steam`,
+`~/.local/share/Steam`, Flatpak and Snap (Linux), plus every library in Steam's
+`libraryfolders.vdf`; `DOTA_PATH` may point at `.../dota 2 beta` or `.../dota 2 beta/game`.
+The shared HTTP server's autostart there:
+
+```bash
+scripts/install-http-launchd.sh [--addon <project>] [--port 7331]   # macOS LaunchAgent
+scripts/install-http-systemd.sh [--addon <project>] [--port 7331]   # Linux systemd --user
+scripts/dota2-mcp-http.sh                                            # foreground
+```
+
+`console_*` read `<game>/dota/console.log` — launch Dota with `-condebug`. Workshop Tools
+(compiling addon content) exist only on Windows; the server itself does not need them.
+
+## Tests
+
+`npm test` needs **no Dota install**: `test/` writes a synthetic VPK v2 + console.log and
+a linked addon project, unit-tests path resolution for every OS, and drives the server over
+real MCP (stdio and `--http`). `MCP_SERVER_ENTRY=dist/server.js` or
+`=release/dota2-mcp/server.mjs` tests the built/packaged server; `REQUIRE_CLI=1` also
+requires the vendored decompiler to run. The `src/*test.ts` scripts below exercise real
+game assets and need Dota.
 
 ## Design notes
 

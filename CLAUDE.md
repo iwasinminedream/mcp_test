@@ -8,7 +8,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 client precise, never-guessed answers about Dota 2 (Source 2) modding assets: VPK
 asset index + fuzzy search, decompile-based introspection (model attachments,
 particle/material references), a dependency graph, texture/model conversion, and
-search over the Dota 2 API and game KeyValues. TypeScript, ESM, Node 20+, Windows x64.
+search over the Dota 2 API and game KeyValues. TypeScript, ESM, Node 20+; Windows, macOS and Linux (CI on all three).
 The server entry point is `src/server.ts`; the built artifact runs from `dist/server.js`.
 
 The two reference docs are **in Russian** (the maintainer's language): `DOCUMENTATION.md`
@@ -46,6 +46,10 @@ collide on JSON-RPC request ids. `GET /health` reports index status and live ses
 scripts\dota2-mcp-http.cmd                        # start it (pins ADDON_PATH, logs to logs/)
 powershell -File scripts\install-http-task.ps1    # run it at logon, restart on crash
 ```
+```bash
+scripts/install-http-launchd.sh --addon <project>  # macOS: LaunchAgent + claude/codex registration
+scripts/install-http-systemd.sh --addon <project>  # Linux: systemd --user service
+```
 
 Register it with `url` instead of `command`:
 
@@ -67,7 +71,13 @@ runtime — globally, for every connected client.
 
 ### Tests
 
-There is no unit-test framework. Tests are standalone `tsx` scripts under `src/` that
+`npm test` (node:test via tsx, `test/*.test.ts`) needs no Dota install: synthetic VPK +
+console.log + a linked addon project, path resolution per OS, and the server driven over
+real MCP in stdio and `--http` mode. `MCP_SERVER_ENTRY=dist/server.js` (or the packaged
+`release/dota2-mcp/server.mjs`) tests a built server; `REQUIRE_CLI=1` demands the vendored
+decompiler runs. CI (`.github/workflows/ci.yml`) runs all of it on Windows/macOS/Linux.
+
+The game-asset tests are standalone `tsx` scripts under `src/` that
 **spawn the server and drive it over real MCP**, printing a verdict and signalling
 PASS/FAIL via exit code. They require a real Steam Dota 2 install (and, for
 introspection tests, the vendored decompiler). Run one at a time:
