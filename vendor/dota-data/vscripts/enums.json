@@ -9121,6 +9121,10 @@
       {
         "name": "ACT_DOTA_LARGO_ULT_TOGGLE_OFF",
         "value": 1778
+      },
+      {
+        "name": "ACT_DOTA_CAST5_STATUE",
+        "value": 1799
       }
     ]
   },
