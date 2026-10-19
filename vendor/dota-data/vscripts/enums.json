@@ -9165,15 +9165,15 @@
       },
       {
         "name": "ACT_DOTA_DEFEAT_STATUE",
-        "value": 1795
+        "value": 1794
       },
       {
         "name": "ACT_DOTA_CHANNEL_STATUE",
-        "value": 1796
+        "value": 1795
       },
       {
         "name": "ACT_DOTA_CAST5_STATUE",
-        "value": 1798
+        "value": 1808
       }
     ]
   },
