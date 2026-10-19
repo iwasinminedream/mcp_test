@@ -20675,17 +20675,21 @@
         "name": "startTime",
         "args": [
           {
-            "name": "_arg_1"
+            "name": "_arg_1",
+            "type": "number"
           }
-        ]
+        ],
+        "returns": "number"
       },
       {
         "name": "endTime",
         "args": [
           {
-            "name": "_arg_1"
+            "name": "_arg_1",
+            "type": "number"
           }
-        ]
+        ],
+        "returns": "number"
       },
       {
         "name": "updateInterval",

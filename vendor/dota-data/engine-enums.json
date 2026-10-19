@@ -461,6 +461,10 @@
         "shortName": "COUNT"
       },
       {
+        "name": "DOTA_TEAM_CUSTOM",
+        "shortName": "CUSTOM"
+      },
+      {
         "name": "DOTA_TEAM_CUSTOM_1",
         "shortName": "CUSTOM_1"
       },

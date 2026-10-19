@@ -215,7 +215,7 @@
       },
       {
         "name": "parentId",
-        "type": "11AbilityID_t"
+        "type": "AbilityID_t"
       }
     ]
   },
@@ -253,7 +253,7 @@
       },
       {
         "name": "facetName",
-        "type": "15CUtlStringToken"
+        "type": "CUtlStringToken"
       },
       {
         "name": "showVideo",
@@ -275,7 +275,7 @@
       },
       {
         "name": "arg3",
-        "type": "8HeroID_t"
+        "type": "HeroID_t"
       },
       {
         "name": "arg4",
@@ -293,11 +293,11 @@
       },
       {
         "name": "heroid",
-        "type": "8HeroID_t"
+        "type": "HeroID_t"
       },
       {
         "name": "heroVariant",
-        "type": "13HeroFacetID_t"
+        "type": "HeroFacetID_t"
       },
       {
         "name": "arg4",
@@ -347,15 +347,15 @@
     "args": [
       {
         "name": "itemDef",
-        "type": "23item_definition_index_t"
+        "type": "item_definition_index_t"
       },
       {
         "name": "styleIndex",
-        "type": "13style_index_t"
+        "type": "style_index_t"
       },
       {
         "name": "heroId",
-        "type": "8HeroID_t"
+        "type": "HeroID_t"
       }
     ]
   },
@@ -365,7 +365,7 @@
     "args": [
       {
         "name": "facetKey",
-        "type": "14HeroFacetKey_t"
+        "type": "HeroFacetKey_t"
       }
     ]
   },
@@ -454,8 +454,8 @@
     "panelEvent": true,
     "args": [
       {
-        "name": "x",
-        "type": "PK26TI10EventGameTooltipInfo_t"
+        "name": "ti10EventGameTooltipInfoT",
+        "type": "struct"
       }
     ]
   },
