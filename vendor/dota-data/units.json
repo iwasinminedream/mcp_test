@@ -6100,7 +6100,7 @@
     "AttackDamageMin": 120,
     "AttackDamageMax": 120
   },
-  "npc_dota_venomancer_plague_ward_1": {
+  "npc_dota_venomancer_plague_ward": {
     "BaseClass": "npc_dota_venomancer_plagueward",
     "Model": "models/heroes/venomancer/venomancer_ward.vmdl",
     "SoundSet": "Hero_VenomancerWard",
@@ -6149,42 +6149,6 @@
     "party_hat_effects": {
       "party_hat_effect_0": "particles/econ/events/anniversary_10th/anniversary_10th_hat_ambient_npc_dota_hero_venomancer_plague_ward.vpcf"
     }
-  },
-  "npc_dota_venomancer_plague_ward_2": {
-    "include_keys_from": "npc_dota_venomancer_plague_ward_1",
-    "AttackDamageMin": 22,
-    "AttackDamageMax": 26,
-    "BountyXP": 25,
-    "BountyGoldMin": 14,
-    "BountyGoldMax": 14,
-    "StatusHealth": 250
-  },
-  "npc_dota_venomancer_plague_ward_3": {
-    "include_keys_from": "npc_dota_venomancer_plague_ward_1",
-    "AttackDamageMin": 30,
-    "AttackDamageMax": 34,
-    "BountyXP": 30,
-    "BountyGoldMin": 18,
-    "BountyGoldMax": 18,
-    "StatusHealth": 350
-  },
-  "npc_dota_venomancer_plague_ward_4": {
-    "include_keys_from": "npc_dota_venomancer_plague_ward_1",
-    "AttackDamageMin": 38,
-    "AttackDamageMax": 42,
-    "BountyXP": 35,
-    "BountyGoldMin": 22,
-    "BountyGoldMax": 22,
-    "StatusHealth": 450
-  },
-  "npc_dota_venomancer_plague_ward_5": {
-    "include_keys_from": "npc_dota_venomancer_plague_ward_1",
-    "AttackDamageMin": 44,
-    "AttackDamageMax": 48,
-    "BountyXP": 40,
-    "BountyGoldMin": 26,
-    "BountyGoldMax": 26,
-    "StatusHealth": 550
   },
   "npc_dota_lesser_eidolon": {
     "BaseClass": "npc_dota_creep",
@@ -13440,16 +13404,40 @@
       },
       "17": {
         "SlotIndex": 17,
-        "SlotName": "persona_selector",
-        "SlotText": "#LoadoutSlot_Persona_Selector"
+        "SlotName": "ability_effects_1_persona_1",
+        "SlotText": "antimage_mana_break",
+        "DisplayInLoadout": 0
       },
       "18": {
         "SlotIndex": 18,
-        "SlotName": "hero_effigy",
-        "SlotText": "#LoadoutSlot_HeroEffigy"
+        "SlotName": "ability_effects_2_persona_1",
+        "SlotText": "antimage_blink",
+        "DisplayInLoadout": 0
       },
       "19": {
         "SlotIndex": 19,
+        "SlotName": "ability_effects_3_persona_1",
+        "SlotText": "antimage_counterspell",
+        "DisplayInLoadout": 0
+      },
+      "20": {
+        "SlotIndex": 20,
+        "SlotName": "ability_effects_4_persona_1",
+        "SlotText": "antimage_mana_void",
+        "DisplayInLoadout": 0
+      },
+      "21": {
+        "SlotIndex": 21,
+        "SlotName": "persona_selector",
+        "SlotText": "#LoadoutSlot_Persona_Selector"
+      },
+      "22": {
+        "SlotIndex": 22,
+        "SlotName": "hero_effigy",
+        "SlotText": "#LoadoutSlot_HeroEffigy"
+      },
+      "23": {
+        "SlotIndex": 23,
         "SlotName": "hero_effigy_persona_1",
         "SlotText": "#LoadoutSlot_HeroEffigy"
       }
@@ -14967,6 +14955,11 @@
         "DisplayInLoadout": 0
       },
       "12": {
+        "SlotIndex": 12,
+        "SlotName": "hero_base",
+        "SlotText": "#LoadoutSlot_Drow_Ranger_Base"
+      },
+      "13": {
         "SlotIndex": 13,
         "SlotName": "hero_effigy",
         "SlotText": "#LoadoutSlot_HeroEffigy"
@@ -17129,21 +17122,45 @@
       },
       "21": {
         "SlotIndex": 21,
-        "SlotName": "hero_base",
-        "SlotText": "#LoadoutSlot_Pudge_Base"
+        "SlotName": "ability_effects_1_persona_1",
+        "SlotText": "pudge_meat_hook",
+        "DisplayInLoadout": 0
       },
       "22": {
         "SlotIndex": 22,
-        "SlotName": "persona_selector",
-        "SlotText": "#LoadoutSlot_Persona_Selector"
+        "SlotName": "ability_effects_2_persona_1",
+        "SlotText": "pudge_rot",
+        "DisplayInLoadout": 0
       },
       "23": {
         "SlotIndex": 23,
-        "SlotName": "hero_effigy",
-        "SlotText": "#LoadoutSlot_HeroEffigy"
+        "SlotName": "ability_effects_3_persona_1",
+        "SlotText": "pudge_flesh_heap",
+        "DisplayInLoadout": 0
       },
       "24": {
         "SlotIndex": 24,
+        "SlotName": "ability_effects_4_persona_1",
+        "SlotText": "pudge_dismember",
+        "DisplayInLoadout": 0
+      },
+      "25": {
+        "SlotIndex": 25,
+        "SlotName": "hero_base",
+        "SlotText": "#LoadoutSlot_Pudge_Base"
+      },
+      "26": {
+        "SlotIndex": 26,
+        "SlotName": "persona_selector",
+        "SlotText": "#LoadoutSlot_Persona_Selector"
+      },
+      "27": {
+        "SlotIndex": 27,
+        "SlotName": "hero_effigy",
+        "SlotText": "#LoadoutSlot_HeroEffigy"
+      },
+      "28": {
+        "SlotIndex": 28,
         "SlotName": "hero_effigy_persona_1",
         "SlotText": "#LoadoutSlot_HeroEffigy"
       }
@@ -20563,7 +20580,8 @@
         "SlotIndex": 9,
         "SlotName": "ability_effects_2",
         "SlotText": "shadow_shaman_voodoo",
-        "DisplayInLoadout": 0
+        "DisplayInLoadout": 0,
+        "LoadoutPreviewMode": "hex_model"
       },
       "10": {
         "SlotIndex": 10,
@@ -20573,6 +20591,12 @@
       },
       "11": {
         "SlotIndex": 11,
+        "SlotName": "ability_effects_4",
+        "SlotText": "shadow_shaman_fowl_play",
+        "DisplayInLoadout": 0
+      },
+      "12": {
+        "SlotIndex": 12,
         "SlotName": "hero_effigy",
         "SlotText": "#LoadoutSlot_HeroEffigy"
       }
@@ -20938,6 +20962,9 @@
     "AttackAnimationPoint": 0.6,
     "AttackAcquisitionRange": 600,
     "AttackRange": 150,
+    "AttackSpeedActivityModifiers": {
+      "fast": 150
+    },
     "AttributePrimary": "DOTA_ATTRIBUTE_STRENGTH",
     "AttributeBaseStrength": 25,
     "AttributeStrengthGain": 3.7,
@@ -21035,6 +21062,11 @@
       },
       "10": {
         "SlotIndex": 10,
+        "SlotName": "hero_base",
+        "SlotText": "#LoadoutSlot_Tidehunter_Base"
+      },
+      "11": {
+        "SlotIndex": 11,
         "SlotName": "hero_effigy",
         "SlotText": "#LoadoutSlot_HeroEffigy"
       }
@@ -24340,6 +24372,18 @@
       },
       "12": {
         "SlotIndex": 12,
+        "SlotName": "ability_effects_3",
+        "SlotText": "death_prophet_spirit_siphon",
+        "DisplayInLoadout": 0
+      },
+      "13": {
+        "SlotIndex": 13,
+        "SlotName": "ability_effects_4",
+        "SlotText": "death_prophet_exorcism",
+        "DisplayInLoadout": 0
+      },
+      "14": {
+        "SlotIndex": 14,
         "SlotName": "hero_effigy",
         "SlotText": "#LoadoutSlot_HeroEffigy"
       }
@@ -28667,6 +28711,30 @@
       },
       "8": {
         "SlotIndex": 8,
+        "SlotName": "ability_effects_1",
+        "SlotText": "broodmother_insatiable_hunger",
+        "DisplayInLoadout": 0
+      },
+      "9": {
+        "SlotIndex": 9,
+        "SlotName": "ability_effects_3",
+        "SlotText": "broodmother_incapacitating_bite",
+        "DisplayInLoadout": 0
+      },
+      "10": {
+        "SlotIndex": 10,
+        "SlotName": "ability_effects_4",
+        "SlotText": "broodmother_sticky_snare",
+        "DisplayInLoadout": 0
+      },
+      "11": {
+        "SlotIndex": 11,
+        "SlotName": "ability_effects_5",
+        "SlotText": "broodmother_spiders_milk",
+        "DisplayInLoadout": 0
+      },
+      "12": {
+        "SlotIndex": 12,
         "SlotName": "hero_effigy",
         "SlotText": "#LoadoutSlot_HeroEffigy"
       }
@@ -33574,18 +33642,42 @@
       },
       "7": {
         "SlotIndex": 7,
-        "SlotName": "ability_effects_3",
-        "SlotText": "treant_living_armor",
+        "SlotName": "ability_effects_1",
+        "SlotText": "treant_natures_grasp",
         "DisplayInLoadout": 0
       },
       "8": {
         "SlotIndex": 8,
-        "SlotName": "ability_effects_4",
-        "SlotText": "treant_overgrowth",
+        "SlotName": "ability_effects_3",
+        "SlotText": "treant_living_armor",
         "DisplayInLoadout": 0
       },
       "9": {
         "SlotIndex": 9,
+        "SlotName": "ability_effects_4",
+        "SlotText": "treant_overgrowth",
+        "DisplayInLoadout": 0
+      },
+      "10": {
+        "SlotIndex": 10,
+        "SlotName": "ability_effects_2",
+        "SlotText": "treant_leech_seed",
+        "DisplayInLoadout": 0
+      },
+      "11": {
+        "SlotIndex": 11,
+        "SlotName": "ability_effects_5",
+        "SlotText": "treant_natures_guise",
+        "DisplayInLoadout": 0
+      },
+      "12": {
+        "SlotIndex": 12,
+        "SlotName": "ability_effects_6",
+        "SlotText": "treant_eyes_in_the_forest",
+        "DisplayInLoadout": 0
+      },
+      "13": {
+        "SlotIndex": 13,
         "SlotName": "hero_effigy",
         "SlotText": "#LoadoutSlot_HeroEffigy"
       }
@@ -33996,6 +34088,18 @@
       },
       "9": {
         "SlotIndex": 9,
+        "SlotName": "ability_effects_3",
+        "SlotText": "undying_bite",
+        "DisplayInLoadout": 0
+      },
+      "10": {
+        "SlotIndex": 10,
+        "SlotName": "ability_effects_4",
+        "SlotText": "undying_ceaseless_dirge",
+        "DisplayInLoadout": 0
+      },
+      "11": {
+        "SlotIndex": 11,
         "SlotName": "hero_effigy",
         "SlotText": "#LoadoutSlot_HeroEffigy"
       }
@@ -34581,14 +34685,43 @@
       },
       "6": {
         "SlotIndex": 6,
-        "SlotName": "ability_effects_3",
-        "SlotText": "nyx_assassin_spiked_carapace",
+        "SlotName": "ability_effects_2",
+        "SlotText": "nyx_assassin_jolt",
         "DisplayInLoadout": 0
       },
       "7": {
         "SlotIndex": 7,
+        "SlotName": "ability_effects_3",
+        "SlotText": "nyx_assassin_spiked_carapace",
+        "DisplayInLoadout": 0
+      },
+      "8": {
+        "SlotIndex": 8,
+        "SlotName": "ability_effects_4",
+        "SlotText": "nyx_assassin_burrow",
+        "DisplayInLoadout": 0
+      },
+      "9": {
+        "SlotIndex": 9,
+        "SlotName": "ability_effects_5",
+        "SlotText": "nyx_assassin_scarab_metabolism",
+        "DisplayInLoadout": 0
+      },
+      "11": {
+        "SlotIndex": 11,
+        "SlotName": "ability_effects_6",
+        "SlotText": "nyx_assassin_vendetta",
+        "DisplayInLoadout": 0
+      },
+      "12": {
+        "SlotIndex": 12,
         "SlotName": "hero_effigy",
         "SlotText": "#LoadoutSlot_HeroEffigy"
+      },
+      "13": {
+        "SlotIndex": 13,
+        "SlotName": "hero_base",
+        "SlotText": "#LoadoutSlot_Nyx_Assassin_Base"
       }
     },
     "Bot": {
@@ -38096,17 +38229,35 @@
       },
       "11": {
         "SlotIndex": 11,
-        "SlotName": "hero_effigy",
-        "SlotText": "#LoadoutSlot_HeroEffigy"
+        "SlotName": "ability_effects_3",
+        "SlotText": "legion_commander_moment_of_courage",
+        "DisplayInLoadout": 0
+      },
+      "12": {
+        "SlotIndex": 12,
+        "SlotName": "ability_effects_4",
+        "SlotText": "legion_commander_outfight_them",
+        "DisplayInLoadout": 0
       },
       "13": {
         "SlotIndex": 13,
+        "SlotName": "ability_effects_5",
+        "SlotText": "legion_commander_duel",
+        "DisplayInLoadout": 0
+      },
+      "14": {
+        "SlotIndex": 14,
+        "SlotName": "hero_effigy",
+        "SlotText": "#LoadoutSlot_HeroEffigy"
+      },
+      "15": {
+        "SlotIndex": 15,
         "SlotName": "weapon_persona_1",
         "SlotText": "#LoadoutSlot_Weapon",
         "DisplayInLoadout": 0
       },
-      "15": {
-        "SlotIndex": 15,
+      "19": {
+        "SlotIndex": 19,
         "SlotName": "back_persona_1",
         "SlotText": "#LoadoutSlot_Back",
         "TextureWidth": 512,
@@ -38115,8 +38266,8 @@
         "MaxPolygonsLOD1": 1600,
         "DisplayInLoadout": 0
       },
-      "19": {
-        "SlotIndex": 19,
+      "21": {
+        "SlotIndex": 21,
         "SlotName": "misc_persona_1",
         "SlotText": "#LoadoutSlot_Misc_Persona_1",
         "TextureWidth": 512,
@@ -38125,8 +38276,8 @@
         "MaxPolygonsLOD1": 1400,
         "DisplayInLoadout": 0
       },
-      "20": {
-        "SlotIndex": 20,
+      "22": {
+        "SlotIndex": 22,
         "SlotName": "taunt_persona_1",
         "SlotText": "#LoadoutSlot_Taunt",
         "CanEquipFromSlotType": {
@@ -38137,13 +38288,18 @@
         },
         "DisplayInLoadout": 1
       },
-      "21": {
-        "SlotIndex": 21,
+      "23": {
+        "SlotIndex": 23,
         "SlotName": "hero_effigy_persona_1",
         "SlotText": "#LoadoutSlot_HeroEffigy"
       },
-      "22": {
-        "SlotIndex": 22,
+      "24": {
+        "SlotIndex": 24,
+        "SlotName": "hero_base",
+        "SlotText": "#LoadoutSlot_Legion_Commander_Base"
+      },
+      "25": {
+        "SlotIndex": 25,
         "SlotName": "persona_selector",
         "SlotText": "#LoadoutSlot_Persona_Selector"
       }
@@ -38735,12 +38891,47 @@
       },
       "7": {
         "SlotIndex": 7,
-        "SlotName": "ability_effects_4",
-        "SlotText": "terrorblade_sunder",
+        "SlotName": "ability_effects_1",
+        "SlotText": "terrorblade_reflection",
         "DisplayInLoadout": 0
       },
       "8": {
         "SlotIndex": 8,
+        "SlotName": "ability_effects_2",
+        "SlotText": "terrorblade_conjure_image",
+        "DisplayInLoadout": 0
+      },
+      "9": {
+        "SlotIndex": 9,
+        "SlotName": "ability_effects_3",
+        "SlotText": "terrorblade_metamorphosis",
+        "DisplayInLoadout": 0
+      },
+      "10": {
+        "SlotIndex": 10,
+        "SlotName": "ability_effects_4",
+        "SlotText": "terrorblade_sunder",
+        "DisplayInLoadout": 0
+      },
+      "11": {
+        "SlotIndex": 11,
+        "SlotName": "ability_effects_5",
+        "SlotText": "terrorblade_demon_zeal",
+        "DisplayInLoadout": 0
+      },
+      "12": {
+        "SlotIndex": 11,
+        "SlotName": "ability_effects_6",
+        "SlotText": "terrorblade_terror_wave",
+        "DisplayInLoadout": 0
+      },
+      "13": {
+        "SlotIndex": 13,
+        "SlotName": "hero_base",
+        "SlotText": "#LoadoutSlot_Terrorblade_Base"
+      },
+      "14": {
+        "SlotIndex": 14,
         "SlotName": "hero_effigy",
         "SlotText": "#LoadoutSlot_HeroEffigy"
       }
@@ -39147,22 +39338,46 @@
       },
       "7": {
         "SlotIndex": 7,
-        "SlotName": "ability_effects_3",
-        "SlotText": "oracle_purifying_flames",
+        "SlotName": "ability_effects_2",
+        "SlotText": "oracle_fates_edict",
         "DisplayInLoadout": 0
       },
       "8": {
         "SlotIndex": 8,
-        "SlotName": "hero_effigy",
-        "SlotText": "#LoadoutSlot_HeroEffigy"
+        "SlotName": "ability_effects_3",
+        "SlotText": "oracle_purifying_flames",
+        "DisplayInLoadout": 0
       },
       "9": {
         "SlotIndex": 9,
-        "SlotName": "costume",
-        "SlotText": "#LoadoutSlot_Costume"
+        "SlotName": "ability_effects_4",
+        "SlotText": "oracle_rain_of_destiny",
+        "DisplayInLoadout": 0
       },
       "10": {
         "SlotIndex": 10,
+        "SlotName": "ability_effects_5",
+        "SlotText": "oracle_diviners_deck",
+        "DisplayInLoadout": 0
+      },
+      "11": {
+        "SlotIndex": 11,
+        "SlotName": "ability_effects_6",
+        "SlotText": "oracle_false_promise",
+        "DisplayInLoadout": 0
+      },
+      "12": {
+        "SlotIndex": 12,
+        "SlotName": "hero_effigy",
+        "SlotText": "#LoadoutSlot_HeroEffigy"
+      },
+      "13": {
+        "SlotIndex": 13,
+        "SlotName": "costume",
+        "SlotText": "#LoadoutSlot_Costume"
+      },
+      "14": {
+        "SlotIndex": 14,
         "SlotName": "weapon_persona_1",
         "SlotText": "#LoadoutSlot_Weapon",
         "TextureWidth": 256,
@@ -39171,8 +39386,8 @@
         "MaxPolygonsLOD1": 1000,
         "DisplayInLoadout": 0
       },
-      "13": {
-        "SlotIndex": 13,
+      "17": {
+        "SlotIndex": 17,
         "SlotName": "back_persona_1",
         "SlotText": "#LoadoutSlot_Back",
         "TextureWidth": 512,
@@ -39181,8 +39396,8 @@
         "MaxPolygonsLOD1": 1000,
         "DisplayInLoadout": 0
       },
-      "14": {
-        "SlotIndex": 14,
+      "18": {
+        "SlotIndex": 18,
         "SlotName": "taunt_persona_1",
         "SlotText": "#LoadoutSlot_Taunt",
         "CanEquipFromSlotType": {
@@ -39193,13 +39408,13 @@
         },
         "DisplayInLoadout": 1
       },
-      "15": {
-        "SlotIndex": 15,
+      "19": {
+        "SlotIndex": 19,
         "SlotName": "hero_effigy_persona_1",
         "SlotText": "#LoadoutSlot_HeroEffigy"
       },
-      "16": {
-        "SlotIndex": 16,
+      "20": {
+        "SlotIndex": 20,
         "SlotName": "persona_selector",
         "SlotText": "#LoadoutSlot_Persona_Selector"
       }
@@ -42227,6 +42442,36 @@
       },
       "6": {
         "SlotIndex": 6,
+        "SlotName": "ability_effects_1",
+        "SlotText": "marci_grapple",
+        "DisplayInLoadout": 0
+      },
+      "7": {
+        "SlotIndex": 7,
+        "SlotName": "ability_effects_2",
+        "SlotText": "marci_companion_run",
+        "DisplayInLoadout": 0
+      },
+      "8": {
+        "SlotIndex": 8,
+        "SlotName": "ability_effects_3",
+        "SlotText": "marci_bodyguard",
+        "DisplayInLoadout": 0
+      },
+      "9": {
+        "SlotIndex": 9,
+        "SlotName": "ability_effects_4",
+        "SlotText": "marci_special_delivery",
+        "DisplayInLoadout": 0
+      },
+      "10": {
+        "SlotIndex": 10,
+        "SlotName": "ability_effects_5",
+        "SlotText": "marci_unleash",
+        "DisplayInLoadout": 0
+      },
+      "11": {
+        "SlotIndex": 11,
         "SlotName": "hero_effigy",
         "SlotText": "#LoadoutSlot_HeroEffigy"
       }
@@ -42417,6 +42662,36 @@
       },
       "6": {
         "SlotIndex": 6,
+        "SlotName": "ability_effects_2",
+        "SlotText": "primal_beast_trample",
+        "DisplayInLoadout": 0
+      },
+      "7": {
+        "SlotIndex": 7,
+        "SlotName": "ability_effects_3",
+        "SlotText": "primal_beast_uproar",
+        "DisplayInLoadout": 0
+      },
+      "8": {
+        "SlotIndex": 8,
+        "SlotName": "ability_effects_4",
+        "SlotText": "primal_beast_rock_throw",
+        "DisplayInLoadout": 0
+      },
+      "9": {
+        "SlotIndex": 9,
+        "SlotName": "ability_effects_5",
+        "SlotText": "primal_beast_pulverize",
+        "DisplayInLoadout": 0
+      },
+      "10": {
+        "SlotIndex": 10,
+        "SlotName": "ability_effects_6",
+        "SlotText": "primal_beast_colossal",
+        "DisplayInLoadout": 0
+      },
+      "11": {
+        "SlotIndex": 11,
         "SlotName": "hero_effigy",
         "SlotText": "#LoadoutSlot_HeroEffigy"
       }

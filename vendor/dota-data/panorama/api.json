@@ -5068,6 +5068,17 @@
         "description": "Get hero name by hero ID"
       },
       {
+        "name": "GetAbilityNameLocalizedForAbilityID",
+        "args": [
+          {
+            "name": "nAbilityID",
+            "type": "number"
+          }
+        ],
+        "returns": "string",
+        "description": "Get the localized version of an ability's name by ability ID"
+      },
+      {
         "name": "ConstructNumberString",
         "args": [
           {
@@ -6589,6 +6600,32 @@
           {
             "name": "_arg_1",
             "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          }
+        ],
+        "returns": "void"
+      },
+      {
+        "name": "WriteCompositionLayerJPEG",
+        "args": [
+          {
+            "name": "_arg_1",
+            "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          },
+          {
+            "name": "_arg_3",
+            "type": "number"
+          },
+          {
+            "name": "_arg_4",
+            "type": "number"
           }
         ],
         "returns": "void"
@@ -7617,6 +7654,32 @@
           {
             "name": "_arg_1",
             "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          }
+        ],
+        "returns": "void"
+      },
+      {
+        "name": "WriteCompositionLayerJPEG",
+        "args": [
+          {
+            "name": "_arg_1",
+            "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          },
+          {
+            "name": "_arg_3",
+            "type": "number"
+          },
+          {
+            "name": "_arg_4",
+            "type": "number"
           }
         ],
         "returns": "void"
@@ -8674,6 +8737,32 @@
           {
             "name": "_arg_1",
             "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          }
+        ],
+        "returns": "void"
+      },
+      {
+        "name": "WriteCompositionLayerJPEG",
+        "args": [
+          {
+            "name": "_arg_1",
+            "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          },
+          {
+            "name": "_arg_3",
+            "type": "number"
+          },
+          {
+            "name": "_arg_4",
+            "type": "number"
           }
         ],
         "returns": "void"
@@ -9702,6 +9791,32 @@
           {
             "name": "_arg_1",
             "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          }
+        ],
+        "returns": "void"
+      },
+      {
+        "name": "WriteCompositionLayerJPEG",
+        "args": [
+          {
+            "name": "_arg_1",
+            "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          },
+          {
+            "name": "_arg_3",
+            "type": "number"
+          },
+          {
+            "name": "_arg_4",
+            "type": "number"
           }
         ],
         "returns": "void"
@@ -10770,6 +10885,32 @@
           {
             "name": "_arg_1",
             "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          }
+        ],
+        "returns": "void"
+      },
+      {
+        "name": "WriteCompositionLayerJPEG",
+        "args": [
+          {
+            "name": "_arg_1",
+            "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          },
+          {
+            "name": "_arg_3",
+            "type": "number"
+          },
+          {
+            "name": "_arg_4",
+            "type": "number"
           }
         ],
         "returns": "void"
@@ -11818,6 +11959,32 @@
           {
             "name": "_arg_1",
             "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          }
+        ],
+        "returns": "void"
+      },
+      {
+        "name": "WriteCompositionLayerJPEG",
+        "args": [
+          {
+            "name": "_arg_1",
+            "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          },
+          {
+            "name": "_arg_3",
+            "type": "number"
+          },
+          {
+            "name": "_arg_4",
+            "type": "number"
           }
         ],
         "returns": "void"
@@ -12846,6 +13013,32 @@
           {
             "name": "_arg_1",
             "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          }
+        ],
+        "returns": "void"
+      },
+      {
+        "name": "WriteCompositionLayerJPEG",
+        "args": [
+          {
+            "name": "_arg_1",
+            "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          },
+          {
+            "name": "_arg_3",
+            "type": "number"
+          },
+          {
+            "name": "_arg_4",
+            "type": "number"
           }
         ],
         "returns": "void"
@@ -13964,6 +14157,32 @@
           {
             "name": "_arg_1",
             "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          }
+        ],
+        "returns": "void"
+      },
+      {
+        "name": "WriteCompositionLayerJPEG",
+        "args": [
+          {
+            "name": "_arg_1",
+            "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          },
+          {
+            "name": "_arg_3",
+            "type": "number"
+          },
+          {
+            "name": "_arg_4",
+            "type": "number"
           }
         ],
         "returns": "void"
@@ -15022,6 +15241,32 @@
           {
             "name": "_arg_1",
             "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          }
+        ],
+        "returns": "void"
+      },
+      {
+        "name": "WriteCompositionLayerJPEG",
+        "args": [
+          {
+            "name": "_arg_1",
+            "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          },
+          {
+            "name": "_arg_3",
+            "type": "number"
+          },
+          {
+            "name": "_arg_4",
+            "type": "number"
           }
         ],
         "returns": "void"
@@ -16050,6 +16295,32 @@
           {
             "name": "_arg_1",
             "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          }
+        ],
+        "returns": "void"
+      },
+      {
+        "name": "WriteCompositionLayerJPEG",
+        "args": [
+          {
+            "name": "_arg_1",
+            "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          },
+          {
+            "name": "_arg_3",
+            "type": "number"
+          },
+          {
+            "name": "_arg_4",
+            "type": "number"
           }
         ],
         "returns": "void"
@@ -17146,6 +17417,32 @@
           {
             "name": "_arg_1",
             "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          }
+        ],
+        "returns": "void"
+      },
+      {
+        "name": "WriteCompositionLayerJPEG",
+        "args": [
+          {
+            "name": "_arg_1",
+            "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          },
+          {
+            "name": "_arg_3",
+            "type": "number"
+          },
+          {
+            "name": "_arg_4",
+            "type": "number"
           }
         ],
         "returns": "void"
@@ -18202,6 +18499,32 @@
           {
             "name": "_arg_1",
             "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          }
+        ],
+        "returns": "void"
+      },
+      {
+        "name": "WriteCompositionLayerJPEG",
+        "args": [
+          {
+            "name": "_arg_1",
+            "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          },
+          {
+            "name": "_arg_3",
+            "type": "number"
+          },
+          {
+            "name": "_arg_4",
+            "type": "number"
           }
         ],
         "returns": "void"
@@ -19260,6 +19583,32 @@
           {
             "name": "_arg_1",
             "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          }
+        ],
+        "returns": "void"
+      },
+      {
+        "name": "WriteCompositionLayerJPEG",
+        "args": [
+          {
+            "name": "_arg_1",
+            "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          },
+          {
+            "name": "_arg_3",
+            "type": "number"
+          },
+          {
+            "name": "_arg_4",
+            "type": "number"
           }
         ],
         "returns": "void"
@@ -20292,6 +20641,32 @@
           {
             "name": "_arg_1",
             "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          }
+        ],
+        "returns": "void"
+      },
+      {
+        "name": "WriteCompositionLayerJPEG",
+        "args": [
+          {
+            "name": "_arg_1",
+            "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          },
+          {
+            "name": "_arg_3",
+            "type": "number"
+          },
+          {
+            "name": "_arg_4",
+            "type": "number"
           }
         ],
         "returns": "void"
@@ -20300,21 +20675,17 @@
         "name": "startTime",
         "args": [
           {
-            "name": "_arg_1",
-            "type": "number"
+            "name": "_arg_1"
           }
-        ],
-        "returns": "number"
+        ]
       },
       {
         "name": "endTime",
         "args": [
           {
-            "name": "_arg_1",
-            "type": "number"
+            "name": "_arg_1"
           }
-        ],
-        "returns": "number"
+        ]
       },
       {
         "name": "updateInterval",
@@ -21360,6 +21731,32 @@
           {
             "name": "_arg_1",
             "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          }
+        ],
+        "returns": "void"
+      },
+      {
+        "name": "WriteCompositionLayerJPEG",
+        "args": [
+          {
+            "name": "_arg_1",
+            "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          },
+          {
+            "name": "_arg_3",
+            "type": "number"
+          },
+          {
+            "name": "_arg_4",
+            "type": "number"
           }
         ],
         "returns": "void"
@@ -22467,6 +22864,32 @@
           {
             "name": "_arg_1",
             "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          }
+        ],
+        "returns": "void"
+      },
+      {
+        "name": "WriteCompositionLayerJPEG",
+        "args": [
+          {
+            "name": "_arg_1",
+            "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          },
+          {
+            "name": "_arg_3",
+            "type": "number"
+          },
+          {
+            "name": "_arg_4",
+            "type": "number"
           }
         ],
         "returns": "void"
@@ -23519,6 +23942,32 @@
           {
             "name": "_arg_1",
             "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          }
+        ],
+        "returns": "void"
+      },
+      {
+        "name": "WriteCompositionLayerJPEG",
+        "args": [
+          {
+            "name": "_arg_1",
+            "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          },
+          {
+            "name": "_arg_3",
+            "type": "number"
+          },
+          {
+            "name": "_arg_4",
+            "type": "number"
           }
         ],
         "returns": "void"
@@ -24682,6 +25131,32 @@
           {
             "name": "_arg_1",
             "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          }
+        ],
+        "returns": "void"
+      },
+      {
+        "name": "WriteCompositionLayerJPEG",
+        "args": [
+          {
+            "name": "_arg_1",
+            "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          },
+          {
+            "name": "_arg_3",
+            "type": "number"
+          },
+          {
+            "name": "_arg_4",
+            "type": "number"
           }
         ],
         "returns": "void"
@@ -25789,6 +26264,32 @@
           {
             "name": "_arg_1",
             "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          }
+        ],
+        "returns": "void"
+      },
+      {
+        "name": "WriteCompositionLayerJPEG",
+        "args": [
+          {
+            "name": "_arg_1",
+            "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          },
+          {
+            "name": "_arg_3",
+            "type": "number"
+          },
+          {
+            "name": "_arg_4",
+            "type": "number"
           }
         ],
         "returns": "void"
@@ -26843,6 +27344,32 @@
           {
             "name": "_arg_1",
             "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          }
+        ],
+        "returns": "void"
+      },
+      {
+        "name": "WriteCompositionLayerJPEG",
+        "args": [
+          {
+            "name": "_arg_1",
+            "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          },
+          {
+            "name": "_arg_3",
+            "type": "number"
+          },
+          {
+            "name": "_arg_4",
+            "type": "number"
           }
         ],
         "returns": "void"
@@ -27932,6 +28459,32 @@
           {
             "name": "_arg_1",
             "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          }
+        ],
+        "returns": "void"
+      },
+      {
+        "name": "WriteCompositionLayerJPEG",
+        "args": [
+          {
+            "name": "_arg_1",
+            "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          },
+          {
+            "name": "_arg_3",
+            "type": "number"
+          },
+          {
+            "name": "_arg_4",
+            "type": "number"
           }
         ],
         "returns": "void"
@@ -29011,6 +29564,32 @@
           {
             "name": "_arg_1",
             "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          }
+        ],
+        "returns": "void"
+      },
+      {
+        "name": "WriteCompositionLayerJPEG",
+        "args": [
+          {
+            "name": "_arg_1",
+            "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          },
+          {
+            "name": "_arg_3",
+            "type": "number"
+          },
+          {
+            "name": "_arg_4",
+            "type": "number"
           }
         ],
         "returns": "void"
@@ -29126,7 +29705,7 @@
           },
           {
             "name": "_arg_3",
-            "type": "number"
+            "type": "string"
           }
         ],
         "returns": "boolean"
@@ -30314,6 +30893,32 @@
           {
             "name": "_arg_1",
             "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          }
+        ],
+        "returns": "void"
+      },
+      {
+        "name": "WriteCompositionLayerJPEG",
+        "args": [
+          {
+            "name": "_arg_1",
+            "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          },
+          {
+            "name": "_arg_3",
+            "type": "number"
+          },
+          {
+            "name": "_arg_4",
+            "type": "number"
           }
         ],
         "returns": "void"
@@ -30429,7 +31034,7 @@
           },
           {
             "name": "_arg_3",
-            "type": "number"
+            "type": "string"
           }
         ],
         "returns": "boolean"
@@ -31565,6 +32170,32 @@
           {
             "name": "_arg_1",
             "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          }
+        ],
+        "returns": "void"
+      },
+      {
+        "name": "WriteCompositionLayerJPEG",
+        "args": [
+          {
+            "name": "_arg_1",
+            "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          },
+          {
+            "name": "_arg_3",
+            "type": "number"
+          },
+          {
+            "name": "_arg_4",
+            "type": "number"
           }
         ],
         "returns": "void"
@@ -32613,6 +33244,32 @@
           {
             "name": "_arg_1",
             "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          }
+        ],
+        "returns": "void"
+      },
+      {
+        "name": "WriteCompositionLayerJPEG",
+        "args": [
+          {
+            "name": "_arg_1",
+            "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          },
+          {
+            "name": "_arg_3",
+            "type": "number"
+          },
+          {
+            "name": "_arg_4",
+            "type": "number"
           }
         ],
         "returns": "void"
@@ -33661,6 +34318,32 @@
           {
             "name": "_arg_1",
             "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          }
+        ],
+        "returns": "void"
+      },
+      {
+        "name": "WriteCompositionLayerJPEG",
+        "args": [
+          {
+            "name": "_arg_1",
+            "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          },
+          {
+            "name": "_arg_3",
+            "type": "number"
+          },
+          {
+            "name": "_arg_4",
+            "type": "number"
           }
         ],
         "returns": "void"
@@ -34760,6 +35443,32 @@
           {
             "name": "_arg_1",
             "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          }
+        ],
+        "returns": "void"
+      },
+      {
+        "name": "WriteCompositionLayerJPEG",
+        "args": [
+          {
+            "name": "_arg_1",
+            "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          },
+          {
+            "name": "_arg_3",
+            "type": "number"
+          },
+          {
+            "name": "_arg_4",
+            "type": "number"
           }
         ],
         "returns": "void"
@@ -35808,6 +36517,32 @@
           {
             "name": "_arg_1",
             "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          }
+        ],
+        "returns": "void"
+      },
+      {
+        "name": "WriteCompositionLayerJPEG",
+        "args": [
+          {
+            "name": "_arg_1",
+            "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          },
+          {
+            "name": "_arg_3",
+            "type": "number"
+          },
+          {
+            "name": "_arg_4",
+            "type": "number"
           }
         ],
         "returns": "void"
@@ -36879,6 +37614,32 @@
           {
             "name": "_arg_1",
             "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          }
+        ],
+        "returns": "void"
+      },
+      {
+        "name": "WriteCompositionLayerJPEG",
+        "args": [
+          {
+            "name": "_arg_1",
+            "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          },
+          {
+            "name": "_arg_3",
+            "type": "number"
+          },
+          {
+            "name": "_arg_4",
+            "type": "number"
           }
         ],
         "returns": "void"
@@ -37947,6 +38708,32 @@
           {
             "name": "_arg_1",
             "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          }
+        ],
+        "returns": "void"
+      },
+      {
+        "name": "WriteCompositionLayerJPEG",
+        "args": [
+          {
+            "name": "_arg_1",
+            "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          },
+          {
+            "name": "_arg_3",
+            "type": "number"
+          },
+          {
+            "name": "_arg_4",
+            "type": "number"
           }
         ],
         "returns": "void"
@@ -39025,6 +39812,32 @@
           {
             "name": "_arg_1",
             "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          }
+        ],
+        "returns": "void"
+      },
+      {
+        "name": "WriteCompositionLayerJPEG",
+        "args": [
+          {
+            "name": "_arg_1",
+            "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          },
+          {
+            "name": "_arg_3",
+            "type": "number"
+          },
+          {
+            "name": "_arg_4",
+            "type": "number"
           }
         ],
         "returns": "void"
@@ -40093,6 +40906,32 @@
           {
             "name": "_arg_1",
             "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          }
+        ],
+        "returns": "void"
+      },
+      {
+        "name": "WriteCompositionLayerJPEG",
+        "args": [
+          {
+            "name": "_arg_1",
+            "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          },
+          {
+            "name": "_arg_3",
+            "type": "number"
+          },
+          {
+            "name": "_arg_4",
+            "type": "number"
           }
         ],
         "returns": "void"
@@ -41135,6 +41974,32 @@
           {
             "name": "_arg_1",
             "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          }
+        ],
+        "returns": "void"
+      },
+      {
+        "name": "WriteCompositionLayerJPEG",
+        "args": [
+          {
+            "name": "_arg_1",
+            "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          },
+          {
+            "name": "_arg_3",
+            "type": "number"
+          },
+          {
+            "name": "_arg_4",
+            "type": "number"
           }
         ],
         "returns": "void"
@@ -42231,6 +43096,32 @@
           {
             "name": "_arg_1",
             "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          }
+        ],
+        "returns": "void"
+      },
+      {
+        "name": "WriteCompositionLayerJPEG",
+        "args": [
+          {
+            "name": "_arg_1",
+            "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          },
+          {
+            "name": "_arg_3",
+            "type": "number"
+          },
+          {
+            "name": "_arg_4",
+            "type": "number"
           }
         ],
         "returns": "void"
@@ -43353,6 +44244,32 @@
           {
             "name": "_arg_1",
             "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          }
+        ],
+        "returns": "void"
+      },
+      {
+        "name": "WriteCompositionLayerJPEG",
+        "args": [
+          {
+            "name": "_arg_1",
+            "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          },
+          {
+            "name": "_arg_3",
+            "type": "number"
+          },
+          {
+            "name": "_arg_4",
+            "type": "number"
           }
         ],
         "returns": "void"
@@ -44391,6 +45308,32 @@
           {
             "name": "_arg_1",
             "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          }
+        ],
+        "returns": "void"
+      },
+      {
+        "name": "WriteCompositionLayerJPEG",
+        "args": [
+          {
+            "name": "_arg_1",
+            "type": "string"
+          },
+          {
+            "name": "_arg_2",
+            "type": "string"
+          },
+          {
+            "name": "_arg_3",
+            "type": "number"
+          },
+          {
+            "name": "_arg_4",
+            "type": "number"
           }
         ],
         "returns": "void"

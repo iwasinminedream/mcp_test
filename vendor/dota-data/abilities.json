@@ -13342,7 +13342,8 @@
         "value": 320,
         "affected_by_aoe_increase": 1
       },
-      "explosion_interval": 0.1,
+      "explosion_interval_tooltip": 0.1,
+      "num_explosions": 100,
       "movespeed_slow": -40,
       "attack_slow": "-80 -120 -160",
       "slow_duration": 1,
@@ -15962,8 +15963,9 @@
       "free_pathing_linger_duration": {
         "special_bonus_shard": "=1.0"
       },
-      "free_pathing_application_radius": 150,
+      "free_pathing_application_radius": 0,
       "fissure_max_distance_moved": 300,
+      "free_pathing_all_allies": 0,
       "echoes_radius": {
         "value": 0,
         "special_bonus_facet_earthshaker_reverberating_ridge": 400,
@@ -18157,7 +18159,9 @@
       "bonus_damage": {
         "special_bonus_unique_gyrocopter_flak_cannon_bonus_damage": "+25"
       },
-      "bonus_night_vision": 0
+      "bonus_night_vision": 0,
+      "additional_targets": 0,
+      "proc_attack_modifiers": 0
     },
     "AbilityCastAnimation": "ACT_DOTA_CAST_ABILITY_3"
   },
@@ -18495,7 +18499,9 @@
       },
       "pierce_debuff_immunity": {
         "special_bonus_unique_hoodwink_sharpshooter_pure_damage": 1
-      }
+      },
+      "pierce_units": 0,
+      "pierce_hero_damage_reduction_pct": 0
     },
     "AbilityCastAnimation": "ACT_DOTA_CHANNEL_ABILITY_6"
   },
@@ -21562,6 +21568,7 @@
         "value": 18,
         "special_bonus_unique_legion_commander_9": -2
       },
+      "shield_counts_non_hero_damage": 0,
       "shield_per_damage_pct": {
         "special_bonus_shard": "+50",
         "RequiresShard": 1
@@ -38607,22 +38614,24 @@
       "duration": {
         "value": 40
       },
-      "ward_multiplier": {
-        "value": 1,
-        "special_bonus_unique_venomancer": "x2.5"
-      },
       "ward_model_scale": {
         "value": 1,
         "special_bonus_unique_venomancer": "x1.5"
       },
-      "ward_hp_tooltip": {
+      "ward_base_damage": {
+        "value": "16 24 32 40",
+        "special_bonus_unique_venomancer": "x2.5"
+      },
+      "ward_damage_spread": {
+        "value": 2
+      },
+      "ward_max_health": {
         "value": "150 250 350 450",
         "special_bonus_unique_venomancer": "x2.5"
       },
-      "ward_damage_tooltip": {
-        "value": "16 24 32 40",
-        "special_bonus_unique_venomancer": "x2.5"
-      }
+      "ward_gold_bounty_min": "10 14 18 22",
+      "ward_gold_bounty_max": "10 14 18 22",
+      "magic_immune": 1
     },
     "AbilityCastAnimation": "ACT_DOTA_CAST_ABILITY_3"
   },
@@ -43936,7 +43945,7 @@
     "ItemRecipe": 1,
     "ItemResult": "item_necronomicon",
     "ItemRequirements": {
-      "01": "item_sobi_mask;item_sobi_mask;item_belt_of_strength"
+      "01": "item_staff_of_wizardry;item_belt_of_strength"
     }
   },
   "item_recipe_necronomicon_2": {
@@ -43972,7 +43981,7 @@
     "FightRecapLevel": 1,
     "ItemPurchasable": 0,
     "IsObsolete": 1,
-    "ItemCost": 2050,
+    "ItemCost": 2700,
     "ItemShopTags": "int;str;hard_to_tag;see_invis",
     "ItemQuality": "rare",
     "ItemDeclarations": "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS",
@@ -43982,7 +43991,7 @@
     "UpgradeRecipe": "item_recipe_necronomicon",
     "AbilityValues": {
       "bonus_strength": "6 12 18",
-      "bonus_mana_regen": "2 3 4",
+      "bonus_intellect": "15 20 25",
       "summon_duration": 60,
       "warrior_health_tooltip": "800 1200 1600",
       "warrior_damage_tooltip": "25 45 65",
@@ -44006,7 +44015,7 @@
     "FightRecapLevel": 1,
     "ItemPurchasable": 0,
     "IsObsolete": 1,
-    "ItemCost": 3300,
+    "ItemCost": 3950,
     "ItemShopTags": "int;str;hard_to_tag;see_invis",
     "ItemQuality": "rare",
     "ItemDeclarations": "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS",
@@ -44016,7 +44025,7 @@
     "UpgradeRecipe": "item_recipe_necronomicon",
     "AbilityValues": {
       "bonus_strength": "6 12 18",
-      "bonus_mana_regen": "2 3 4",
+      "bonus_intellect": "15 20 25",
       "summon_duration": 60,
       "warrior_health_tooltip": "800 1200 1600",
       "warrior_damage_tooltip": "25 45 65",
@@ -44040,7 +44049,7 @@
     "FightRecapLevel": 1,
     "ItemPurchasable": 0,
     "IsObsolete": 1,
-    "ItemCost": 4550,
+    "ItemCost": 5200,
     "ItemShopTags": "int;str;hard_to_tag;see_invis",
     "ItemQuality": "rare",
     "ItemDeclarations": "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS",
@@ -44048,7 +44057,7 @@
     "ItemBaseLevel": 3,
     "AbilityValues": {
       "bonus_strength": "6 12 18",
-      "bonus_mana_regen": "2 3 4",
+      "bonus_intellect": "15 20 25",
       "summon_duration": 60,
       "warrior_health_tooltip": "800 1200 1600",
       "warrior_damage_tooltip": "25 45 65",
@@ -44926,7 +44935,8 @@
       "stack_threshold_damage": 0,
       "duration": 5,
       "barrier_per_stack": 120,
-      "max_barrier_tooltip": 360
+      "max_barrier_tooltip": 360,
+      "damage_must_be_player_owned_or_roshan": 1
     }
   },
   "item_recipe_crellas_crozier": {

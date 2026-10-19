@@ -461,10 +461,6 @@
         "shortName": "COUNT"
       },
       {
-        "name": "DOTA_TEAM_CUSTOM",
-        "shortName": "CUSTOM"
-      },
-      {
         "name": "DOTA_TEAM_CUSTOM_1",
         "shortName": "CUSTOM_1"
       },
@@ -6047,10 +6043,6 @@
         "shortName": "MATRIX3X4"
       },
       {
-        "name": "FIELD_MATRIX3X4_WORLDSPACE",
-        "shortName": "MATRIX3X4_WORLDSPACE"
-      },
-      {
         "name": "FIELD_MODIFIER_HANDLE",
         "shortName": "MODIFIER_HANDLE"
       },
@@ -6215,16 +6207,20 @@
         "shortName": "VMATRIX"
       },
       {
-        "name": "FIELD_VMATRIX_WORLDSPACE",
-        "shortName": "VMATRIX_WORLDSPACE"
-      },
-      {
         "name": "FIELD_VOID",
         "shortName": "VOID"
       },
       {
         "name": "FIELD_WORLD_GROUP_ID",
         "shortName": "WORLD_GROUP_ID"
+      },
+      {
+        "name": "FIELD_xxxAvail1",
+        "shortName": "xxxAvail1"
+      },
+      {
+        "name": "FIELD_xxxAvail2",
+        "shortName": "xxxAvail2"
       }
     ]
   },
@@ -6419,6 +6415,10 @@
       {
         "name": "DOTA_ABILITY_BEHAVIOR_CHANNELLED",
         "shortName": "CHANNELLED"
+      },
+      {
+        "name": "DOTA_ABILITY_BEHAVIOR_DIRECT_KEYBIND",
+        "shortName": "DIRECT_KEYBIND"
       },
       {
         "name": "DOTA_ABILITY_BEHAVIOR_DIRECTIONAL",

@@ -4274,36 +4274,6 @@
   },
   {
     "kind": "class",
-    "name": "CDOTA_Ability_Aghanim_Spear",
-    "extend": "CDOTABaseAbility",
-    "members": [
-      {
-        "kind": "function",
-        "name": "LaunchSpear",
-        "available": "server",
-        "description": "Launch Spear to a target position from a source position.",
-        "returns": [
-          "nil"
-        ],
-        "args": [
-          {
-            "name": "target",
-            "types": [
-              "Vector"
-            ]
-          },
-          {
-            "name": "start",
-            "types": [
-              "Vector"
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "kind": "class",
     "name": "CDOTA_Ability_Animation_Attack",
     "extend": "CDOTABaseAbility",
     "members": [
@@ -17273,6 +17243,16 @@
       },
       {
         "kind": "function",
+        "name": "GetModifierMinAttackRange",
+        "available": "both",
+        "abstract": true,
+        "args": [],
+        "returns": [
+          "nil"
+        ]
+      },
+      {
+        "kind": "function",
         "name": "GetModifierMinPhysicalArmor",
         "available": "both",
         "abstract": true,
@@ -19971,6 +19951,17 @@
       },
       {
         "kind": "function",
+        "name": "OnDamageHPLossSelf",
+        "available": "both",
+        "abstract": true,
+        "args": [],
+        "returns": [
+          "nil"
+        ],
+        "broken": true
+      },
+      {
+        "kind": "function",
         "name": "OnDamagePrevented",
         "available": "both",
         "abstract": true,
@@ -20706,6 +20697,17 @@
         "returns": [
           "nil"
         ]
+      },
+      {
+        "kind": "function",
+        "name": "OnTreePlanted",
+        "available": "both",
+        "abstract": true,
+        "args": [],
+        "returns": [
+          "nil"
+        ],
+        "broken": true
       },
       {
         "kind": "function",
@@ -34258,13 +34260,12 @@
   {
     "kind": "class",
     "name": "CScriptHTTPRequest",
-    "clientName": "CScriptHTTPRequest",
     "description": "Note: Actual `CScriptHTTPRequest` global exists only after CreateHTTPRequest is called.",
     "members": [
       {
         "kind": "function",
         "name": "Send",
-        "available": "both",
+        "available": "server",
         "description": "Send a HTTP request.",
         "returns": [
           "bool"
@@ -34294,7 +34295,7 @@
       {
         "kind": "function",
         "name": "SetHTTPRequestAbsoluteTimeoutMS",
-        "available": "both",
+        "available": "server",
         "description": "Set the total timeout on the request.",
         "returns": [
           "bool"
@@ -34311,7 +34312,7 @@
       {
         "kind": "function",
         "name": "SetHTTPRequestGetOrPostParameter",
-        "available": "both",
+        "available": "server",
         "description": "Set a POST or GET parameter on the request.",
         "returns": [
           "bool"
@@ -34334,7 +34335,7 @@
       {
         "kind": "function",
         "name": "SetHTTPRequestHeaderValue",
-        "available": "both",
+        "available": "server",
         "description": "Set a header value on the request.",
         "returns": [
           "bool"
@@ -34357,7 +34358,7 @@
       {
         "kind": "function",
         "name": "SetHTTPRequestNetworkActivityTimeout",
-        "available": "both",
+        "available": "server",
         "description": "Set the network timeout on the request - this timer is reset when any data is received.",
         "returns": [
           "bool"
@@ -34374,7 +34375,7 @@
       {
         "kind": "function",
         "name": "SetHTTPRequestRawPostBody",
-        "available": "both",
+        "available": "server",
         "description": "Set the literal body of a post - invalid after setting a post parameter.",
         "returns": [
           "bool"
