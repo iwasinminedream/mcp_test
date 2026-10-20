@@ -9170,6 +9170,10 @@
       {
         "name": "ACT_DOTA_CHANNEL_STATUE",
         "value": 1795
+      },
+      {
+        "name": "ACT_DOTA_CAST5_STATUE",
+        "value": 1801
       }
     ]
   },
