@@ -5575,6 +5575,7 @@
           },
           {
             "name": "modifierTable",
+            "description": "`duration` sets the duration. All keys reach `OnCreated`/`OnRefresh` on the server: numbers and strings as is, booleans as 1/0, vectors as `\"x y z\"` strings; handles, tables and functions are dropped with a warning. On the client these functions get only engine keys (`creationtime`, `duration`, `stack_count`, `isProvidedByAura`, `isCurrentlyInAuraRange`, `auraOwner`).",
             "types": [
               "table",
               "nil"
@@ -10498,7 +10499,7 @@
           {
             "name": "dropData",
             "types": [
-              "table"
+              "AddItemDropOptions"
             ]
           }
         ]
@@ -12715,7 +12716,8 @@
           {
             "name": "dialogVariables",
             "types": [
-              "handle"
+              "table",
+              "nil"
             ]
           }
         ]
@@ -12767,7 +12769,7 @@
           {
             "name": "dialogVariables",
             "types": [
-              "handle"
+              "table"
             ]
           }
         ]
@@ -32540,9 +32542,10 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "options",
+            "description": "Converted to KeyValues. Keys: `Text`, `Duration`, `NumChoices`, `Choice0`, `Choice1`, ..., `DefaultChoice`, `RequiredVoteThreshold`, `Callback`, `AllowVoteChanging`, `PauseGame`, `EndEarlyIfOutcomeIsDetermined`, `EndEarlyIfAllHaveVoted`. `Callback` is read as a string: a function value is dropped by the conversion.",
             "types": [
-              "handle"
+              "table"
             ]
           }
         ]
@@ -37199,9 +37202,10 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "options",
+        "description": "Keys: `entity`, `effectname`, `position`, `angles`, `direction`.",
         "types": [
-          "handle"
+          "table"
         ]
       }
     ]
@@ -37444,6 +37448,7 @@
       },
       {
         "name": "paramTable",
+        "description": "Converted like the table of `AddNewModifier`, except that vectors are dropped too.",
         "types": [
           "table",
           "nil"

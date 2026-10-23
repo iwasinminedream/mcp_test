@@ -382,6 +382,7 @@
   {
     "kind": "object",
     "name": "ExecuteOrderOptions",
+    "description": "The table is converted to KeyValues first: entity handles are dropped (pass entity indexes; a handle in `UnitIndex` makes the order do nothing), booleans become 0/1.",
     "fields": [
       {
         "name": "UnitIndex",
@@ -415,9 +416,10 @@
         "name": "Position",
         "types": [
           "Vector",
+          "string",
           "nil"
         ],
-        "description": "Only used when targeting the ground."
+        "description": "Only used when targeting the ground. A `\"x y z\"` string works too."
       },
       {
         "name": "Queue",
@@ -452,16 +454,17 @@
         ]
       },
       {
-        "name": "mins",
+        "name": "min",
         "types": [
-          "unknown",
+          "Vector",
           "nil"
-        ]
+        ],
+        "description": "With `max`: trace a box instead of a ray. The help text of the function says `mins`/`maxs`, but those keys are not read."
       },
       {
-        "name": "maxs",
+        "name": "max",
         "types": [
-          "unknown",
+          "Vector",
           "nil"
         ]
       }
@@ -479,6 +482,14 @@
         "types": [
           "bool"
         ]
+      },
+      {
+        "name": "startsolid",
+        "types": [
+          "bool",
+          "nil"
+        ],
+        "description": "Set (to `true`) only when the trace starts inside the entity."
       },
       {
         "name": "pos",
@@ -519,28 +530,30 @@
       {
         "name": "min",
         "types": [
-          "unknown"
+          "Vector"
         ]
       },
       {
         "name": "max",
         "types": [
-          "unknown"
+          "Vector"
         ]
       },
       {
         "name": "mask",
         "types": [
-          "unknown",
+          "int",
           "nil"
-        ]
+        ],
+        "description": "Not read by `TraceHull`, unlike `TraceLine` (the help text of the function lists it)."
       },
       {
         "name": "ignore",
         "types": [
-          "unknown",
+          "CBaseEntity",
           "nil"
-        ]
+        ],
+        "description": "The trace passes through it."
       }
     ]
   },
@@ -560,8 +573,10 @@
       {
         "name": "startsolid",
         "types": [
-          "bool"
-        ]
+          "bool",
+          "nil"
+        ],
+        "description": "Set (to `true`) only when the trace starts inside a solid."
       },
       {
         "name": "pos",
@@ -609,16 +624,18 @@
       {
         "name": "mask",
         "types": [
-          "unknown",
+          "int",
           "nil"
-        ]
+        ],
+        "description": "Collision mask: `0` hits nothing."
       },
       {
         "name": "ignore",
         "types": [
-          "unknown",
+          "CBaseEntity",
           "nil"
-        ]
+        ],
+        "description": "The trace passes through it."
       }
     ]
   },
@@ -638,8 +655,10 @@
       {
         "name": "startsolid",
         "types": [
-          "bool"
-        ]
+          "bool",
+          "nil"
+        ],
+        "description": "Set (to `true`) only when the trace starts inside a solid."
       },
       {
         "name": "pos",
@@ -739,6 +758,13 @@
         ]
       },
       {
+        "name": "vParticleSpawnOrigin",
+        "types": [
+          "Vector",
+          "nil"
+        ]
+      },
+      {
         "name": "vVelocity",
         "types": [
           "Vector",
@@ -824,6 +850,20 @@
         ]
       },
       {
+        "name": "bIgnoreObstructions",
+        "types": [
+          "bool",
+          "nil"
+        ]
+      },
+      {
+        "name": "bStickyFoWReveal",
+        "types": [
+          "bool",
+          "nil"
+        ]
+      },
+      {
         "name": "bDrawsOnMinimap",
         "types": [
           "bool",
@@ -861,6 +901,14 @@
           "CDOTA_BaseNPC",
           "nil"
         ]
+      },
+      {
+        "name": "vTargetLoc",
+        "types": [
+          "Vector",
+          "nil"
+        ],
+        "description": "Without `Target` the projectile flies to this point."
       },
       {
         "name": "iMoveSpeed",
@@ -958,6 +1006,13 @@
         "types": [
           "string"
         ]
+      },
+      {
+        "name": "level",
+        "types": [
+          "int"
+        ],
+        "description": "Zero-based ability level the value is requested for."
       },
       {
         "name": "value",
@@ -1241,6 +1296,17 @@
         ]
       },
       {
+        "name": "source_entindex_const",
+        "types": [
+          "EntityIndex",
+          {
+            "kind": "literal",
+            "value": -1
+          }
+        ],
+        "description": "Entity the experience comes from, such as the killed unit."
+      },
+      {
         "name": "experience",
         "types": [
           "int"
@@ -1263,6 +1329,17 @@
         "types": [
           "EDOTA_ModifyGold_Reason"
         ]
+      },
+      {
+        "name": "source_entindex_const",
+        "types": [
+          "EntityIndex",
+          {
+            "kind": "literal",
+            "value": -1
+          }
+        ],
+        "description": "Entity the gold comes from, such as the killed unit. `-1` when there is none."
       },
       {
         "name": "reliable",
@@ -1961,6 +2038,38 @@
           "nil"
         ],
         "description": "Unit that planted the tree. Not set for trees created by scripts (`CreateTempTree`)."
+      }
+    ]
+  },
+  {
+    "kind": "object",
+    "name": "AddItemDropOptions",
+    "description": "The engine does not initialize fields that are not passed, so set all four.",
+    "fields": [
+      {
+        "name": "szItemName",
+        "types": [
+          "string"
+        ]
+      },
+      {
+        "name": "flChance",
+        "types": [
+          "float"
+        ],
+        "description": "Percentage."
+      },
+      {
+        "name": "nReqLevel",
+        "types": [
+          "int"
+        ]
+      },
+      {
+        "name": "bMustBeChampion",
+        "types": [
+          "bool"
+        ]
       }
     ]
   },
