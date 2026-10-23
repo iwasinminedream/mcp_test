@@ -193,48 +193,159 @@
   {
     "kind": "object",
     "name": "CreateIllusionsModifierKeys",
+    "description": "All keys are copied into the KeyValues of `modifier_illusion`: booleans become 0/1, vectors become \"x y z\" strings, tables and handles are skipped with a warning.",
     "fields": [
       {
         "name": "outgoing_damage",
         "types": [
-          "float",
+          "int",
           "nil"
-        ]
+        ],
+        "description": "Percentage. Read as an integer, fractions are truncated. On creation the original hero's `MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE_ILLUSION_AMPLIFY` is added to it.\n@default 0"
       },
       {
         "name": "incoming_damage",
         "types": [
-          "float",
+          "int",
           "nil"
-        ]
+        ],
+        "description": "Percentage. Read as an integer, fractions are truncated.\n@default 0"
       },
       {
         "name": "bounty_base",
         "types": [
-          "float",
+          "int",
           "nil"
-        ]
+        ],
+        "description": "@default 0"
       },
       {
         "name": "bounty_growth",
         "types": [
-          "float",
+          "int",
           "nil"
-        ]
+        ],
+        "description": "@default 2"
       },
       {
         "name": "outgoing_damage_structure",
         "types": [
-          "float",
+          "int",
           "nil"
-        ]
+        ],
+        "description": "Percentage. Read as an integer. An explicit 0 is not the same as omitting the key.\n@default (outgoing_damage + 100) * 0.4 - 100"
       },
       {
         "name": "outgoing_damage_roshan",
         "types": [
+          "int",
+          "nil"
+        ],
+        "description": "Percentage. Read as an integer. An explicit 0 is not the same as omitting the key.\n@default (outgoing_damage + 100) * 0.2 - 100"
+      },
+      {
+        "name": "duration",
+        "types": [
           "float",
           "nil"
-        ]
+        ],
+        "description": "Illusion lifetime in seconds. Status resistance does not apply."
+      },
+      {
+        "name": "illusion_type",
+        "types": [
+          "string",
+          "nil"
+        ],
+        "description": "`monkey_king_fur_army` disables the death particle and sound."
+      },
+      {
+        "name": "fixed_day_vision",
+        "types": [
+          "int",
+          "nil"
+        ],
+        "description": "@default 800"
+      },
+      {
+        "name": "fixed_night_vision",
+        "types": [
+          "int",
+          "nil"
+        ],
+        "description": "@default 400"
+      },
+      {
+        "name": "is_hidden",
+        "types": [
+          "bool",
+          "nil"
+        ],
+        "description": "Hides the `modifier_illusion` buff.\n@default false"
+      },
+      {
+        "name": "illusionlabel",
+        "types": [
+          "string",
+          "nil"
+        ],
+        "description": "Has no effect: CreateIllusions always overwrites it with an empty label (key names are case-insensitive, so it is the same key as `illusionLabel`)."
+      },
+      {
+        "name": "nodraw",
+        "types": [
+          "bool",
+          "nil"
+        ],
+        "description": "Illusion is not drawn, no creation particle.\n@default false"
+      },
+      {
+        "name": "no_effect_on_original",
+        "types": [
+          "bool",
+          "nil"
+        ],
+        "description": "No creation particle on the original hero.\n@default false"
+      },
+      {
+        "name": "teamonlyparticles",
+        "types": [
+          "bool",
+          "nil"
+        ],
+        "description": "Creation particles are visible only to the original hero's team.\n@default false"
+      },
+      {
+        "name": "invulnerability_on_creation",
+        "types": [
+          "bool",
+          "nil"
+        ],
+        "description": "Applies `modifier_invulnerable` for 0.1 seconds.\n@default true"
+      },
+      {
+        "name": "illusion_effect_override",
+        "types": [
+          "string",
+          "nil"
+        ],
+        "description": "Creation particle used instead of `particles/generic_gameplay/illusion_created.vpcf`."
+      },
+      {
+        "name": "permit_illusion_recycling",
+        "types": [
+          "bool",
+          "nil"
+        ],
+        "description": "Allows reusing a pooled illusion entity of this hero instead of spawning a new one.\n@default true"
+      },
+      {
+        "name": "fullhp",
+        "types": [
+          "bool",
+          "nil"
+        ],
+        "description": "Spawn with full health. Otherwise the illusion gets the current health of the original hero.\n@default false"
       }
     ]
   },
@@ -1440,6 +1551,29 @@
         "types": [
           "CDOTA_BaseNPC"
         ]
+      },
+      {
+        "name": "target",
+        "types": [
+          "CDOTA_BaseNPC",
+          "CDOTA_MapTree",
+          "nil"
+        ],
+        "description": "Order target: a unit, or a tree for tree orders."
+      },
+      {
+        "name": "ability",
+        "types": [
+          "CDOTABaseAbility",
+          "nil"
+        ]
+      },
+      {
+        "name": "new_pos",
+        "types": [
+          "Vector"
+        ],
+        "description": "Order position. Zero vector for orders without a position."
       }
     ]
   },
@@ -1504,6 +1638,48 @@
           "CDOTA_BaseNPC",
           "nil"
         ]
+      },
+      {
+        "name": "cost",
+        "types": [
+          "int"
+        ],
+        "description": "Mana cost. Set for `OnSpentMana` and `OnAbilityFullyCast`, `0` otherwise."
+      },
+      {
+        "name": "health_cost",
+        "types": [
+          "int"
+        ],
+        "description": "Health cost. Set for `OnSpentHealth`, `0` otherwise."
+      }
+    ]
+  },
+  {
+    "kind": "object",
+    "name": "ModifierAbilityTargetEvent",
+    "fields": [
+      {
+        "name": "ability",
+        "types": [
+          "CDOTABaseAbility"
+        ]
+      },
+      {
+        "name": "target",
+        "types": [
+          "CDOTA_BaseNPC",
+          "nil"
+        ],
+        "description": "Cast target, when known."
+      },
+      {
+        "name": "attacker",
+        "types": [
+          "CDOTA_BaseNPC",
+          "nil"
+        ],
+        "description": "Caster. Set for cast range properties."
       }
     ]
   },
@@ -1545,7 +1721,16 @@
         "name": "added_buff",
         "types": [
           "CDOTA_Buff"
-        ]
+        ],
+        "description": "The modifier that was added (refreshed, removed)."
+      },
+      {
+        "name": "attacker",
+        "types": [
+          "CDOTA_BaseNPC",
+          "nil"
+        ],
+        "description": "Caster of the modifier. Not set for `OnModifierRemoved`."
       }
     ]
   },
@@ -1559,8 +1744,223 @@
       {
         "name": "gain",
         "types": [
-          "int"
+          "float"
         ]
+      },
+      {
+        "name": "inflictor",
+        "types": [
+          "CDOTABaseAbility",
+          "nil"
+        ],
+        "description": "Ability or item that caused the restoration, if any."
+      },
+      {
+        "name": "attacker",
+        "types": [
+          "CDOTA_BaseNPC",
+          "nil"
+        ],
+        "description": "Source of the restoration, when known."
+      }
+    ]
+  },
+  {
+    "kind": "object",
+    "name": "ModifierUnitMovedEvent",
+    "extend": [
+      "ModifierUnitEvent"
+    ],
+    "fields": [
+      {
+        "name": "new_pos",
+        "types": [
+          "Vector"
+        ],
+        "description": "New position. For `OnTeleporting`, the destination."
+      },
+      {
+        "name": "distance",
+        "types": [
+          "float"
+        ],
+        "description": "Distance moved. For `OnTeleporting`, the distance to the destination."
+      }
+    ]
+  },
+  {
+    "kind": "object",
+    "name": "ModifierStatusEffectEvent",
+    "fields": [
+      {
+        "name": "target",
+        "types": [
+          "CDOTA_BaseNPC"
+        ],
+        "description": "Unit the effect is applied to."
+      },
+      {
+        "name": "unit",
+        "types": [
+          "CDOTA_BaseNPC"
+        ],
+        "description": "Caster of the effect."
+      },
+      {
+        "name": "inflictor",
+        "types": [
+          "CDOTABaseAbility",
+          "nil"
+        ],
+        "description": "Ability or item that applies the effect."
+      }
+    ]
+  },
+  {
+    "kind": "object",
+    "name": "ModifierAvoidSpellEvent",
+    "fields": [
+      {
+        "name": "target",
+        "types": [
+          "CDOTA_BaseNPC"
+        ],
+        "description": "Unit the modifier is applied to."
+      },
+      {
+        "name": "added_buff",
+        "types": [
+          "CDOTA_Buff"
+        ],
+        "description": "The modifier being applied."
+      },
+      {
+        "name": "attacker",
+        "types": [
+          "CDOTA_BaseNPC",
+          "nil"
+        ],
+        "description": "Caster of the modifier."
+      },
+      {
+        "name": "ability",
+        "types": [
+          "CDOTABaseAbility",
+          "nil"
+        ],
+        "description": "Ability or item that applies the modifier."
+      }
+    ]
+  },
+  {
+    "kind": "object",
+    "name": "ModifierProjectileDodgeEvent",
+    "fields": [
+      {
+        "name": "target",
+        "types": [
+          "CDOTA_BaseNPC"
+        ],
+        "description": "Unit that dodges the projectile."
+      },
+      {
+        "name": "unit",
+        "types": [
+          "CDOTA_BaseNPC",
+          "nil"
+        ],
+        "description": "Attacker whose projectile was dodged. Not set for `OnAttemptProjectileDodge`."
+      },
+      {
+        "name": "damage",
+        "types": [
+          "float"
+        ],
+        "description": "Damage of the dodged attack. `0` for `OnAttemptProjectileDodge`."
+      }
+    ]
+  },
+  {
+    "kind": "object",
+    "name": "ModifierIllusionCreatedEvent",
+    "fields": [
+      {
+        "name": "unit",
+        "types": [
+          "CDOTA_BaseNPC"
+        ],
+        "description": "The created illusion."
+      },
+      {
+        "name": "attacker",
+        "types": [
+          "CDOTA_BaseNPC"
+        ],
+        "description": "Owner of the illusion."
+      },
+      {
+        "name": "target",
+        "types": [
+          "CDOTA_BaseNPC"
+        ],
+        "description": "Hero the illusion copies."
+      }
+    ]
+  },
+  {
+    "kind": "object",
+    "name": "ModifierPurgedEvent",
+    "extend": [
+      "ModifierUnitEvent"
+    ],
+    "fields": [
+      {
+        "name": "inflictor",
+        "types": [
+          "CDOTABaseAbility",
+          "nil"
+        ],
+        "description": "Ability or item that purged the unit. Not set for script purges."
+      }
+    ]
+  },
+  {
+    "kind": "object",
+    "name": "ModifierRuneSpawnEvent",
+    "fields": [
+      {
+        "name": "unit",
+        "types": [
+          "CBaseAnimatingActivity"
+        ],
+        "description": "The spawned rune."
+      }
+    ]
+  },
+  {
+    "kind": "object",
+    "name": "ModifierModelChangedEvent",
+    "fields": [
+      {
+        "name": "attacker",
+        "types": [
+          "CDOTA_BaseNPC"
+        ],
+        "description": "Unit whose model changed."
+      }
+    ]
+  },
+  {
+    "kind": "object",
+    "name": "ModifierTreePlantedEvent",
+    "fields": [
+      {
+        "name": "unit",
+        "types": [
+          "CDOTA_BaseNPC",
+          "nil"
+        ],
+        "description": "Unit that planted the tree. Not set for trees created by scripts (`CreateTempTree`)."
       }
     ]
   },

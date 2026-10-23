@@ -4026,7 +4026,7 @@
       },
       {
         "name": "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BASE_PERCENTAGE",
-        "description": "Values above 100% are ignored.\n\nMethod Name: `GetModifierPhysicalArmorBase_Percentage`.",
+        "description": "Percentage of the base armor that is kept: `100` keeps it unchanged, `0` or nothing removes it. Values above 100% are ignored.\n\nMethod Name: `GetModifierPhysicalArmorBase_Percentage`.",
         "value": 75
       },
       {
@@ -4096,7 +4096,7 @@
       },
       {
         "name": "MODIFIER_PROPERTY_BASE_MANA_REGEN",
-        "description": "Method Name: `GetModifierBaseRegen`",
+        "description": "Replaces the base mana regeneration: returning `0` or nothing removes it.\n\nMethod Name: `GetModifierBaseRegen`.",
         "value": 89
       },
       {
@@ -5149,7 +5149,7 @@
       },
       {
         "name": "MODIFIER_PROPERTY_PREREDUCE_INCOMING_DAMAGE_MULT",
-        "description": "Method Name: `GetModifierPrereduceIncomingDamage_Mult`",
+        "description": "Multiplier of incoming damage before reductions: `1` keeps it unchanged, `0` or nothing blocks all damage.\n\nMethod Name: `GetModifierPrereduceIncomingDamage_Mult`.",
         "value": 301
       },
       {
@@ -5694,12 +5694,12 @@
       },
       {
         "name": "MODIFIER_EVENT_ON_TREE_PLANTED",
-        "description": "Method Name: `OnTreePlanted`",
+        "description": "Called once for every planted tree.\n\nMethod Name: `OnTreePlanted`.",
         "value": 410
       },
       {
         "name": "MODIFIER_EVENT_ON_DAMAGE_HP_LOSS_SELF",
-        "description": "Method Name: `OnDamageHPLossSelf`",
+        "description": "Happens when a unit damages itself with `DOTA_DAMAGE_FLAG_HPLOSS` (Soul Ring, Armlet, `ApplyDamage` with the unit as both attacker and victim); `attacker` and `unit` are that unit.\n\nMethod Name: `OnDamageHPLossSelf`.",
         "value": 411
       },
       {
