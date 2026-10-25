@@ -2172,13 +2172,15 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "impulse",
+            "description": "World-space impulse.",
             "types": [
               "Vector"
             ]
           },
           {
-            "name": "arg2",
+            "name": "position",
+            "description": "World-space point the impulse is applied at; its offset from the center of mass adds angular velocity. Only dynamic bodies are affected.",
             "types": [
               "Vector"
             ]
@@ -2195,13 +2197,14 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "linearVelocity",
             "types": [
               "Vector"
             ]
           },
           {
-            "name": "arg2",
+            "name": "angularVelocity",
+            "description": "Axis of rotation multiplied by the rotation speed in degrees per second.",
             "types": [
               "Vector"
             ]
@@ -2237,7 +2240,8 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "angularVelocity",
+            "description": "Axis of rotation multiplied by the rotation speed in degrees per second.",
             "types": [
               "Vector"
             ]
@@ -2253,7 +2257,8 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "materialGroup",
+            "description": "Material group name (hashed into a string token).",
             "types": [
               "string"
             ]
@@ -2269,7 +2274,7 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "velocity",
             "types": [
               "Vector"
             ]
@@ -2496,31 +2501,33 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "origin",
             "types": [
               "Vector"
             ]
           },
           {
-            "name": "arg2",
+            "name": "angles",
             "types": [
               "QAngle"
             ]
           },
           {
-            "name": "arg3",
+            "name": "scale",
             "types": [
               "float"
             ]
           },
           {
-            "name": "arg4",
+            "name": "ztest",
+            "description": "Depth test flag, the same as `ztest` of `DebugDrawLine` (which value turns the depth test off was not verified).",
             "types": [
               "bool"
             ]
           },
           {
-            "name": "arg5",
+            "name": "duration",
+            "description": "Seconds.",
             "types": [
               "float"
             ]
@@ -2537,49 +2544,55 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "mins",
             "types": [
               "Vector"
             ]
           },
           {
-            "name": "arg2",
+            "name": "maxs",
             "types": [
               "Vector"
             ]
           },
           {
-            "name": "arg3",
+            "name": "r",
+            "description": "Red, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg4",
+            "name": "g",
+            "description": "Green, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg5",
+            "name": "b",
+            "description": "Blue, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg6",
+            "name": "a",
+            "description": "Alpha, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg7",
+            "name": "ztest",
+            "description": "Depth test flag, the same as `ztest` of `DebugDrawLine` (which value turns the depth test off was not verified).",
             "types": [
               "bool"
             ]
           },
           {
-            "name": "arg8",
+            "name": "duration",
+            "description": "Seconds.",
             "types": [
               "float"
             ]
@@ -2596,61 +2609,69 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "origin",
             "types": [
               "Vector"
             ]
           },
           {
-            "name": "arg2",
+            "name": "mins",
+            "description": "Relative to origin.",
             "types": [
               "Vector"
             ]
           },
           {
-            "name": "arg3",
+            "name": "maxs",
+            "description": "Relative to origin.",
             "types": [
               "Vector"
             ]
           },
           {
-            "name": "arg4",
+            "name": "angles",
             "types": [
               "QAngle"
             ]
           },
           {
-            "name": "arg5",
+            "name": "r",
+            "description": "Red, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg6",
+            "name": "g",
+            "description": "Green, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg7",
+            "name": "b",
+            "description": "Blue, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg8",
+            "name": "a",
+            "description": "Alpha, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg9",
+            "name": "ztest",
+            "description": "Depth test flag, the same as `ztest` of `DebugDrawLine` (which value turns the depth test off was not verified).",
             "types": [
               "bool"
             ]
           },
           {
-            "name": "arg10",
+            "name": "duration",
+            "description": "Seconds.",
             "types": [
               "float"
             ]
@@ -2667,61 +2688,69 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "origin",
+            "description": "Bottom of the capsule.",
             "types": [
               "Vector"
             ]
           },
           {
-            "name": "arg2",
+            "name": "angles",
             "types": [
               "QAngle"
             ]
           },
           {
-            "name": "arg3",
+            "name": "height",
+            "description": "Distance between the centers of the end spheres.",
             "types": [
               "float"
             ]
           },
           {
-            "name": "arg4",
+            "name": "radius",
             "types": [
               "float"
             ]
           },
           {
-            "name": "arg5",
+            "name": "r",
+            "description": "Red, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg6",
+            "name": "g",
+            "description": "Green, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg7",
+            "name": "b",
+            "description": "Blue, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg8",
+            "name": "a",
+            "description": "Alpha, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg9",
+            "name": "ztest",
+            "description": "Depth test flag, the same as `ztest` of `DebugDrawLine` (which value turns the depth test off was not verified).",
             "types": [
               "bool"
             ]
           },
           {
-            "name": "arg10",
+            "name": "duration",
+            "description": "Seconds.",
             "types": [
               "float"
             ]
@@ -2738,55 +2767,62 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "center",
             "types": [
               "Vector"
             ]
           },
           {
-            "name": "arg2",
+            "name": "angles",
+            "description": "Orientation of the circle plane.",
             "types": [
               "QAngle"
             ]
           },
           {
-            "name": "arg3",
+            "name": "radius",
             "types": [
               "float"
             ]
           },
           {
-            "name": "arg4",
+            "name": "r",
+            "description": "Red, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg5",
+            "name": "g",
+            "description": "Green, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg6",
+            "name": "b",
+            "description": "Blue, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg7",
+            "name": "a",
+            "description": "Alpha, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg8",
+            "name": "ztest",
+            "description": "Depth test flag, the same as `ztest` of `DebugDrawLine` (which value turns the depth test off was not verified).",
             "types": [
               "bool"
             ]
           },
           {
-            "name": "arg9",
+            "name": "duration",
+            "description": "Seconds.",
             "types": [
               "float"
             ]
@@ -2803,49 +2839,55 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "center",
             "types": [
               "Vector"
             ]
           },
           {
-            "name": "arg2",
+            "name": "radius",
             "types": [
               "float"
             ]
           },
           {
-            "name": "arg3",
+            "name": "r",
+            "description": "Red, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg4",
+            "name": "g",
+            "description": "Green, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg5",
+            "name": "b",
+            "description": "Blue, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg6",
+            "name": "a",
+            "description": "Alpha, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg7",
+            "name": "ztest",
+            "description": "Depth test flag, the same as `ztest` of `DebugDrawLine` (which value turns the depth test off was not verified).",
             "types": [
               "bool"
             ]
           },
           {
-            "name": "arg8",
+            "name": "duration",
+            "description": "Seconds.",
             "types": [
               "float"
             ]
@@ -2862,61 +2904,68 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "apex",
             "types": [
               "Vector"
             ]
           },
           {
-            "name": "arg2",
+            "name": "direction",
             "types": [
               "Vector"
             ]
           },
           {
-            "name": "arg3",
+            "name": "angle",
+            "description": "Full opening angle in radians.",
             "types": [
               "float"
             ]
           },
           {
-            "name": "arg4",
+            "name": "length",
             "types": [
               "float"
             ]
           },
           {
-            "name": "arg5",
+            "name": "r",
+            "description": "Red, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg6",
+            "name": "g",
+            "description": "Green, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg7",
+            "name": "b",
+            "description": "Blue, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg8",
+            "name": "a",
+            "description": "Alpha, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg9",
+            "name": "ztest",
+            "description": "Depth test flag, the same as `ztest` of `DebugDrawLine` (which value turns the depth test off was not verified).",
             "types": [
               "bool"
             ]
           },
           {
-            "name": "arg10",
+            "name": "duration",
+            "description": "Seconds.",
             "types": [
               "float"
             ]
@@ -2933,49 +2982,55 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "origin",
             "types": [
               "Vector"
             ]
           },
           {
-            "name": "arg2",
+            "name": "size",
             "types": [
               "float"
             ]
           },
           {
-            "name": "arg3",
+            "name": "r",
+            "description": "Red, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg4",
+            "name": "g",
+            "description": "Green, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg5",
+            "name": "b",
+            "description": "Blue, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg6",
+            "name": "a",
+            "description": "Alpha, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg7",
+            "name": "ztest",
+            "description": "Depth test flag, the same as `ztest` of `DebugDrawLine` (which value turns the depth test off was not verified).",
             "types": [
               "bool"
             ]
           },
           {
-            "name": "arg8",
+            "name": "duration",
+            "description": "Seconds.",
             "types": [
               "float"
             ]
@@ -2992,49 +3047,55 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "origin",
             "types": [
               "Vector"
             ]
           },
           {
-            "name": "arg2",
+            "name": "size",
             "types": [
               "float"
             ]
           },
           {
-            "name": "arg3",
+            "name": "r",
+            "description": "Red, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg4",
+            "name": "g",
+            "description": "Green, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg5",
+            "name": "b",
+            "description": "Blue, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg6",
+            "name": "a",
+            "description": "Alpha, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg7",
+            "name": "ztest",
+            "description": "Depth test flag, the same as `ztest` of `DebugDrawLine` (which value turns the depth test off was not verified).",
             "types": [
               "bool"
             ]
           },
           {
-            "name": "arg8",
+            "name": "duration",
+            "description": "Seconds.",
             "types": [
               "float"
             ]
@@ -3051,55 +3112,61 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "origin",
             "types": [
               "Vector"
             ]
           },
           {
-            "name": "arg2",
+            "name": "angles",
             "types": [
               "QAngle"
             ]
           },
           {
-            "name": "arg3",
+            "name": "size",
             "types": [
               "float"
             ]
           },
           {
-            "name": "arg4",
+            "name": "r",
+            "description": "Red, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg5",
+            "name": "g",
+            "description": "Green, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg6",
+            "name": "b",
+            "description": "Blue, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg7",
+            "name": "a",
+            "description": "Alpha, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg8",
+            "name": "ztest",
+            "description": "Depth test flag, the same as `ztest` of `DebugDrawLine` (which value turns the depth test off was not verified).",
             "types": [
               "bool"
             ]
           },
           {
-            "name": "arg9",
+            "name": "duration",
+            "description": "Seconds.",
             "types": [
               "float"
             ]
@@ -3116,61 +3183,69 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "start",
             "types": [
               "Vector"
             ]
           },
           {
-            "name": "arg2",
+            "name": "end",
             "types": [
               "Vector"
             ]
           },
           {
-            "name": "arg3",
+            "name": "tickDistance",
+            "description": "Distance between ticks (truncated to an integer).",
             "types": [
               "float"
             ]
           },
           {
-            "name": "arg4",
+            "name": "tickTextDistance",
+            "description": "Unverified: in Source, every this many ticks get a distance label.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg5",
+            "name": "r",
+            "description": "Red, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg6",
+            "name": "g",
+            "description": "Green, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg7",
+            "name": "b",
+            "description": "Blue, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg8",
+            "name": "a",
+            "description": "Alpha, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg9",
+            "name": "ztest",
+            "description": "Depth test flag, the same as `ztest` of `DebugDrawLine` (which value turns the depth test off was not verified).",
             "types": [
               "bool"
             ]
           },
           {
-            "name": "arg10",
+            "name": "duration",
+            "description": "Seconds.",
             "types": [
               "float"
             ]
@@ -3187,19 +3262,21 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "entity",
             "types": [
               "ehandle"
             ]
           },
           {
-            "name": "arg2",
+            "name": "scale",
+            "description": "Size of the attachment axes; 0 or less picks a default.",
             "types": [
               "float"
             ]
           },
           {
-            "name": "arg3",
+            "name": "duration",
+            "description": "Seconds.",
             "types": [
               "float"
             ]
@@ -3216,25 +3293,27 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "entity",
             "types": [
               "ehandle"
             ]
           },
           {
-            "name": "arg2",
+            "name": "scale",
             "types": [
               "float"
             ]
           },
           {
-            "name": "arg3",
+            "name": "ztest",
+            "description": "Depth test flag, the same as `ztest` of `DebugDrawLine` (which value turns the depth test off was not verified).",
             "types": [
               "bool"
             ]
           },
           {
-            "name": "arg4",
+            "name": "duration",
+            "description": "Seconds.",
             "types": [
               "float"
             ]
@@ -3251,43 +3330,49 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "entity",
             "types": [
               "ehandle"
             ]
           },
           {
-            "name": "arg2",
+            "name": "r",
+            "description": "Red, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg3",
+            "name": "g",
+            "description": "Green, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg4",
+            "name": "b",
+            "description": "Blue, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg5",
+            "name": "a",
+            "description": "Alpha, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg6",
+            "name": "ztest",
+            "description": "Depth test flag, the same as `ztest` of `DebugDrawLine` (which value turns the depth test off was not verified).",
             "types": [
               "bool"
             ]
           },
           {
-            "name": "arg7",
+            "name": "duration",
+            "description": "Seconds.",
             "types": [
               "float"
             ]
@@ -3304,13 +3389,14 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "entity",
             "types": [
               "ehandle"
             ]
           },
           {
-            "name": "arg2",
+            "name": "duration",
+            "description": "Seconds.",
             "types": [
               "float"
             ]
@@ -3327,49 +3413,54 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "entity",
             "types": [
               "ehandle"
             ]
           },
           {
-            "name": "arg2",
+            "name": "lineOffset",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg3",
+            "name": "text",
             "types": [
               "string"
             ]
           },
           {
-            "name": "arg4",
+            "name": "r",
+            "description": "Red, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg5",
+            "name": "g",
+            "description": "Green, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg6",
+            "name": "b",
+            "description": "Blue, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg7",
+            "name": "a",
+            "description": "Alpha, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg8",
+            "name": "duration",
+            "description": "Seconds.",
             "types": [
               "float"
             ]
@@ -3386,43 +3477,50 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "mins",
+            "description": "Top-left corner in pixels.",
             "types": [
               "Vector2D"
             ]
           },
           {
-            "name": "arg2",
+            "name": "maxs",
+            "description": "Bottom-right corner in pixels.",
             "types": [
               "Vector2D"
             ]
           },
           {
-            "name": "arg3",
+            "name": "r",
+            "description": "Red, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg4",
+            "name": "g",
+            "description": "Green, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg5",
+            "name": "b",
+            "description": "Blue, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg6",
+            "name": "a",
+            "description": "Alpha, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg7",
+            "name": "duration",
+            "description": "Seconds.",
             "types": [
               "float"
             ]
@@ -3439,55 +3537,61 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "start",
             "types": [
               "Vector"
             ]
           },
           {
-            "name": "arg2",
+            "name": "end",
             "types": [
               "Vector"
             ]
           },
           {
-            "name": "arg3",
+            "name": "width",
             "types": [
               "float"
             ]
           },
           {
-            "name": "arg4",
+            "name": "r",
+            "description": "Red, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg5",
+            "name": "g",
+            "description": "Green, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg6",
+            "name": "b",
+            "description": "Blue, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg7",
+            "name": "a",
+            "description": "Alpha, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg8",
+            "name": "ztest",
+            "description": "Depth test flag, the same as `ztest` of `DebugDrawLine` (which value turns the depth test off was not verified).",
             "types": [
               "bool"
             ]
           },
           {
-            "name": "arg9",
+            "name": "duration",
+            "description": "Seconds.",
             "types": [
               "float"
             ]
@@ -3504,49 +3608,55 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "start",
             "types": [
               "Vector"
             ]
           },
           {
-            "name": "arg2",
+            "name": "end",
             "types": [
               "Vector"
             ]
           },
           {
-            "name": "arg3",
+            "name": "r",
+            "description": "Red, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg4",
+            "name": "g",
+            "description": "Green, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg5",
+            "name": "b",
+            "description": "Blue, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg6",
+            "name": "a",
+            "description": "Alpha, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg7",
+            "name": "ztest",
+            "description": "Depth test flag, the same as `ztest` of `DebugDrawLine` (which value turns the depth test off was not verified).",
             "types": [
               "bool"
             ]
           },
           {
-            "name": "arg8",
+            "name": "duration",
+            "description": "Seconds.",
             "types": [
               "float"
             ]
@@ -3563,43 +3673,50 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "start",
+            "description": "Pixels.",
             "types": [
               "Vector2D"
             ]
           },
           {
-            "name": "arg2",
+            "name": "end",
+            "description": "Pixels.",
             "types": [
               "Vector2D"
             ]
           },
           {
-            "name": "arg3",
+            "name": "r",
+            "description": "Red, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg4",
+            "name": "g",
+            "description": "Green, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg5",
+            "name": "b",
+            "description": "Blue, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg6",
+            "name": "a",
+            "description": "Alpha, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg7",
+            "name": "duration",
+            "description": "Seconds.",
             "types": [
               "float"
             ]
@@ -3626,7 +3743,7 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "scopeName",
             "types": [
               "string"
             ]
@@ -3643,7 +3760,7 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "scopeName",
             "types": [
               "string"
             ]
@@ -3660,7 +3777,7 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "scopeName",
             "types": [
               "string"
             ]
@@ -3677,61 +3794,68 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "apex",
             "types": [
               "Vector"
             ]
           },
           {
-            "name": "arg2",
+            "name": "direction",
             "types": [
               "Vector"
             ]
           },
           {
-            "name": "arg3",
+            "name": "angle",
+            "description": "Full opening angle in radians.",
             "types": [
               "float"
             ]
           },
           {
-            "name": "arg4",
+            "name": "length",
             "types": [
               "float"
             ]
           },
           {
-            "name": "arg5",
+            "name": "r",
+            "description": "Red, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg6",
+            "name": "g",
+            "description": "Green, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg7",
+            "name": "b",
+            "description": "Blue, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg8",
+            "name": "a",
+            "description": "Alpha, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg9",
+            "name": "ztest",
+            "description": "Depth test flag, the same as `ztest` of `DebugDrawLine` (which value turns the depth test off was not verified).",
             "types": [
               "bool"
             ]
           },
           {
-            "name": "arg10",
+            "name": "duration",
+            "description": "Seconds.",
             "types": [
               "float"
             ]
@@ -3748,49 +3872,55 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "center",
             "types": [
               "Vector"
             ]
           },
           {
-            "name": "arg2",
+            "name": "radius",
             "types": [
               "float"
             ]
           },
           {
-            "name": "arg3",
+            "name": "r",
+            "description": "Red, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg4",
+            "name": "g",
+            "description": "Green, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg5",
+            "name": "b",
+            "description": "Blue, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg6",
+            "name": "a",
+            "description": "Alpha, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg7",
+            "name": "ztest",
+            "description": "Depth test flag, the same as `ztest` of `DebugDrawLine` (which value turns the depth test off was not verified).",
             "types": [
               "bool"
             ]
           },
           {
-            "name": "arg8",
+            "name": "duration",
+            "description": "Seconds.",
             "types": [
               "float"
             ]
@@ -3807,61 +3937,68 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "start",
             "types": [
               "Vector"
             ]
           },
           {
-            "name": "arg2",
+            "name": "end",
             "types": [
               "Vector"
             ]
           },
           {
-            "name": "arg3",
+            "name": "mins",
+            "description": "Local-space bounds.",
             "types": [
               "Vector"
             ]
           },
           {
-            "name": "arg4",
+            "name": "maxs",
+            "description": "Local-space bounds.",
             "types": [
               "Vector"
             ]
           },
           {
-            "name": "arg5",
+            "name": "angles",
             "types": [
               "QAngle"
             ]
           },
           {
-            "name": "arg6",
+            "name": "r",
+            "description": "Red, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg7",
+            "name": "g",
+            "description": "Green, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg8",
+            "name": "b",
+            "description": "Blue, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg9",
+            "name": "a",
+            "description": "Alpha, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg10",
+            "name": "duration",
+            "description": "Seconds.",
             "types": [
               "float"
             ]
@@ -3878,55 +4015,61 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "origin",
             "types": [
               "Vector"
             ]
           },
           {
-            "name": "arg2",
+            "name": "lineOffset",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg3",
+            "name": "text",
             "types": [
               "string"
             ]
           },
           {
-            "name": "arg4",
+            "name": "maxDistance",
+            "description": "Hidden farther than this from the camera; 0: always shown.",
             "types": [
               "float"
             ]
           },
           {
-            "name": "arg5",
+            "name": "r",
+            "description": "Red, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg6",
+            "name": "g",
+            "description": "Green, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg7",
+            "name": "b",
+            "description": "Blue, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg8",
+            "name": "a",
+            "description": "Alpha, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg9",
+            "name": "duration",
+            "description": "Seconds.",
             "types": [
               "float"
             ]
@@ -3943,61 +4086,70 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "textureName",
             "types": [
               "string"
             ]
           },
           {
-            "name": "arg2",
+            "name": "mins",
+            "description": "Top-left corner in pixels.",
             "types": [
               "Vector2D"
             ]
           },
           {
-            "name": "arg3",
+            "name": "maxs",
+            "description": "Bottom-right corner in pixels.",
             "types": [
               "Vector2D"
             ]
           },
           {
-            "name": "arg4",
+            "name": "r",
+            "description": "Red, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg5",
+            "name": "g",
+            "description": "Green, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg6",
+            "name": "b",
+            "description": "Blue, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg7",
+            "name": "a",
+            "description": "Alpha, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg8",
+            "name": "uvMins",
+            "description": "Texture coordinates.",
             "types": [
               "Vector2D"
             ]
           },
           {
-            "name": "arg9",
+            "name": "uvMaxs",
+            "description": "Texture coordinates.",
             "types": [
               "Vector2D"
             ]
           },
           {
-            "name": "arg10",
+            "name": "duration",
+            "description": "Seconds.",
             "types": [
               "float"
             ]
@@ -4014,55 +4166,61 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "vertex1",
             "types": [
               "Vector"
             ]
           },
           {
-            "name": "arg2",
+            "name": "vertex2",
             "types": [
               "Vector"
             ]
           },
           {
-            "name": "arg3",
+            "name": "vertex3",
             "types": [
               "Vector"
             ]
           },
           {
-            "name": "arg4",
+            "name": "r",
+            "description": "Red, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg5",
+            "name": "g",
+            "description": "Green, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg6",
+            "name": "b",
+            "description": "Blue, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg7",
+            "name": "a",
+            "description": "Alpha, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg8",
+            "name": "ztest",
+            "description": "Depth test flag, the same as `ztest` of `DebugDrawLine` (which value turns the depth test off was not verified).",
             "types": [
               "bool"
             ]
           },
           {
-            "name": "arg9",
+            "name": "duration",
+            "description": "Seconds.",
             "types": [
               "float"
             ]
@@ -4079,55 +4237,61 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "origin",
             "types": [
               "Vector"
             ]
           },
           {
-            "name": "arg2",
+            "name": "angles",
             "types": [
               "QAngle"
             ]
           },
           {
-            "name": "arg3",
+            "name": "text",
             "types": [
               "string"
             ]
           },
           {
-            "name": "arg4",
+            "name": "r",
+            "description": "Red, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg5",
+            "name": "g",
+            "description": "Green, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg6",
+            "name": "b",
+            "description": "Blue, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg7",
+            "name": "a",
+            "description": "Alpha, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg8",
+            "name": "ztest",
+            "description": "Depth test flag, the same as `ztest` of `DebugDrawLine` (which value turns the depth test off was not verified).",
             "types": [
               "bool"
             ]
           },
           {
-            "name": "arg9",
+            "name": "duration",
+            "description": "Seconds.",
             "types": [
               "float"
             ]
@@ -4144,55 +4308,61 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "start",
             "types": [
               "Vector"
             ]
           },
           {
-            "name": "arg2",
+            "name": "end",
             "types": [
               "Vector"
             ]
           },
           {
-            "name": "arg3",
+            "name": "width",
             "types": [
               "float"
             ]
           },
           {
-            "name": "arg4",
+            "name": "r",
+            "description": "Red, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg5",
+            "name": "g",
+            "description": "Green, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg6",
+            "name": "b",
+            "description": "Blue, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg7",
+            "name": "a",
+            "description": "Alpha, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg8",
+            "name": "ztest",
+            "description": "Depth test flag, the same as `ztest` of `DebugDrawLine` (which value turns the depth test off was not verified).",
             "types": [
               "bool"
             ]
           },
           {
-            "name": "arg9",
+            "name": "duration",
+            "description": "Seconds.",
             "types": [
               "float"
             ]
@@ -4209,61 +4379,68 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "start",
             "types": [
               "Vector"
             ]
           },
           {
-            "name": "arg2",
+            "name": "yaw",
+            "description": "Degrees.",
             "types": [
               "float"
             ]
           },
           {
-            "name": "arg3",
+            "name": "length",
             "types": [
               "float"
             ]
           },
           {
-            "name": "arg4",
+            "name": "width",
             "types": [
               "float"
             ]
           },
           {
-            "name": "arg5",
+            "name": "r",
+            "description": "Red, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg6",
+            "name": "g",
+            "description": "Green, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg7",
+            "name": "b",
+            "description": "Blue, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg8",
+            "name": "a",
+            "description": "Alpha, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg9",
+            "name": "ztest",
+            "description": "Depth test flag, the same as `ztest` of `DebugDrawLine` (which value turns the depth test off was not verified).",
             "types": [
               "bool"
             ]
           },
           {
-            "name": "arg10",
+            "name": "duration",
+            "description": "Seconds.",
             "types": [
               "float"
             ]
@@ -4849,7 +5026,7 @@
           {
             "name": "entity",
             "types": [
-              "handle"
+              "CBaseEntity"
             ]
           }
         ]
@@ -12347,9 +12524,9 @@
         ],
         "args": [
           {
-            "name": "table",
+            "name": "states",
             "types": [
-              "handle"
+              "table"
             ]
           }
         ]
@@ -12545,7 +12722,7 @@
         ],
         "args": [
           {
-            "name": "function",
+            "name": "modifierFunction",
             "types": [
               "modifierfunction"
             ]
@@ -26850,7 +27027,7 @@
         ],
         "args": [
           {
-            "name": "function",
+            "name": "callback",
             "types": [
               {
                 "kind": "function",
@@ -26886,7 +27063,7 @@
         ],
         "args": [
           {
-            "name": "function",
+            "name": "callback",
             "types": [
               {
                 "kind": "function",
@@ -26922,7 +27099,7 @@
         ],
         "args": [
           {
-            "name": "function",
+            "name": "callback",
             "types": [
               {
                 "kind": "function",
@@ -28979,7 +29156,8 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "heroId",
+            "description": "Hero ID, 1-255; other values return nil.",
             "types": [
               "int"
             ]
@@ -29081,7 +29259,8 @@
             ]
           },
           {
-            "name": "arg5",
+            "name": "reuseExistingPlayer",
+            "description": "When true and a player named `playerName` exists, that player gets the hero instead of a new bot being created.",
             "types": [
               "bool"
             ]
@@ -29222,7 +29401,8 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "heroId",
+            "description": "Values below 1 are ignored.",
             "types": [
               "int"
             ]
@@ -29239,7 +29419,8 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "heroId",
+            "description": "Values below 1 are ignored.",
             "types": [
               "int"
             ]
@@ -29256,7 +29437,8 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "heroName",
+            "description": "Both `npc_dota_hero_axe` and `axe` work (verified in game).",
             "types": [
               "string"
             ]
@@ -29273,13 +29455,14 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "playerId",
+            "description": "Player IDs 64 and above are ignored.",
             "types": [
-              "int"
+              "PlayerID"
             ]
           },
           {
-            "name": "arg2",
+            "name": "heroId",
             "types": [
               "int"
             ]
@@ -29296,7 +29479,8 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "heroName",
+            "description": "Both `npc_dota_hero_axe` and `axe` work.",
             "types": [
               "string"
             ]
@@ -29330,43 +29514,48 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "index",
+            "description": "Identifier sent with the point (`index` of CDOTAUserMsg_MinimapDebugPoint).",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg2",
+            "name": "location",
             "types": [
               "Vector"
             ]
           },
           {
-            "name": "arg3",
+            "name": "r",
+            "description": "Red, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg4",
+            "name": "g",
+            "description": "Green, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg5",
+            "name": "b",
+            "description": "Blue, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg6",
+            "name": "size",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg7",
+            "name": "duration",
+            "description": "Seconds.",
             "types": [
               "float"
             ]
@@ -29383,51 +29572,57 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "index",
+            "description": "Identifier sent with the point (`index` of CDOTAUserMsg_MinimapDebugPoint).",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg2",
+            "name": "location",
             "types": [
               "Vector"
             ]
           },
           {
-            "name": "arg3",
+            "name": "r",
+            "description": "Red, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg4",
+            "name": "g",
+            "description": "Green, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg5",
+            "name": "b",
+            "description": "Blue, 0-255.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg6",
+            "name": "size",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg7",
+            "name": "duration",
+            "description": "Seconds.",
             "types": [
               "float"
             ]
           },
           {
-            "name": "arg8",
+            "name": "team",
+            "description": "Team whose players see the point.",
             "types": [
-              "int"
+              "DOTATeam_t"
             ]
           }
         ]
@@ -29465,7 +29660,8 @@
             ]
           },
           {
-            "name": "arg2",
+            "name": "source",
+            "description": "Stored as `m_nTemporaryDayNightSource` (what caused the night); the meaning of the values was not established.",
             "types": [
               "int"
             ]
@@ -29512,9 +29708,9 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "playerId",
             "types": [
-              "int"
+              "PlayerID"
             ]
           }
         ]
@@ -29816,13 +30012,14 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "key",
             "types": [
               "string"
             ]
           },
           {
-            "name": "arg2",
+            "name": "defaultValue",
+            "description": "Returned when the key is not set.",
             "types": [
               "string"
             ]
@@ -29849,21 +30046,23 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "team",
+            "description": "Team whose stock is read; a negative value matches no team stock.",
             "types": [
-              "int"
+              "DOTATeam_t"
             ]
           },
           {
-            "name": "arg2",
+            "name": "itemName",
             "types": [
               "string"
             ]
           },
           {
-            "name": "arg3",
+            "name": "playerId",
+            "description": "Player whose own stock is read; -1 matches no player stock.",
             "types": [
-              "int"
+              "PlayerID"
             ]
           }
         ]
@@ -30112,7 +30311,7 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "heroName",
             "types": [
               "string"
             ]
@@ -30312,7 +30511,8 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "interval",
+            "description": "Seconds between lane creep waves.",
             "types": [
               "float"
             ]
@@ -30346,7 +30546,7 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "heroName",
             "types": [
               "string"
             ]
@@ -30363,7 +30563,7 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "heroName",
             "types": [
               "string"
             ]
@@ -30380,7 +30580,7 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "heroId",
             "types": [
               "int"
             ]
@@ -30397,7 +30597,7 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "heroId",
             "types": [
               "int"
             ]
@@ -30451,9 +30651,9 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "playerId",
             "types": [
-              "int"
+              "PlayerID"
             ]
           }
         ]
@@ -30498,19 +30698,21 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "message",
             "types": [
               "string"
             ]
           },
           {
-            "name": "arg2",
+            "name": "playerId",
+            "description": "Player the message is sent on behalf of (`player_id` of CDOTAUserMsg_CustomMsg).",
             "types": [
-              "int"
+              "PlayerID"
             ]
           },
           {
-            "name": "arg3",
+            "name": "value",
+            "description": "Integer sent with the message (`value` of CDOTAUserMsg_CustomMsg).",
             "types": [
               "int"
             ]
@@ -30527,25 +30729,28 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "message",
             "types": [
               "string"
             ]
           },
           {
-            "name": "arg2",
+            "name": "team",
+            "description": "Receiving team; spectators receive the message too.",
             "types": [
-              "int"
+              "DOTATeam_t"
             ]
           },
           {
-            "name": "arg3",
+            "name": "playerId",
+            "description": "Player the message is sent on behalf of.",
             "types": [
-              "int"
+              "PlayerID"
             ]
           },
           {
-            "name": "arg4",
+            "name": "value",
+            "description": "Integer sent with the message.",
             "types": [
               "int"
             ]
@@ -30562,7 +30767,7 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "allow",
             "types": [
               "bool"
             ]
@@ -30596,7 +30801,7 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "enabled",
             "types": [
               "bool"
             ]
@@ -30614,13 +30819,15 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "callback",
+            "description": "Function called with a Player ID; nil is rejected with a console message.",
             "types": [
               "handle"
             ]
           },
           {
-            "name": "arg2",
+            "name": "context",
+            "description": "Table the callback is called with; nil is rejected.",
             "types": [
               "handle"
             ]
@@ -30688,7 +30895,7 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "allow",
             "types": [
               "bool"
             ]
@@ -30705,7 +30912,7 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "bans",
             "types": [
               "int"
             ]
@@ -30864,7 +31071,7 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "enabled",
             "types": [
               "bool"
             ]
@@ -30915,7 +31122,7 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "filterMoreGold",
             "types": [
               "bool"
             ]
@@ -31074,7 +31281,8 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "time",
+            "description": "Seconds.",
             "types": [
               "float"
             ]
@@ -31091,7 +31299,7 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "hide",
             "types": [
               "bool"
             ]
@@ -31125,7 +31333,7 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "ignore",
             "types": [
               "bool"
             ]
@@ -31178,7 +31386,8 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "offset",
+            "description": "Seconds added to the delay of the first neutral creep spawn.",
             "types": [
               "float"
             ]
@@ -31195,7 +31404,7 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "time",
             "types": [
               "float"
             ]
@@ -31212,7 +31421,7 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "time",
             "types": [
               "float"
             ]
@@ -31252,9 +31461,10 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "columns",
+            "description": "Column values 0-9 under keys of at most 2 characters; anything else is rejected with a console message.",
             "types": [
-              "handle"
+              "table"
             ]
           }
         ]
@@ -31269,7 +31479,8 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "layout",
+            "description": "0 or 1; other values are rejected with a console message.",
             "types": [
               "int"
             ]
@@ -31286,9 +31497,9 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "scores",
             "types": [
-              "handle"
+              "table"
             ]
           }
         ]
@@ -31337,13 +31548,15 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "riverType",
+            "description": "River style 0-7 (`m_nRiverType`); a river vial sets the position of its item in `river_paint_item_defs`.",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg2",
+            "name": "duration",
+            "description": "Seconds.",
             "types": [
               "float"
             ]
@@ -31445,7 +31658,7 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "useSpawnConcept",
             "types": [
               "bool"
             ]
@@ -31496,7 +31709,7 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "enabled",
             "types": [
               "bool"
             ]
@@ -31513,7 +31726,7 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "enabled",
             "types": [
               "bool"
             ]
@@ -31615,7 +31828,7 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "direction",
             "types": [
               "Vector"
             ]
@@ -31956,7 +32169,7 @@
         ],
         "args": [
           {
-            "name": "string",
+            "name": "text",
             "types": [
               "string"
             ]
@@ -32013,7 +32226,7 @@
         ],
         "args": [
           {
-            "name": "string",
+            "name": "text",
             "types": [
               "string"
             ]
@@ -32061,24 +32274,28 @@
         "args": [
           {
             "name": "heroName",
+            "description": "`random` picks a random hero.",
             "types": [
               "string"
             ]
           },
           {
-            "name": "arg2",
+            "name": "lane",
+            "description": "Stored as the bot's `force_lane` setting; nil: not set.",
             "types": [
               "string"
             ]
           },
           {
-            "name": "arg3",
+            "name": "difficulty",
+            "description": "Stored as the bot's `difficulty` setting; nil: not set.",
             "types": [
               "string"
             ]
           },
           {
-            "name": "arg4",
+            "name": "goodGuys",
+            "description": "true: the bot joins DOTA_TEAM_GOODGUYS, false: DOTA_TEAM_BADGUYS.",
             "types": [
               "bool"
             ]
@@ -32095,25 +32312,26 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "name",
+            "description": "Quest name, used by `CompleteQuest`.",
             "types": [
               "string"
             ]
           },
           {
-            "name": "arg2",
+            "name": "type",
             "types": [
               "int"
             ]
           },
           {
-            "name": "arg3",
+            "name": "title",
             "types": [
               "string"
             ]
           },
           {
-            "name": "arg4",
+            "name": "text",
             "types": [
               "string"
             ]
@@ -32147,7 +32365,8 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "name",
+            "description": "Name the quest was added with.",
             "types": [
               "string"
             ]
@@ -32164,7 +32383,7 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "location",
             "types": [
               "Vector"
             ]
@@ -32181,7 +32400,7 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "enabled",
             "types": [
               "bool"
             ]
@@ -32198,7 +32417,7 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "enabled",
             "types": [
               "bool"
             ]
@@ -32215,7 +32434,7 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "enabled",
             "types": [
               "bool"
             ]
@@ -32269,7 +32488,7 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "location",
             "types": [
               "Vector"
             ]
@@ -32320,7 +32539,8 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "team",
+            "description": "`good` or `bad`; other values are ignored.",
             "types": [
               "string"
             ]
@@ -32337,7 +32557,7 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "guideName",
             "types": [
               "string"
             ]
@@ -32412,13 +32632,13 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "convarName",
             "types": [
               "string"
             ]
           },
           {
-            "name": "arg2",
+            "name": "value",
             "types": [
               "string"
             ]
@@ -32435,7 +32655,7 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "mode",
             "types": [
               "int"
             ]
@@ -33137,13 +33357,14 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "outputName",
             "types": [
               "string"
             ]
           },
           {
-            "name": "arg2",
+            "name": "functionName",
+            "description": "Function in this entity's script scope.",
             "types": [
               "string"
             ]
@@ -33169,13 +33390,13 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "outputName",
             "types": [
               "string"
             ]
           },
           {
-            "name": "arg2",
+            "name": "functionName",
             "types": [
               "string"
             ]
@@ -33192,21 +33413,21 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "outputName",
             "types": [
               "string"
             ]
           },
           {
-            "name": "arg2",
+            "name": "functionName",
             "types": [
               "string"
             ]
           },
           {
-            "name": "arg3",
+            "name": "entity",
             "types": [
-              "handle"
+              "CBaseEntity"
             ]
           }
         ]
@@ -33230,31 +33451,37 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "outputName",
             "types": [
               "string"
             ]
           },
           {
-            "name": "arg2",
+            "name": "activator",
+            "description": "nil: this entity.",
             "types": [
-              "handle"
+              "CBaseEntity",
+              "nil"
             ]
           },
           {
-            "name": "arg3",
+            "name": "caller",
+            "description": "nil: this entity.",
             "types": [
-              "handle"
+              "CBaseEntity",
+              "nil"
             ]
           },
           {
-            "name": "arg4",
+            "name": "value",
+            "description": "Value passed with the output.",
             "types": [
               "table"
             ]
           },
           {
-            "name": "arg5",
+            "name": "delay",
+            "description": "Seconds.",
             "types": [
               "float"
             ]
@@ -33309,7 +33536,7 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "name",
             "types": [
               "string"
             ]
@@ -33386,21 +33613,22 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "outputName",
             "types": [
               "string"
             ]
           },
           {
-            "name": "arg2",
+            "name": "functionName",
             "types": [
               "string"
             ]
           },
           {
-            "name": "arg3",
+            "name": "entity",
+            "description": "Entity whose script function is called.",
             "types": [
-              "handle"
+              "CBaseEntity"
             ]
           }
         ]
@@ -33425,13 +33653,13 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "name",
             "types": [
               "string"
             ]
           },
           {
-            "name": "arg2",
+            "name": "value",
             "types": [
               "int"
             ]
@@ -33474,7 +33702,7 @@
           {
             "name": "entity",
             "types": [
-              "handle"
+              "CBaseEntity"
             ]
           }
         ]
@@ -33871,13 +34099,14 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "outputName",
             "types": [
               "string"
             ]
           },
           {
-            "name": "arg2",
+            "name": "description",
+            "description": "Not read by the engine.",
             "types": [
               "string"
             ]
@@ -33894,7 +34123,8 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "count",
+            "description": "Number of outputs to reserve space for.",
             "types": [
               "int"
             ]
@@ -34401,9 +34631,9 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "team",
             "types": [
-              "int"
+              "DOTATeam_t"
             ]
           }
         ]
@@ -34438,7 +34668,8 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "name",
+            "description": "Entity reference such as `!target`, or an entity name.",
             "types": [
               "string"
             ]
@@ -34475,9 +34706,9 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "team",
             "types": [
-              "int"
+              "DOTATeam_t"
             ]
           }
         ]
@@ -34492,9 +34723,10 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "activator",
             "types": [
-              "handle"
+              "CBaseEntity",
+              "nil"
             ]
           }
         ]
@@ -34706,7 +34938,7 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "key",
             "types": [
               "string"
             ]
@@ -35033,7 +35265,7 @@
             ]
           },
           {
-            "name": "arg3",
+            "name": "forward",
             "types": [
               "Vector"
             ]
@@ -35062,19 +35294,19 @@
             ]
           },
           {
-            "name": "arg3",
+            "name": "forward",
             "types": [
               "Vector"
             ]
           },
           {
-            "name": "arg4",
+            "name": "right",
             "types": [
               "Vector"
             ]
           },
           {
-            "name": "arg5",
+            "name": "up",
             "types": [
               "Vector"
             ]
@@ -35103,19 +35335,19 @@
             ]
           },
           {
-            "name": "arg3",
+            "name": "forward",
             "types": [
               "Vector"
             ]
           },
           {
-            "name": "arg4",
+            "name": "left",
             "types": [
               "Vector"
             ]
           },
           {
-            "name": "arg5",
+            "name": "up",
             "types": [
               "Vector"
             ]
@@ -35730,13 +35962,15 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "name",
+            "description": "Parameter name with the leading `-`, e.g. `-port` (verified in game).",
             "types": [
               "string"
             ]
           },
           {
-            "name": "arg2",
+            "name": "defaultValue",
+            "description": "Returned when the parameter is not on the command line.",
             "types": [
               "float"
             ]
@@ -35753,13 +35987,15 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "name",
+            "description": "Parameter name with the leading `-`, e.g. `-port` (verified in game).",
             "types": [
               "string"
             ]
           },
           {
-            "name": "arg2",
+            "name": "defaultValue",
+            "description": "Returned when the parameter is not on the command line.",
             "types": [
               "int"
             ]
@@ -35776,13 +36012,15 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "name",
+            "description": "Parameter name with the leading `-`, e.g. `-port` (verified in game).",
             "types": [
               "string"
             ]
           },
           {
-            "name": "arg2",
+            "name": "defaultValue",
+            "description": "Returned when the parameter has no value on the command line.",
             "types": [
               "string"
             ]
@@ -35829,19 +36067,19 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "position",
             "types": [
               "Vector"
             ]
           },
           {
-            "name": "arg2",
+            "name": "radius",
             "types": [
               "float"
             ]
           },
           {
-            "name": "arg3",
+            "name": "fullCollision",
             "types": [
               "bool"
             ]
@@ -35915,7 +36153,8 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "x",
+            "description": "Grid X index.",
             "types": [
               "int"
             ]
@@ -35932,7 +36171,8 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "y",
+            "description": "Grid Y index.",
             "types": [
               "int"
             ]
@@ -35949,7 +36189,8 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "position",
+            "description": "Only x and y are used.",
             "types": [
               "Vector"
             ]
@@ -35995,7 +36236,8 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "position",
+            "description": "Only x and y are used.",
             "types": [
               "Vector"
             ]
@@ -36022,7 +36264,8 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "x",
+            "description": "World X coordinate.",
             "types": [
               "float"
             ]
@@ -36039,7 +36282,8 @@
         ],
         "args": [
           {
-            "name": "arg1",
+            "name": "y",
+            "description": "World Y coordinate.",
             "types": [
               "float"
             ]
@@ -36921,13 +37165,15 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "destAngle",
+        "description": "Degrees.",
         "types": [
           "float"
         ]
       },
       {
-        "name": "arg2",
+        "name": "srcAngle",
+        "description": "Degrees. The result is `destAngle - srcAngle` wrapped to -180..180.",
         "types": [
           "float"
         ]
@@ -36944,7 +37190,7 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "angles",
         "types": [
           "QAngle"
         ]
@@ -36961,13 +37207,15 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "unused1",
+        "description": "Not read by the engine.",
         "types": [
           "string"
         ]
       },
       {
-        "name": "arg2",
+        "name": "unused2",
+        "description": "Not read by the engine.",
         "types": [
           "string"
         ]
@@ -36995,19 +37243,20 @@
     "kind": "function",
     "name": "AxisAngleToQuaternion",
     "available": "both",
-    "description": "Constructs a quaternion representing a rotation by angle around the specified vector axis.",
+    "description": "Constructs a quaternion representing a rotation by angle around the specified vector axis. Quaternions cannot be passed to or returned from Lua: `AxisAngleToQuaternion` returns nil there (verified in game).",
     "returns": [
       "Quaternion"
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "axis",
         "types": [
           "Vector"
         ]
       },
       {
-        "name": "arg2",
+        "name": "angle",
+        "description": "Degrees.",
         "types": [
           "float"
         ]
@@ -37024,13 +37273,13 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "entity",
         "types": [
-          "handle"
+          "CBaseEntity"
         ]
       },
       {
-        "name": "arg2",
+        "name": "position",
         "types": [
           "Vector"
         ]
@@ -37047,15 +37296,15 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "entity1",
         "types": [
-          "handle"
+          "CBaseEntity"
         ]
       },
       {
-        "name": "arg2",
+        "name": "entity2",
         "types": [
-          "handle"
+          "CBaseEntity"
         ]
       }
     ]
@@ -37064,24 +37313,25 @@
     "kind": "function",
     "name": "CalcDistanceToLineSegment2D",
     "available": "both",
+    "description": "Distance from a point to a line segment, in 2D (z is ignored).",
     "returns": [
       "float"
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "point",
         "types": [
           "Vector"
         ]
       },
       {
-        "name": "arg2",
+        "name": "segmentStart",
         "types": [
           "Vector"
         ]
       },
       {
-        "name": "arg3",
+        "name": "segmentEnd",
         "types": [
           "Vector"
         ]
@@ -37092,13 +37342,13 @@
     "kind": "function",
     "name": "CancelEntityIOEvents",
     "available": "both",
-    "description": "Create all I/O events for a particular entity.",
+    "description": "Cancel all pending I/O events for a particular entity.",
     "returns": [
       "nil"
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "entity",
         "types": [
           "ehandle"
         ]
@@ -37155,37 +37405,40 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "inflictor",
         "types": [
-          "handle"
+          "CBaseEntity",
+          "nil"
         ]
       },
       {
-        "name": "arg2",
+        "name": "attacker",
         "types": [
-          "handle"
+          "CBaseEntity",
+          "nil"
         ]
       },
       {
-        "name": "arg3",
-        "types": [
-          "Vector"
-        ]
-      },
-      {
-        "name": "arg4",
+        "name": "force",
         "types": [
           "Vector"
         ]
       },
       {
-        "name": "arg5",
+        "name": "position",
+        "types": [
+          "Vector"
+        ]
+      },
+      {
+        "name": "damage",
         "types": [
           "float"
         ]
       },
       {
-        "name": "arg6",
+        "name": "damageType",
+        "description": "Damage type bits of the damage info.",
         "types": [
           "int"
         ]
@@ -37507,7 +37760,8 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "sceneFile",
+        "description": "Scene file of the `logic_choreographed_scene`; refused once the game is running (only while the map loads).",
         "types": [
           "string"
         ]
@@ -37570,25 +37824,27 @@
     "kind": "function",
     "name": "CreateTrigger",
     "available": "server",
-    "description": "Creates and returns an AABB trigger.",
+    "description": "Creates and returns an AABB trigger (`trigger_multiple`).",
     "returns": [
       "CBaseTrigger"
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "origin",
         "types": [
           "Vector"
         ]
       },
       {
-        "name": "arg2",
+        "name": "mins",
+        "description": "Relative to origin.",
         "types": [
           "Vector"
         ]
       },
       {
-        "name": "arg3",
+        "name": "maxs",
+        "description": "Relative to origin.",
         "types": [
           "Vector"
         ]
@@ -37787,13 +38043,13 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "a",
         "types": [
           "Vector"
         ]
       },
       {
-        "name": "arg2",
+        "name": "b",
         "types": [
           "Vector"
         ]
@@ -37810,7 +38066,8 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "name",
+        "description": "Unknown convars return 0.",
         "types": [
           "string"
         ]
@@ -37827,13 +38084,14 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "name",
+        "description": "Unknown convars: returns false with a console warning.",
         "types": [
           "string"
         ]
       },
       {
-        "name": "arg2",
+        "name": "value",
         "types": [
           "float"
         ]
@@ -37854,15 +38112,15 @@
     "kind": "function",
     "name": "DebugChangeTeam",
     "available": "server",
-    "description": "Changes the team of the hero.",
+    "description": "Moves the hero's player between DOTA_TEAM_GOODGUYS and DOTA_TEAM_BADGUYS.",
     "returns": [
       "nil"
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "hero",
         "types": [
-          "handle"
+          "CDOTA_BaseNPC_Hero"
         ]
       }
     ]
@@ -37877,39 +38135,54 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "playerOwner",
         "types": [
-          "handle"
+          "CDOTAPlayerController"
         ]
       },
       {
-        "name": "arg2",
+        "name": "heroName",
         "types": [
           "string"
         ]
       },
       {
-        "name": "arg3",
+        "name": "variant",
+        "description": "Hero variant (facet) selected for the player along with the hero.",
         "types": [
           "int"
         ]
       },
       {
-        "name": "arg4",
+        "name": "team",
         "types": [
-          "int"
+          "DOTATeam_t"
         ]
       },
       {
-        "name": "arg5",
+        "name": "unused",
+        "description": "Not read by the engine.",
         "types": [
           "bool"
         ]
       },
       {
-        "name": "arg6",
+        "name": "callback",
         "types": [
-          "handle"
+          {
+            "kind": "function",
+            "returns": [
+              "nil"
+            ],
+            "args": [
+              {
+                "name": "unit",
+                "types": [
+                  "CDOTA_BaseNPC"
+                ]
+              }
+            ]
+          }
         ]
       }
     ]
@@ -37942,7 +38215,8 @@
         ]
       },
       {
-        "name": "arg4",
+        "name": "unused",
+        "description": "Not read by the engine.",
         "types": [
           "bool"
         ]
@@ -37978,49 +38252,56 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "origin",
         "types": [
           "Vector"
         ]
       },
       {
-        "name": "arg2",
+        "name": "mins",
+        "description": "Relative to origin.",
         "types": [
           "Vector"
         ]
       },
       {
-        "name": "arg3",
+        "name": "maxs",
+        "description": "Relative to origin.",
         "types": [
           "Vector"
         ]
       },
       {
-        "name": "arg4",
+        "name": "r",
+        "description": "Red, 0-255.",
         "types": [
           "int"
         ]
       },
       {
-        "name": "arg5",
+        "name": "g",
+        "description": "Green, 0-255.",
         "types": [
           "int"
         ]
       },
       {
-        "name": "arg6",
+        "name": "b",
+        "description": "Blue, 0-255.",
         "types": [
           "int"
         ]
       },
       {
-        "name": "arg7",
+        "name": "a",
+        "description": "Alpha, 0-255.",
         "types": [
           "int"
         ]
       },
       {
-        "name": "arg8",
+        "name": "duration",
+        "description": "Seconds.",
         "types": [
           "float"
         ]
@@ -38200,31 +38481,34 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "start",
         "types": [
           "Vector"
         ]
       },
       {
-        "name": "arg2",
+        "name": "end",
         "types": [
           "Vector"
         ]
       },
       {
-        "name": "arg3",
+        "name": "rgb",
+        "description": "Color, components 0-255.",
         "types": [
           "Vector"
         ]
       },
       {
-        "name": "arg4",
+        "name": "ztest",
+        "description": "Same as `ztest` of `DebugDrawLine`.",
         "types": [
           "bool"
         ]
       },
       {
-        "name": "arg5",
+        "name": "duration",
+        "description": "Seconds.",
         "types": [
           "float"
         ]
@@ -38506,13 +38790,14 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "playerId",
         "types": [
-          "int"
+          "PlayerID"
         ]
       },
       {
-        "name": "arg2",
+        "name": "removeBotHeroes",
+        "description": "When true and the player is a fake client (bot), the heroes it owns are removed too. The player is kicked either way.",
         "types": [
           "bool"
         ]
@@ -38588,39 +38873,45 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "target",
+        "description": "Name of the target entities.",
         "types": [
           "string"
         ]
       },
       {
-        "name": "arg2",
+        "name": "action",
+        "description": "Input name; empty: `Use`.",
         "types": [
           "string"
         ]
       },
       {
-        "name": "arg3",
+        "name": "value",
+        "description": "Parameter of the input; empty: none.",
         "types": [
           "string"
         ]
       },
       {
-        "name": "arg4",
+        "name": "delay",
+        "description": "Seconds; negative values mean 0.",
         "types": [
           "float"
         ]
       },
       {
-        "name": "arg5",
+        "name": "activator",
         "types": [
-          "handle"
+          "CBaseEntity",
+          "nil"
         ]
       },
       {
-        "name": "arg6",
+        "name": "caller",
         "types": [
-          "handle"
+          "CBaseEntity",
+          "nil"
         ]
       }
     ]
@@ -38635,39 +38926,44 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "target",
         "types": [
-          "handle"
+          "CBaseEntity"
         ]
       },
       {
-        "name": "arg2",
-        "types": [
-          "string"
-        ]
-      },
-      {
-        "name": "arg3",
+        "name": "action",
+        "description": "Input name; empty: `Use`.",
         "types": [
           "string"
         ]
       },
       {
-        "name": "arg4",
+        "name": "value",
+        "description": "Parameter of the input; empty: none.",
+        "types": [
+          "string"
+        ]
+      },
+      {
+        "name": "delay",
+        "description": "Seconds; negative values mean 0.",
         "types": [
           "float"
         ]
       },
       {
-        "name": "arg5",
+        "name": "activator",
         "types": [
-          "handle"
+          "CBaseEntity",
+          "nil"
         ]
       },
       {
-        "name": "arg6",
+        "name": "caller",
         "types": [
-          "handle"
+          "CBaseEntity",
+          "nil"
         ]
       }
     ]
@@ -38682,15 +38978,16 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "scriptName",
         "types": [
           "string"
         ]
       },
       {
-        "name": "arg2",
+        "name": "scope",
         "types": [
-          "handle"
+          "table",
+          "nil"
         ]
       }
     ]
@@ -38705,13 +39002,13 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "assertion",
         "types": [
           "bool"
         ]
       },
       {
-        "name": "arg2",
+        "name": "message",
         "types": [
           "string"
         ]
@@ -38805,13 +39102,13 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "a",
         "types": [
           "Vector"
         ]
       },
       {
-        "name": "arg2",
+        "name": "b",
         "types": [
           "Vector"
         ]
@@ -38865,13 +39162,14 @@
       },
       {
         "name": "tier",
-        "description": "Zero-based tier number.",
+        "description": "1-based neutral item tier; 0 or less: the item's own tier.",
         "types": [
           "int"
         ]
       },
       {
-        "name": "arg5",
+        "name": "markAsEarned",
+        "description": "When true, the item is recorded as found by the unit's team (the same record `RecordNeutralItemEarned` makes, without its toast).",
         "types": [
           "bool"
         ]
@@ -38884,41 +39182,45 @@
     "available": "server",
     "description": "Drop a neutral item for the team of the hero at the given tier.",
     "returns": [
-      "handle"
+      "CDOTA_Item_Physical"
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "itemName",
+        "description": "Can be any item name, it does not have to be neutral.",
         "types": [
           "string"
         ]
       },
       {
-        "name": "arg2",
+        "name": "location",
         "types": [
           "Vector"
         ]
       },
       {
-        "name": "arg3",
+        "name": "unit",
         "types": [
-          "handle"
+          "CDOTA_BaseNPC"
         ]
       },
       {
-        "name": "arg4",
+        "name": "tier",
+        "description": "1-based neutral item tier; 0 or less: the item's own tier.",
         "types": [
           "int"
         ]
       },
       {
-        "name": "arg5",
+        "name": "markAsEarned",
+        "description": "When true, the item is recorded as found by the unit's team (the same record `RecordNeutralItemEarned` makes, without its toast).",
         "types": [
           "bool"
         ]
       },
       {
-        "name": "arg6",
+        "name": "launchOffset",
+        "description": "Added to the point the item is launched from (the unit position moved up to 100 units toward location).",
         "types": [
           "Vector"
         ]
@@ -39096,7 +39398,8 @@
         ]
       },
       {
-        "name": "arg2",
+        "name": "player",
+        "description": "Player controller, or the player's hero.",
         "types": [
           "handle"
         ]
@@ -39113,21 +39416,21 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "soundName",
         "types": [
           "string"
         ]
       },
       {
-        "name": "arg2",
+        "name": "entity",
         "types": [
-          "handle"
+          "CBaseEntity"
         ]
       },
       {
-        "name": "arg3",
+        "name": "playerId",
         "types": [
-          "int"
+          "PlayerID"
         ]
       }
     ]
@@ -39171,21 +39474,21 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "soundName",
         "types": [
           "string"
         ]
       },
       {
-        "name": "arg2",
+        "name": "location",
         "types": [
           "Vector"
         ]
       },
       {
-        "name": "arg3",
+        "name": "playerId",
         "types": [
-          "int"
+          "PlayerID"
         ]
       }
     ]
@@ -39258,25 +39561,26 @@
     "kind": "function",
     "name": "ExponentialDecay",
     "available": "both",
-    "description": "Smooth curve decreasing slower as it approaches zero.",
+    "description": "Smooth curve decreasing slower as it approaches zero: `decayTo ^ (dt / decayTime)`.",
     "returns": [
       "float"
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "decayTo",
+        "description": "Value reached after `decayTime`.",
         "types": [
           "float"
         ]
       },
       {
-        "name": "arg2",
+        "name": "decayTime",
         "types": [
           "float"
         ]
       },
       {
-        "name": "arg3",
+        "name": "dt",
         "types": [
           "float"
         ]
@@ -39293,19 +39597,22 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "unit",
+        "description": "Unit that is moved.",
         "types": [
-          "handle"
+          "CDOTA_BaseNPC"
         ]
       },
       {
-        "name": "arg2",
+        "name": "target",
+        "description": "Unit it is placed around.",
         "types": [
-          "handle"
+          "CDOTA_BaseNPC"
         ]
       },
       {
-        "name": "arg3",
+        "name": "extraDistance",
+        "description": "Added to the sum of both units' padded collision radii. The direction steps by 90 degrees on every call.",
         "types": [
           "int"
         ]
@@ -39334,7 +39641,8 @@
         ]
       },
       {
-        "name": "arg3",
+        "name": "interrupt",
+        "description": "When false, a unit whose movement component reports active movement is not moved and false is returned; when true that movement is interrupted and the unit is teleported.",
         "types": [
           "bool"
         ]
@@ -39505,13 +39813,13 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "entity",
         "types": [
           "ehandle"
         ]
       },
       {
-        "name": "arg2",
+        "name": "input",
         "types": [
           "string"
         ]
@@ -39528,19 +39836,19 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "entity",
         "types": [
           "ehandle"
         ]
       },
       {
-        "name": "arg2",
+        "name": "input",
         "types": [
           "string"
         ]
       },
       {
-        "name": "arg3",
+        "name": "value",
         "types": [
           "string"
         ]
@@ -39557,19 +39865,19 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "entity",
         "types": [
           "ehandle"
         ]
       },
       {
-        "name": "arg2",
+        "name": "input",
         "types": [
           "string"
         ]
       },
       {
-        "name": "arg3",
+        "name": "value",
         "types": [
           "Vector"
         ]
@@ -39642,7 +39950,7 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "abilityName",
         "types": [
           "string"
         ]
@@ -39686,13 +39994,14 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "unit",
         "types": [
-          "handle"
+          "CDOTA_BaseNPC"
         ]
       },
       {
-        "name": "arg2",
+        "name": "location",
+        "description": "Returned unchanged when no clear space is found.",
         "types": [
           "Vector"
         ]
@@ -39832,7 +40141,8 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "itemName",
+        "description": "Unknown items cost 0.",
         "types": [
           "string"
         ]
@@ -39848,13 +40158,14 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "playerId",
         "types": [
-          "int"
+          "PlayerID"
         ]
       },
       {
-        "name": "arg2",
+        "name": "itemDef",
+        "description": "Econ item definition index.",
         "types": [
           "int"
         ]
@@ -39870,13 +40181,14 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "playerId",
         "types": [
-          "int"
+          "PlayerID"
         ]
       },
       {
-        "name": "arg2",
+        "name": "itemDef",
+        "description": "Econ item definition index.",
         "types": [
           "int"
         ]
@@ -39922,7 +40234,8 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "unused",
+        "description": "Not read: the local player of split-screen slot 0 is used.",
         "types": [
           "int"
         ]
@@ -39949,13 +40262,13 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "entity",
         "types": [
           "ehandle"
         ]
       },
       {
-        "name": "arg2",
+        "name": "outputName",
         "types": [
           "string"
         ]
@@ -39972,9 +40285,9 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "entity",
         "types": [
-          "handle"
+          "CBaseEntity"
         ]
       }
     ]
@@ -39989,9 +40302,9 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "entity",
         "types": [
-          "handle"
+          "CBaseEntity"
         ]
       }
     ]
@@ -40053,48 +40366,49 @@
     "kind": "function",
     "name": "GetTargetAOELocation",
     "available": "server",
+    "description": "Center of the best cluster of units for an area effect (the bot helper). Units are searched within `castRange + radius` of origin, invisible ones excluded; returns a vector of FLT_MAX components when fewer than `minTargets` are found.",
     "returns": [
       "Vector"
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "team",
         "types": [
-          "int"
+          "DOTATeam_t"
         ]
       },
       {
-        "name": "arg2",
+        "name": "typeFilter",
         "types": [
-          "int"
+          "DOTA_UNIT_TARGET_TYPE"
         ]
       },
       {
-        "name": "arg3",
+        "name": "teamFilter",
         "types": [
-          "int"
+          "DOTA_UNIT_TARGET_TEAM"
         ]
       },
       {
-        "name": "arg4",
+        "name": "origin",
         "types": [
           "Vector"
         ]
       },
       {
-        "name": "arg5",
+        "name": "castRange",
         "types": [
           "int"
         ]
       },
       {
-        "name": "arg6",
+        "name": "radius",
         "types": [
           "int"
         ]
       },
       {
-        "name": "arg7",
+        "name": "minTargets",
         "types": [
           "int"
         ]
@@ -40105,48 +40419,49 @@
     "kind": "function",
     "name": "GetTargetLinearLocation",
     "available": "server",
+    "description": "Best point for a line effect (the bot helper). Units are searched within `range + width` of origin, invisible ones excluded; returns a vector of FLT_MAX components when fewer than `minTargets` are found.",
     "returns": [
       "Vector"
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "team",
         "types": [
-          "int"
+          "DOTATeam_t"
         ]
       },
       {
-        "name": "arg2",
+        "name": "typeFilter",
         "types": [
-          "int"
+          "DOTA_UNIT_TARGET_TYPE"
         ]
       },
       {
-        "name": "arg3",
+        "name": "teamFilter",
         "types": [
-          "int"
+          "DOTA_UNIT_TARGET_TEAM"
         ]
       },
       {
-        "name": "arg4",
+        "name": "origin",
         "types": [
           "Vector"
         ]
       },
       {
-        "name": "arg5",
+        "name": "range",
         "types": [
           "int"
         ]
       },
       {
-        "name": "arg6",
+        "name": "width",
         "types": [
           "int"
         ]
       },
       {
-        "name": "arg7",
+        "name": "minTargets",
         "types": [
           "int"
         ]
@@ -40212,7 +40527,7 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "unitName",
         "types": [
           "string"
         ]
@@ -40286,9 +40601,9 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "hero",
         "types": [
-          "handle"
+          "CDOTA_BaseNPC_Hero"
         ]
       }
     ]
@@ -40303,13 +40618,15 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "unused1",
+        "description": "Not read by the engine.",
         "types": [
           "string"
         ]
       },
       {
-        "name": "arg2",
+        "name": "unused2",
+        "description": "Not read by the engine.",
         "types": [
           "string"
         ]
@@ -40478,19 +40795,20 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "a",
         "types": [
           "Vector"
         ]
       },
       {
-        "name": "arg2",
+        "name": "b",
         "types": [
           "Vector"
         ]
       },
       {
-        "name": "arg3",
+        "name": "t",
+        "description": "Not clamped.",
         "types": [
           "float"
         ]
@@ -40507,7 +40825,8 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "limit",
+        "description": "Fraction of the full search space, clamped to 0-1.",
         "types": [
           "float"
         ]
@@ -40634,13 +40953,13 @@
     "kind": "function",
     "name": "MakeStringToken",
     "available": "both",
-    "description": "Checks to see if the given hScript is a valid entity.",
+    "description": "Returns the string token (hash) of the lowercased string; 0 for an empty string.",
     "returns": [
       "int"
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "text",
         "types": [
           "string"
         ]
@@ -40657,7 +40976,7 @@
     ],
     "args": [
       {
-        "name": "handle",
+        "name": "spawnGroupHandle",
         "types": [
           "SpawnGroupHandle"
         ]
@@ -40783,15 +41102,15 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "className",
         "types": [
           "string"
         ]
       },
       {
-        "name": "arg2",
+        "name": "keyValues",
         "types": [
-          "handle"
+          "table"
         ]
       },
       {
@@ -40812,9 +41131,9 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "spawnTables",
         "types": [
-          "handle"
+          "table"
         ]
       },
       {
@@ -40917,13 +41236,14 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "resourceType",
+        "description": "Precache entry key, e.g. `particle`, `soundfile`, `model`.",
         "types": [
           "string"
         ]
       },
       {
-        "name": "arg2",
+        "name": "resourcePath",
         "types": [
           "string"
         ]
@@ -41019,9 +41339,10 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "keyValues",
+        "description": "The unit is taken from its `MapUnitName` key.",
         "types": [
-          "handle"
+          "table"
         ]
       },
       {
@@ -41055,9 +41376,10 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "keyValues",
+        "description": "The unit is taken from its `MapUnitName` key.",
         "types": [
-          "handle"
+          "table"
         ]
       },
       {
@@ -41153,13 +41475,13 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "min",
         "types": [
           "float"
         ]
       },
       {
-        "name": "arg2",
+        "name": "max",
         "types": [
           "float"
         ]
@@ -41216,19 +41538,21 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "hero",
+        "description": "Its team is credited.",
         "types": [
-          "handle"
+          "CDOTA_BaseNPC"
         ]
       },
       {
-        "name": "arg2",
+        "name": "item",
         "types": [
-          "handle"
+          "CDOTA_Item"
         ]
       },
       {
-        "name": "arg3",
+        "name": "tier",
+        "description": "1-based neutral item tier.",
         "types": [
           "int"
         ]
@@ -41245,13 +41569,15 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "modelName",
+        "description": "Only printed: the function is deprecated and does nothing.",
         "types": [
           "string"
         ]
       },
       {
-        "name": "arg2",
+        "name": "scriptName",
+        "description": "Only printed.",
         "types": [
           "string"
         ]
@@ -41268,7 +41594,7 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "name",
         "types": [
           "string"
         ]
@@ -41318,7 +41644,7 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "name",
         "types": [
           "string"
         ]
@@ -41404,13 +41730,14 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "a",
         "types": [
           "QAngle"
         ]
       },
       {
-        "name": "arg2",
+        "name": "b",
+        "description": "The result is the rotation of `a` followed by `b` (matrix a * b).",
         "types": [
           "QAngle"
         ]
@@ -41427,19 +41754,19 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "rotationOrigin",
         "types": [
           "Vector"
         ]
       },
       {
-        "name": "arg2",
+        "name": "rotationAngle",
         "types": [
           "QAngle"
         ]
       },
       {
-        "name": "arg3",
+        "name": "position",
         "types": [
           "Vector"
         ]
@@ -41450,25 +41777,26 @@
     "kind": "function",
     "name": "RotateQuaternionByAxisAngle",
     "available": "both",
-    "description": "Rotates a quaternion by the specified angle around the specified vector axis.",
+    "description": "Rotates a quaternion by the specified angle around the specified vector axis. Quaternions cannot be passed to or returned from Lua: `AxisAngleToQuaternion` returns nil there (verified in game).",
     "returns": [
       "Quaternion"
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "quaternion",
         "types": [
           "Quaternion"
         ]
       },
       {
-        "name": "arg2",
+        "name": "axis",
         "types": [
           "Vector"
         ]
       },
       {
-        "name": "arg3",
+        "name": "angle",
+        "description": "Degrees.",
         "types": [
           "float"
         ]
@@ -41479,19 +41807,19 @@
     "kind": "function",
     "name": "RotationDelta",
     "available": "both",
-    "description": "Find the delta between two QAngles.",
+    "description": "Find the rotation from one QAngle to another (verified in game).",
     "returns": [
       "QAngle"
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "src",
         "types": [
           "QAngle"
         ]
       },
       {
-        "name": "arg2",
+        "name": "dest",
         "types": [
           "QAngle"
         ]
@@ -41502,19 +41830,19 @@
     "kind": "function",
     "name": "RotationDeltaAsAngularVelocity",
     "available": "both",
-    "description": "Converts delta QAngle to an angular velocity Vector.",
+    "description": "Rotation from one QAngle to another as an angular velocity: axis multiplied by degrees (verified in game).",
     "returns": [
       "Vector"
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "src",
         "types": [
           "QAngle"
         ]
       },
       {
-        "name": "arg2",
+        "name": "dest",
         "types": [
           "QAngle"
         ]
@@ -41622,13 +41950,13 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "min",
         "types": [
           "float"
         ]
       },
       {
-        "name": "arg2",
+        "name": "max",
         "types": [
           "float"
         ]
@@ -41645,31 +41973,31 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "value",
         "types": [
           "float"
         ]
       },
       {
-        "name": "arg2",
+        "name": "inputStart",
         "types": [
           "float"
         ]
       },
       {
-        "name": "arg3",
+        "name": "inputEnd",
         "types": [
           "float"
         ]
       },
       {
-        "name": "arg4",
+        "name": "outputStart",
         "types": [
           "float"
         ]
       },
       {
-        "name": "arg5",
+        "name": "outputEnd",
         "types": [
           "float"
         ]
@@ -41728,7 +42056,7 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "command",
         "types": [
           "string"
         ]
@@ -41745,7 +42073,7 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "command",
         "types": [
           "string"
         ]
@@ -41762,25 +42090,25 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "stackName",
         "types": [
           "string"
         ]
       },
       {
-        "name": "arg2",
+        "name": "operatorName",
         "types": [
           "string"
         ]
       },
       {
-        "name": "arg3",
+        "name": "opvarName",
         "types": [
           "string"
         ]
       },
       {
-        "name": "arg4",
+        "name": "value",
         "types": [
           "float"
         ]
@@ -41797,33 +42125,33 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "stackName",
         "types": [
           "string"
         ]
       },
       {
-        "name": "arg2",
+        "name": "operatorName",
         "types": [
           "string"
         ]
       },
       {
-        "name": "arg3",
+        "name": "opvarName",
         "types": [
           "string"
         ]
       },
       {
-        "name": "arg4",
+        "name": "value",
         "types": [
           "float"
         ]
       },
       {
-        "name": "arg5",
+        "name": "player",
         "types": [
-          "handle"
+          "CDOTAPlayerController"
         ]
       }
     ]
@@ -41838,13 +42166,14 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "entity",
         "types": [
-          "handle"
+          "CBaseEntity"
         ]
       },
       {
-        "name": "arg2",
+        "name": "angularVelocity",
+        "description": "Axis of rotation multiplied by the rotation speed in degrees per second.",
         "types": [
           "Vector"
         ]
@@ -41861,7 +42190,7 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "name",
         "types": [
           "string"
         ]
@@ -41878,7 +42207,7 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "phase",
         "types": [
           "int"
         ]
@@ -41896,13 +42225,13 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "entity",
         "types": [
           "ehandle"
         ]
       },
       {
-        "name": "arg2",
+        "name": "enabled",
         "types": [
           "bool"
         ]
@@ -41988,31 +42317,32 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "header",
         "types": [
           "string"
         ]
       },
       {
-        "name": "arg2",
+        "name": "body",
         "types": [
           "string"
         ]
       },
       {
-        "name": "arg3",
+        "name": "param1",
         "types": [
           "string"
         ]
       },
       {
-        "name": "arg4",
+        "name": "param2",
         "types": [
           "string"
         ]
       },
       {
-        "name": "arg5",
+        "name": "flags",
+        "description": "1: tint the screen, 2: show no other dialogs (`tint_screen`, `show_no_other_dialogs` of CDOTAUserMsg_ShowGenericPopup).",
         "types": [
           "int"
         ]
@@ -42029,37 +42359,38 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "player",
         "types": [
-          "handle"
+          "CDOTAPlayerController"
         ]
       },
       {
-        "name": "arg2",
-        "types": [
-          "string"
-        ]
-      },
-      {
-        "name": "arg3",
+        "name": "header",
         "types": [
           "string"
         ]
       },
       {
-        "name": "arg4",
+        "name": "body",
         "types": [
           "string"
         ]
       },
       {
-        "name": "arg5",
+        "name": "param1",
         "types": [
           "string"
         ]
       },
       {
-        "name": "arg6",
+        "name": "param2",
+        "types": [
+          "string"
+        ]
+      },
+      {
+        "name": "flags",
+        "description": "1: tint the screen, 2: show no other dialogs.",
         "types": [
           "int"
         ]
@@ -42076,7 +42407,7 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "message",
         "types": [
           "string"
         ]
@@ -42115,43 +42446,48 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "unitOrModel",
+        "description": "Unit name, or a `.vmdl` model path.",
         "types": [
           "string"
         ]
       },
       {
-        "name": "arg2",
+        "name": "team",
         "types": [
-          "int"
+          "DOTATeam_t"
         ]
       },
       {
-        "name": "arg3",
-        "types": [
-          "Vector"
-        ]
-      },
-      {
-        "name": "arg4",
+        "name": "origin",
         "types": [
           "Vector"
         ]
       },
       {
-        "name": "arg5",
+        "name": "angles",
+        "description": "Pitch, yaw, roll.",
+        "types": [
+          "Vector"
+        ]
+      },
+      {
+        "name": "pedestalScale",
+        "description": "Model scale of the pedestal.",
         "types": [
           "float"
         ]
       },
       {
-        "name": "arg6",
+        "name": "modelScale",
+        "description": "Model scale of the statue; negative: the unit's `ModelScale`.",
         "types": [
           "float"
         ]
       },
       {
-        "name": "arg7",
+        "name": "effigyType",
+        "description": "Status effect index of the statue material; also selects the pedestal model (with team).",
         "types": [
           "int"
         ]
@@ -42168,25 +42504,26 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "className",
         "types": [
           "string"
         ]
       },
       {
-        "name": "arg2",
+        "name": "keyValues",
+        "types": [
+          "table"
+        ]
+      },
+      {
+        "name": "callback",
+        "description": "Called when the entity has spawned.",
         "types": [
           "handle"
         ]
       },
       {
-        "name": "arg3",
-        "types": [
-          "handle"
-        ]
-      },
-      {
-        "name": "arg4",
+        "name": "context",
         "types": [
           "handle"
         ]
@@ -42226,19 +42563,21 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "spawnTables",
+        "description": "Entity tables, each with a `classname` key.",
         "types": [
-          "handle"
+          "table"
         ]
       },
       {
-        "name": "arg2",
+        "name": "async",
+        "description": "true: spawned through the asynchronous queue, the callback runs when it completes; false: spawned right away and the callback runs before the function returns.",
         "types": [
           "bool"
         ]
       },
       {
-        "name": "arg3",
+        "name": "callback",
         "types": [
           "handle"
         ]
@@ -42255,13 +42594,15 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "spawnTables",
+        "description": "Entity tables, each with a `classname` key.",
         "types": [
-          "handle"
+          "table"
         ]
       },
       {
-        "name": "arg2",
+        "name": "callback",
+        "description": "Called when spawning is complete.",
         "types": [
           "handle"
         ]
@@ -42278,9 +42619,10 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "spawnTables",
+        "description": "Entity tables, each with a `classname` key.",
         "types": [
-          "handle"
+          "table"
         ]
       }
     ]
@@ -42330,25 +42672,26 @@
     "kind": "function",
     "name": "SplineQuaternions",
     "available": "both",
-    "description": "Very basic interpolation of v0 to v1 over t on [0,1].",
+    "description": "Very basic interpolation of v0 to v1 over t on [0,1]. Quaternions cannot be passed to or returned from Lua: `AxisAngleToQuaternion` returns nil there (verified in game).",
     "returns": [
       "Quaternion"
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "q0",
         "types": [
           "Quaternion"
         ]
       },
       {
-        "name": "arg2",
+        "name": "q1",
         "types": [
           "Quaternion"
         ]
       },
       {
-        "name": "arg3",
+        "name": "t",
+        "description": "Clamped to 0-1.",
         "types": [
           "float"
         ]
@@ -42365,19 +42708,20 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "v0",
         "types": [
           "Vector"
         ]
       },
       {
-        "name": "arg2",
+        "name": "v1",
         "types": [
           "Vector"
         ]
       },
       {
-        "name": "arg3",
+        "name": "t",
+        "description": "Clamped to 0-1; smoothstep curve.",
         "types": [
           "float"
         ]
@@ -42394,13 +42738,14 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "soundName",
         "types": [
           "string"
         ]
       },
       {
-        "name": "arg2",
+        "name": "entity",
+        "description": "Entity the sound is played on. A player controller is replaced with its hero.",
         "types": [
           "handle"
         ]
@@ -42486,13 +42831,14 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "soundName",
         "types": [
           "string"
         ]
       },
       {
-        "name": "arg2",
+        "name": "entity",
+        "description": "Entity the sound is played on. A player controller is replaced with its hero.",
         "types": [
           "handle"
         ]
@@ -42509,13 +42855,14 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "soundName",
         "types": [
           "string"
         ]
       },
       {
-        "name": "arg2",
+        "name": "entity",
+        "description": "Entity the sound is played on. A player controller is replaced with its hero.",
         "types": [
           "handle"
         ]
@@ -42532,13 +42879,14 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "entity",
         "types": [
-          "handle"
+          "CBaseEntity",
+          "nil"
         ]
       },
       {
-        "name": "arg2",
+        "name": "effectName",
         "types": [
           "string"
         ]
@@ -42555,7 +42903,7 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "soundName",
         "types": [
           "string"
         ]
@@ -42572,9 +42920,10 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "context",
+        "description": "Context table the listeners were registered with.",
         "types": [
-          "handle"
+          "table"
         ]
       }
     ]
@@ -42606,13 +42955,14 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "soundName",
         "types": [
           "string"
         ]
       },
       {
-        "name": "arg2",
+        "name": "entity",
+        "description": "Entity the sound is played on. A player controller is replaced with its hero.",
         "types": [
           "handle"
         ]
@@ -42629,13 +42979,14 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "soundName",
         "types": [
           "string"
         ]
       },
       {
-        "name": "arg2",
+        "name": "entity",
+        "description": "Entity the sound is played on. A player controller is replaced with its hero.",
         "types": [
           "handle"
         ]
@@ -42751,7 +43102,7 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "spawnGroupName",
         "types": [
           "string"
         ]
@@ -42768,7 +43119,7 @@
     ],
     "args": [
       {
-        "name": "handle",
+        "name": "spawnGroupHandle",
         "types": [
           "SpawnGroupHandle"
         ]
@@ -42801,7 +43152,8 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "userId",
+        "description": "The `userid` field of game events.",
         "types": [
           "int"
         ]
@@ -42818,37 +43170,42 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "playerEntityIndex",
+        "description": "Entity index of the player controller (`CDOTAPlayerController:entindex()`).",
         "types": [
           "int"
         ]
       },
       {
-        "name": "arg2",
+        "name": "message",
         "types": [
           "string"
         ]
       },
       {
-        "name": "arg3",
+        "name": "r",
+        "description": "Red, 0-255.",
         "types": [
           "int"
         ]
       },
       {
-        "name": "arg4",
+        "name": "g",
+        "description": "Green, 0-255.",
         "types": [
           "int"
         ]
       },
       {
-        "name": "arg5",
+        "name": "b",
+        "description": "Blue, 0-255.",
         "types": [
           "int"
         ]
       },
       {
-        "name": "arg6",
+        "name": "a",
+        "description": "Alpha, 0-255.",
         "types": [
           "int"
         ]
@@ -42865,45 +43222,51 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "playerEntityIndex",
+        "description": "Entity index of the player controller (`CDOTAPlayerController:entindex()`).",
         "types": [
           "int"
         ]
       },
       {
-        "name": "arg2",
+        "name": "message",
         "types": [
           "string"
         ]
       },
       {
-        "name": "arg3",
+        "name": "r",
+        "description": "Red, 0-255.",
         "types": [
           "int"
         ]
       },
       {
-        "name": "arg4",
+        "name": "g",
+        "description": "Green, 0-255.",
         "types": [
           "int"
         ]
       },
       {
-        "name": "arg5",
+        "name": "b",
+        "description": "Blue, 0-255.",
         "types": [
           "int"
         ]
       },
       {
-        "name": "arg6",
+        "name": "a",
+        "description": "Alpha, 0-255.",
         "types": [
           "int"
         ]
       },
       {
-        "name": "arg7",
+        "name": "context",
+        "description": "Values for the message: `player_id`, `value`, `team_id` (missing keys: -1).",
         "types": [
-          "handle"
+          "table"
         ]
       }
     ]
@@ -42918,31 +43281,35 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "message",
         "types": [
           "string"
         ]
       },
       {
-        "name": "arg2",
+        "name": "r",
+        "description": "Red, 0-255.",
         "types": [
           "int"
         ]
       },
       {
-        "name": "arg3",
+        "name": "g",
+        "description": "Green, 0-255.",
         "types": [
           "int"
         ]
       },
       {
-        "name": "arg4",
+        "name": "b",
+        "description": "Blue, 0-255.",
         "types": [
           "int"
         ]
       },
       {
-        "name": "arg5",
+        "name": "a",
+        "description": "Alpha, 0-255.",
         "types": [
           "int"
         ]
@@ -42959,39 +43326,44 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "message",
         "types": [
           "string"
         ]
       },
       {
-        "name": "arg2",
+        "name": "r",
+        "description": "Red, 0-255.",
         "types": [
           "int"
         ]
       },
       {
-        "name": "arg3",
+        "name": "g",
+        "description": "Green, 0-255.",
         "types": [
           "int"
         ]
       },
       {
-        "name": "arg4",
+        "name": "b",
+        "description": "Blue, 0-255.",
         "types": [
           "int"
         ]
       },
       {
-        "name": "arg5",
+        "name": "a",
+        "description": "Alpha, 0-255.",
         "types": [
           "int"
         ]
       },
       {
-        "name": "arg6",
+        "name": "context",
+        "description": "Values for the message: `player_id`, `value`, `team_id` (missing keys: -1).",
         "types": [
-          "handle"
+          "table"
         ]
       }
     ]
@@ -43042,7 +43414,8 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "playerEntityIndex",
+        "description": "Entity index of the player controller (`CDOTAPlayerController:entindex()`).",
         "types": [
           "int"
         ]
@@ -43068,7 +43441,7 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "direction",
         "types": [
           "Vector"
         ]
@@ -43085,7 +43458,7 @@
     ],
     "args": [
       {
-        "name": "arg1",
+        "name": "direction",
         "types": [
           "Vector"
         ]
