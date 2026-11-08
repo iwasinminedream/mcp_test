@@ -1,0 +1,231 @@
+---------------
+File: C:\Users\Admin\AppData\Local\Temp\dota2-mcp\job-4aozz9\phantom_assassin_phantom_strike_end_glow.vpcf_c
+Exception: ValveResourceFormat.Utils.UnexpectedMagicException: Unexpected header. You likely tried to read a file that is not actually a resource (usually ends in '_c'). for variable 'HeaderVersion': 14175 (0x375F)
+   at ValveResourceFormat.Resource.Read(Stream input, Boolean verifyFileSize, Boolean leaveOpen) in /_/ValveResourceFormat/Resource/Resource.cs:line 198
+   at CLI.Decompiler.ProcessFile(String path, Stream stream, String originalPath, IFileLoader fileLoader) in /_/CLI/Decompiler.cs:line 632
+
+---------------
+File: C:\Users\Admin\AppData\Local\Temp\dota2-mcp\job-tonTdN\phantom_assassin_phantom_strike_end_glow.vpcf_c
+Exception: ValveResourceFormat.Utils.UnexpectedMagicException: Unexpected header. You likely tried to read a file that is not actually a resource (usually ends in '_c'). for variable 'HeaderVersion': 14175 (0x375F)
+   at ValveResourceFormat.Resource.Read(Stream input, Boolean verifyFileSize, Boolean leaveOpen) in /_/ValveResourceFormat/Resource/Resource.cs:line 198
+   at CLI.Decompiler.ProcessFile(String path, Stream stream, String originalPath, IFileLoader fileLoader) in /_/CLI/Decompiler.cs:line 632
+
+---------------
+File: C:\Users\Admin\AppData\Local\Temp\dota2-mcp\job-kutVQY\phantom_assassin_phantom_strike_start_sparkles.vpcf_c
+Exception: ValveResourceFormat.Utils.UnexpectedMagicException: Unexpected header. You likely tried to read a file that is not actually a resource (usually ends in '_c'). for variable 'HeaderVersion': 29811 (0x7473)
+   at ValveResourceFormat.Resource.Read(Stream input, Boolean verifyFileSize, Boolean leaveOpen) in /_/ValveResourceFormat/Resource/Resource.cs:line 198
+   at CLI.Decompiler.ProcessFile(String path, Stream stream, String originalPath, IFileLoader fileLoader) in /_/CLI/Decompiler.cs:line 632
+
+---------------
+File: C:\Users\Admin\AppData\Local\Temp\dota2-mcp\job-V53mxO\phantom_assassin_phantom_strike_start_sparkles.vpcf_c
+Exception: ValveResourceFormat.Utils.UnexpectedMagicException: Unexpected header. You likely tried to read a file that is not actually a resource (usually ends in '_c'). for variable 'HeaderVersion': 29811 (0x7473)
+   at ValveResourceFormat.Resource.Read(Stream input, Boolean verifyFileSize, Boolean leaveOpen) in /_/ValveResourceFormat/Resource/Resource.cs:line 198
+   at CLI.Decompiler.ProcessFile(String path, Stream stream, String originalPath, IFileLoader fileLoader) in /_/CLI/Decompiler.cs:line 632
+
+---------------
+File: C:\Users\Admin\AppData\Local\Temp\dota2-mcp\job-ouYurB\medallion_of_courage_b_glow.vpcf_c
+Exception: ValveResourceFormat.Utils.UnexpectedMagicException: Unexpected header. You likely tried to read a file that is not actually a resource (usually ends in '_c'). for variable 'HeaderVersion': 27759 (0x6C6F)
+   at ValveResourceFormat.Resource.Read(Stream input, Boolean verifyFileSize, Boolean leaveOpen) in /_/ValveResourceFormat/Resource/Resource.cs:line 198
+   at CLI.Decompiler.ProcessFile(String path, Stream stream, String originalPath, IFileLoader fileLoader) in /_/CLI/Decompiler.cs:line 632
+
+---------------
+File: C:\Users\Admin\AppData\Local\Temp\dota2-mcp\job-KlYbFQ\medallion_of_courage_c.vpcf_c
+Exception: ValveResourceFormat.Utils.UnexpectedMagicException: Unexpected header. You likely tried to read a file that is not actually a resource (usually ends in '_c'). for variable 'HeaderVersion': 24946 (0x6172)
+   at ValveResourceFormat.Resource.Read(Stream input, Boolean verifyFileSize, Boolean leaveOpen) in /_/ValveResourceFormat/Resource/Resource.cs:line 198
+   at CLI.Decompiler.ProcessFile(String path, Stream stream, String originalPath, IFileLoader fileLoader) in /_/CLI/Decompiler.cs:line 632
+
+---------------
+File: C:\Users\Admin\AppData\Local\Temp\dota2-mcp\job-E4bcus\medallion_of_courage_c.vpcf_c
+Exception: ValveResourceFormat.Utils.UnexpectedMagicException: Unexpected header. You likely tried to read a file that is not actually a resource (usually ends in '_c'). for variable 'HeaderVersion': 24946 (0x6172)
+   at ValveResourceFormat.Resource.Read(Stream input, Boolean verifyFileSize, Boolean leaveOpen) in /_/ValveResourceFormat/Resource/Resource.cs:line 198
+   at CLI.Decompiler.ProcessFile(String path, Stream stream, String originalPath, IFileLoader fileLoader) in /_/CLI/Decompiler.cs:line 632
+
+---------------
+File: C:\Users\Admin\AppData\Local\Temp\dota2-mcp\job-Ilszwg\medallion_of_courage_d.vpcf_c
+Exception: ValveResourceFormat.Utils.UnexpectedMagicException: Unexpected header. You likely tried to read a file that is not actually a resource (usually ends in '_c'). for variable 'HeaderVersion': 28521 (0x6F69)
+   at ValveResourceFormat.Resource.Read(Stream input, Boolean verifyFileSize, Boolean leaveOpen) in /_/ValveResourceFormat/Resource/Resource.cs:line 198
+   at CLI.Decompiler.ProcessFile(String path, Stream stream, String originalPath, IFileLoader fileLoader) in /_/CLI/Decompiler.cs:line 632
+
+---------------
+File: C:\Users\Admin\AppData\Local\Temp\dota2-mcp\job-OznfAm\medallion_of_courage_e.vpcf_c
+Exception: ValveResourceFormat.Utils.UnexpectedMagicException: Unexpected header. You likely tried to read a file that is not actually a resource (usually ends in '_c'). for variable 'HeaderVersion': 8820 (0x2274)
+   at ValveResourceFormat.Resource.Read(Stream input, Boolean verifyFileSize, Boolean leaveOpen) in /_/ValveResourceFormat/Resource/Resource.cs:line 198
+   at CLI.Decompiler.ProcessFile(String path, Stream stream, String originalPath, IFileLoader fileLoader) in /_/CLI/Decompiler.cs:line 632
+
+---------------
+File: C:\Users\Admin\AppData\Local\Temp\dota2-mcp\job-bTgn0c\medallion_of_courage_e.vpcf_c
+Exception: ValveResourceFormat.Utils.UnexpectedMagicException: Unexpected header. You likely tried to read a file that is not actually a resource (usually ends in '_c'). for variable 'HeaderVersion': 8820 (0x2274)
+   at ValveResourceFormat.Resource.Read(Stream input, Boolean verifyFileSize, Boolean leaveOpen) in /_/ValveResourceFormat/Resource/Resource.cs:line 198
+   at CLI.Decompiler.ProcessFile(String path, Stream stream, String originalPath, IFileLoader fileLoader) in /_/CLI/Decompiler.cs:line 632
+
+---------------
+File: C:\Users\Admin\AppData\Local\Temp\dota2-mcp\job-BpGTSH\medallion_of_courage_f.vpcf_c
+Exception: ValveResourceFormat.Utils.UnexpectedMagicException: Unexpected header. You likely tried to read a file that is not actually a resource (usually ends in '_c'). for variable 'HeaderVersion': 24429 (0x5F6D)
+   at ValveResourceFormat.Resource.Read(Stream input, Boolean verifyFileSize, Boolean leaveOpen) in /_/ValveResourceFormat/Resource/Resource.cs:line 198
+   at CLI.Decompiler.ProcessFile(String path, Stream stream, String originalPath, IFileLoader fileLoader) in /_/CLI/Decompiler.cs:line 632
+
+---------------
+File: C:\Users\Admin\AppData\Local\Temp\dota2-mcp\job-fPasPS\medallion_of_courage_friend_ring.vpcf_c
+Exception: ValveResourceFormat.Utils.UnexpectedMagicException: Unexpected header. You likely tried to read a file that is not actually a resource (usually ends in '_c'). for variable 'HeaderVersion': 2573 (0xA0D)
+   at ValveResourceFormat.Resource.Read(Stream input, Boolean verifyFileSize, Boolean leaveOpen) in /_/ValveResourceFormat/Resource/Resource.cs:line 198
+   at CLI.Decompiler.ProcessFile(String path, Stream stream, String originalPath, IFileLoader fileLoader) in /_/CLI/Decompiler.cs:line 632
+
+---------------
+File: C:\Users\Admin\AppData\Local\Temp\dota2-mcp\job-siTIbo\medallion_of_courage_friend_ring.vpcf_c
+Exception: ValveResourceFormat.Utils.UnexpectedMagicException: Unexpected header. You likely tried to read a file that is not actually a resource (usually ends in '_c'). for variable 'HeaderVersion': 2573 (0xA0D)
+   at ValveResourceFormat.Resource.Read(Stream input, Boolean verifyFileSize, Boolean leaveOpen) in /_/ValveResourceFormat/Resource/Resource.cs:line 198
+   at CLI.Decompiler.ProcessFile(String path, Stream stream, String originalPath, IFileLoader fileLoader) in /_/CLI/Decompiler.cs:line 632
+
+---------------
+File: C:\Users\Admin\AppData\Local\Temp\dota2-mcp\job-li9Gvn\keeper_chakra_magic_spiral.vpcf_c
+Exception: ValveResourceFormat.Utils.UnexpectedMagicException: Unexpected header. You likely tried to read a file that is not actually a resource (usually ends in '_c'). for variable 'HeaderVersion': 28005 (0x6D65)
+   at ValveResourceFormat.Resource.Read(Stream input, Boolean verifyFileSize, Boolean leaveOpen) in /_/ValveResourceFormat/Resource/Resource.cs:line 198
+   at CLI.Decompiler.ProcessFile(String path, Stream stream, String originalPath, IFileLoader fileLoader) in /_/CLI/Decompiler.cs:line 632
+
+---------------
+File: C:\Users\Admin\AppData\Local\Temp\dota2-mcp\job-xZY2A4\dark_seer_ion_shell.vpcf_c
+Exception: ValveResourceFormat.Utils.UnexpectedMagicException: Unexpected header. You likely tried to read a file that is not actually a resource (usually ends in '_c'). for variable 'HeaderVersion': 25936 (0x6550)
+   at ValveResourceFormat.Resource.Read(Stream input, Boolean verifyFileSize, Boolean leaveOpen) in /_/ValveResourceFormat/Resource/Resource.cs:line 198
+   at CLI.Decompiler.ProcessFile(String path, Stream stream, String originalPath, IFileLoader fileLoader) in /_/CLI/Decompiler.cs:line 632
+
+---------------
+File: C:\Users\Admin\AppData\Local\Temp\dota2-mcp\job-G44NK3\dark_seer_ion_shell.vpcf_c
+Exception: ValveResourceFormat.Utils.UnexpectedMagicException: Unexpected header. You likely tried to read a file that is not actually a resource (usually ends in '_c'). for variable 'HeaderVersion': 25936 (0x6550)
+   at ValveResourceFormat.Resource.Read(Stream input, Boolean verifyFileSize, Boolean leaveOpen) in /_/ValveResourceFormat/Resource/Resource.cs:line 198
+   at CLI.Decompiler.ProcessFile(String path, Stream stream, String originalPath, IFileLoader fileLoader) in /_/CLI/Decompiler.cs:line 632
+
+---------------
+File: C:\Users\Admin\AppData\Local\Temp\dota2-mcp\job-16g2NW\game_sounds_dazzle.vsndevts_c
+Exception: ValveResourceFormat.Utils.UnexpectedMagicException: Unexpected header. You likely tried to read a file that is not actually a resource (usually ends in '_c'). for variable 'HeaderVersion': 33743 (0x83CF)
+   at ValveResourceFormat.Resource.Read(Stream input, Boolean verifyFileSize, Boolean leaveOpen) in /_/ValveResourceFormat/Resource/Resource.cs:line 198
+   at CLI.Decompiler.ProcessFile(String path, Stream stream, String originalPath, IFileLoader fileLoader) in /_/CLI/Decompiler.cs:line 632
+
+---------------
+File: C:\Users\Admin\AppData\Local\Temp\dota2-mcp\job-W8niQS\game_sounds_dark_seer.vsndevts_c
+Exception: ValveResourceFormat.Utils.UnexpectedMagicException: Unexpected header. You likely tried to read a file that is not actually a resource (usually ends in '_c'). for variable 'HeaderVersion': 2472 (0x9A8)
+   at ValveResourceFormat.Resource.Read(Stream input, Boolean verifyFileSize, Boolean leaveOpen) in /_/ValveResourceFormat/Resource/Resource.cs:line 198
+   at CLI.Decompiler.ProcessFile(String path, Stream stream, String originalPath, IFileLoader fileLoader) in /_/CLI/Decompiler.cs:line 632
+
+---------------
+File: C:\Users\Admin\AppData\Local\Temp\dota2-mcp\job-w8Dhjp\keeper_illuminate_impact01.vpcf_c
+Exception: ValveResourceFormat.Utils.UnexpectedMagicException: Unexpected header. You likely tried to read a file that is not actually a resource (usually ends in '_c'). for variable 'HeaderVersion': 24427 (0x5F6B)
+   at ValveResourceFormat.Resource.Read(Stream input, Boolean verifyFileSize, Boolean leaveOpen) in /_/ValveResourceFormat/Resource/Resource.cs:line 198
+   at CLI.Decompiler.ProcessFile(String path, Stream stream, String originalPath, IFileLoader fileLoader) in /_/CLI/Decompiler.cs:line 632
+
+---------------
+File: C:\Users\Admin\AppData\Local\Temp\dota2-mcp\job-mw9YIi\keeper_illuminate_impact01.vpcf_c
+Exception: ValveResourceFormat.Utils.UnexpectedMagicException: Unexpected header. You likely tried to read a file that is not actually a resource (usually ends in '_c'). for variable 'HeaderVersion': 24427 (0x5F6B)
+   at ValveResourceFormat.Resource.Read(Stream input, Boolean verifyFileSize, Boolean leaveOpen) in /_/ValveResourceFormat/Resource/Resource.cs:line 198
+   at CLI.Decompiler.ProcessFile(String path, Stream stream, String originalPath, IFileLoader fileLoader) in /_/CLI/Decompiler.cs:line 632
+
+---------------
+File: C:\Users\Admin\AppData\Local\Temp\dota2-mcp\job-5yEVgk\dark_seer_ion_shell.vpcf_c
+Exception: ValveResourceFormat.Utils.UnexpectedMagicException: Unexpected header. You likely tried to read a file that is not actually a resource (usually ends in '_c'). for variable 'HeaderVersion': 25936 (0x6550)
+   at ValveResourceFormat.Resource.Read(Stream input, Boolean verifyFileSize, Boolean leaveOpen) in /_/ValveResourceFormat/Resource/Resource.cs:line 198
+   at CLI.Decompiler.ProcessFile(String path, Stream stream, String originalPath, IFileLoader fileLoader) in /_/CLI/Decompiler.cs:line 632
+
+---------------
+File: C:\Users\Admin\AppData\Local\Temp\dota2-mcp\job-mfdOxP\dark_seer_ion_shell_fallback_mid.vpcf_c
+Exception: ValveResourceFormat.Utils.UnexpectedMagicException: Unexpected header. You likely tried to read a file that is not actually a resource (usually ends in '_c'). for variable 'HeaderVersion': 21583 (0x544F)
+   at ValveResourceFormat.Resource.Read(Stream input, Boolean verifyFileSize, Boolean leaveOpen) in /_/ValveResourceFormat/Resource/Resource.cs:line 198
+   at CLI.Decompiler.ProcessFile(String path, Stream stream, String originalPath, IFileLoader fileLoader) in /_/CLI/Decompiler.cs:line 632
+
+---------------
+File: C:\Users\Admin\AppData\Local\Temp\dota2-mcp\job-3jn3IV\empty_png.vtex_c
+Exception: ValveResourceFormat.Utils.UnexpectedMagicException: Unexpected header. You likely tried to read a file that is not actually a resource (usually ends in '_c'). for variable 'HeaderVersion': 14177 (0x3761)
+   at ValveResourceFormat.Resource.Read(Stream input, Boolean verifyFileSize, Boolean leaveOpen) in /_/ValveResourceFormat/Resource/Resource.cs:line 198
+   at CLI.Decompiler.ProcessFile(String path, Stream stream, String originalPath, IFileLoader fileLoader) in /_/CLI/Decompiler.cs:line 632
+
+---------------
+File: C:\Users\Admin\AppData\Local\Temp\dota2-mcp\job-FR5YFQ\empty_png.vtex_c
+Exception: ValveResourceFormat.Utils.UnexpectedMagicException: Unexpected header. You likely tried to read a file that is not actually a resource (usually ends in '_c'). for variable 'HeaderVersion': 14177 (0x3761)
+   at ValveResourceFormat.Resource.Read(Stream input, Boolean verifyFileSize, Boolean leaveOpen) in /_/ValveResourceFormat/Resource/Resource.cs:line 198
+   at CLI.Decompiler.ProcessFile(String path, Stream stream, String originalPath, IFileLoader fileLoader) in /_/CLI/Decompiler.cs:line 632
+
+---------------
+File: C:\Users\Admin\AppData\Local\Temp\dota2-mcp\job-FXQoFE\enigma_midnight_pulse.vpcf_c
+Exception: ValveResourceFormat.Utils.UnexpectedMagicException: Unexpected header. You likely tried to read a file that is not actually a resource (usually ends in '_c'). for variable 'HeaderVersion': 0 (0x0)
+   at ValveResourceFormat.Resource.Read(Stream input, Boolean verifyFileSize, Boolean leaveOpen) in /_/ValveResourceFormat/Resource/Resource.cs:line 198
+   at CLI.Decompiler.ProcessFile(String path, Stream stream, String originalPath, IFileLoader fileLoader) in /_/CLI/Decompiler.cs:line 632
+
+---------------
+File: C:\Users\Admin\AppData\Local\Temp\dota2-mcp\job-JWMdxI\jakiro_ice_path_ground_debris_rocks.vpcf_c
+Exception: ValveResourceFormat.Utils.UnexpectedMagicException: Unexpected header. You likely tried to read a file that is not actually a resource (usually ends in '_c'). for variable 'HeaderVersion': 0 (0x0)
+   at ValveResourceFormat.Resource.Read(Stream input, Boolean verifyFileSize, Boolean leaveOpen) in /_/ValveResourceFormat/Resource/Resource.cs:line 198
+   at CLI.Decompiler.ProcessFile(String path, Stream stream, String originalPath, IFileLoader fileLoader) in /_/CLI/Decompiler.cs:line 632
+
+---------------
+File: C:\Users\Admin\AppData\Local\Temp\dota2-mcp\job-Yqt6fs\jakiro_ice_path_ground_debris_water.vpcf_c
+Exception: ValveResourceFormat.Utils.UnexpectedMagicException: Unexpected header. You likely tried to read a file that is not actually a resource (usually ends in '_c'). for variable 'HeaderVersion': 0 (0x0)
+   at ValveResourceFormat.Resource.Read(Stream input, Boolean verifyFileSize, Boolean leaveOpen) in /_/ValveResourceFormat/Resource/Resource.cs:line 198
+   at CLI.Decompiler.ProcessFile(String path, Stream stream, String originalPath, IFileLoader fileLoader) in /_/CLI/Decompiler.cs:line 632
+
+---------------
+File: C:\Users\Admin\AppData\Local\Temp\dota2-mcp\job-LzUACd\jakiro_ice_path_ground_debris_water.vpcf_c
+Exception: ValveResourceFormat.Utils.UnexpectedMagicException: Unexpected header. You likely tried to read a file that is not actually a resource (usually ends in '_c'). for variable 'HeaderVersion': 0 (0x0)
+   at ValveResourceFormat.Resource.Read(Stream input, Boolean verifyFileSize, Boolean leaveOpen) in /_/ValveResourceFormat/Resource/Resource.cs:line 198
+   at CLI.Decompiler.ProcessFile(String path, Stream stream, String originalPath, IFileLoader fileLoader) in /_/CLI/Decompiler.cs:line 632
+
+---------------
+File: C:\Users\Admin\AppData\Local\Temp\dota2-mcp\job-aWptqX\jakiro_ice_path_ground_ice.vpcf_c
+Exception: ValveResourceFormat.Utils.UnexpectedMagicException: Unexpected header. You likely tried to read a file that is not actually a resource (usually ends in '_c'). for variable 'HeaderVersion': 0 (0x0)
+   at ValveResourceFormat.Resource.Read(Stream input, Boolean verifyFileSize, Boolean leaveOpen) in /_/ValveResourceFormat/Resource/Resource.cs:line 198
+   at CLI.Decompiler.ProcessFile(String path, Stream stream, String originalPath, IFileLoader fileLoader) in /_/CLI/Decompiler.cs:line 632
+
+---------------
+File: C:\Users\Admin\AppData\Local\Temp\dota2-mcp\job-MSGTiL\jakiro_ice_path_ground_melt.vpcf_c
+Exception: ValveResourceFormat.Utils.UnexpectedMagicException: Unexpected header. You likely tried to read a file that is not actually a resource (usually ends in '_c'). for variable 'HeaderVersion': 0 (0x0)
+   at ValveResourceFormat.Resource.Read(Stream input, Boolean verifyFileSize, Boolean leaveOpen) in /_/ValveResourceFormat/Resource/Resource.cs:line 198
+   at CLI.Decompiler.ProcessFile(String path, Stream stream, String originalPath, IFileLoader fileLoader) in /_/CLI/Decompiler.cs:line 632
+
+---------------
+File: C:\Users\Admin\AppData\Local\Temp\dota2-mcp\job-Rost3p\jakiro_ice_path_ground_snow.vpcf_c
+Exception: ValveResourceFormat.Utils.UnexpectedMagicException: Unexpected header. You likely tried to read a file that is not actually a resource (usually ends in '_c'). for variable 'HeaderVersion': 0 (0x0)
+   at ValveResourceFormat.Resource.Read(Stream input, Boolean verifyFileSize, Boolean leaveOpen) in /_/ValveResourceFormat/Resource/Resource.cs:line 198
+   at CLI.Decompiler.ProcessFile(String path, Stream stream, String originalPath, IFileLoader fileLoader) in /_/CLI/Decompiler.cs:line 632
+
+---------------
+File: C:\Users\Admin\AppData\Local\Temp\dota2-mcp\job-OdiCCz\range_finder_aoe_glow.vpcf_c
+Exception: ValveResourceFormat.Utils.UnexpectedMagicException: Unexpected header. You likely tried to read a file that is not actually a resource (usually ends in '_c'). for variable 'HeaderVersion': 0 (0x0)
+   at ValveResourceFormat.Resource.Read(Stream input, Boolean verifyFileSize, Boolean leaveOpen) in /_/ValveResourceFormat/Resource/Resource.cs:line 198
+   at CLI.Decompiler.ProcessFile(String path, Stream stream, String originalPath, IFileLoader fileLoader) in /_/CLI/Decompiler.cs:line 632
+
+---------------
+File: C:\Users\Admin\AppData\Local\Temp\dota2-mcp\job-SpEUaT\range_finder_aoe_glow.vpcf_c
+Exception: ValveResourceFormat.Utils.UnexpectedMagicException: Unexpected header. You likely tried to read a file that is not actually a resource (usually ends in '_c'). for variable 'HeaderVersion': 0 (0x0)
+   at ValveResourceFormat.Resource.Read(Stream input, Boolean verifyFileSize, Boolean leaveOpen) in /_/ValveResourceFormat/Resource/Resource.cs:line 198
+   at CLI.Decompiler.ProcessFile(String path, Stream stream, String originalPath, IFileLoader fileLoader) in /_/CLI/Decompiler.cs:line 632
+
+---------------
+File: C:\Users\Admin\AppData\Local\Temp\dota2-mcp\job-Q1eMES\range_finder_aoe_glow.vpcf_c
+Exception: ValveResourceFormat.Utils.UnexpectedMagicException: Unexpected header. You likely tried to read a file that is not actually a resource (usually ends in '_c'). for variable 'HeaderVersion': 0 (0x0)
+   at ValveResourceFormat.Resource.Read(Stream input, Boolean verifyFileSize, Boolean leaveOpen) in /_/ValveResourceFormat/Resource/Resource.cs:line 198
+   at CLI.Decompiler.ProcessFile(String path, Stream stream, String originalPath, IFileLoader fileLoader) in /_/CLI/Decompiler.cs:line 632
+
+---------------
+File: C:\Users\Admin\AppData\Local\Temp\dota2-mcp\job-lrdyxg\popup_settings_reborn.vxml_c
+Exception: ValveResourceFormat.Utils.UnexpectedMagicException: Unexpected header. You likely tried to read a file that is not actually a resource (usually ends in '_c'). for variable 'HeaderVersion': 33509 (0x82E5)
+   at ValveResourceFormat.Resource.Read(Stream input, Boolean verifyFileSize, Boolean leaveOpen) in /_/ValveResourceFormat/Resource/Resource.cs:line 198
+   at CLI.Decompiler.ProcessFile(String path, Stream stream, String originalPath, IFileLoader fileLoader) in /_/CLI/Decompiler.cs:line 632
+
+---------------
+File: C:\Users\Admin\AppData\Local\Temp\dota2-mcp\job-cb1b5U\dota_hud_top_bar_player.vxml_c
+Exception: ValveResourceFormat.Utils.UnexpectedMagicException: Unexpected header. You likely tried to read a file that is not actually a resource (usually ends in '_c'). for variable 'HeaderVersion': 43 (0x2B)
+   at ValveResourceFormat.Resource.Read(Stream input, Boolean verifyFileSize, Boolean leaveOpen) in /_/ValveResourceFormat/Resource/Resource.cs:line 198
+   at CLI.Decompiler.ProcessFile(String path, Stream stream, String originalPath, IFileLoader fileLoader) in /_/CLI/Decompiler.cs:line 632
+
+---------------
+File: C:\Users\Admin\AppData\Local\Temp\dota2-mcp\job-Gszft0\anvil_forge_lucky.vpcf_c
+Exception: ValveResourceFormat.Utils.UnexpectedMagicException: Unknown KVType for field 'm_nFingerprint' for variable 'datatype': 26 (0x1A)
+   at ValveResourceFormat.ResourceTypes.BinaryKV3.ReadBinaryValue(Context context, String name, KV3BinaryNodeType datatype, KVFlag flagInfo, KVObject parent) in /_/ValveResourceFormat/Resource/ResourceTypes/BinaryKV3.cs:line 1046
+   at ValveResourceFormat.ResourceTypes.BinaryKV3.ParseBinaryKV3(Context context, KVObject parent, Boolean inArray) in /_/ValveResourceFormat/Resource/ResourceTypes/BinaryKV3.cs:line 764
+   at ValveResourceFormat.ResourceTypes.BinaryKV3.ReadBinaryValue(Context context, String name, KV3BinaryNodeType datatype, KVFlag flagInfo, KVObject parent) in /_/ValveResourceFormat/Resource/ResourceTypes/BinaryKV3.cs:line 1032
+   at ValveResourceFormat.ResourceTypes.BinaryKV3.ReadBinaryValue(Context context, String name, KV3BinaryNodeType datatype, KVFlag flagInfo, KVObject parent) in /_/ValveResourceFormat/Resource/ResourceTypes/BinaryKV3.cs:line 983
+   at ValveResourceFormat.ResourceTypes.BinaryKV3.ParseBinaryKV3(Context context, KVObject parent, Boolean inArray) in /_/ValveResourceFormat/Resource/ResourceTypes/BinaryKV3.cs:line 764
+   at ValveResourceFormat.ResourceTypes.BinaryKV3.ReadBinaryValue(Context context, String name, KV3BinaryNodeType datatype, KVFlag flagInfo, KVObject parent) in /_/ValveResourceFormat/Resource/ResourceTypes/BinaryKV3.cs:line 1032
+   at ValveResourceFormat.ResourceTypes.BinaryKV3.ParseBinaryKV3(Context context, KVObject parent, Boolean inArray) in /_/ValveResourceFormat/Resource/ResourceTypes/BinaryKV3.cs:line 764
+   at ValveResourceFormat.ResourceTypes.BinaryKV3.ReadBuffer(Int32 version, BinaryReader reader) in /_/ValveResourceFormat/Resource/ResourceTypes/BinaryKV3.cs:line 663
+   at ValveResourceFormat.Blocks.ResourceEditInfo2.Read(BinaryReader reader) in /_/ValveResourceFormat/Resource/Blocks/ResourceEditInfo2.cs:line 52
+   at ValveResourceFormat.Resource.Read(Stream input, Boolean verifyFileSize, Boolean leaveOpen) in /_/ValveResourceFormat/Resource/Resource.cs:line 265
+   at CLI.Decompiler.ProcessFile(String path, Stream stream, String originalPath, IFileLoader fileLoader) in /_/CLI/Decompiler.cs:line 632
+

@@ -41,12 +41,24 @@ Downloads are skipped when `vendor/` already exists; re-fetch with `FORCE=1`. Ru
 either step on its own with `npm run vendor-cli` / `npm run vendor-data`, or both
 with `npm run vendor`.
 
+**Startup auto-update:** on every server start the vendored CLI is also checked
+against GitHub in the background — the wanted tag (`S2V_CLI_TAG` or `latest`) is
+compared with `vendor/.s2v-cli.json` (written by both the vendor script and the
+updater), at most once per `S2V_CLI_CHECK_INTERVAL_H` (default 6 h). A newer
+build is downloaded and swapped in without restarting; a running decompile only
+delays the swap. A vendor copy installed out of band (`S2V_CLI_DIR`, manual
+drop-in — marker without a tag) is respected, not overwritten.
+
 **Vendor overrides** (all optional):
 
 | Var | Effect |
 |-----|--------|
 | `S2V_CLI_DIR` | Copy the CLI from a local install instead of downloading (offline). |
 | `S2V_CLI_TAG` | Pin a CLI release tag (e.g. `19.2`) instead of `latest`. |
+| `S2V_CLI` | Use an external CLI exe; `vendor/` is then unused and never auto-updated. |
+| `S2V_CLI_AUTO_UPDATE=0` | Disable the startup CLI update check. |
+| `S2V_CLI_CHECK_INTERVAL_H` | Throttle for the startup update lookup, hours (default 6). |
+| `S2V_CLI_UPDATE_FORCE=1` | Re-install the wanted tag at next start regardless of the marker. |
 | `DOTA_DATA_DIR` | Copy dota-data from a local `files/` dir instead of downloading. |
 | `DOTA_DATA_REPO` / `DOTA_DATA_REF` | Use a different repo / branch-tag-commit (defaults `iwasinminedream/dota-data` @ `master`). |
 | `GITHUB_TOKEN` | Authenticate GitHub requests to avoid rate limits. |
@@ -139,6 +151,14 @@ an existing `hooks.SessionStart` array rather than replacing it, and adjust the 
 | `console_tail` | Last N raw lines of the console log. |
 | `index_status` | Indexer status, packages, addon, asset count, CLI, graph, API, game KV/localization, console. |
 | `reindex` | Rebuild the index after a Dota update. |
+| `tools_open` | Open an asset in its Workshop Tool editor (`open_asset`) or launch a tool (`show_tool`), keeping tool windows on Virtual Desktop 2 without stealing focus. |
+| `window_list` | List all Dota 2 (`SDL_app`), Workshop Tools (`pet`, `material_editor`, `modeldoc`, `hammer`, `asset_browser`), and VConsole windows across virtual desktops. |
+| `window_shot` | Capture a background screenshot (`PrintWindow` flag 2) or multi-frame animation contact sheet as an inline PNG image without switching desktops. |
+| `ui_tree` | Read-only UI Automation + native child HWND tree inspection of buttons, inputs, tabs, menus, and toolbars in any tool window. |
+| `ui_click` | Background click on a UI control (by name/class/index or `x, y`) via `PostMessageW` (never steals focus or switches virtual desktops). |
+| `ui_type` | Background text input (`WM_CHAR`) and key presses (`WM_KEYDOWN`/`WM_KEYUP`) via `PostMessageW`. |
+| `console` | Execute Dota 2 console commands (client VConsole, server RCON) or server-side Lua (`script_execute`) via the dev panel (`127.0.0.1:8770`). |
+| `particle_shot` | Capture a multi-frame burst contact sheet PNG of a `.vpcf` particle effect in Particle Editor (`pet`) or spawned live in-game (`ingame`). |
 
 ## Share with other users (self-contained release)
 

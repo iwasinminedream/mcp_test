@@ -15,6 +15,11 @@ import { spawnSync } from 'node:child_process';
 
 const dst = join(process.cwd(), 'vendor', 'Source2Viewer-CLI');
 const exe = process.platform === 'win32' ? 'Source2Viewer-CLI.exe' : 'Source2Viewer-CLI';
+// Shared with src/cli/cliUpdate.ts (the startup auto-updater): the marker says
+// which release tag vendor/ holds. No `tag` = installed out of band (S2V_CLI_DIR
+// copy), which the auto-updater respects instead of re-downloading.
+const markerPath = join(process.cwd(), 'vendor', '.s2v-cli.json');
+const writeMarker = (m) => writeFileSync(markerPath, JSON.stringify(m, null, 2));
 
 // Already vendored? Skip unless forced.
 if (existsSync(join(dst, exe)) && !process.env.FORCE) {
@@ -38,6 +43,7 @@ if (process.env.S2V_CLI_DIR) {
     total += statSync(s).size;
   }
   console.log(`copied Source2Viewer-CLI -> ${dst} (${(total / 1e6).toFixed(0)} MB)`);
+  writeMarker({ checkedAt: Date.now() });
   process.exit(0);
 }
 
@@ -77,13 +83,28 @@ if (!found) {
 
 // --- Download the zip to a temp file. ---
 const zipPath = join(tmpdir(), `s2v-cli-${release.tag_name}-${asset}`);
-console.log(`Downloading ${found.browser_download_url} ...`);
-const dlRes = await fetch(found.browser_download_url, { headers, redirect: 'follow' });
-if (!dlRes.ok) {
-  console.error(`Download failed: ${dlRes.status} ${dlRes.statusText}`);
+// browser_download_url first; the GitHub edge intermittently 504s release
+// downloads, and the API asset route (octet-stream) serves the same bytes.
+const routes = [
+  { u: found.browser_download_url, h: headers },
+  { u: found.url, h: { ...headers, Accept: 'application/octet-stream' } },
+];
+let dlBuf = null;
+let lastErr = '';
+for (const r of routes) {
+  console.log(`Downloading ${r.u} ...`);
+  const dlRes = await fetch(r.u, { headers: r.h, redirect: 'follow' });
+  if (dlRes.ok) {
+    dlBuf = Buffer.from(await dlRes.arrayBuffer());
+    break;
+  }
+  lastErr = `${dlRes.status} ${dlRes.statusText}`;
+}
+if (!dlBuf) {
+  console.error(`Download failed: ${lastErr}`);
   process.exit(1);
 }
-writeFileSync(zipPath, Buffer.from(await dlRes.arrayBuffer()));
+writeFileSync(zipPath, dlBuf);
 
 // --- Extract into vendor/Source2Viewer-CLI (fresh). ---
 rmSync(dst, { recursive: true, force: true });
@@ -114,4 +135,5 @@ const total = readdirSync(dst).reduce((n, f) => {
     return n;
   }
 }, 0);
+writeMarker({ tag: release.tag_name, checkedAt: Date.now(), updatedAt: Date.now() });
 console.log(`vendored Source2Viewer-CLI ${release.tag_name} -> ${dst} (${(total / 1e6).toFixed(0)} MB)`);

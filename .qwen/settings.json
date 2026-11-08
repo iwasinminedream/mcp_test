@@ -1,0 +1,11 @@
+{
+  "security": {
+    "auth": {
+      "selectedType": "qwen-subscription"
+    }
+  },
+  "model": {
+    "name": "qwen3.8-max",
+    "baseUrl": "https://api.qwen.ai/compatible-mode/v1"
+  }
+}

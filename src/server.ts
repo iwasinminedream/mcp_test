@@ -19,6 +19,8 @@ import { GameData } from './api/gameData.js';
 import { consoleMark, consoleErrors, consoleTail, type ConsoleCursor, type MarkResult } from './console/consoleLog.js';
 import { startAddonWatcher, type AddonWatcher } from './loose/watcher.js';
 import { logToolCall, writeLog, readLog, logFilePath } from './log.js';
+import { runLiveHelper, formatLiveMcpResult } from './tools/liveTools.js';
+import { autoUpdateVendorCli } from './cli/cliUpdate.js';
 import { createServer as createHttpServer, type IncomingMessage, type ServerResponse } from 'node:http';
 import { randomUUID } from 'node:crypto';
 import { StreamableHTTPServerTransport } from '@modelcontextprotocol/sdk/server/streamableHttp.js';
@@ -780,6 +782,375 @@ server.registerTool(
   },
 );
 
+// ---- M8: Live Workshop Tools & In-Game UI / Console / Particle Capture ----
+
+server.registerTool(
+  'tools_open',
+  {
+    title: 'Open asset or Workshop Tool window',
+    description:
+      'Open an asset in its Dota 2 Workshop Tool editor (via `open_asset <path>`, e.g. Particle Editor for .vpcf, ' +
+      'Material Editor for .vmat, ModelDoc for .vmdl, Hammer for .vmap) or launch a tool by name (`show_tool <tool>`). ' +
+      'Automatically moves any newly opened Qt tool window to Virtual Desktop 2 (without stealing foreground focus on Desktop 1) ' +
+      'and returns a background screenshot of the opened window.',
+    inputSchema: z.object({
+      path: z
+        .string()
+        .optional()
+        .describe('Asset path to open (e.g. "particles/units/heroes/hero_lina/lina_spell_light_strike_array.vpcf"). Trailing "_c" is stripped automatically.'),
+      tool: z
+        .string()
+        .optional()
+        .describe('Optional tool name for `show_tool`, e.g. "pet", "met", "modeldoc_editor", "hammer".'),
+      desktop: z
+        .number()
+        .int()
+        .min(1)
+        .max(8)
+        .default(2)
+        .describe('Virtual desktop number where new tool windows should be placed (default 2).'),
+      waitMs: z
+        .number()
+        .int()
+        .min(300)
+        .max(15000)
+        .default(3000)
+        .describe('How long to wait for the tool window to open and load (ms).'),
+      shotAfter: z
+        .boolean()
+        .default(true)
+        .describe('Return an inline PNG screenshot of the opened window.'),
+      crop: z
+        .union([z.literal('viewport'), z.array(z.number()).length(4)])
+        .optional()
+        .describe('Optional crop: "viewport" for the 3D scene viewport or [left, top, right, bottom].'),
+    }),
+  },
+  async (args) => formatLiveMcpResult(await runLiveHelper('tools_open', args, 25000)),
+);
+
+server.registerTool(
+  'window_list',
+  {
+    title: 'List Dota 2 & Workshop Tools windows',
+    description:
+      'List all open Dota 2 (`SDL_app`), Workshop Tools (`pet`, `material_editor`, `modeldoc`, `hammer`, `asset_browser`), ' +
+      'and VConsole windows across all Windows virtual desktops, including HWND, title, class, virtual desktop number, ' +
+      'and bounding rectangle.',
+    inputSchema: z.object({
+      includeChildren: z
+        .boolean()
+        .default(false)
+        .describe('Include native child HWNDs (such as CQToolSceneWidget 3D viewports and QToolBar).'),
+    }),
+  },
+  async ({ includeChildren }) =>
+    formatLiveMcpResult(await runLiveHelper('window_list', { includeChildren }, 10000)),
+);
+
+server.registerTool(
+  'window_shot',
+  {
+    title: 'Screenshot Dota 2 or Workshop Tool window',
+    description:
+      'Capture a background screenshot of any Dota 2 or Workshop Tool window via Win32 `PrintWindow` (flag 2 / PW_RENDERFULLCONTENT) ' +
+      'and return it directly as an inline PNG image. Works even when the window is on an inactive virtual desktop (Desktop 2) ' +
+      'without switching desktops or stealing focus. Set `frames > 1` to capture an animation contact sheet + frame-to-frame diff stats.',
+    inputSchema: z.object({
+      window: z
+        .union([z.string(), z.number()])
+        .optional()
+        .describe('Window HWND or selector ("pet", "particle", "material", "modeldoc", "hammer", "asset", "game", or title substring). Defaults to the primary tool/game window.'),
+      crop: z
+        .union([z.literal('viewport'), z.array(z.number()).length(4)])
+        .optional()
+        .describe('Pass "viewport" to auto-crop the 3D scene viewport (CQToolSceneWidget), or [left, top, right, bottom] relative to the window.'),
+      frames: z
+        .number()
+        .int()
+        .min(1)
+        .max(16)
+        .default(1)
+        .describe('Number of frames to capture (1 = single screenshot, >1 = contact sheet + animation diff stats).'),
+      intervalMs: z
+        .number()
+        .int()
+        .min(30)
+        .max(2000)
+        .default(160)
+        .describe('Delay between frames in ms when frames > 1.'),
+      maxDim: z
+        .number()
+        .int()
+        .min(128)
+        .max(2048)
+        .default(1024)
+        .describe('Maximum width/height of the returned PNG image.'),
+    }),
+  },
+  async (args) => formatLiveMcpResult(await runLiveHelper('window_shot', args, 35000)),
+);
+
+server.registerTool(
+  'ui_tree',
+  {
+    title: 'Inspect buttons, fields, and widgets in a window',
+    description:
+      'Read-only inspection of all visible UI elements (buttons, checkboxes, text inputs, tree items, tabs, menus, toolbars) ' +
+      'inside a Workshop Tool or Dota window via Windows UI Automation + EnumChildWindows. Returns element names, control types, ' +
+      'values, toggle states, window-relative coordinates, and target child HWNDs without touching focus.',
+    inputSchema: z.object({
+      window: z
+        .union([z.string(), z.number()])
+        .optional()
+        .describe('Window HWND or selector ("pet", "material", "modeldoc", "asset", "game", or title substring).'),
+      filter: z
+        .string()
+        .optional()
+        .describe('Optional case-insensitive substring to filter elements by name, class, controlType, or value.'),
+      interactiveOnly: z
+        .boolean()
+        .default(false)
+        .describe('Only return interactive controls (Button, CheckBox, Edit, TreeItem, TabItem, MenuItem, ComboBox).'),
+      maxDepth: z
+        .number()
+        .int()
+        .min(1)
+        .max(14)
+        .default(7)
+        .describe('Maximum UIA tree depth to walk.'),
+    }),
+  },
+  async (args) => formatLiveMcpResult(await runLiveHelper('ui_tree', args, 15000)),
+);
+
+server.registerTool(
+  'ui_click',
+  {
+    title: 'Click a button or coordinate in a window (background)',
+    description:
+      'Click a UI control (by name/controlType/groupClass from `ui_tree` or by window-relative `x, y` coordinates) ' +
+      'using Win32 `PostMessageW` directly to the deepest child HWND. Never calls UIA Invoke/Toggle and never steals ' +
+      'foreground focus or switches virtual desktops.',
+    inputSchema: z.object({
+      window: z
+        .union([z.string(), z.number()])
+        .optional()
+        .describe('Window HWND or selector ("pet", "material", "modeldoc", "asset", "game", etc.).'),
+      name: z
+        .string()
+        .optional()
+        .describe('Name, className, or automationId of the control to click (e.g. "Restart", "Play", "Stop", "Save").'),
+      controlType: z
+        .string()
+        .optional()
+        .describe('Optional control type filter (e.g. "Button", "CheckBox", "TreeItem", "TabItem", "MenuItem").'),
+      groupClass: z
+        .string()
+        .optional()
+        .describe('Optional parent/ancestor Qt class filter (e.g. "CQParticlePreview" to disambiguate toolbar buttons).'),
+      index: z
+        .number()
+        .int()
+        .min(0)
+        .default(0)
+        .describe('0-based index when multiple controls match.'),
+      x: z
+        .number()
+        .int()
+        .optional()
+        .describe('Window-relative X coordinate (if clicking by coordinates instead of name).'),
+      y: z
+        .number()
+        .int()
+        .optional()
+        .describe('Window-relative Y coordinate (if clicking by coordinates instead of name).'),
+      button: z
+        .enum(['left', 'right', 'middle'])
+        .default('left')
+        .describe('Mouse button to click.'),
+      doubleClick: z
+        .boolean()
+        .default(false)
+        .describe('Send a double-click.'),
+      waitMs: z
+        .number()
+        .int()
+        .min(20)
+        .max(5000)
+        .default(250)
+        .describe('Time to wait after clicking before returning or taking a screenshot (ms).'),
+      shotAfter: z
+        .boolean()
+        .default(false)
+        .describe('Capture and return a `window_shot` PNG right after clicking.'),
+      crop: z
+        .union([z.literal('viewport'), z.array(z.number()).length(4)])
+        .optional()
+        .describe('Optional crop when shotAfter is true.'),
+    }),
+  },
+  async (args) => formatLiveMcpResult(await runLiveHelper('ui_click', args, 20000)),
+);
+
+server.registerTool(
+  'ui_type',
+  {
+    title: 'Type text or press keys in a window (background)',
+    description:
+      'Send text (`WM_CHAR`) and/or a key press (`Enter`, `Escape`, `Tab`, `Backspace`, `Delete`, `Space`, `F5`, etc.) ' +
+      'to a window or specific input field via Win32 `PostMessageW` without stealing focus or switching desktops.',
+    inputSchema: z.object({
+      window: z
+        .union([z.string(), z.number()])
+        .optional()
+        .describe('Window HWND or selector ("pet", "material", "modeldoc", "asset", "game", etc.).'),
+      text: z
+        .string()
+        .optional()
+        .describe('Text string to type into the control.'),
+      key: z
+        .string()
+        .optional()
+        .describe('Optional key to press after typing (e.g. "Enter", "Escape", "Tab", "Backspace", "Delete", "Space", "Up", "Down").'),
+      name: z
+        .string()
+        .optional()
+        .describe('Optional UI element name/class to click before typing.'),
+      controlType: z
+        .string()
+        .optional()
+        .describe('Optional control type filter when clicking an element first (e.g. "Edit").'),
+      index: z
+        .number()
+        .int()
+        .min(0)
+        .default(0)
+        .describe('0-based index when multiple elements match `name`.'),
+      x: z
+        .number()
+        .int()
+        .optional()
+        .describe('Optional window-relative X coordinate to click before typing.'),
+      y: z
+        .number()
+        .int()
+        .optional()
+        .describe('Optional window-relative Y coordinate to click before typing.'),
+      clearFirst: z
+        .boolean()
+        .default(false)
+        .describe('Clear existing text in the input field before typing.'),
+      waitMs: z
+        .number()
+        .int()
+        .min(20)
+        .max(5000)
+        .default(250)
+        .describe('Wait time after typing (ms).'),
+      shotAfter: z
+        .boolean()
+        .default(false)
+        .describe('Capture and return a `window_shot` PNG right after typing.'),
+    }),
+  },
+  async (args) => formatLiveMcpResult(await runLiveHelper('ui_type', args, 20000)),
+);
+
+server.registerTool(
+  'console',
+  {
+    title: 'Run Dota 2 console or server Lua command',
+    description:
+      'Execute a console command or server-side Lua snippet via the local Dota 2 dev panel (`http://127.0.0.1:8770/api/cmd` / `dota_dev.py`). ' +
+      'Supports routing automatically (`route`), sending to the tools client (`client` / `cl_wait` via VConsole), ' +
+      'dedicated server (`rcon`), or server-side `script_execute` (`lua`).',
+    inputSchema: z.object({
+      cmd: z
+        .string()
+        .min(1)
+        .describe('Console command (e.g. "status", "open_asset ...", "cl dota_camera_distance 1400") or Lua code when target="lua".'),
+      target: z
+        .enum(['route', 'client', 'cl_wait', 'rcon', 'lua'])
+        .default('route')
+        .describe(
+          '"route" = auto-route (cl/lua/rcon prefixes supported); "client" = VConsole client; ' +
+            '"cl_wait" = VConsole client and return fresh log lines; "rcon" = server RCON; "lua" = server Lua script.',
+        ),
+      waitSec: z
+        .number()
+        .min(0.2)
+        .max(10)
+        .default(1.5)
+        .describe('Seconds to collect client VConsole log output when target="cl_wait".'),
+    }),
+  },
+  async (args) => formatLiveMcpResult(await runLiveHelper('console', args, 25000)),
+);
+
+server.registerTool(
+  'particle_shot',
+  {
+    title: 'Capture particle effect frames (PET or In-Game)',
+    description:
+      'Capture a multi-frame burst (contact sheet PNG + per-frame animation metrics) of a `.vpcf` particle effect. ' +
+      'In `"pet"` mode, opens the particle in Particle Editor on Desktop 2, clicks Restart in `CQParticlePreview` via `PostMessageW`, ' +
+      'and captures the 3D scene viewport (`CQToolSceneWidget`). In `"ingame"` mode, spawns the particle in the live game via server Lua ' +
+      '(`ParticleManager:CreateParticle`), centers the camera, and captures the game window (`SDL_app`).',
+    inputSchema: z.object({
+      vpcf: z
+        .string()
+        .min(1)
+        .describe('Particle path, e.g. "particles/units/heroes/hero_lina/lina_spell_light_strike_array.vpcf".'),
+      mode: z
+        .enum(['auto', 'pet', 'ingame'])
+        .default('auto')
+        .describe('"auto" uses Particle Editor ("pet") if open or not in an active match, or "ingame" when in-game.'),
+      frames: z
+        .number()
+        .int()
+        .min(1)
+        .max(16)
+        .default(6)
+        .describe('Number of frames to capture into the contact sheet.'),
+      intervalMs: z
+        .number()
+        .int()
+        .min(40)
+        .max(1000)
+        .default(150)
+        .describe('Interval between captured frames in ms.'),
+      duration: z
+        .number()
+        .min(0.5)
+        .max(15)
+        .default(3.0)
+        .describe('How long to keep the spawned particle alive in "ingame" mode (seconds).'),
+      cp0: z
+        .array(z.number())
+        .length(3)
+        .optional()
+        .describe('Optional [x, y, z] world coordinates for Control Point 0 in "ingame" mode (defaults to hero position).'),
+      cp1: z
+        .array(z.number())
+        .length(3)
+        .optional()
+        .describe('Optional [x, y, z] values for Control Point 1 in "ingame" mode.'),
+      extraLua: z
+        .string()
+        .optional()
+        .describe('Optional extra Lua statements to configure control points on variable `p` in "ingame" mode.'),
+      maxDim: z
+        .number()
+        .int()
+        .min(256)
+        .max(2048)
+        .default(1280)
+        .describe('Maximum width/height of the returned contact sheet PNG.'),
+    }),
+  },
+  async (args) => formatLiveMcpResult(await runLiveHelper('particle_shot', args, 45000)),
+);
 
 return server;
 }
@@ -803,6 +1174,19 @@ function bootstrap(mode: 'stdio' | 'http'): void {
   });
   warmup();
   startWatcher();
+  // Background Source2Viewer-CLI update check (throttled by vendor/.s2v-cli.json).
+  // In stdio mode the server dies with its client, so abort an in-flight
+  // download instead of letting it outlive the session that started it.
+  const updateAbort = new AbortController();
+  if (mode === 'stdio') {
+    process.stdin.once('end', () => updateAbort.abort());
+    process.stdin.once('close', () => updateAbort.abort());
+  }
+  void autoUpdateVendorCli({ log, signal: updateAbort.signal }).then((r) => {
+    if (r.checked && (r.updated || r.reason === 'up to date')) {
+      log(`cli-update: ${r.updated ? `updated ${r.from} -> ${r.to}` : `up to date (${r.to})`}`);
+    }
+  });
 }
 
 /** One process per client, spawned by the client itself. The default. */

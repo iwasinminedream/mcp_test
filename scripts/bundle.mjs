@@ -1,10 +1,15 @@
 // Bundles the whole server into a single ESM file with no node_modules runtime
 // dependency, so the release folder is fully self-contained (Node + the folder).
 import { build } from 'esbuild';
-import { rmSync, mkdirSync } from 'node:fs';
+import { rmSync, mkdirSync, copyFileSync, existsSync } from 'node:fs';
 
 rmSync('bundle', { recursive: true, force: true });
 mkdirSync('bundle', { recursive: true });
+if (existsSync('src/tools/live_helper.py')) {
+  copyFileSync('src/tools/live_helper.py', 'bundle/live_helper.py');
+  mkdirSync('dist/tools', { recursive: true });
+  copyFileSync('src/tools/live_helper.py', 'dist/tools/live_helper.py');
+}
 
 await build({
   entryPoints: ['src/server.ts'],
