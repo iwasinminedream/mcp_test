@@ -2343,8 +2343,24 @@
         "value": 31
       },
       {
-        "name": "DOTA_DEFAULT_UI_ELEMENT_COUNT",
+        "name": "DOTA_DEFAULT_UI_PREGAME_HERO_SELECTION",
         "value": 32
+      },
+      {
+        "name": "DOTA_DEFAULT_UI_INVENTORY_NEUTRAL_CRAFT",
+        "value": 33
+      },
+      {
+        "name": "DOTA_DEFAULT_UI_INVENTORY_NEUTRAL_SLOT",
+        "value": 34
+      },
+      {
+        "name": "DOTA_DEFAULT_UI_INVENTORY_TPSCROLL",
+        "value": 35
+      },
+      {
+        "name": "DOTA_DEFAULT_UI_ELEMENT_COUNT",
+        "value": 36
       }
     ]
   },
@@ -2486,8 +2502,24 @@
         "value": 31
       },
       {
-        "name": "DOTA_HUD_VISIBILITY_COUNT",
+        "name": "DOTA_HUD_VISIBILITY_PREGAME_HERO_SELECTION",
         "value": 32
+      },
+      {
+        "name": "DOTA_HUD_VISIBILITY_INVENTORY_NEUTRAL_CRAFT",
+        "value": 33
+      },
+      {
+        "name": "DOTA_HUD_VISIBILITY_INVENTORY_NEUTRAL_SLOT",
+        "value": 34
+      },
+      {
+        "name": "DOTA_HUD_VISIBILITY_INVENTORY_TPSCROLL",
+        "value": 35
+      },
+      {
+        "name": "DOTA_HUD_VISIBILITY_COUNT",
+        "value": 36
       }
     ]
   },
@@ -3729,6 +3761,10 @@
       {
         "name": "DOTA_UNIT_ORDER_SET_ITEM_MARK_FOR_SELL",
         "value": 42
+      },
+      {
+        "name": "DOTA_UNIT_ORDER_INTERACT_WITH_TARGET",
+        "value": 43
       }
     ]
   },
@@ -3828,6 +3864,10 @@
       {
         "name": "DOTA_ModifyGold_SummonKill",
         "value": 22
+      },
+      {
+        "name": "DOTA_ModifyGold_Midas",
+        "value": 23
       }
     ]
   },
@@ -9172,8 +9212,8 @@
         "value": 1795
       },
       {
-        "name": "ACT_DOTA_CAST5_STATUE",
-        "value": 1798
+        "name": "ACT_DOTA_LOADOUT_STATUE",
+        "value": 1805
       }
     ]
   },
@@ -11367,8 +11407,38 @@
         "broken": true
       },
       {
+        "name": "MODIFIER_PROPERTY_HERO_KILL_BOUNTY_BONUS",
+        "description": "Method Name: `GetModifierHeroKillBountyBonus`",
+        "value": 412,
+        "broken": true
+      },
+      {
+        "name": "MODIFIER_PROPERTY_ATTACK_POTENCY",
+        "description": "Method Name: `GetModifierPropertyAttackPotency`",
+        "value": 413,
+        "broken": true
+      },
+      {
+        "name": "MODIFIER_PROPERTY_HEALTH_DRAIN_CONSTANT",
+        "description": "Method Name: `GetModifierHealthDrainConstant`",
+        "value": 414,
+        "broken": true
+      },
+      {
+        "name": "MODIFIER_PROPERTY_HEALTH_DRAIN_PERCENTAGE",
+        "description": "Method Name: `GetModifierHealthDrainPercentage`",
+        "value": 415,
+        "broken": true
+      },
+      {
+        "name": "MODIFIER_PROPERTY_HEALTHBAR_PIPS_FRAGILE",
+        "description": "Method Name: `GetModifierHealthBarPipsFragile`",
+        "value": 416,
+        "broken": true
+      },
+      {
         "name": "MODIFIER_FUNCTION_LAST",
-        "value": 412
+        "value": 417
       },
       {
         "name": "MODIFIER_FUNCTION_INVALID",
@@ -12507,18 +12577,15 @@
         "value": 1024
       },
       {
-        "name": "DMG_PREVENT_PHYSICS_FORCE",
-        "description": "Prevent a physics force.",
+        "name": "DMG_BUCKSHOT",
         "value": 2048
       },
       {
-        "name": "DMG_NEVERGIB",
-        "description": "Never creates gibs. Used by the crossbow.",
+        "name": "DMG_BLAST_SURFACE",
         "value": 4096
       },
       {
-        "name": "DMG_ALWAYSGIB",
-        "description": "Always create gibs.",
+        "name": "DMG_DISSOLVE",
         "value": 8192
       },
       {
@@ -12527,23 +12594,23 @@
         "value": 16384
       },
       {
-        "name": "DMG_PARALYZE",
-        "description": "Same as DMG_POISON.",
-        "value": 32768
-      },
-      {
-        "name": "DMG_NERVEGAS",
-        "description": "Neurotoxin damage.",
-        "value": 65536
-      },
-      {
         "name": "DMG_POISON",
         "description": "Poison damage.",
-        "value": 131072
+        "value": 32768
       },
       {
         "name": "DMG_RADIATION",
         "description": "Radiation. Will be ignored by most vehicle passengers.",
+        "value": 65536
+      },
+      {
+        "name": "DMG_DROWNRECOVER",
+        "description": "Damage applied to the player to restore health after drowning.",
+        "value": 131072
+      },
+      {
+        "name": "DMG_ACID",
+        "description": "Toxic chemicals or acid burns.",
         "value": 262144
       }
     ],

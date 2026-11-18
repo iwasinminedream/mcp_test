@@ -4678,10 +4678,6 @@
         "shortName": "RELOAD_SUCCEED"
       },
       {
-        "name": "ACT_RESET",
-        "shortName": "RESET"
-      },
-      {
         "name": "ACT_RIDE_MANNED_GUN",
         "shortName": "RIDE_MANNED_GUN"
       },

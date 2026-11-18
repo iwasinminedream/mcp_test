@@ -5068,17 +5068,6 @@
         "description": "Get hero name by hero ID"
       },
       {
-        "name": "GetAbilityNameLocalizedForAbilityID",
-        "args": [
-          {
-            "name": "nAbilityID",
-            "type": "number"
-          }
-        ],
-        "returns": "string",
-        "description": "Get the localized version of an ability's name by ability ID"
-      },
-      {
         "name": "ConstructNumberString",
         "args": [
           {

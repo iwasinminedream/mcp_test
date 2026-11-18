@@ -7638,6 +7638,23 @@
       },
       {
         "kind": "function",
+        "name": "IsAbilitySlotReserved",
+        "available": "server",
+        "description": "Returns true if the ability slot at the given index is reserved.",
+        "returns": [
+          "bool"
+        ],
+        "args": [
+          {
+            "name": "index",
+            "types": [
+              "int"
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "function",
         "name": "IsAlive",
         "available": "server",
         "description": "Is this unit alive?",
@@ -9083,6 +9100,23 @@
       },
       {
         "kind": "function",
+        "name": "RemoveAbilityFromIndex",
+        "available": "server",
+        "description": "Clears the ability slot at the given index without deleting the ability. Also removes any slot reservation.",
+        "returns": [
+          "nil"
+        ],
+        "args": [
+          {
+            "name": "index",
+            "types": [
+              "int"
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "function",
         "name": "RemoveAbilityFromIndexByName",
         "available": "server",
         "returns": [
@@ -9272,6 +9306,23 @@
             "name": "buff",
             "types": [
               "CDOTA_Buff"
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "function",
+        "name": "ReserveAbilitySlot",
+        "available": "server",
+        "description": "Reserved slots hold no ability and AddAbility won't fill it. This used to be represented with the 'generic_hidden' ability.",
+        "returns": [
+          "nil"
+        ],
+        "args": [
+          {
+            "name": "index",
+            "types": [
+              "int"
             ]
           }
         ]
@@ -16880,6 +16931,17 @@
       },
       {
         "kind": "function",
+        "name": "GetModifierHealthBarPipsFragile",
+        "available": "both",
+        "abstract": true,
+        "args": [],
+        "returns": [
+          "nil"
+        ],
+        "broken": true
+      },
+      {
+        "kind": "function",
         "name": "GetModifierHealthBonus",
         "available": "both",
         "abstract": true,
@@ -16903,6 +16965,28 @@
         ],
         "returns": [
           "float"
+        ],
+        "broken": true
+      },
+      {
+        "kind": "function",
+        "name": "GetModifierHealthDrainConstant",
+        "available": "both",
+        "abstract": true,
+        "args": [],
+        "returns": [
+          "nil"
+        ],
+        "broken": true
+      },
+      {
+        "kind": "function",
+        "name": "GetModifierHealthDrainPercentage",
+        "available": "both",
+        "abstract": true,
+        "args": [],
+        "returns": [
+          "nil"
         ],
         "broken": true
       },
@@ -16935,6 +17019,17 @@
         "returns": [
           "float"
         ]
+      },
+      {
+        "kind": "function",
+        "name": "GetModifierHeroKillBountyBonus",
+        "available": "both",
+        "abstract": true,
+        "args": [],
+        "returns": [
+          "nil"
+        ],
+        "broken": true
       },
       {
         "kind": "function",
@@ -18744,6 +18839,17 @@
         "returns": [
           "float"
         ]
+      },
+      {
+        "kind": "function",
+        "name": "GetModifierPropertyAttackPotency",
+        "available": "both",
+        "abstract": true,
+        "args": [],
+        "returns": [
+          "nil"
+        ],
+        "broken": true
       },
       {
         "kind": "function",
@@ -22087,23 +22193,6 @@
         "available": "server",
         "returns": [
           "int"
-        ],
-        "args": [
-          {
-            "name": "playerId",
-            "types": [
-              "PlayerID"
-            ]
-          }
-        ]
-      },
-      {
-        "kind": "function",
-        "name": "GetEventGameUpgrades",
-        "available": "server",
-        "description": "(nPlayerID).",
-        "returns": [
-          "handle"
         ],
         "args": [
           {
@@ -27653,6 +27742,23 @@
             "name": "cooldown",
             "types": [
               "float"
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "function",
+        "name": "SetCustomGlyphMaxCharges",
+        "available": "server",
+        "description": "Set a custom max charges for team Glyph ability.",
+        "returns": [
+          "nil"
+        ],
+        "args": [
+          {
+            "name": "maxCharges",
+            "types": [
+              "int"
             ]
           }
         ]

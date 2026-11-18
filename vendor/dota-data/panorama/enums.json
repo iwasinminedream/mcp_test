@@ -612,6 +612,10 @@
       {
         "name": "DOTA_UNIT_ORDER_SET_ITEM_MARK_FOR_SELL",
         "value": 42
+      },
+      {
+        "name": "DOTA_UNIT_ORDER_INTERACT_WITH_TARGET",
+        "value": 43
       }
     ]
   },
@@ -1458,6 +1462,10 @@
       {
         "name": "DOTA_ModifyGold_SummonKill",
         "value": 22
+      },
+      {
+        "name": "DOTA_ModifyGold_Midas",
+        "value": 23
       }
     ]
   },
@@ -5703,8 +5711,33 @@
         "value": 411
       },
       {
-        "name": "MODIFIER_FUNCTION_LAST",
+        "name": "MODIFIER_PROPERTY_HERO_KILL_BOUNTY_BONUS",
+        "description": "Method Name: `GetModifierHeroKillBountyBonus`",
         "value": 412
+      },
+      {
+        "name": "MODIFIER_PROPERTY_ATTACK_POTENCY",
+        "description": "Method Name: `GetModifierPropertyAttackPotency`",
+        "value": 413
+      },
+      {
+        "name": "MODIFIER_PROPERTY_HEALTH_DRAIN_CONSTANT",
+        "description": "Method Name: `GetModifierHealthDrainConstant`",
+        "value": 414
+      },
+      {
+        "name": "MODIFIER_PROPERTY_HEALTH_DRAIN_PERCENTAGE",
+        "description": "Method Name: `GetModifierHealthDrainPercentage`",
+        "value": 415
+      },
+      {
+        "name": "MODIFIER_PROPERTY_HEALTHBAR_PIPS_FRAGILE",
+        "description": "Method Name: `GetModifierHealthBarPipsFragile`",
+        "value": 416
+      },
+      {
+        "name": "MODIFIER_FUNCTION_LAST",
+        "value": 417
       },
       {
         "name": "MODIFIER_FUNCTION_INVALID",
@@ -6388,8 +6421,24 @@
         "value": 31
       },
       {
-        "name": "DOTA_DEFAULT_UI_ELEMENT_COUNT",
+        "name": "DOTA_DEFAULT_UI_PREGAME_HERO_SELECTION",
         "value": 32
+      },
+      {
+        "name": "DOTA_DEFAULT_UI_INVENTORY_NEUTRAL_CRAFT",
+        "value": 33
+      },
+      {
+        "name": "DOTA_DEFAULT_UI_INVENTORY_NEUTRAL_SLOT",
+        "value": 34
+      },
+      {
+        "name": "DOTA_DEFAULT_UI_INVENTORY_TPSCROLL",
+        "value": 35
+      },
+      {
+        "name": "DOTA_DEFAULT_UI_ELEMENT_COUNT",
+        "value": 36
       }
     ]
   },
