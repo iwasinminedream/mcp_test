@@ -5034,6 +5034,7 @@
       },
       {
         "name": "MODIFIER_PROPERTY_INCOMING_DAMAGE_ILLUSION",
+        "description": "Method Name: `GetModifierIncomingDamageIllusion`",
         "value": 276
       },
       {
@@ -5088,6 +5089,7 @@
       },
       {
         "name": "MODIFIER_PROPERTY_ATTACK_WHILE_MOVING_TARGET",
+        "description": "Method Name: `GetModifierAttackWhileMovingTarget`",
         "value": 287
       },
       {
@@ -5152,7 +5154,7 @@
       },
       {
         "name": "MODIFIER_PROPERTY_FAIL_ATTACK",
-        "description": "Method Name: `GetModifierPropetyFailAttack`",
+        "description": "Method Name: `GetModifierPropertyFailAttack`",
         "value": 300
       },
       {
@@ -5167,7 +5169,7 @@
       },
       {
         "name": "MODIFIER_PROPERTY_INCOMING_DAMAGE_CONSTANT_POST",
-        "description": "Method Name: `MODIFIER_PROPERTY_INCOMING_DAMAGE_CONSTANT_POST`",
+        "description": "Method Name: `GetModifierIncomingDamageConstantPost`",
         "value": 303
       },
       {

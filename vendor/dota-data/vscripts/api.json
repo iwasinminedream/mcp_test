@@ -15432,8 +15432,7 @@
             "kind": "literal",
             "value": 1
           }
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -15481,8 +15480,7 @@
             "kind": "literal",
             "value": 1
           }
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -15583,8 +15581,7 @@
         ],
         "returns": [
           "float"
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -15601,8 +15598,7 @@
             "kind": "literal",
             "value": 1
           }
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -15619,8 +15615,7 @@
         ],
         "returns": [
           "float"
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -15671,8 +15666,7 @@
             "kind": "literal",
             "value": 1
           }
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -15743,8 +15737,7 @@
         ],
         "returns": [
           "float"
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -15791,8 +15784,7 @@
         ],
         "returns": [
           "float"
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -15819,8 +15811,7 @@
         ],
         "returns": [
           "float"
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -15854,8 +15845,7 @@
         ],
         "returns": [
           "float"
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -15975,6 +15965,16 @@
         "args": [],
         "returns": [
           "float"
+        ]
+      },
+      {
+        "kind": "function",
+        "name": "GetModifierAttackWhileMovingTarget",
+        "available": "both",
+        "abstract": true,
+        "args": [],
+        "returns": [
+          "nil"
         ]
       },
       {
@@ -16107,8 +16107,7 @@
         "args": [],
         "returns": [
           "float"
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -16118,8 +16117,7 @@
         "args": [],
         "returns": [
           "float"
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -16211,8 +16209,7 @@
             "kind": "literal",
             "value": 1
           }
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -16229,8 +16226,7 @@
             "kind": "literal",
             "value": 1
           }
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -16247,8 +16243,7 @@
             "kind": "literal",
             "value": 1
           }
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -16265,8 +16260,7 @@
             "kind": "literal",
             "value": 1
           }
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -16283,8 +16277,7 @@
         ],
         "returns": [
           "float"
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -16314,8 +16307,7 @@
         "args": [],
         "returns": [
           "float"
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -16335,8 +16327,7 @@
         "args": [],
         "returns": [
           "float"
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -16356,8 +16347,7 @@
         "args": [],
         "returns": [
           "float"
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -16377,8 +16367,7 @@
         "args": [],
         "returns": [
           "float"
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -16429,8 +16418,7 @@
         ],
         "returns": [
           "float"
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -16491,8 +16479,7 @@
         ],
         "returns": [
           "float"
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -16664,8 +16651,7 @@
         "args": [],
         "returns": [
           "float"
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -16682,8 +16668,7 @@
         ],
         "returns": [
           "float"
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -16791,8 +16776,7 @@
         "args": [],
         "returns": [
           "float"
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -16842,8 +16826,7 @@
         "args": [],
         "returns": [
           "float"
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -16853,8 +16836,7 @@
         "args": [],
         "returns": [
           "float"
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -16937,8 +16919,7 @@
         "args": [],
         "returns": [
           "nil"
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -16965,8 +16946,7 @@
         ],
         "returns": [
           "float"
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -16976,8 +16956,7 @@
         "args": [],
         "returns": [
           "nil"
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -16987,8 +16966,7 @@
         "args": [],
         "returns": [
           "nil"
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -17028,8 +17006,7 @@
         "args": [],
         "returns": [
           "nil"
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -17100,8 +17077,7 @@
             "kind": "literal",
             "value": 1
           }
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -17184,6 +17160,26 @@
       },
       {
         "kind": "function",
+        "name": "GetModifierIncomingDamageConstantPost",
+        "available": "both",
+        "abstract": true,
+        "args": [],
+        "returns": [
+          "nil"
+        ]
+      },
+      {
+        "kind": "function",
+        "name": "GetModifierIncomingDamageIllusion",
+        "available": "both",
+        "abstract": true,
+        "args": [],
+        "returns": [
+          "nil"
+        ]
+      },
+      {
+        "kind": "function",
         "name": "GetModifierIncomingPhysicalDamage_Percentage",
         "available": "both",
         "abstract": true,
@@ -17250,8 +17246,7 @@
         ],
         "returns": [
           "float"
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -17268,8 +17263,7 @@
             "kind": "literal",
             "value": 1
           }
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -17361,8 +17355,7 @@
         "args": [],
         "returns": [
           "float"
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -17413,8 +17406,7 @@
         ],
         "returns": [
           "float"
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -17441,8 +17433,7 @@
         "args": [],
         "returns": [
           "float"
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -17459,8 +17450,7 @@
         ],
         "returns": [
           "float"
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -17531,8 +17521,7 @@
         "args": [],
         "returns": [
           "float"
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -17562,8 +17551,7 @@
         "args": [],
         "returns": [
           "float"
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -18071,8 +18059,7 @@
         "args": [],
         "returns": [
           "float"
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -18099,8 +18086,7 @@
         "args": [],
         "returns": [
           "float"
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -18134,8 +18120,7 @@
         ],
         "returns": [
           "float"
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -18328,8 +18313,7 @@
         ],
         "returns": [
           "float"
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -18394,8 +18378,7 @@
         "args": [],
         "returns": [
           "float"
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -18425,8 +18408,7 @@
         "args": [],
         "returns": [
           "float"
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -18443,8 +18425,7 @@
         ],
         "returns": [
           "float"
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -18488,8 +18469,7 @@
         ],
         "returns": [
           "float"
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -18593,8 +18573,7 @@
         ],
         "returns": [
           "float"
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -18646,8 +18625,7 @@
         ],
         "returns": [
           "float"
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -18705,8 +18683,7 @@
             "kind": "literal",
             "value": 1
           }
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -18750,8 +18727,7 @@
         ],
         "returns": [
           "float"
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -18785,8 +18761,7 @@
         ],
         "returns": [
           "float"
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -18803,8 +18778,7 @@
         ],
         "returns": [
           "float"
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -18848,8 +18822,7 @@
         "args": [],
         "returns": [
           "nil"
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -18893,6 +18866,16 @@
           "float"
         ],
         "broken": true
+      },
+      {
+        "kind": "function",
+        "name": "GetModifierPropertyFailAttack",
+        "available": "both",
+        "abstract": true,
+        "args": [],
+        "returns": [
+          "nil"
+        ]
       },
       {
         "kind": "function",
@@ -18943,8 +18926,7 @@
             "kind": "literal",
             "value": 1
           }
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -19054,31 +19036,6 @@
       },
       {
         "kind": "function",
-        "name": "GetModifierPropetyFailAttack",
-        "available": "both",
-        "abstract": true,
-        "args": [
-          {
-            "name": "event",
-            "types": [
-              "ModifierAttackEvent"
-            ]
-          }
-        ],
-        "returns": [
-          {
-            "kind": "literal",
-            "value": 0
-          },
-          {
-            "kind": "literal",
-            "value": 1
-          }
-        ],
-        "broken": true
-      },
-      {
-        "kind": "function",
         "name": "GetModifierProvidesFOWVision",
         "available": "both",
         "abstract": true,
@@ -19102,8 +19059,7 @@
         "args": [],
         "returns": [
           "float"
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -19127,8 +19083,7 @@
             "kind": "literal",
             "value": 1
           }
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -19164,8 +19119,7 @@
             "kind": "literal",
             "value": 1
           }
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -19202,8 +19156,7 @@
         "args": [],
         "returns": [
           "float"
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -19220,8 +19173,7 @@
             "kind": "literal",
             "value": 1
           }
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -19255,8 +19207,7 @@
         ],
         "returns": [
           "float"
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -19334,8 +19285,7 @@
         "args": [],
         "returns": [
           "float"
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -19423,8 +19373,7 @@
             "kind": "literal",
             "value": 1
           }
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -19441,8 +19390,7 @@
             "kind": "literal",
             "value": 1
           }
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -19520,8 +19468,7 @@
         "args": [],
         "returns": [
           "float"
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -19612,8 +19559,7 @@
         "args": [],
         "returns": [
           "float"
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -19665,8 +19611,7 @@
             "kind": "literal",
             "value": 1
           }
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -19731,8 +19676,7 @@
         ],
         "returns": [
           "float"
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -19865,8 +19809,7 @@
             "kind": "literal",
             "value": 1
           }
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -19890,8 +19833,7 @@
             "kind": "literal",
             "value": 1
           }
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -19967,8 +19909,7 @@
             "kind": "literal",
             "value": 1
           }
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -20037,24 +19978,6 @@
         "returns": [
           "float"
         ]
-      },
-      {
-        "kind": "function",
-        "name": "MODIFIER_PROPERTY_INCOMING_DAMAGE_CONSTANT_POST",
-        "available": "both",
-        "abstract": true,
-        "args": [
-          {
-            "name": "event",
-            "types": [
-              "ModifierAttackEvent"
-            ]
-          }
-        ],
-        "returns": [
-          "float"
-        ],
-        "broken": true
       },
       {
         "kind": "function",
@@ -20490,8 +20413,7 @@
         ],
         "returns": [
           "nil"
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -20579,8 +20501,7 @@
         "args": [],
         "returns": [
           "nil"
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -20801,8 +20722,7 @@
         ],
         "returns": [
           "nil"
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -20812,8 +20732,7 @@
         "args": [],
         "returns": [
           "nil"
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -20857,8 +20776,7 @@
         ],
         "returns": [
           "nil"
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -20953,8 +20871,7 @@
         "args": [],
         "returns": [
           "nil"
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -20998,8 +20915,7 @@
         "args": [],
         "returns": [
           "nil"
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -21026,8 +20942,7 @@
         "args": [],
         "returns": [
           "nil"
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -21095,8 +21010,7 @@
         ],
         "returns": [
           "nil"
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -21181,8 +21095,7 @@
         ],
         "returns": [
           "nil"
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",
@@ -21275,8 +21188,7 @@
         ],
         "returns": [
           "nil"
-        ],
-        "broken": true
+        ]
       },
       {
         "kind": "function",

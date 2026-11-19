@@ -9205,15 +9205,19 @@
       },
       {
         "name": "ACT_DOTA_DEFEAT_STATUE",
-        "value": 1794
-      },
-      {
-        "name": "ACT_DOTA_CHANNEL_STATUE",
         "value": 1795
       },
       {
+        "name": "ACT_DOTA_CHANNEL_STATUE",
+        "value": 1796
+      },
+      {
+        "name": "ACT_DOTA_LOADOUT_STATUE",
+        "value": 1801
+      },
+      {
         "name": "ACT_DOTA_CAST5_STATUE",
-        "value": 1811
+        "value": 1807
       }
     ]
   },
@@ -9262,8 +9266,7 @@
       {
         "name": "MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE_PROC",
         "description": "Method Name: `GetModifierPreAttack_BonusDamage_Proc`",
-        "value": 2,
-        "broken": true
+        "value": 2
       },
       {
         "name": "MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE_POST_CRIT",
@@ -9283,8 +9286,7 @@
       {
         "name": "MODIFIER_PROPERTY_PROCATTACK_CONVERT_PHYSICAL_TO_MAGICAL",
         "description": "Method Name: `GetModifierProcAttack_ConvertPhysicalToMagical`",
-        "value": 6,
-        "broken": true
+        "value": 6
       },
       {
         "name": "MODIFIER_PROPERTY_PROCATTACK_BONUS_DAMAGE_MAGICAL",
@@ -9299,8 +9301,7 @@
       {
         "name": "MODIFIER_PROPERTY_PROCATTACK_BONUS_DAMAGE_MAGICAL_TARGET",
         "description": "Method Name: `GetModifierProcAttack_BonusDamage_Magical_Target`",
-        "value": 9,
-        "broken": true
+        "value": 9
       },
       {
         "name": "MODIFIER_PROPERTY_PROCATTACK_FEEDBACK",
@@ -9440,8 +9441,7 @@
       {
         "name": "MODIFIER_PROPERTY_HEALTHCOST_REDUCTION_CONSTANT",
         "description": "Method Name: `GetModifierHealthcostReduction_Constant`",
-        "value": 37,
-        "broken": true
+        "value": 37
       },
       {
         "name": "MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT",
@@ -9451,14 +9451,12 @@
       {
         "name": "MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT_ADJUST",
         "description": "Method Name: `GetModifierBaseAttackTimeConstant_Adjust`",
-        "value": 39,
-        "broken": true
+        "value": 39
       },
       {
         "name": "MODIFIER_PROPERTY_BASE_ATTACK_TIME_PERCENTAGE",
         "description": "Method Name: `GetModifierBaseAttackTimePercentage`",
-        "value": 40,
-        "broken": true
+        "value": 40
       },
       {
         "name": "MODIFIER_PROPERTY_ATTACK_POINT_CONSTANT",
@@ -9468,8 +9466,7 @@
       {
         "name": "MODIFIER_PROPERTY_BONUSDAMAGEOUTGOING_PERCENTAGE",
         "description": "Method Name: `GetModifierBonusDamageOutgoing_Percentage`",
-        "value": 42,
-        "broken": true
+        "value": 42
       },
       {
         "name": "MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE",
@@ -9484,8 +9481,7 @@
       {
         "name": "MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE_ILLUSION_AMPLIFY",
         "description": "Method Name: `GetModifierDamageOutgoing_Percentage_Illusion_Amplify`",
-        "value": 45,
-        "broken": true
+        "value": 45
       },
       {
         "name": "MODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE",
@@ -9510,8 +9506,7 @@
       {
         "name": "MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE_TARGET",
         "description": "Method Name: `GetModifierSpellAmplify_PercentageTarget`",
-        "value": 50,
-        "broken": true
+        "value": 50
       },
       {
         "name": "MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_SOURCE",
@@ -9556,8 +9551,7 @@
       {
         "name": "MODIFIER_PROPERTY_MANA_DRAIN_AMPLIFY_PERCENTAGE",
         "description": "Method Name: `GetModifierManaDrainAmplify_Percentage`",
-        "value": 59,
-        "broken": true
+        "value": 59
       },
       {
         "name": "MODIFIER_PROPERTY_MP_RESTORE_AMPLIFY_PERCENTAGE",
@@ -9642,8 +9636,7 @@
       {
         "name": "MODIFIER_PROPERTY_PHYSICAL_ARMOR_TOTAL_PERCENTAGE",
         "description": "Method Name: `GetModifierPhysicalArmorTotal_Percentage`",
-        "value": 76,
-        "broken": true
+        "value": 76
       },
       {
         "name": "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS",
@@ -9663,14 +9656,12 @@
       {
         "name": "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS_POST",
         "description": "Method Name: `GetModifierPhysicalArmorBonusPost`",
-        "value": 80,
-        "broken": true
+        "value": 80
       },
       {
         "name": "MODIFIER_PROPERTY_MIN_PHYSICAL_ARMOR",
         "description": "Method Name: `GetModifierMinPhysicalArmor`",
-        "value": 81,
-        "broken": true
+        "value": 81
       },
       {
         "name": "MODIFIER_PROPERTY_IGNORE_PHYSICAL_ARMOR",
@@ -9680,8 +9671,7 @@
       {
         "name": "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BASE_REDUCTION",
         "description": "Method Name: `GetModifierMagicalResistanceBaseReduction`",
-        "value": 83,
-        "broken": true
+        "value": 83
       },
       {
         "name": "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_DIRECT_MODIFICATION",
@@ -9696,14 +9686,12 @@
       {
         "name": "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS_ILLUSIONS",
         "description": "Method Name: `GetModifierMagicalResistanceBonusIllusions`",
-        "value": 86,
-        "broken": true
+        "value": 86
       },
       {
         "name": "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS_UNIQUE",
         "description": "Method Name: `GetModifierMagicalResistanceBonusUnique`",
-        "value": 87,
-        "broken": true
+        "value": 87
       },
       {
         "name": "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_DECREPIFY_UNIQUE",
@@ -9773,8 +9761,7 @@
       {
         "name": "MODIFIER_PROPERTY_EXTRA_MANA_BONUS_PERCENTAGE",
         "description": "Method Name: `GetModifierExtraManaBonusPercentage`",
-        "value": 101,
-        "broken": true
+        "value": 101
       },
       {
         "name": "MODIFIER_PROPERTY_EXTRA_HEALTH_PERCENTAGE",
@@ -9804,26 +9791,22 @@
       {
         "name": "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS_PERCENTAGE",
         "description": "Method Name: `GetModifierBonusStats_Strength_Percentage`",
-        "value": 107,
-        "broken": true
+        "value": 107
       },
       {
         "name": "MODIFIER_PROPERTY_STATS_AGILITY_BONUS_PERCENTAGE",
         "description": "Method Name: `GetModifierBonusStats_Agility_Percentage`",
-        "value": 108,
-        "broken": true
+        "value": 108
       },
       {
         "name": "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS_PERCENTAGE",
         "description": "Method Name: `GetModifierBonusStats_Intellect_Percentage`",
-        "value": 109,
-        "broken": true
+        "value": 109
       },
       {
         "name": "MODIFIER_PROPERTY_STATS_INTELLECT_NONE",
         "description": "Method Name: `GetModifierIntellectNone`",
-        "value": 110,
-        "broken": true
+        "value": 110
       },
       {
         "name": "MODIFIER_PROPERTY_CAST_RANGE_BONUS",
@@ -9833,8 +9816,7 @@
       {
         "name": "MODIFIER_PROPERTY_CAST_RANGE_BONUS_PERCENTAGE",
         "description": "Method Name: `GetModifierCastRangeBonusPercentage`",
-        "value": 112,
-        "broken": true
+        "value": 112
       },
       {
         "name": "MODIFIER_PROPERTY_CAST_RANGE_BONUS_TARGET",
@@ -9884,8 +9866,7 @@
       {
         "name": "MODIFIER_PROPERTY_PROJECTILE_SPEED_BONUS_PERCENTAGE",
         "description": "Method Name: `GetModifierProjectileSpeedBonusPercentage`",
-        "value": 122,
-        "broken": true
+        "value": 122
       },
       {
         "name": "MODIFIER_PROPERTY_PROJECTILE_NAME",
@@ -9925,8 +9906,7 @@
       {
         "name": "MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE_ONGOING",
         "description": "Method Name: `GetModifierPercentageCooldownOngoing`",
-        "value": 130,
-        "broken": true
+        "value": 130
       },
       {
         "name": "MODIFIER_PROPERTY_CASTTIME_PERCENTAGE",
@@ -9936,14 +9916,12 @@
       {
         "name": "MODIFIER_PROPERTY_CASTTIME_CONSTANT",
         "description": "Method Name: `GetModifierConstantCasttime`",
-        "value": 132,
-        "broken": true
+        "value": 132
       },
       {
         "name": "MODIFIER_PROPERTY_ATTACK_ANIM_TIME_PERCENTAGE",
         "description": "Method Name: `GetModifierPercentageAttackAnimTime`",
-        "value": 133,
-        "broken": true
+        "value": 133
       },
       {
         "name": "MODIFIER_PROPERTY_MANACOST_PERCENTAGE",
@@ -9993,8 +9971,7 @@
       {
         "name": "MODIFIER_PROPERTY_CONVERT_EXP_TO_GOLD_PCT",
         "description": "Method Name: `GetModifierPercentageConvertExpToGold`",
-        "value": 143,
-        "broken": true
+        "value": 143
       },
       {
         "name": "MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE",
@@ -10024,14 +10001,12 @@
       {
         "name": "MODIFIER_PROPERTY_PHYSICAL_CONSTANT_BLOCK_BONUS",
         "description": "Method Name: `GetModifierPhysical_ConstantBlockBonus`",
-        "value": 149,
-        "broken": true
+        "value": 149
       },
       {
         "name": "MODIFIER_PROPERTY_INNATE_DAMAGE_BLOCK_PCT_OVERRIDE",
         "description": "Method Name: `GetModifierInnateDamageBlockPctOverride`",
-        "value": 150,
-        "broken": true
+        "value": 150
       },
       {
         "name": "MODIFIER_PROPERTY_TOTAL_CONSTANT_BLOCK_UNAVOIDABLE_PRE_ARMOR",
@@ -10141,14 +10116,12 @@
       {
         "name": "MODIFIER_PROPERTY_STRONG_ILLUSION",
         "description": "Method Name: `GetModifierStrongIllusion`",
-        "value": 172,
-        "broken": true
+        "value": 172
       },
       {
         "name": "MODIFIER_PROPERTY_SUPER_ILLUSION",
         "description": "Method Name: `GetModifierSuperIllusion`",
-        "value": 173,
-        "broken": true
+        "value": 173
       },
       {
         "name": "MODIFIER_PROPERTY_SUPER_ILLUSION_WITH_ULTIMATE",
@@ -10158,8 +10131,7 @@
       {
         "name": "MODIFIER_PROPERTY_XP_DURING_DEATH",
         "description": "Method Name: `GetModifierXPDuringDeath`",
-        "value": 175,
-        "broken": true
+        "value": 175
       },
       {
         "name": "MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE",
@@ -10179,8 +10151,7 @@
       {
         "name": "MODIFIER_PROPERTY_DISABLE_MANA_GAIN",
         "description": "Method Name: `GetDisableManaGain`",
-        "value": 179,
-        "broken": true
+        "value": 179
       },
       {
         "name": "MODIFIER_PROPERTY_ALWAYS_ALLOW_ATTACK",
@@ -10190,8 +10161,7 @@
       {
         "name": "MODIFIER_PROPERTY_ALWAYS_ETHEREAL_ATTACK",
         "description": "Method Name: `GetAllowEtherealAttack`",
-        "value": 181,
-        "broken": true
+        "value": 181
       },
       {
         "name": "MODIFIER_PROPERTY_OVERRIDE_ATTACK_MAGICAL",
@@ -10225,8 +10195,7 @@
       {
         "name": "MODIFIER_PROPERTY_TRIGGER_COSMETIC_AND_END_ATTACK",
         "description": "Method Name: `GetTriggerCosmeticAndEndAttack`",
-        "value": 188,
-        "broken": true
+        "value": 188
       },
       {
         "name": "MODIFIER_PROPERTY_PRIMARY_STAT_DAMAGE_MULTIPLIER",
@@ -10242,38 +10211,32 @@
       {
         "name": "MODIFIER_PROPERTY_ALWAYS_AUTOATTACK_WHILE_HOLD_POSITION",
         "description": "Method Name: `GetAlwaysAutoAttackWhileHoldPosition`",
-        "value": 191,
-        "broken": true
+        "value": 191
       },
       {
         "name": "MODIFIER_PROPERTY_PHYSICAL_ARMOR_PIERCING_PERCENTAGE_TARGET",
         "description": "Method Name: `GetPhysicalArmorPiercingPercentageTarget`",
-        "value": 192,
-        "broken": true
+        "value": 192
       },
       {
         "name": "MODIFIER_PROPERTY_MAGICAL_ARMOR_PIERCING_PERCENTAGE_TARGET",
         "description": "Method Name: `GetMagicalArmorPiercingPercentageTarget`",
-        "value": 193,
-        "broken": true
+        "value": 193
       },
       {
         "name": "MODIFIER_PROPERTY_CRITICAL_STRIKE_BONUS",
         "description": "Method Name: `GetCriticalStrikeBonus`",
-        "value": 194,
-        "broken": true
+        "value": 194
       },
       {
         "name": "MODIFIER_PROPERTY_CONVERT_ATTACK_PHYSICAL_TO_PURE",
         "description": "Method Name: `GetConvertAttackPhysicalToPure`",
-        "value": 195,
-        "broken": true
+        "value": 195
       },
       {
         "name": "MODIFIER_PROPERTY_BUFF_AMPLIFICATION",
         "description": "Method Name: `GetBuffAmplification`",
-        "value": 196,
-        "broken": true
+        "value": 196
       },
       {
         "name": "MODIFIER_EVENT_ON_SPELL_TARGET_READY",
@@ -10323,8 +10286,7 @@
       {
         "name": "MODIFIER_EVENT_ON_ORDER_RECEIVED",
         "description": "Method Name: `OnOrderReceived`",
-        "value": 206,
-        "broken": true
+        "value": 206
       },
       {
         "name": "MODIFIER_EVENT_ON_UNIT_MOVED",
@@ -10434,8 +10396,7 @@
       {
         "name": "MODIFIER_EVENT_ON_SPENT_ITEM_CHARGE",
         "description": "Method Name: `OnSpentItemCharge`",
-        "value": 228,
-        "broken": true
+        "value": 228
       },
       {
         "name": "MODIFIER_EVENT_ON_TELEPORTING",
@@ -10480,8 +10441,7 @@
       {
         "name": "MODIFIER_EVENT_ON_REDIRECT_HEALTH_GAIN",
         "description": "Method Name: `OnRedirectHealthGain`",
-        "value": 237,
-        "broken": true
+        "value": 237
       },
       {
         "name": "MODIFIER_EVENT_ON_BUILDING_KILLED",
@@ -10501,20 +10461,17 @@
       {
         "name": "MODIFIER_EVENT_ON_MODIFIER_REMOVED",
         "description": "Method Name: `OnModifierRemoved`",
-        "value": 241,
-        "broken": true
+        "value": 241
       },
       {
         "name": "MODIFIER_EVENT_ON_SCEPTER_UPGRADE_SELECTED",
         "description": "Method Name: `OnScepterUpgradeSelected`",
-        "value": 242,
-        "broken": true
+        "value": 242
       },
       {
         "name": "MODIFIER_EVENT_ON_SHARD_UPGRADE_SELECTED",
         "description": "Method Name: `OnShardUpgradeSelected`",
-        "value": 243,
-        "broken": true
+        "value": 243
       },
       {
         "name": "MODIFIER_PROPERTY_TOOLTIP",
@@ -10554,14 +10511,12 @@
       {
         "name": "MODIFIER_PROPERTY_IS_SHARD",
         "description": "Applies shard when this property is active\n\nMethod Name: `GetModifierShard`.",
-        "value": 251,
-        "broken": true
+        "value": 251
       },
       {
         "name": "MODIFIER_PROPERTY_RADAR_COOLDOWN_REDUCTION",
         "description": "Method Name: `GetModifierRadarCooldownReduction`",
-        "value": 252,
-        "broken": true
+        "value": 252
       },
       {
         "name": "MODIFIER_PROPERTY_TRANSLATE_ACTIVITY_MODIFIERS",
@@ -10661,8 +10616,7 @@
       {
         "name": "MODIFIER_PROPERTY_IGNORE_COOLDOWN",
         "description": "Method Name: `GetModifierIgnoreCooldown`",
-        "value": 272,
-        "broken": true
+        "value": 272
       },
       {
         "name": "MODIFIER_PROPERTY_CAN_ATTACK_TREES",
@@ -10681,8 +10635,8 @@
       },
       {
         "name": "MODIFIER_PROPERTY_INCOMING_DAMAGE_ILLUSION",
-        "value": 276,
-        "broken": true
+        "description": "Method Name: `GetModifierIncomingDamageIllusion`",
+        "value": 276
       },
       {
         "name": "MODIFIER_PROPERTY_DONT_GIVE_VISION_OF_ATTACKER",
@@ -10717,8 +10671,7 @@
       {
         "name": "MODIFIER_PROPERTY_SUPPRESS_CLEAVE",
         "description": "Method Name: `GetSuppressCleave`",
-        "value": 283,
-        "broken": true
+        "value": 283
       },
       {
         "name": "MODIFIER_PROPERTY_BOT_ATTACK_SCORE_BONUS",
@@ -10738,8 +10691,8 @@
       },
       {
         "name": "MODIFIER_PROPERTY_ATTACK_WHILE_MOVING_TARGET",
-        "value": 287,
-        "broken": true
+        "description": "Method Name: `GetModifierAttackWhileMovingTarget`",
+        "value": 287
       },
       {
         "name": "MODIFIER_PROPERTY_ATTACKSPEED_PERCENTAGE",
@@ -10759,14 +10712,12 @@
       {
         "name": "MODIFIER_PROPERTY_SPELL_REDIRECT_TARGET",
         "description": "Method Name: `GetModifierSpellRedirectTarget`",
-        "value": 291,
-        "broken": true
+        "value": 291
       },
       {
         "name": "MODIFIER_PROPERTY_TURN_RATE_CONSTANT",
         "description": "Method Name: `GetModifierTurnRateConstant`",
-        "value": 292,
-        "broken": true
+        "value": 292
       },
       {
         "name": "MODIFIER_PROPERTY_PACK_RAT",
@@ -10777,14 +10728,12 @@
       {
         "name": "MODIFIER_PROPERTY_PHYSICALDAMAGEOUTGOING_PERCENTAGE",
         "description": "Method Name: `GetModifierPhysicalDamageOutgoing_Percentage`",
-        "value": 294,
-        "broken": true
+        "value": 294
       },
       {
         "name": "MODIFIER_PROPERTY_KNOCKBACK_AMPLIFICATION_PERCENTAGE",
         "description": "Method Name: `GetModifierKnockbackAmplification_Percentage`",
-        "value": 295,
-        "broken": true
+        "value": 295
       },
       {
         "name": "MODIFIER_PROPERTY_HEALTHBAR_PIPS",
@@ -10808,15 +10757,13 @@
       },
       {
         "name": "MODIFIER_PROPERTY_FAIL_ATTACK",
-        "description": "Method Name: `GetModifierPropetyFailAttack`",
-        "value": 300,
-        "broken": true
+        "description": "Method Name: `GetModifierPropertyFailAttack`",
+        "value": 300
       },
       {
         "name": "MODIFIER_PROPERTY_PREREDUCE_INCOMING_DAMAGE_MULT",
         "description": "Multiplier of incoming damage before reductions: `1` keeps it unchanged, `0` or nothing blocks all damage.\n\nMethod Name: `GetModifierPrereduceIncomingDamage_Mult`.",
-        "value": 301,
-        "broken": true
+        "value": 301
       },
       {
         "name": "MODIFIER_PROPERTY_SUPPRESS_FULLSCREEN_DEATH_FX",
@@ -10825,27 +10772,23 @@
       },
       {
         "name": "MODIFIER_PROPERTY_INCOMING_DAMAGE_CONSTANT_POST",
-        "description": "Method Name: `MODIFIER_PROPERTY_INCOMING_DAMAGE_CONSTANT_POST`",
-        "value": 303,
-        "broken": true
+        "description": "Method Name: `GetModifierIncomingDamageConstantPost`",
+        "value": 303
       },
       {
         "name": "MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE_MULTIPLICATIVE",
         "description": "Method Name: `GetModifierDamageOutgoing_PercentageMultiplicative`",
-        "value": 304,
-        "broken": true
+        "value": 304
       },
       {
         "name": "MODIFIER_PROPERTY_TICK_GOLD_MULTIPLIER",
         "description": "Method Name: `GetModifierTickGold_Multiplier`",
-        "value": 305,
-        "broken": true
+        "value": 305
       },
       {
         "name": "MODIFIER_PROPERTY_SLOW_RESISTANCE_UNIQUE",
         "description": "Method Name: `GetModifierSlowResistance_Unique`",
-        "value": 306,
-        "broken": true
+        "value": 306
       },
       {
         "name": "MODIFIER_PROPERTY_SLOW_RESISTANCE_STACKING",
@@ -10855,56 +10798,47 @@
       {
         "name": "MODIFIER_PROPERTY_SLOW_RESISTANCE_APPLIES_TO_ATTACKS",
         "description": "Method Name: `GetModifierSlowResistanceAppliesToAttacks`",
-        "value": 308,
-        "broken": true
+        "value": 308
       },
       {
         "name": "MODIFIER_PROPERTY_AOE_BONUS_PERCENTAGE",
         "description": "Method Name: `GetModifierAoEBonusPercentage`",
-        "value": 309,
-        "broken": true
+        "value": 309
       },
       {
         "name": "MODIFIER_PROPERTY_PROJECTILE_SPEED",
         "description": "Method Name: `GetModifierProjectileSpeed`",
-        "value": 310,
-        "broken": true
+        "value": 310
       },
       {
         "name": "MODIFIER_PROPERTY_PROJECTILE_SPEED_TARGET",
         "description": "Method Name: `GetModifierProjectileSpeedTarget`",
-        "value": 311,
-        "broken": true
+        "value": 311
       },
       {
         "name": "MODIFIER_PROPERTY_BECOME_STRENGTH",
         "description": "Method Name: `GetModifierBecomeStrength`",
-        "value": 312,
-        "broken": true
+        "value": 312
       },
       {
         "name": "MODIFIER_PROPERTY_BECOME_AGILITY",
         "description": "Method Name: `GetModifierBecomeAgility`",
-        "value": 313,
-        "broken": true
+        "value": 313
       },
       {
         "name": "MODIFIER_PROPERTY_BECOME_INTELLIGENCE",
         "description": "Method Name: `GetModifierBecomeIntelligence`",
-        "value": 314,
-        "broken": true
+        "value": 314
       },
       {
         "name": "MODIFIER_PROPERTY_BECOME_UNIVERSAL",
         "description": "Method Name: `GetModifierBecomeUniversal`",
-        "value": 315,
-        "broken": true
+        "value": 315
       },
       {
         "name": "MODIFIER_EVENT_ON_FORCE_PROC_MAGIC_STICK",
         "description": "Method Name: `OnForceProcMagicStick`",
-        "value": 316,
-        "broken": true
+        "value": 316
       },
       {
         "name": "MODIFIER_EVENT_ON_DAMAGE_HPLOSS",
@@ -10947,20 +10881,17 @@
       {
         "name": "MODIFIER_PROPERTY_FORCE_MAX_HEALTH",
         "description": "Method Name: `GetModifierForceMaxHealth`",
-        "value": 324,
-        "broken": true
+        "value": 324
       },
       {
         "name": "MODIFIER_PROPERTY_FORCE_MAX_MANA",
         "description": "Method Name: `GetModifierForceMaxMana`",
-        "value": 325,
-        "broken": true
+        "value": 325
       },
       {
         "name": "MODIFIER_PROPERTY_AOE_BONUS_CONSTANT",
         "description": "Method Name: `GetModifierAoEBonusConstant`",
-        "value": 326,
-        "broken": true
+        "value": 326
       },
       {
         "name": "MODIFIER_PROPERTY_AOE_BONUS_CONSTANT_STACKING",
@@ -10970,32 +10901,27 @@
       {
         "name": "MODIFIER_EVENT_ON_TAKEDAMAGE_POST_UNAVOIDABLE_BLOCK",
         "description": "Method Name: `OnTakeDamagePostUnavoidableBlock`",
-        "value": 328,
-        "broken": true
+        "value": 328
       },
       {
         "name": "MODIFIER_EVENT_ON_MUTE_DAMAGE_ABILITIES",
         "description": "Method Name: `OnMuteDamageAbilities`",
-        "value": 329,
-        "broken": true
+        "value": 329
       },
       {
         "name": "MODIFIER_PROPERTY_SUPPRESS_CRIT",
         "description": "Method Name: `GetSuppressCrit`",
-        "value": 330,
-        "broken": true
+        "value": 330
       },
       {
         "name": "MODIFIER_PROPERTY_ABILITY_POINTS",
         "description": "Method Name: `GetModifierAbilityPoints`",
-        "value": 331,
-        "broken": true
+        "value": 331
       },
       {
         "name": "MODIFIER_PROPERTY_BUYBACK_PENALTY_PERCENT",
         "description": "Method Name: `GetModifierBuybackPenaltyPercent`",
-        "value": 332,
-        "broken": true
+        "value": 332
       },
       {
         "name": "MODIFIER_PROPERTY_ITEM_SELLBACK_COST",
@@ -11349,8 +11275,7 @@
       {
         "name": "MODIFIER_PROPERTY_REPLACE_ATTACK",
         "description": "Method Name: `GetModifierReplaceAttack`",
-        "value": 402,
-        "broken": true
+        "value": 402
       },
       {
         "name": "MODIFIER_PROPERTY_CUSTOM1",
@@ -11391,50 +11316,42 @@
       {
         "name": "MODIFIER_PROPERTY_IGNORE_FORCE_ATTACK_TARGET",
         "description": "Method Name: `GetModifierPropertyIgnoreForceTarget`",
-        "value": 409,
-        "broken": true
+        "value": 409
       },
       {
         "name": "MODIFIER_EVENT_ON_TREE_PLANTED",
         "description": "Called once for every planted tree.\n\nMethod Name: `OnTreePlanted`.",
-        "value": 410,
-        "broken": true
+        "value": 410
       },
       {
         "name": "MODIFIER_EVENT_ON_DAMAGE_HP_LOSS_SELF",
         "description": "Happens when a unit damages itself with `DOTA_DAMAGE_FLAG_HPLOSS` (Soul Ring, Armlet, `ApplyDamage` with the unit as both attacker and victim); `attacker` and `unit` are that unit.\n\nMethod Name: `OnDamageHPLossSelf`.",
-        "value": 411,
-        "broken": true
+        "value": 411
       },
       {
         "name": "MODIFIER_PROPERTY_HERO_KILL_BOUNTY_BONUS",
         "description": "Method Name: `GetModifierHeroKillBountyBonus`",
-        "value": 412,
-        "broken": true
+        "value": 412
       },
       {
         "name": "MODIFIER_PROPERTY_ATTACK_POTENCY",
         "description": "Method Name: `GetModifierPropertyAttackPotency`",
-        "value": 413,
-        "broken": true
+        "value": 413
       },
       {
         "name": "MODIFIER_PROPERTY_HEALTH_DRAIN_CONSTANT",
         "description": "Method Name: `GetModifierHealthDrainConstant`",
-        "value": 414,
-        "broken": true
+        "value": 414
       },
       {
         "name": "MODIFIER_PROPERTY_HEALTH_DRAIN_PERCENTAGE",
         "description": "Method Name: `GetModifierHealthDrainPercentage`",
-        "value": 415,
-        "broken": true
+        "value": 415
       },
       {
         "name": "MODIFIER_PROPERTY_HEALTHBAR_PIPS_FRAGILE",
         "description": "Method Name: `GetModifierHealthBarPipsFragile`",
-        "value": 416,
-        "broken": true
+        "value": 416
       },
       {
         "name": "MODIFIER_FUNCTION_LAST",
