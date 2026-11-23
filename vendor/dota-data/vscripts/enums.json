@@ -9212,8 +9212,12 @@
         "value": 1795
       },
       {
+        "name": "ACT_DOTA_CAST5_STATUE",
+        "value": 1798
+      },
+      {
         "name": "ACT_DOTA_LOADOUT_STATUE",
-        "value": 1806
+        "value": 1808
       }
     ]
   },
